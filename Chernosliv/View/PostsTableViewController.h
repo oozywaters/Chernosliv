@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  PostsTableViewController.h
 //  Chernosliv
 //
 //  Created by Vacheslav Zavertanny on 11.07.15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface PostsTableViewController : UITableViewController
 
 @end
-
