@@ -10,4 +10,8 @@
 
 @implementation PostsItemViewModel
 
+- (NSString *)description {
+    return self.text;
+}
+
 @end

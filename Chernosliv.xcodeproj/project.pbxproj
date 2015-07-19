@@ -8,16 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		7111E8C01B50CA2200AD4948 /* PostsItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7111E8BF1B50CA2200AD4948 /* PostsItemViewModel.m */; };
+		7113A4271B57D78D0060D5B5 /* ObservableMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 7113A4261B57D78D0060D5B5 /* ObservableMutableArray.m */; };
 		712489DD1B50B286006526BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 712489DC1B50B286006526BA /* main.m */; };
 		712489E01B50B286006526BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 712489DF1B50B286006526BA /* AppDelegate.m */; };
 		712489E61B50B286006526BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 712489E41B50B286006526BA /* Main.storyboard */; };
 		712489E81B50B286006526BA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 712489E71B50B286006526BA /* Images.xcassets */; };
 		712489EB1B50B286006526BA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712489E91B50B286006526BA /* LaunchScreen.xib */; };
 		712489F71B50B286006526BA /* ChernoslivTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 712489F61B50B286006526BA /* ChernoslivTests.m */; };
-		71248A051B50B5A6006526BA /* PostsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71248A041B50B5A6006526BA /* PostsTableViewController.m */; };
-		71248A081B50B6A2006526BA /* PostsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 71248A071B50B6A2006526BA /* PostsViewModel.m */; };
-		716CAC001B50E1E80068A441 /* TableViewBindingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 716CABFF1B50E1E80068A441 /* TableViewBindingHelper.m */; };
-		716CAC041B52076F0068A441 /* PostsItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 716CAC031B52076F0068A441 /* PostsItemTableViewCell.m */; };
+		7141B0ED1B58FF000037C7FF /* TableViewBindingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7141B0EC1B58FF000037C7FF /* TableViewBindingHelper.m */; };
+		714CE6511B550A530088C88C /* WallTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 714CE6501B550A530088C88C /* WallTableViewController.m */; };
+		714CE6541B550A800088C88C /* WallViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 714CE6531B550A800088C88C /* WallViewModel.m */; };
+		714CE6571B550F630088C88C /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 714CE6561B550F630088C88C /* PostTableViewCell.m */; };
+		714CE65A1B551C710088C88C /* VKPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 714CE6591B551C710088C88C /* VKPost.m */; };
+		714CE65D1B5522980088C88C /* VKWall.m in Sources */ = {isa = PBXBuildFile; fileRef = 714CE65C1B5522980088C88C /* VKWall.m */; };
+		716CAC071B5264A30068A441 /* VKService.m in Sources */ = {isa = PBXBuildFile; fileRef = 716CAC061B5264A30068A441 /* VKService.m */; };
 		7F0EE56A75C6D5207037F44B /* libPods-Chernosliv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F1539D8712653727860F3FC6 /* libPods-Chernosliv.a */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +38,8 @@
 /* Begin PBXFileReference section */
 		7111E8BE1B50CA2200AD4948 /* PostsItemViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostsItemViewModel.h; path = ViewModel/PostsItemViewModel.h; sourceTree = "<group>"; };
 		7111E8BF1B50CA2200AD4948 /* PostsItemViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostsItemViewModel.m; path = ViewModel/PostsItemViewModel.m; sourceTree = "<group>"; };
+		7113A4251B57D78D0060D5B5 /* ObservableMutableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObservableMutableArray.h; path = Utils/ObservableMutableArray.h; sourceTree = "<group>"; };
+		7113A4261B57D78D0060D5B5 /* ObservableMutableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ObservableMutableArray.m; path = Utils/ObservableMutableArray.m; sourceTree = "<group>"; };
 		712489D71B50B286006526BA /* Chernosliv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chernosliv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		712489DB1B50B286006526BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		712489DC1B50B286006526BA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -45,15 +51,21 @@
 		712489F01B50B286006526BA /* ChernoslivTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChernoslivTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		712489F51B50B286006526BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		712489F61B50B286006526BA /* ChernoslivTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChernoslivTests.m; sourceTree = "<group>"; };
-		71248A031B50B5A6006526BA /* PostsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostsTableViewController.h; path = View/PostsTableViewController.h; sourceTree = "<group>"; };
-		71248A041B50B5A6006526BA /* PostsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostsTableViewController.m; path = View/PostsTableViewController.m; sourceTree = "<group>"; };
-		71248A061B50B6A2006526BA /* PostsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostsViewModel.h; path = ViewModel/PostsViewModel.h; sourceTree = "<group>"; };
-		71248A071B50B6A2006526BA /* PostsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostsViewModel.m; path = ViewModel/PostsViewModel.m; sourceTree = "<group>"; };
+		7141B0EC1B58FF000037C7FF /* TableViewBindingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewBindingHelper.m; path = Utils/TableViewBindingHelper.m; sourceTree = "<group>"; };
+		714CE64F1B550A530088C88C /* WallTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WallTableViewController.h; path = View/WallTableViewController.h; sourceTree = "<group>"; };
+		714CE6501B550A530088C88C /* WallTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WallTableViewController.m; path = View/WallTableViewController.m; sourceTree = "<group>"; };
+		714CE6521B550A800088C88C /* WallViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WallViewModel.h; path = ViewModel/WallViewModel.h; sourceTree = "<group>"; };
+		714CE6531B550A800088C88C /* WallViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WallViewModel.m; path = ViewModel/WallViewModel.m; sourceTree = "<group>"; };
+		714CE6551B550F630088C88C /* PostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostTableViewCell.h; path = View/PostTableViewCell.h; sourceTree = "<group>"; };
+		714CE6561B550F630088C88C /* PostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostTableViewCell.m; path = View/PostTableViewCell.m; sourceTree = "<group>"; };
+		714CE6581B551C710088C88C /* VKPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VKPost.h; path = Model/VKPost.h; sourceTree = "<group>"; };
+		714CE6591B551C710088C88C /* VKPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VKPost.m; path = Model/VKPost.m; sourceTree = "<group>"; };
+		714CE65B1B5522980088C88C /* VKWall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VKWall.h; path = Model/VKWall.h; sourceTree = "<group>"; };
+		714CE65C1B5522980088C88C /* VKWall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VKWall.m; path = Model/VKWall.m; sourceTree = "<group>"; };
 		716CABFE1B50E1E80068A441 /* TableViewBindingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewBindingHelper.h; path = Utils/TableViewBindingHelper.h; sourceTree = "<group>"; };
-		716CABFF1B50E1E80068A441 /* TableViewBindingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewBindingHelper.m; path = Utils/TableViewBindingHelper.m; sourceTree = "<group>"; };
 		716CAC011B50E22F0068A441 /* ReactiveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReactiveView.h; path = Utils/ReactiveView.h; sourceTree = "<group>"; };
-		716CAC021B52076F0068A441 /* PostsItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostsItemTableViewCell.h; path = View/PostsItemTableViewCell.h; sourceTree = "<group>"; };
-		716CAC031B52076F0068A441 /* PostsItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostsItemTableViewCell.m; path = View/PostsItemTableViewCell.m; sourceTree = "<group>"; };
+		716CAC051B5264A30068A441 /* VKService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VKService.h; path = Model/VKService.h; sourceTree = "<group>"; };
+		716CAC061B5264A30068A441 /* VKService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VKService.m; path = Model/VKService.m; sourceTree = "<group>"; };
 		880CA44613AC2FC66F037253 /* Pods-Chernosliv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chernosliv.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chernosliv/Pods-Chernosliv.release.xcconfig"; sourceTree = "<group>"; };
 		A8A98243DFEB914A3A71CDEB /* Pods-Chernosliv.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chernosliv.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chernosliv/Pods-Chernosliv.debug.xcconfig"; sourceTree = "<group>"; };
 		F1539D8712653727860F3FC6 /* libPods-Chernosliv.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Chernosliv.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,10 +173,10 @@
 		71248A001B50B48C006526BA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				71248A031B50B5A6006526BA /* PostsTableViewController.h */,
-				71248A041B50B5A6006526BA /* PostsTableViewController.m */,
-				716CAC021B52076F0068A441 /* PostsItemTableViewCell.h */,
-				716CAC031B52076F0068A441 /* PostsItemTableViewCell.m */,
+				714CE64F1B550A530088C88C /* WallTableViewController.h */,
+				714CE6501B550A530088C88C /* WallTableViewController.m */,
+				714CE6551B550F630088C88C /* PostTableViewCell.h */,
+				714CE6561B550F630088C88C /* PostTableViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -172,10 +184,10 @@
 		71248A011B50B4A4006526BA /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				71248A061B50B6A2006526BA /* PostsViewModel.h */,
-				71248A071B50B6A2006526BA /* PostsViewModel.m */,
 				7111E8BE1B50CA2200AD4948 /* PostsItemViewModel.h */,
 				7111E8BF1B50CA2200AD4948 /* PostsItemViewModel.m */,
+				714CE6521B550A800088C88C /* WallViewModel.h */,
+				714CE6531B550A800088C88C /* WallViewModel.m */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -183,6 +195,12 @@
 		71248A021B50B4AD006526BA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				716CAC051B5264A30068A441 /* VKService.h */,
+				716CAC061B5264A30068A441 /* VKService.m */,
+				714CE6581B551C710088C88C /* VKPost.h */,
+				714CE6591B551C710088C88C /* VKPost.m */,
+				714CE65B1B5522980088C88C /* VKWall.h */,
+				714CE65C1B5522980088C88C /* VKWall.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -192,7 +210,9 @@
 			children = (
 				716CAC011B50E22F0068A441 /* ReactiveView.h */,
 				716CABFE1B50E1E80068A441 /* TableViewBindingHelper.h */,
-				716CABFF1B50E1E80068A441 /* TableViewBindingHelper.m */,
+				7141B0EC1B58FF000037C7FF /* TableViewBindingHelper.m */,
+				7113A4251B57D78D0060D5B5 /* ObservableMutableArray.h */,
+				7113A4261B57D78D0060D5B5 /* ObservableMutableArray.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -332,11 +352,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71248A081B50B6A2006526BA /* PostsViewModel.m in Sources */,
-				71248A051B50B5A6006526BA /* PostsTableViewController.m in Sources */,
+				716CAC071B5264A30068A441 /* VKService.m in Sources */,
+				714CE6571B550F630088C88C /* PostTableViewCell.m in Sources */,
+				714CE65D1B5522980088C88C /* VKWall.m in Sources */,
+				714CE6511B550A530088C88C /* WallTableViewController.m in Sources */,
+				7113A4271B57D78D0060D5B5 /* ObservableMutableArray.m in Sources */,
+				714CE65A1B551C710088C88C /* VKPost.m in Sources */,
 				7111E8C01B50CA2200AD4948 /* PostsItemViewModel.m in Sources */,
-				716CAC041B52076F0068A441 /* PostsItemTableViewCell.m in Sources */,
-				716CAC001B50E1E80068A441 /* TableViewBindingHelper.m in Sources */,
+				714CE6541B550A800088C88C /* WallViewModel.m in Sources */,
+				7141B0ED1B58FF000037C7FF /* TableViewBindingHelper.m in Sources */,
 				712489E01B50B286006526BA /* AppDelegate.m in Sources */,
 				712489DD1B50B286006526BA /* main.m in Sources */,
 			);

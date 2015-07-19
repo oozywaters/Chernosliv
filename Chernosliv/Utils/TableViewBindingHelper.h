@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Vyacheslav Zavertanny. All rights reserved.
 //
 
-@import Foundation;
+#import <Foundation/Foundation.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
 /// A helper class for binding view models with NSArray properties to a UITableView.
@@ -18,7 +18,7 @@
 - (instancetype) initWithTableView:(UITableView *)tableView
                       sourceSignal:(RACSignal *)source
                   selectionCommand:(RACCommand *)selection
-                      cellIdentifier:(NSString *)cellIdentifier;
+                    cellIdentifier:(NSString *)cellIdentifier;
 
 + (instancetype) bindingHelperForTableView:(UITableView *)tableView
                               sourceSignal:(RACSignal *)source

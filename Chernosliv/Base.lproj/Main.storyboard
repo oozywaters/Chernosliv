@@ -4,20 +4,58 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--Posts Table View Controller-->
+        <!--Wall Table View Controller-->
         <scene sceneID="nj7-II-krv">
             <objects>
-                <tableViewController id="Clx-cc-Qt7" customClass="PostsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="EOJ-0l-ORT">
+                <tableViewController id="Clx-cc-Qt7" customClass="WallTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="352" sectionHeaderHeight="22" sectionFooterHeight="22" id="EOJ-0l-ORT">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Post Cell" id="9eY-c7-45W" customClass="PostsItemTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Post Cell" rowHeight="352" id="9eY-c7-45W" customClass="PostTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9eY-c7-45W" id="lD8-E1-h5m">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V7z-2x-Jrv">
+                                            <rect key="frame" x="12" y="12" width="576" height="88"/>
+                                            <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                                            <string key="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur.</string>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4nE-m8-t7Y">
+                                            <rect key="frame" x="12" y="112" width="576" height="227"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="4nE-m8-t7Y" firstAttribute="leading" secondItem="lD8-E1-h5m" secondAttribute="leading" constant="12" id="2xj-ql-2uS"/>
+                                        <constraint firstAttribute="trailing" secondItem="V7z-2x-Jrv" secondAttribute="trailing" constant="12" id="61h-Kh-Qkb"/>
+                                        <constraint firstAttribute="bottom" secondItem="V7z-2x-Jrv" secondAttribute="bottom" constant="12" id="ABG-oK-mDG"/>
+                                        <constraint firstItem="4nE-m8-t7Y" firstAttribute="top" secondItem="V7z-2x-Jrv" secondAttribute="bottom" constant="12" id="Gz0-Yg-UjH"/>
+                                        <constraint firstItem="V7z-2x-Jrv" firstAttribute="leading" secondItem="lD8-E1-h5m" secondAttribute="leading" constant="12" id="dFV-Wa-M3Q"/>
+                                        <constraint firstAttribute="bottom" secondItem="4nE-m8-t7Y" secondAttribute="bottom" constant="12" id="nGt-mv-i1o"/>
+                                        <constraint firstItem="V7z-2x-Jrv" firstAttribute="top" secondItem="lD8-E1-h5m" secondAttribute="top" constant="12" id="sa2-gV-5fi"/>
+                                        <constraint firstAttribute="trailing" secondItem="4nE-m8-t7Y" secondAttribute="trailing" constant="12" id="zEh-6f-Qwj"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="ABG-oK-mDG"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="image" destination="4nE-m8-t7Y" id="p3P-xa-m9D"/>
+                                    <outlet property="textLabel" destination="V7z-2x-Jrv" id="oCL-5z-FeE"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

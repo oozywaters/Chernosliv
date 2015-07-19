@@ -1,20 +1,23 @@
 //
-//  PostsItemTableViewCell.m
+//  PostTableViewCell.m
 //  Chernosliv
 //
-//  Created by Vacheslav Zavertanny on 12.07.15.
+//  Created by Vacheslav Zavertanny on 14.07.15.
 //  Copyright (c) 2015 Vyacheslav Zavertanny. All rights reserved.
 //
 
-#import "PostsItemTableViewCell.h"
-#import "PostsItemViewModel.h"
-#import "ReactiveView.h"
+#import "PostTableViewCell.h"
+#import "VKPost.h"
 
-@interface PostsItemTableViewCell () <ReactiveView>
+@interface PostTableViewCell ()
+
+@property (weak, nonatomic) IBOutlet UILabel *textLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *image;
+
 
 @end
 
-@implementation PostsItemTableViewCell
+@implementation PostTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code
@@ -27,7 +30,8 @@
 }
 
 - (void)bindViewModel:(id)viewModel {
-    PostsItemViewModel *post = (PostsItemViewModel *)viewModel;
+    VKPost *post = (VKPost *)viewModel;
+//    NSString *postText = (NSString *)viewModel;
     self.textLabel.text = post.text;
 }
 
