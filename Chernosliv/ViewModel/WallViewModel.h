@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <ReactiveCocoa.h>
 #import "ObservableMutableArray.h"
+#import "ViewModelServices.h"
 
 @class VKPost;
 
@@ -17,7 +18,11 @@
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong, readonly) ObservableMutableArray *posts;
 
+- (instancetype)initWithServices:(id<ViewModelServices>)services;
+
 - (RACCommand *)loadNextPage;
+
+- (RACCommand *)viewComments;
 
 //- (NSUInteger)numberOfPosts;
 //- (RACSignal *)requestRecentPosts:(NSString *)count;

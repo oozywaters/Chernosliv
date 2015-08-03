@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <Mantle.h>
-#import "ObservableMutableArray.h"
 
 @interface VKWall : MTLModel <MTLJSONSerializing>
 

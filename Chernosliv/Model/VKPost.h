@@ -13,5 +13,6 @@
 
 @property (nonatomic, strong) NSDate *date;
 @property (nonatomic, strong) NSString *text;
+@property (nonatomic, strong) NSArray *attachments;
 
 @end

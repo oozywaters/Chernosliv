@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PostTableViewCell"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleAspectFit" selectionStyle="default" indentationWidth="10" reuseIdentifier="Post Cell" rowHeight="381" id="mDv-Tl-ChO" customClass="PostTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="381"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mDv-Tl-ChO" id="zOI-es-Qrd">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" contentMode="left" text="Post Text" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDq-Qu-jt3">
+                        <rect key="frame" x="12" y="12" width="576" height="19"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView autoresizesSubviews="NO" contentMode="scaleAspectFit" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="NBK-Mv-T44">
+                        <rect key="frame" x="12" y="43" width="576" height="291"/>
+                        <color key="backgroundColor" white="0.79377398570000002" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xco-5p-XfZ" customClass="CountView">
+                        <rect key="frame" x="569" y="32" width="30" height="30"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Xco-5p-XfZ" secondAttribute="height" multiplier="1:1" id="gFg-Bt-AmL"/>
+                            <constraint firstAttribute="height" constant="30" id="l6n-kC-mI6"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="1n0-6b-Xdh" userLabel="Like">
+                        <rect key="frame" x="12" y="346" width="60" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="gb7-e5-7dG"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                        <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="1"/>
+                        <state key="normal" title="67" image="LikeIcon_Outlined">
+                            <color key="titleColor" red="0.38431372549999998" green="0.46666666670000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="CWG-vV-P0R" userLabel="Comments">
+                        <rect key="frame" x="84" y="346" width="60" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="ASV-dw-yf4"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                        <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="1" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="12" image="CommentIcon">
+                            <color key="titleColor" red="0.38431372549999998" green="0.46666666670000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="xzY-lh-HBN" userLabel="Repost">
+                        <rect key="frame" x="156" y="346" width="60" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="RmP-Op-Stj"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                        <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="1"/>
+                        <state key="normal" title="68" image="RepostIcon">
+                            <color key="titleColor" red="0.38431372549999998" green="0.46666666670000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 д" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cw7-4N-kLf">
+                        <rect key="frame" x="570" y="346" width="18" height="21"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                        <color key="textColor" red="0.61176470589999998" green="0.61176470589999998" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="NBK-Mv-T44" firstAttribute="trailing" secondItem="Xco-5p-XfZ" secondAttribute="trailing" constant="-11" id="7fT-NS-uG0"/>
+                    <constraint firstItem="NBK-Mv-T44" firstAttribute="leading" secondItem="zOI-es-Qrd" secondAttribute="leading" constant="12" id="9JN-QP-Irp"/>
+                    <constraint firstItem="1n0-6b-Xdh" firstAttribute="leading" secondItem="zOI-es-Qrd" secondAttribute="leading" constant="12" id="FNW-83-EFK"/>
+                    <constraint firstAttribute="bottom" secondItem="Cw7-4N-kLf" secondAttribute="bottom" constant="13" id="Fjz-7r-Iwe"/>
+                    <constraint firstAttribute="centerX" secondItem="NBK-Mv-T44" secondAttribute="centerX" id="Hnf-n9-FIt"/>
+                    <constraint firstItem="Cw7-4N-kLf" firstAttribute="top" secondItem="NBK-Mv-T44" secondAttribute="bottom" constant="12" id="Q7j-jn-wUb"/>
+                    <constraint firstAttribute="bottom" secondItem="CWG-vV-P0R" secondAttribute="bottom" constant="12" id="S9U-bK-5rm"/>
+                    <constraint firstItem="CWG-vV-P0R" firstAttribute="leading" secondItem="1n0-6b-Xdh" secondAttribute="trailing" constant="12" id="SUS-FS-hBs"/>
+                    <constraint firstAttribute="trailing" secondItem="NBK-Mv-T44" secondAttribute="trailing" constant="12" id="TAx-pY-ZLT"/>
+                    <constraint firstItem="1n0-6b-Xdh" firstAttribute="top" secondItem="NBK-Mv-T44" secondAttribute="bottom" constant="12" id="Vgt-zf-Aej"/>
+                    <constraint firstItem="rDq-Qu-jt3" firstAttribute="leading" secondItem="zOI-es-Qrd" secondAttribute="leading" constant="12" id="W8V-gE-KaF"/>
+                    <constraint firstAttribute="bottom" secondItem="1n0-6b-Xdh" secondAttribute="bottom" constant="12" id="Yc6-TC-cXF"/>
+                    <constraint firstAttribute="bottom" secondItem="xzY-lh-HBN" secondAttribute="bottom" constant="12" id="bFu-Cj-Zfp"/>
+                    <constraint firstItem="xzY-lh-HBN" firstAttribute="top" secondItem="1n0-6b-Xdh" secondAttribute="top" id="cnr-Tf-akp"/>
+                    <constraint firstItem="CWG-vV-P0R" firstAttribute="top" secondItem="1n0-6b-Xdh" secondAttribute="top" id="ecL-f9-2uT"/>
+                    <constraint firstItem="xzY-lh-HBN" firstAttribute="top" secondItem="CWG-vV-P0R" secondAttribute="top" id="ibu-ft-Z7d"/>
+                    <constraint firstItem="Xco-5p-XfZ" firstAttribute="leading" secondItem="NBK-Mv-T44" secondAttribute="trailing" constant="-70" id="kRB-qK-LSH"/>
+                    <constraint firstItem="rDq-Qu-jt3" firstAttribute="top" secondItem="zOI-es-Qrd" secondAttribute="top" priority="999" constant="12" id="mOR-ke-X4D"/>
+                    <constraint firstAttribute="trailing" secondItem="rDq-Qu-jt3" secondAttribute="trailing" constant="12" id="wga-WD-Zjo"/>
+                    <constraint firstItem="NBK-Mv-T44" firstAttribute="top" secondItem="rDq-Qu-jt3" secondAttribute="bottom" constant="12" id="xFi-u0-0yE"/>
+                    <constraint firstItem="xzY-lh-HBN" firstAttribute="leading" secondItem="CWG-vV-P0R" secondAttribute="trailing" constant="12" id="xxV-eq-Wls"/>
+                    <constraint firstItem="NBK-Mv-T44" firstAttribute="top" secondItem="Xco-5p-XfZ" secondAttribute="top" constant="11" id="xzS-Xl-Vxy"/>
+                    <constraint firstAttribute="trailing" secondItem="Cw7-4N-kLf" secondAttribute="trailing" constant="12" id="zqL-ii-SMg"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="ibu-ft-Z7d"/>
+                        <exclude reference="kRB-qK-LSH"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <gestureRecognizers/>
+            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+            <connections>
+                <outlet property="commentsButton" destination="CWG-vV-P0R" id="FYc-jK-Kbn"/>
+                <outlet property="countView" destination="Xco-5p-XfZ" id="yV0-WG-K35"/>
+                <outlet property="likeButton" destination="1n0-6b-Xdh" id="DFz-gc-uCf"/>
+                <outlet property="postImage" destination="NBK-Mv-T44" id="dxv-Dk-XD0"/>
+                <outlet property="repostButton" destination="xzY-lh-HBN" id="9ds-Oo-sEf"/>
+                <outlet property="textContent" destination="rDq-Qu-jt3" id="Udj-Rj-lTL"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="CommentIcon" width="22" height="19"/>
+        <image name="LikeIcon_Outlined" width="22" height="20"/>
+        <image name="RepostIcon" width="23" height="20"/>
+    </resources>
+</document>

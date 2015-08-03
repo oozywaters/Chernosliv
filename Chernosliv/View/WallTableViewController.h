@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class WallViewModel;
+
 @interface WallTableViewController : UITableViewController
+
+- (instancetype)initWithViewModel:(WallViewModel *)viewModel;
 
 @end

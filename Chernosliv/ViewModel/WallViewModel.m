@@ -7,12 +7,14 @@
 //
 
 #import "WallViewModel.h"
-#import "PostsItemViewModel.h"
+//#import "PostsItemViewModel.h"
 #import "VKService.h"
 #import <VKSdk.h>
 #import <Mantle.h>
 #import "VKWall.h"
 #import "VKPost.h"
+#import "PostViewModel.h"
+#import <LinqToObjectiveC/NSArray+LinqExtensions.h>
 
 
 @interface WallViewModel ()
@@ -23,15 +25,18 @@
 
 @property (nonatomic, strong) RACSignal *canLoadNextPage;
 
+@property (nonatomic, weak) id<ViewModelServices> services;
+
 @end
 
 @implementation WallViewModel
 
-static NSUInteger const pageSize = 20;
+static NSUInteger const pageSize = 5;
 
-- (instancetype)init {
-
-    if (self = [super init]) {
+- (instancetype)initWithServices:(id<ViewModelServices>)services {
+    self = [super init];
+    if (self) {
+        _services = services;
         [self initialize];
     }
     return self;
@@ -51,7 +56,10 @@ static NSUInteger const pageSize = 20;
 - (RACSignal *)nextPage {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         [[VKService sharedService] getPostsWithOffset:self.posts.count count:pageSize onSuccess:^(NSArray *posts) {
-            [self.posts addObjectsFromArray:posts];
+            NSArray *newPosts = [posts linq_select:^id(VKPost *post) {
+                return [[PostViewModel alloc] initWithPost:post services:self.services];
+            }];
+            [self.posts addObjectsFromArray:newPosts];
             NSLog(@"%lu", self.posts.count);
             [subscriber sendCompleted];
         } onError:^(NSError *error) {
@@ -66,6 +74,17 @@ static NSUInteger const pageSize = 20;
 - (RACCommand *)loadNextPage {
     return [[RACCommand alloc] initWithEnabled:self.canLoadNextPage signalBlock:^RACSignal *(id input) {
         return [self nextPage];
+    }];
+}
+
+- (RACCommand *)viewComments {
+    return [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        NSLog(@"%@", input);
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            NSLog(@"View Comments");
+            [subscriber sendCompleted];
+            return nil;
+        }];
     }];
 }
 

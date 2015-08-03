@@ -94,9 +94,8 @@ uint scrollViewDidEndScrollingAnimation:1;
 @implementation TableViewBindingHelper {
     UITableView *_tableView;
     NSArray *_data;
-//    UITableViewCell *_templateCell;
+    UITableViewCell *_templateCell;
     RACCommand *_selection;
-    NSString *_cellIdentifier;
 }
 
 #pragma  mark - initialization
@@ -104,13 +103,12 @@ uint scrollViewDidEndScrollingAnimation:1;
 - (instancetype)initWithTableView:(UITableView *)tableView
                      sourceSignal:(RACSignal *)source
                  selectionCommand:(RACCommand *)selection
-                     cellIdentifier:(NSString *)cellIdentifier {
+                     templateCell:(UINib *)templateCellNib {
     
     if (self = [super init]) {
         _tableView = tableView;
         _data = [NSArray array];
         _selection = selection;
-        _cellIdentifier = cellIdentifier;
         
         // each time the view model updates the array property, store the latest
         // value and reload the table view
@@ -125,15 +123,12 @@ uint scrollViewDidEndScrollingAnimation:1;
             [self->_tableView reloadData];
         }];
         
-        
-
-        
         // create an instance of the template cell and register with the table view
-//        _templateCell = [[templateCellNib instantiateWithOwner:nil options:nil] firstObject];
-//        [_tableView registerNib:templateCellNib forCellReuseIdentifier:_templateCell.reuseIdentifier];
+        _templateCell = [[templateCellNib instantiateWithOwner:nil options:nil] firstObject];
+        [_tableView registerNib:templateCellNib forCellReuseIdentifier:_templateCell.reuseIdentifier];
         
         // use the template cell to set the row height
-//        _tableView.rowHeight = _templateCell.bounds.size.height;
+        _tableView.rowHeight = _templateCell.bounds.size.height;
         
         _tableView.dataSource = self;
         _tableView.delegate = self;
@@ -145,12 +140,12 @@ uint scrollViewDidEndScrollingAnimation:1;
 + (instancetype)bindingHelperForTableView:(UITableView *)tableView
                              sourceSignal:(RACSignal *)source
                          selectionCommand:(RACCommand *)selection
-                             cellIdentifier:(NSString *)cellIdentifier {
+                             templateCell:(UINib *)templateCellNib{
     
     return [[TableViewBindingHelper alloc] initWithTableView:tableView
                                                   sourceSignal:source
                                               selectionCommand:selection
-                                                  cellIdentifier:cellIdentifier];
+                                                  templateCell:templateCellNib];
 }
 
 #pragma mark - Setters
@@ -243,9 +238,10 @@ uint scrollViewDidEndScrollingAnimation:1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    id<ReactiveView> cell = [tableView dequeueReusableCellWithIdentifier:_cellIdentifier];
+    id<ReactiveView> cell = [tableView dequeueReusableCellWithIdentifier:_templateCell.reuseIdentifier];
     
     NSAssert([cell respondsToSelector:@selector(bindViewModel:)], @"The cells supplied to the TableViewBindingHelper must implement the ReactiveView protocol");
+    
     [cell bindViewModel:_data[indexPath.row]];
     
     return (UITableViewCell *)cell;

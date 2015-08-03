@@ -18,11 +18,11 @@
 - (instancetype) initWithTableView:(UITableView *)tableView
                       sourceSignal:(RACSignal *)source
                   selectionCommand:(RACCommand *)selection
-                    cellIdentifier:(NSString *)cellIdentifier;
+                      templateCell:(UINib *)templateCellNib;
 
 + (instancetype) bindingHelperForTableView:(UITableView *)tableView
                               sourceSignal:(RACSignal *)source
                           selectionCommand:(RACCommand *)selection
-                            cellIdentifier:(NSString *)cellIdentifier;
+                              templateCell:(UINib *)templateCellNib;
 
 @end

@@ -7,9 +7,16 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewModelServicesImpl.h"
+#import "WallTableViewController.h"
+#import "WallViewModel.h"
 #import <VKSdk.h>
 
 @interface AppDelegate ()
+
+@property (nonatomic, strong) UINavigationController *navigationController;
+@property (nonatomic, strong) ViewModelServicesImpl *viewModelServices;
+@property (nonatomic, strong) WallViewModel *viewModel;
 
 @end
 
@@ -18,7 +25,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.navigationController = [UINavigationController new];
+    
+    // create and navigate to a view controller
+    UIViewController *viewController = [self createInitialViewController];
+    [self.navigationController pushViewController:viewController animated:NO];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = self.navigationController;
+    [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (UIViewController *)createInitialViewController {
+    self.viewModelServices = [[ViewModelServicesImpl alloc] initWithNavigationController:self.navigationController];
+    self.viewModel = [[WallViewModel alloc] initWithServices:self.viewModelServices];
+    return [[WallTableViewController alloc] initWithViewModel:self.viewModel];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
