@@ -9,9 +9,10 @@
 #import "AttachmentsViewController.h"
 #import "AttachmentsViewModel.h"
 
-@interface AttachmentsViewController ()
+@interface AttachmentsViewController () <UIScrollViewDelegate>
 
 @property (nonatomic, strong) AttachmentsViewModel *viewModel;
+@property (weak, nonatomic) IBOutlet UIScrollView *pagingScrollView;
 
 @end
 
@@ -27,8 +28,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-//    self.scrollView.contentSize 
+    
+    
+//    pagingScrollView.contentSize = CGSizeMake(pagingScrollViewFrame.size.width, pagingScrollViewFrame.size.height);
+//    self.view = pagingScrollView;
+////    self.scrollView.contentSize 
 }
 
 - (void)didReceiveMemoryWarning {

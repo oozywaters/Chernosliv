@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		71054C881B76F6D4005C91BF /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 71054C871B76F6D4005C91BF /* README.md */; };
+		710ECFB21B736E18003BB1A5 /* AttachmentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 710ECFB11B736E18003BB1A5 /* AttachmentsViewController.xib */; };
 		7113A4271B57D78D0060D5B5 /* ObservableMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 7113A4261B57D78D0060D5B5 /* ObservableMutableArray.m */; };
 		7124495B1B5B753C008ED6C0 /* VKAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7124495A1B5B753C008ED6C0 /* VKAttachment.m */; };
 		712449611B5B78FC008ED6C0 /* VKPhotoMTL.m in Sources */ = {isa = PBXBuildFile; fileRef = 712449601B5B78FC008ED6C0 /* VKPhotoMTL.m */; };
@@ -46,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		71054C871B76F6D4005C91BF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		710ECFB11B736E18003BB1A5 /* AttachmentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AttachmentsViewController.xib; path = View/AttachmentsViewController.xib; sourceTree = "<group>"; };
 		7113A4251B57D78D0060D5B5 /* ObservableMutableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObservableMutableArray.h; path = Utils/ObservableMutableArray.h; sourceTree = "<group>"; };
 		7113A4261B57D78D0060D5B5 /* ObservableMutableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ObservableMutableArray.m; path = Utils/ObservableMutableArray.m; sourceTree = "<group>"; };
 		712449591B5B753C008ED6C0 /* VKAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VKAttachment.h; path = Model/VKAttachment.h; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 		712489CE1B50B286006526BA = {
 			isa = PBXGroup;
 			children = (
+				71054C871B76F6D4005C91BF /* README.md */,
 				712489D91B50B286006526BA /* Chernosliv */,
 				712489F31B50B286006526BA /* ChernoslivTests */,
 				712489D81B50B286006526BA /* Products */,
@@ -214,6 +219,7 @@
 				7124D3471B64BF7300C9DAA1 /* CountView.m */,
 				7154493F1B663EF800E56A98 /* AttachmentsViewController.h */,
 				715449401B663EF800E56A98 /* AttachmentsViewController.m */,
+				710ECFB11B736E18003BB1A5 /* AttachmentsViewController.xib */,
 				71C7BD911B6F772500C17FA2 /* AttachmentsTransition.h */,
 				71C7BD921B6F772500C17FA2 /* AttachmentsTransition.m */,
 			);
@@ -352,6 +358,7 @@
 				712489EB1B50B286006526BA /* LaunchScreen.xib in Resources */,
 				712489E81B50B286006526BA /* Images.xcassets in Resources */,
 				715E7F311B68EB2100249EFF /* WallTableViewController.xib in Resources */,
+				710ECFB21B736E18003BB1A5 /* AttachmentsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +411,7 @@
 			files = (
 				715449411B663EF800E56A98 /* AttachmentsViewController.m in Sources */,
 				716CAC071B5264A30068A441 /* VKService.m in Sources */,
+				71054C881B76F6D4005C91BF /* README.md in Sources */,
 				714CE6571B550F630088C88C /* PostTableViewCell.m in Sources */,
 				715E7F361B68F0C800249EFF /* PostViewModel.m in Sources */,
 				714CE65D1B5522980088C88C /* VKWall.m in Sources */,
