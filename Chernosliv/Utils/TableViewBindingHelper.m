@@ -92,6 +92,7 @@ uint scrollViewDidEndScrollingAnimation:1;
 @end
 
 @implementation TableViewBindingHelper {
+    UIViewController *_viewController;
     UITableView *_tableView;
     NSArray *_data;
     UITableViewCell *_templateCell;
@@ -109,6 +110,7 @@ uint scrollViewDidEndScrollingAnimation:1;
         _tableView = tableView;
         _data = [NSArray array];
         _selection = selection;
+        _viewController = (UIViewController *)tableView.delegate;
         
         // each time the view model updates the array property, store the latest
         // value and reload the table view
@@ -124,7 +126,11 @@ uint scrollViewDidEndScrollingAnimation:1;
         }];
         
         // create an instance of the template cell and register with the table view
+        
         _templateCell = [[templateCellNib instantiateWithOwner:nil options:nil] firstObject];
+        
+        NSLog(@"%@", _templateCell);
+        
         [_tableView registerNib:templateCellNib forCellReuseIdentifier:_templateCell.reuseIdentifier];
         
         // use the template cell to set the row height
@@ -242,6 +248,7 @@ uint scrollViewDidEndScrollingAnimation:1;
     
     NSAssert([cell respondsToSelector:@selector(bindViewModel:)], @"The cells supplied to the TableViewBindingHelper must implement the ReactiveView protocol");
     
+    cell.delegate = _viewController;
     [cell bindViewModel:_data[indexPath.row]];
     
     return (UITableViewCell *)cell;

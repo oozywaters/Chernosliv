@@ -24,6 +24,8 @@
 
 - (RACCommand *)viewComments;
 
+- (RACSignal *)nextPage;
+
 //- (NSUInteger)numberOfPosts;
 //- (RACSignal *)requestRecentPosts:(NSString *)count;
 

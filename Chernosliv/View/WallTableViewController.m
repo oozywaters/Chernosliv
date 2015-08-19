@@ -7,16 +7,14 @@
 //
 
 #import "WallTableViewController.h"
-#import "PostTableViewCell.h"
-#import "WallViewModel.h"
 #import "VKPost.h"
 #import "VKPhotoMTL.h"
 #import "TableViewBindingHelper.h"
 #import <SVPullToRefresh/SVPullToRefresh.h>
-#import "AttachmentsViewController.h"
+#import "MKCAttachmentsViewController.h"
 #import "AttachmentsViewModel.h"
 
-@interface WallTableViewController ()
+@interface WallTableViewController () <PostTableViewCellDelegate>
 
 @property (nonatomic, strong) WallViewModel *viewModel;
 @property (nonatomic, strong) ObservableMutableArray *someArray;
@@ -56,6 +54,8 @@
                                                           templateCell:nib];
     _bindingHelper.delegate = self;
     
+    [self rac_liftSelector:@selector(liftSelector:) withSignals:[self.viewModel nextPage], nil];
+    
     // Infinite scroll functionality
     @weakify(self)
     [self.tableView addInfiniteScrollingWithActionHandler:^{
@@ -70,6 +70,10 @@
 //        NSLog(@"%@", recognizer.view);
 //    }];
     
+}
+
+- (void)liftSelector:(id)x {
+    NSLog(@"MMM");
 }
 
 - (IBAction)cellAttachmentsTapped:(id)sender {
@@ -130,6 +134,11 @@
 //        avm.attachments = self.imagesArray;
 //        AttachmentsViewController *avc = [[AttachmentsViewController alloc] initWithViewModel:avm];
     }
+}
+
+- (void)postTableViewCellAttachmentsTapped:(UITableViewCell *)cell {
+    _currentCell = (PostTableViewCell *)cell;
+    NSLog(@"Current cell: %@", self.currentCell);
 }
 
 @end

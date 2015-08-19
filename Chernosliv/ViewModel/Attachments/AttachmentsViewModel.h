@@ -11,6 +11,10 @@
 
 @interface AttachmentsViewModel : NSObject
 
+@property (nonatomic, strong) NSArray *attachments;
+
 - (instancetype)initWithAttachments:(NSArray *)attachments services:(id<ViewModelServices>)services;
+- (NSUInteger)getAttachmentsCount;
+- (NSURL *)urlForAttachmentAtIndex:(NSUInteger)index;
 
 @end

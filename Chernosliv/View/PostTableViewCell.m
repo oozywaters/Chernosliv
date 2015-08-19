@@ -13,10 +13,12 @@
 #import <AVFoundation/AVFoundation.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "PostViewModel.h"
+#import "WallTableViewController.h"
 
 @interface PostTableViewCell ()
 
-@property (weak, nonatomic) IBOutlet UIImageView *postImage;
+@property (nonatomic, strong) PostViewModel *viewModel;
+
 @property (weak, nonatomic) IBOutlet UILabel *textContent;
 @property (nonatomic, strong) NSLayoutConstraint *aspectConstraint;
 @property (weak, nonatomic) IBOutlet CountView *countView;
@@ -26,6 +28,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
 @property (weak, nonatomic) IBOutlet UIButton *commentsButton;
 @property (weak, nonatomic) IBOutlet UIButton *repostButton;
+
+
 
 @end
 
@@ -63,10 +67,10 @@
 }
 
 - (void)bindViewModel:(id)viewModel {
-    PostViewModel *postViewModel = (PostViewModel *)viewModel;
+    self.viewModel = (PostViewModel *)viewModel;
     
 //    self.commentsButton.rac_command = [postViewModel showComments];
-    [self.commentsButton addTarget:postViewModel action:@selector(showAttachments) forControlEvents:UIControlEventTouchUpInside];
+    [self.commentsButton addTarget:self.viewModel action:@selector(showAttachments) forControlEvents:UIControlEventTouchUpInside];
     
     
 //    [self.commentsButton rac_signalForControlEvents:UIControlEventTouchUpInside];
@@ -77,7 +81,7 @@
 //    VKPhotoMTL *photo = post.attachments[0];
 //
 ////
-    NSUInteger attachCount = postViewModel.attachmentsCount;
+    NSUInteger attachCount = self.viewModel.attachmentsCount;
     if (attachCount <= 1) {
         [self.countView setHidden:YES];
     } else {
@@ -86,8 +90,9 @@
     }
     
     if (attachCount > 0) {
-        UITapGestureRecognizer *imageTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:postViewModel action:@selector(showAttachments)];
-        CGFloat aspect = postViewModel.imageWidth / postViewModel.imageHeight;
+        UITapGestureRecognizer *attachmentsTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(attachmentsTapped)];
+        
+        CGFloat aspect = self.viewModel.imageWidth / self.viewModel.imageHeight;
         self.aspectConstraint = [NSLayoutConstraint constraintWithItem:self.postImage
                                                              attribute:NSLayoutAttributeWidth
                                                              relatedBy:NSLayoutRelationEqual
@@ -95,11 +100,18 @@
                                                              attribute:NSLayoutAttributeHeight
                                                             multiplier:aspect
                                                               constant:0.0];
-        [self.postImage sd_setImageWithURL:postViewModel.imageURL];
-        [self.postImage addGestureRecognizer:imageTapGestureRecognizer];
+        [self.postImage sd_setImageWithURL:self.viewModel.imageURL];
+        [self.postImage addGestureRecognizer:attachmentsTapGestureRecognizer];
     }
     
-    self.textContent.text = postViewModel.postText;
+    self.textContent.text = self.viewModel.postText;
+}
+
+- (void)attachmentsTapped {
+    if ([self.delegate respondsToSelector:@selector(postTableViewCellAttachmentsTapped:)]) {
+        [self.delegate postTableViewCellAttachmentsTapped:self];
+        [self.viewModel showAttachments];
+    }
 }
 
 @end

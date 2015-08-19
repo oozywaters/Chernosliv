@@ -9,6 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "ReactiveView.h"
 
+@protocol PostTableViewCellDelegate <NSObject>
+
+- (void)postTableViewCellAttachmentsTapped:(UITableViewCell *)cell;
+
+@end
+
 @interface PostTableViewCell : UITableViewCell <ReactiveView>
+
+@property (nonatomic, weak) id<PostTableViewCellDelegate> delegate;
+
+@property (weak, nonatomic) IBOutlet UIImageView *postImage;
 
 @end

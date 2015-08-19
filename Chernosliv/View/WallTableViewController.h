@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@class WallViewModel;
+#import "WallViewModel.h"
+#import "PostTableViewCell.h"
 
 @interface WallTableViewController : UITableViewController
+
+@property (nonatomic, strong, readonly) PostTableViewCell *currentCell;
 
 - (instancetype)initWithViewModel:(WallViewModel *)viewModel;
 

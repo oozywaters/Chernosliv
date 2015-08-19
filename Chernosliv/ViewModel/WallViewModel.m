@@ -79,7 +79,7 @@ static NSUInteger const pageSize = 5;
 
 - (RACCommand *)viewComments {
     return [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-        NSLog(@"%@", input);
+//        NSLog(@"%@", input);
         return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
             NSLog(@"View Comments");
             [subscriber sendCompleted];

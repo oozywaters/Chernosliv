@@ -37,7 +37,7 @@
                 [results addObject:vkAttachment];
             }
         }
-        NSLog(@"%@", results);
+//        NSLog(@"%@", results);
         return results;
     }];
 }

@@ -6,34 +6,46 @@
 //  Copyright (c) 2015 Vyacheslav Zavertanny. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "MKCAppDelegate.h"
 #import "ViewModelServicesImpl.h"
 #import "WallTableViewController.h"
 #import "WallViewModel.h"
+#import "NavigationControllerDelegate.h"
 #import <VKSdk.h>
 
-@interface AppDelegate ()
+#import "MKCAppDependencies.h"
+
+@interface MKCAppDelegate ()
 
 @property (nonatomic, strong) UINavigationController *navigationController;
+@property (nonatomic, strong) NavigationControllerDelegate *navigationControllerDelegate;
 @property (nonatomic, strong) ViewModelServicesImpl *viewModelServices;
 @property (nonatomic, strong) WallViewModel *viewModel;
 
+@property (nonatomic, strong) MKCAppDependencies *appDependencies;
+
 @end
 
-@implementation AppDelegate
+@implementation MKCAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    self.navigationController = [UINavigationController new];
-    
-    // create and navigate to a view controller
-    UIViewController *viewController = [self createInitialViewController];
-    [self.navigationController pushViewController:viewController animated:NO];
-    
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = self.navigationController;
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [self.appDependencies installRootViewControllerIntoWindow:self.window];
     [self.window makeKeyAndVisible];
+    
+//    // Override point for customization after application launch.
+//    self.navigationController = [UINavigationController new];
+//    self.navigationControllerDelegate = [NavigationControllerDelegate new];
+//    self.navigationController.delegate = self.navigationControllerDelegate;
+//    
+//    // create and navigate to a view controller
+//    UIViewController *viewController = [self createInitialViewController];
+//    [self.navigationController pushViewController:viewController animated:NO];
+//    
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    self.window.rootViewController = self.navigationController;
+//    [self.window makeKeyAndVisible];
     return YES;
 }
 
@@ -68,6 +80,17 @@
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     [VKSdk processOpenURL:url fromApplication:sourceApplication];
     return YES;
+}
+
+#pragma mark - Private
+
+- (MKCAppDependencies *)appDependencies
+{
+    if (!_appDependencies)
+    {
+        _appDependencies = [MKCAppDependencies new];
+    }
+    return _appDependencies;
 }
 
 @end

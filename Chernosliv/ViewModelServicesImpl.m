@@ -8,7 +8,7 @@
 
 #import "ViewModelServicesImpl.h"
 #import "AttachmentsViewModel.h"
-#import "AttachmentsViewController.h"
+#import "MKCAttachmentsViewController.h"
 
 @interface ViewModelServicesImpl ()
 
@@ -30,7 +30,7 @@
     id viewController;
     
     if ([viewModel isKindOfClass:[AttachmentsViewModel class]]) {
-        viewController = [[AttachmentsViewController alloc] initWithViewModel:viewModel];
+        viewController = [[MKCAttachmentsViewController alloc] initWithViewModel:viewModel];
     } else {
         NSLog(@"An unknown model was pushed");
     }

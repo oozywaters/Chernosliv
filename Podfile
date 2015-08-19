@@ -3,7 +3,8 @@
 
 target 'Chernosliv' do
 
-pod 'Mantle'
+pod 'Mantle', '2.0.2'
+pod 'Masonry'
 pod 'ReactiveCocoa'
 pod 'VK-ios-sdk'
 pod 'SVPullToRefresh'
