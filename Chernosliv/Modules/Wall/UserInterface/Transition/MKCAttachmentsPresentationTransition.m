@@ -1,20 +1,19 @@
 //
-//  ZoomTransitionAnimator.m
+//  MKCAttachmentsPresentationTransition.m
 //  Chernosliv
 //
-//  Created by Vyacheslav Zavertanny on 12/08/15.
+//  Created by Vyacheslav Zavertanny on 20/08/15.
 //  Copyright (c) 2015 Vyacheslav Zavertanny. All rights reserved.
 //
 
-#import "ZoomTransitionAnimator.h"
-#import "PostTableViewCell.h"
-#import "WallTableViewController.h"
+#import "MKCAttachmentsPresentationTransition.h"
+#import "MKCWallTableViewController.h"
 #import "MKCAttachmentsViewController.h"
 
-@implementation ZoomTransitionAnimator
+@implementation MKCAttachmentsPresentationTransition
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
-    WallTableViewController *fromVC = (WallTableViewController *)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    MKCWallTableViewController *fromVC = (MKCWallTableViewController *)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     MKCAttachmentsViewController *toVC = (MKCAttachmentsViewController *)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     
     // Create snapshot of the outgoing view
@@ -49,7 +48,7 @@
         outgoingSnapshot.alpha = 0.0;
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:0.75 delay:0 usingSpringWithDamping:0.4 initialSpringVelocity:0.0 options:0 animations:^{
-//            attachmentsImageSnapshot.center = [[UIScreen mainScreen] cen] ;
+            //            attachmentsImageSnapshot.center = [[UIScreen mainScreen] cen] ;
             attachmentsImageSnapshot.frame = ongoingImage.frame;
         } completion:^(BOOL finished) {
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];

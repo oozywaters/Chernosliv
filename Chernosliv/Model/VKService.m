@@ -108,18 +108,4 @@ static NSString *const ownerId = @"275110350";
     }];
 }
 
-//- (RACSignal *)posts {
-//    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-//        [self getWallPostsWithOffset:[self.wall postsCount] count:requestPostsCount onSuccess:^(NSArray *posts) {
-//            [subscriber sendNext:posts];
-//            [subscriber sendCompleted];
-//        } onError:^(NSError *error) {
-//            [subscriber sendError:error];
-//        }];
-//        return nil;
-//    }];
-//}
-
-
-
 @end

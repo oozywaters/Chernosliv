@@ -7,13 +7,18 @@
 //
 
 #import "MKCWallWireframe.h"
-#import "WallViewModel.h"
-#import "WallTableViewController.h"
-#import "ViewModelServicesImpl.h"
+#import "MKCWallDataManager.h"
+#import "MKCWallPresenter.h"
+#import "MKCWallInteractor.h"
+#import "MKCWallTableViewController.h"
+#import "MKCAttachmentsWireframe.h"
 
-@interface MKCWallWireframe ()
+#import "MKCAttachmentsPresentationTransition.h"
+
+@interface MKCWallWireframe () <UINavigationControllerDelegate>
 
 @property (nonatomic, strong) UINavigationController *presentedController;
+@property (nonatomic, strong) MKCWallPresenter *presenter;
 
 @end
 
@@ -26,13 +31,40 @@
 }
 
 - (void)presentWallViewControllerFromNavigationController:(UINavigationController *)navigationController {
-    ViewModelServicesImpl *vmServices = [[ViewModelServicesImpl alloc] initWithNavigationController:navigationController];
-    WallViewModel *wvm = [[WallViewModel alloc] initWithServices:vmServices];
-    WallTableViewController *wvc = [[WallTableViewController alloc] initWithViewModel:wvm];
+    MKCWallDataManager *dataManager = [MKCWallDataManager new];
+    MKCWallInteractor *interactor = [[MKCWallInteractor new] initWithDataManager:dataManager];
+    MKCWallTableViewController *wvc = [MKCWallTableViewController new];
+    MKCWallPresenter *presenter = [MKCWallPresenter new];
+    
+    interactor.output = presenter;
+    presenter.interactor = interactor;
+    
+    wvc.eventHandler = presenter;
+    
+    presenter.wireframe = self;
+    [presenter configurePresenterWithUserInterface:wvc];
     
     [navigationController pushViewController:wvc animated:YES];
     
+    self.presenter = presenter;
     self.presentedController = navigationController;
 }
+
+- (void)presentAttachmentsControllerWithPost:(VKPost *)post {
+    [self.presentedController setDelegate:self];
+    
+    MKCAttachmentsWireframe *wireframe = [[MKCAttachmentsWireframe alloc] initWithPost:post];
+    [wireframe presentAttachmentsInterfaceFromNavigationController:self.presentedController];
+}
+
+# pragma mark - UINavigationControllerDelegate
+
+- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+                                  animationControllerForOperation:(UINavigationControllerOperation)operation
+                                               fromViewController:(UIViewController *)fromVC
+                                                 toViewController:(UIViewController *)toVC {
+    return [MKCAttachmentsPresentationTransition new];
+}
+
 
 @end

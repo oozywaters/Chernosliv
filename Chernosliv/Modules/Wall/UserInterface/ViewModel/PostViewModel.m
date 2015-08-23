@@ -8,22 +8,20 @@
 
 #import "PostViewModel.h"
 #import "VKPhotoMTL.h"
-#import "AttachmentsViewModel.h"
+//#import "AttachmentsViewModel.h"
 
 @interface PostViewModel ()
 
 @property (nonatomic, strong) VKPost *post;
-@property (nonatomic, weak) id<ViewModelServices> services;
 
 @end
 
 @implementation PostViewModel
 
-- (instancetype)initWithPost:(VKPost *)post services:(id<ViewModelServices>)services{
+- (instancetype)initWithPost:(VKPost *)post {
     self = [super init];
     if (self) {
         _post = post;
-        _services = services;
         [self initialize];
     }
     return self;
@@ -52,8 +50,9 @@
 
 - (void)showAttachments {
     NSLog(@"Show attachments");
-    AttachmentsViewModel *attachmentsViewModel = [[AttachmentsViewModel alloc] initWithAttachments:self.post.attachments services:self.services];
-    [self.services pushViewModel:attachmentsViewModel];
+    [self.delegate attachmentsTappedWithPost:self.post];
+//    AttachmentsViewModel *attachmentsViewModel = [[AttachmentsViewModel alloc] initWithAttachments:self.post.attachments services:self.services];
+//    [self.services pushViewModel:attachmentsViewModel];
 }
 
 @end

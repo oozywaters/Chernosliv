@@ -7,10 +7,7 @@
 //
 
 #import "MKCAppDelegate.h"
-#import "ViewModelServicesImpl.h"
-#import "WallTableViewController.h"
-#import "WallViewModel.h"
-#import "NavigationControllerDelegate.h"
+#import "MKCWallTableViewController.h"
 #import <VKSdk.h>
 
 #import "MKCAppDependencies.h"
@@ -18,10 +15,6 @@
 @interface MKCAppDelegate ()
 
 @property (nonatomic, strong) UINavigationController *navigationController;
-@property (nonatomic, strong) NavigationControllerDelegate *navigationControllerDelegate;
-@property (nonatomic, strong) ViewModelServicesImpl *viewModelServices;
-@property (nonatomic, strong) WallViewModel *viewModel;
-
 @property (nonatomic, strong) MKCAppDependencies *appDependencies;
 
 @end
@@ -47,12 +40,6 @@
 //    self.window.rootViewController = self.navigationController;
 //    [self.window makeKeyAndVisible];
     return YES;
-}
-
-- (UIViewController *)createInitialViewController {
-    self.viewModelServices = [[ViewModelServicesImpl alloc] initWithNavigationController:self.navigationController];
-    self.viewModel = [[WallViewModel alloc] initWithServices:self.viewModelServices];
-    return [[WallTableViewController alloc] initWithViewModel:self.viewModel];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

@@ -13,7 +13,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "PostViewModel.h"
-#import "WallTableViewController.h"
+#import "MKCWallTableViewController.h"
 
 @interface PostTableViewCell ()
 

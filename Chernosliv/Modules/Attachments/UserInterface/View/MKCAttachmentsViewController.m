@@ -9,33 +9,47 @@
 #import "MKCAttachmentsViewController.h"
 #import "MKCPhotoAttachmentViewModel.h"
 #import "MKCPhotoAttachmentViewController.h"
+#import "VKAttachment.h"
+#import "VKPhotoMTL.h"
+
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <Masonry/Masonry.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 @interface MKCAttachmentsViewController ()
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (nonatomic, strong) UIScrollView *pagingScrollView;
-@property (nonatomic, strong) AttachmentsViewModel *viewModel;
+//@property (nonatomic, strong) AttachmentsViewModel *viewModel;
+
+@property (nonatomic, strong) NSArray *attachments;
 
 @end
 
 @implementation MKCAttachmentsViewController
 
-- (instancetype)initWithViewModel:(AttachmentsViewModel *)viewModel {
+- (instancetype)init {
     self = [super init];
     if (self) {
-        _viewModel = viewModel;
         _pageViews = [NSMutableArray array];
     }
     return self;
 }
 
+//- (instancetype)initWithViewModel:(AttachmentsViewModel *)viewModel {
+//    self = [super init];
+//    if (self) {
+//        _viewModel = viewModel;
+//        _pageViews = [NSMutableArray array];
+//    }
+//    return self;
+//}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    NSUInteger attachmentsCount = [self.viewModel getAttachmentsCount];
+    NSUInteger attachmentsCount = [self.attachments count];
 //    
 //    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width * attachmentsCount,
 //                                             self.view.frame.size.height);
@@ -44,7 +58,7 @@
     
     UIView *previousView = nil;
     for (int i = 0; i < attachmentsCount; i++) {
-        MKCPhotoAttachmentViewModel *pvm = self.viewModel.attachments[i];
+        MKCPhotoAttachmentViewModel *pvm = self.attachments[i];
         MKCPhotoAttachmentViewController *pvc = [[MKCPhotoAttachmentViewController alloc] initWithViewModel:pvm];
         
         [_pageViews addObject:pvc.contentView];
@@ -79,6 +93,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+# pragma mark - MKCAttahcmentsViewInterface
+
+- (void)updateAttachmentsData:(NSArray *)attachments {
+    self.attachments = attachments;
 }
 
 //- (void)viewDidLayoutSubviews {

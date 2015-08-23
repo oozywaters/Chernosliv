@@ -6,10 +6,14 @@
 //  Copyright (c) 2015 Vyacheslav Zavertanny. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "VKPost.h"
-#import "ViewModelServices.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
+
+@protocol PostViewModelDelegate <NSObject>
+
+- (void)attachmentsTappedWithPost:(VKPost *)post;
+
+@end
 
 
 @interface PostViewModel : NSObject
@@ -23,7 +27,9 @@
 @property (nonatomic) NSUInteger attachmentsCount;
 @property (nonatomic, strong) RACSignal *postAttachmentTap;
 
-- (instancetype)initWithPost:(VKPost *)post services:(id<ViewModelServices>)services;
+@property (nonatomic, weak) id<PostViewModelDelegate> delegate;
+
+- (instancetype)initWithPost:(VKPost *)post;
 
 - (RACCommand *)showComments;
 

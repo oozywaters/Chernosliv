@@ -6,14 +6,13 @@
 //  Copyright (c) 2015 Vyacheslav Zavertanny. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "WallViewModel.h"
+#import "MKCWallViewInterface.h"
 #import "PostTableViewCell.h"
+#import "MKCWallModuleInterface.h"
 
-@interface WallTableViewController : UITableViewController
+@interface MKCWallTableViewController : UITableViewController <MKCWallViewInterface>
 
+@property (nonatomic, weak) id<MKCWallModuleInterface> eventHandler;
 @property (nonatomic, strong, readonly) PostTableViewCell *currentCell;
-
-- (instancetype)initWithViewModel:(WallViewModel *)viewModel;
 
 @end

@@ -6,10 +6,12 @@
 //  Copyright (c) 2015 Vyacheslav Zavertanny. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+
+@class VKPost;
 
 @interface MKCWallWireframe : NSObject
 
 - (void)presentWallInterfaceFromWindow:(UIWindow *)window;
+- (void)presentAttachmentsControllerWithPost:(VKPost *)post;
 
 @end
