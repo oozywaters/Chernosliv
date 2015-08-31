@@ -12,8 +12,6 @@
 
 @interface PostViewModel ()
 
-@property (nonatomic, strong) VKPost *post;
-
 @end
 
 @implementation PostViewModel
@@ -38,21 +36,12 @@
     _attachmentsCount = self.post.attachments.count;
 }
 
-- (RACCommand *)showComments {
-    return [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-            NSLog(@"Show tratata");
-            [subscriber sendCompleted];
-            return nil;
-        }];
-    }];
+- (void)showAttachments {
+    [self.delegate attachmentsTappedWithModel:self.post];
 }
 
-- (void)showAttachments {
-    NSLog(@"Show attachments");
-    [self.delegate attachmentsTappedWithPost:self.post];
-//    AttachmentsViewModel *attachmentsViewModel = [[AttachmentsViewModel alloc] initWithAttachments:self.post.attachments services:self.services];
-//    [self.services pushViewModel:attachmentsViewModel];
+- (void)showComments {
+    [self.delegate commentsTappedWithModel:self.post];
 }
 
 @end

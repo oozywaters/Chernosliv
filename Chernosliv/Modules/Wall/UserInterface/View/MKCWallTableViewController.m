@@ -7,7 +7,8 @@
 //
 
 #import "MKCWallTableViewController.h"
-#import "VKPost.h"
+#import "PostViewModel.h"
+//#import "VKPost.h"
 #import "VKPhotoMTL.h"
 #import "TableViewBindingHelper.h"
 #import <SVPullToRefresh/SVPullToRefresh.h>
@@ -22,19 +23,12 @@
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *attachmentsTapGestureRecognizer;
 
 @property (nonatomic, strong) NSArray *imagesArray;
+@property (nonatomic, strong) RACCommand *postSelectedCommand;
 
 
 @end
 
 @implementation MKCWallTableViewController
-
-//- (instancetype)initWithViewModel:(WallViewModel *)viewModel {
-//    self = [super init];
-//    if (self) {
-//        _viewModel = viewModel;
-//    }
-//    return self;
-//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -42,9 +36,15 @@
     //    [self.refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
     
     UINib *nib = [UINib nibWithNibName:@"PostTableViewCell" bundle:nil];
+    
+    self.postSelectedCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(PostViewModel *viewModel) {
+        [viewModel showComments];
+        return [RACSignal empty];
+    }];
+    
     _bindingHelper = [TableViewBindingHelper bindingHelperForTableView:self.tableView
                                                           sourceSignal:RACObserve(self, posts)
-                                                      selectionCommand:nil
+                                                      selectionCommand:self.postSelectedCommand
                                                           templateCell:nib];
     _bindingHelper.delegate = self;
     
@@ -65,6 +65,10 @@
     
 }
 
+- (void)pageLoaded {
+    [self.tableView.infiniteScrollingView stopAnimating];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -79,9 +83,14 @@
     return UITableViewAutomaticDimension;
 }
 
+# pragma mark - PostTableViewCellDelegate
+
 - (void)postTableViewCellAttachmentsTapped:(UITableViewCell *)cell {
     _currentCell = (PostTableViewCell *)cell;
-    NSLog(@"Current cell: %@", self.currentCell);
+}
+
+- (void)postTableViewCellCommentsTapped:(UITableViewCell *)cell {
+    _currentCell = (PostTableViewCell *)cell;
 }
 
 # pragma mark - MKCWallViewInterface

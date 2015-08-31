@@ -35,21 +35,8 @@ static NSString *const ownerId = @"275110350";
     if (self = [super init]) {
         [VKSdk initializeWithDelegate:self andAppId:appId];
         _wall = [VKWall new];
-        [self initialize];
     }
     return self;
-}
-
-- (void)initialize {
-//    _getPostsSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-//        [self getWallPostsWithOffset:self.wall.loadedPostsCount count:requestPostsCount onSuccess:^(NSArray *posts) {
-//            [subscriber sendNext:posts];
-//            [subscriber sendCompleted];
-//        } onError:^(NSError *error) {
-//            [subscriber sendError:error];
-//        }];
-//        return nil;
-//    }];
 }
 
 # pragma mark - VKSdkDelegate
@@ -85,27 +72,38 @@ static NSString *const ownerId = @"275110350";
                                  VK_API_OFFSET: @(offset),
                                  VK_API_COUNT: @(count)};
     
-    VKRequest *wallRequest = [VKRequest requestWithMethod:@"wall.get" andParameters:parameters andHttpMethod:@"GET"];
+    VKRequest *wallRequest = [VKRequest requestWithMethod:@"wall.get"
+                                            andParameters:parameters
+                                            andHttpMethod:@"GET"];
     
     [wallRequest executeWithResultBlock:^(VKResponse *response) {
         NSError *parseError;
         
-//        BOOL update = [self.wall updateWithJSON:response.json error:&parseError];
-//        
-//        if (!update) {
-//            errorBlock(parseError);
-//        }
-        
-        self.wall = [MTLJSONAdapter modelOfClass:[VKWall class] fromJSONDictionary:response.json error:&parseError];
+        self.wall = [MTLJSONAdapter modelOfClass:[VKWall class]
+                              fromJSONDictionary:response.json
+                                           error:&parseError];
         if (parseError) {
             errorBlock(parseError);
         }
         
-//        [self.wall.posts addObjectsFromArray:wall.posts];
         successBlock(self.wall.posts);
     } errorBlock:^(NSError *error) {
         errorBlock(error);
     }];
+}
+
+- (void)getNewPosts {
+//    NSString *code = @"\
+//    var post = API.wall.get();\
+//    return post.count;\
+//    ";
+//    NSDictionary *parameters = @{@"code":code};
+//    VKRequest *newRequest = [VKRequest requestWithMethod:@"execute" andParameters:nil andHttpMethod:@"GET"];
+//    [newRequest executeWithResultBlock:^(VKResponse *response) {
+//        NSLog(@"Response: %@", response);
+//    } errorBlock:^(NSError *error) {
+//        NSLog(@"Error: %@", error);
+//    }];
 }
 
 @end

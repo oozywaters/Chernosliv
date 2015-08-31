@@ -15,6 +15,8 @@
 
 #import "MKCAttachmentsPresentationTransition.h"
 
+#import "MKCCommentsWireframe.h"
+
 @interface MKCWallWireframe () <UINavigationControllerDelegate>
 
 @property (nonatomic, strong) UINavigationController *presentedController;
@@ -51,20 +53,14 @@
 }
 
 - (void)presentAttachmentsControllerWithPost:(VKPost *)post {
-    [self.presentedController setDelegate:self];
-    
     MKCAttachmentsWireframe *wireframe = [[MKCAttachmentsWireframe alloc] initWithPost:post];
     [wireframe presentAttachmentsInterfaceFromNavigationController:self.presentedController];
 }
 
-# pragma mark - UINavigationControllerDelegate
-
-- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
-                                  animationControllerForOperation:(UINavigationControllerOperation)operation
-                                               fromViewController:(UIViewController *)fromVC
-                                                 toViewController:(UIViewController *)toVC {
-    return [MKCAttachmentsPresentationTransition new];
+- (void)presentCommentsControllerWithPost:(VKPost *)post {
+    NSLog(@"Present");
+    MKCCommentsWireframe *wireframe = [[MKCCommentsWireframe alloc] initWithPost:post];
+    [wireframe presentCommentsInterfaceFromNavigationController:self.presentedController];
 }
-
 
 @end

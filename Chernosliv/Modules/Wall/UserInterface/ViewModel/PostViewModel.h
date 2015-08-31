@@ -11,12 +11,15 @@
 
 @protocol PostViewModelDelegate <NSObject>
 
-- (void)attachmentsTappedWithPost:(VKPost *)post;
+- (void)attachmentsTappedWithModel:(VKPost *)post;
+- (void)commentsTappedWithModel:(VKPost *)post;
 
 @end
 
 
 @interface PostViewModel : NSObject
+
+@property (nonatomic, strong, readonly) VKPost *post;
 
 @property (nonatomic, strong) NSString *postText;
 
@@ -31,8 +34,9 @@
 
 - (instancetype)initWithPost:(VKPost *)post;
 
-- (RACCommand *)showComments;
+//- (RACCommand *)showComments;
 
 - (void)showAttachments;
+- (void)showComments;
 
 @end

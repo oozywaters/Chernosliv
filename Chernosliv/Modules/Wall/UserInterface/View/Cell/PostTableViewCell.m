@@ -70,8 +70,7 @@
     self.viewModel = (PostViewModel *)viewModel;
     
 //    self.commentsButton.rac_command = [postViewModel showComments];
-    [self.commentsButton addTarget:self.viewModel action:@selector(showAttachments) forControlEvents:UIControlEventTouchUpInside];
-    
+   
     
 //    [self.commentsButton rac_signalForControlEvents:UIControlEventTouchUpInside];
     
@@ -114,4 +113,10 @@
     }
 }
 
+- (IBAction)commentsButtonTapped:(UIButton *)sender {
+    if ([self.delegate respondsToSelector:@selector(postTableViewCellCommentsTapped:)]) {
+        [self.delegate postTableViewCellCommentsTapped:self];
+        [self.viewModel showComments];
+    }
+}
 @end

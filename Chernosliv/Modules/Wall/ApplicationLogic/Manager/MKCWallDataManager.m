@@ -29,10 +29,13 @@ static NSUInteger const pageSize = 5;
 
 - (void)loadPostsWithCompletion:(void (^)(NSArray *))completionBlock error:(void (^)(NSError *))errorBlock {
     [[VKService sharedService] getPostsWithOffset:self.posts.count count:pageSize onSuccess:^(NSArray *posts) {
+        [self.posts addObjectsFromArray:posts];
         completionBlock(posts);
     } onError:^(NSError *error) {
         errorBlock(error);
     }];
+    
+    [[VKService sharedService] getNewPosts];
 }
 
 @end

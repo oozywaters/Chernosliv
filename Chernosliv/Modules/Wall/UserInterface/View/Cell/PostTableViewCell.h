@@ -12,6 +12,7 @@
 @protocol PostTableViewCellDelegate <NSObject>
 
 - (void)postTableViewCellAttachmentsTapped:(UITableViewCell *)cell;
+- (void)postTableViewCellCommentsTapped:(UITableViewCell *)cell;
 
 @end
 

@@ -11,5 +11,6 @@
 @protocol MKCWallViewInterface <NSObject>
 
 - (void)updateDataSource:(ObservableMutableArray *)dataSource;
+- (void)pageLoaded;
 
 @end

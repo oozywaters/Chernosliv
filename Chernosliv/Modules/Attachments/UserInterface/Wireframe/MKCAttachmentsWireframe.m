@@ -12,8 +12,9 @@
 
 //#import "AttachmentsViewModel.h"
 #import "MKCAttachmentsViewController.h"
+#import "MKCAttachmentsPresentationTransition.h"
 
-@interface MKCAttachmentsWireframe ()
+@interface MKCAttachmentsWireframe () <UINavigationControllerDelegate>
 
 @property (nonatomic, strong) MKCAttachmentsPresenter *presenter;
 @property (nonatomic, strong) MKCAttachmentsViewController *viewController;
@@ -37,8 +38,18 @@
 
 - (void)presentAttachmentsInterfaceFromNavigationController:(UINavigationController *)navigationController {
     self.presentedController = navigationController;
+    [self.presentedController setDelegate:self];
     [navigationController pushViewController:self.viewController animated:YES];
-    [self.presentedController setDelegate:nil];
+}
+
+# pragma mark - UINavigationControllerDelegate
+
+- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+                                  animationControllerForOperation:(UINavigationControllerOperation)operation
+                                               fromViewController:(UIViewController *)fromVC
+                                                 toViewController:(UIViewController *)toVC {
+    [navigationController setDelegate:nil];
+    return [MKCAttachmentsPresentationTransition new];
 }
 
 

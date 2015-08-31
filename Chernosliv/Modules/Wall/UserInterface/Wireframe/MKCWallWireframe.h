@@ -13,5 +13,6 @@
 
 - (void)presentWallInterfaceFromWindow:(UIWindow *)window;
 - (void)presentAttachmentsControllerWithPost:(VKPost *)post;
+- (void)presentCommentsControllerWithPost:(VKPost *)post;
 
 @end

@@ -53,9 +53,16 @@
     [self.interactor loadPosts];
 }
 
-- (void)attachmentsTappedWithPost:(VKPost *)post {
+# pragma mark - PostViewModelDelegate
+
+- (void)attachmentsTappedWithModel:(VKPost *)post {
     self.currentPost = post;
     [self.wireframe presentAttachmentsControllerWithPost:post];
+}
+
+- (void)commentsTappedWithModel:(VKPost *)post {
+    [self.wireframe presentCommentsControllerWithPost:post];
+//    self.currentPost = post;
 }
 
 # pragma mark - MKCWallInteractorOutput
@@ -67,6 +74,7 @@
         return pvm;
     }];
     [self.posts addObjectsFromArray:newPosts];
+    [self.wallInterface pageLoaded];
 }
 
 # pragma mark - API

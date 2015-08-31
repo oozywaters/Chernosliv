@@ -27,6 +27,6 @@
 - (RACCommand *)viewComments;
 
 - (void)configurePresenterWithUserInterface:(UIViewController<MKCWallViewInterface>*)userInterface;
-- (void)loadNextPage;
+- (void)loadNextPageWithCompletionHandler:(void(^)(void))completion;
 
 @end

@@ -22,4 +22,6 @@
                      onSuccess:(void (^)(NSArray *posts))successBlock
                        onError:(void (^)(NSError *error))errorBlock;
 
+- (void)getNewPosts;
+
 @end
