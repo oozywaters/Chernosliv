@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Vyacheslav Zavertanny. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <Mantle.h>
 
 @interface VKWall : MTLModel <MTLJSONSerializing>

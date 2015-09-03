@@ -1,13 +1,15 @@
 //
-//  MKCCommentsModuleInterface.h
+//  MKCCommentsHeaderView.h
 //  Chernosliv
 //
 //  Created by Vyacheslav Zavertanny on 31/08/15.
 //  Copyright (c) 2015 Vyacheslav Zavertanny. All rights reserved.
 //
 
-@protocol MKCCommentsModuleInterface <NSObject>
+#import <UIKit/UIKit.h>
 
-- (void)loadCommentsWithPostId:(NSString *)postId;
+@interface MKCCommentsHeaderView : UIView
+
+@property (nonatomic, strong) UIImage *headerImage;
 
 @end

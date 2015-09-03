@@ -8,11 +8,13 @@
 
 #import "MKCCommentsModuleInterface.h"
 #import "MKCCommentsViewInterface.h"
+#import "MKCCommentsInteractorIO.h"
 #import "VKPost.h"
 
-@interface MKCCommentsPresenter : NSObject <MKCCommentsModuleInterface>
+@interface MKCCommentsPresenter : NSObject <MKCCommentsModuleInterface, MKCCommentsInteractorOutput>
 
 @property (nonatomic, strong) UIViewController<MKCCommentsViewInterface> *userInterface;
+@property (nonatomic, strong) id<MKCCommentsInteractorInput> interactor;
 
 - (instancetype)initWithPost:(VKPost *)post;
 - (void)configurePresenterWithUserInterface:(UIViewController<MKCCommentsViewInterface> *) userInterface;

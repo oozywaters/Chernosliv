@@ -13,7 +13,6 @@
 @interface VKService : NSObject
 
 + (VKService *)sharedService;
-- (RACSignal *)posts;
 
 @property (nonatomic, strong) VKWall *wall;
 
@@ -22,6 +21,8 @@
                      onSuccess:(void (^)(NSArray *posts))successBlock
                        onError:(void (^)(NSError *error))errorBlock;
 
-- (void)getNewPosts;
+- (void)getCommentsWithPostId:(NSString *)postId
+                      success:(void (^)(NSArray *comments))successBlock
+                        error:(void(^)(NSError *error))errorBlock;
 
 @end

@@ -27,6 +27,15 @@
 - (void)configurePresenterWithUserInterface:(UIViewController<MKCCommentsViewInterface> *)userInterface {
     _userInterface = userInterface;
     [self.userInterface updateCommentsData:self.post];
+    [self loadCommentsWithPostId:self.post.postId];
+}
+
+- (void)loadCommentsWithPostId:(NSString *)postId {
+    [self.interactor loadCommentsWithPostId:postId];
+}
+
+- (void)commentsLoaded {
+    
 }
 
 @end

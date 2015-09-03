@@ -12,6 +12,7 @@
 #import "VKService.h"
 #import <VKSdk.h>
 #import "VKWall.h"
+#import "MKCVKCommentsList.h"
 
 @interface VKService () <VKSdkDelegate>
 
@@ -92,18 +93,33 @@ static NSString *const ownerId = @"275110350";
     }];
 }
 
-- (void)getNewPosts {
-//    NSString *code = @"\
-//    var post = API.wall.get();\
-//    return post.count;\
-//    ";
-//    NSDictionary *parameters = @{@"code":code};
-//    VKRequest *newRequest = [VKRequest requestWithMethod:@"execute" andParameters:nil andHttpMethod:@"GET"];
-//    [newRequest executeWithResultBlock:^(VKResponse *response) {
-//        NSLog(@"Response: %@", response);
-//    } errorBlock:^(NSError *error) {
-//        NSLog(@"Error: %@", error);
-//    }];
+- (void)getCommentsWithPostId:(NSString *)postId
+                       success:(void (^)(NSArray *comments))successBlock
+                         error:(void(^)(NSError *error))errorBlock {
+    
+    NSDictionary *parameters = @{VK_API_OWNER_ID: ownerId,
+                                 VK_API_POST_ID: postId,
+                                 VK_API_EXTENDED: @"1"};
+    
+    VKRequest *commentsRequest = [VKRequest requestWithMethod:@"wall.getComments"
+                                                andParameters:parameters
+                                                andHttpMethod:@"GET"];
+    [commentsRequest executeWithResultBlock:^(VKResponse *response) {
+        NSError *parseError;
+        
+        MKCVKCommentsList *commentsList = [MTLJSONAdapter modelOfClass:[MKCVKCommentsList class] fromJSONDictionary:response.json error:&parseError];
+        
+        NSLog(@"Comments: %@", commentsList.profiles);
+        
+     
+//        NSArray *comments = [MTLJSONAdapter modelsOfClass:[MKCVKComment class] fromJSONArray:response.json error:&parseError];
+        
+        if (parseError) {
+            errorBlock(parseError);
+        }
+    } errorBlock:^(NSError *error) {
+        errorBlock(error);
+    }];
 }
 
 @end

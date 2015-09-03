@@ -12,7 +12,8 @@
 @implementation VKPost
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
-    return @{@"text": @"text",
+    return @{@"postId": @"id",
+             @"text": @"text",
              @"date": @"date",
              @"attachments": @"attachments"};
 }

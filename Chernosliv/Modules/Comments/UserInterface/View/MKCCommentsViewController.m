@@ -8,17 +8,24 @@
 
 #import "MKCCommentsViewController.h"
 #import "MKCCommentsHeaderView.h"
+#import "MKCCommentsPostTableViewCell.h"
 #import "VKPost.h"
 #import "VKAttachment.h"
 #import "VKPhotoMTL.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <SDWebImage/UIImage+MultiFormat.h>
 #import <Masonry/Masonry.h>
 
 @interface MKCCommentsViewController () <UIScrollViewDelegate>
 
+@property (nonatomic, strong, readonly) NSString *postDetailsCellReuseIdentifier;
+@property (nonatomic, strong, readonly) NSString *commentsCellReuseIdentifier;
+
 @property (nonatomic, strong) VKPost *post;
 
-@property (nonatomic, strong, readonly) MKCCommentsHeaderView *headerView;
+@property (nonatomic, strong, readonly) UIView *headerView;
+
+@property (nonatomic, strong) CAGradientLayer *gradient;
 
 @end
 
@@ -28,8 +35,11 @@ static const CGFloat kTableHeaderHeight = 75.0;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setNeedsStatusBarAppearanceUpdate];
     
     [self setUpHeaderView];
+    [self setUpCells];
+    
     self.tableView.contentInset = UIEdgeInsetsMake(kTableHeaderHeight, 0, 0, 0);
     self.tableView.contentOffset = CGPointMake(0, -kTableHeaderHeight);
     
@@ -51,36 +61,49 @@ static const CGFloat kTableHeaderHeight = 75.0;
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (void)setUpCells {
+    UINib *nib = [UINib nibWithNibName:@"MKCCommentsPostTableViewCell" bundle:nil];
+    UITableViewCell *templateCell = [[nib instantiateWithOwner:nil options:nil] firstObject];
+    _postDetailsCellReuseIdentifier = templateCell.reuseIdentifier;
+    [self.tableView registerNib:nib forCellReuseIdentifier:self.postDetailsCellReuseIdentifier];
+}
+
 - (void)setUpHeaderView {
-    CGFloat headerWidth = self.tableView.bounds.size.width;
-    _headerView = [[MKCCommentsHeaderView alloc] initWithFrame:CGRectMake(0, 0, headerWidth, kTableHeaderHeight)];
-//    _headerView = [UIView new];
-//    self.tableView.tableHeaderView = _headerView;
-    [self.tableView addSubview:self.headerView];
-    
     VKPhotoMTL *photo = self.post.attachments[0];
     UIImageView *headerImage = [UIImageView new];
     headerImage.contentMode = UIViewContentModeScaleAspectFill;
-    [self.headerView addSubview:headerImage];
+    //    [self.headerView addSubview:headerImage];
+    //    [headerImage mas_makeConstraints:^(MASConstraintMaker *make) {
+    //        make.edges.equalTo(self.headerView);
+    //    }];
+    [headerImage sd_setImageWithURL:photo.url];
+    
+    
+    CGFloat headerWidth = self.tableView.bounds.size.width;
+    _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, headerWidth, kTableHeaderHeight)];
+    _headerView.clipsToBounds = YES;
+//    _headerView.backgroundColor = [UIColor redColor];
+//    _headerView = [UIView new];
+//    self.tableView.tableHeaderView = _headerView;
+    [self.tableView addSubview:self.headerView];
+    [_headerView addSubview:headerImage];
     [headerImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.headerView);
     }];
-    [headerImage sd_setImageWithURL:photo.url];
     
-    CAGradientLayer *gradient = [CAGradientLayer layer];
-    gradient.frame = headerImage.frame;
+    MKCCommentsHeaderView *gradient = [[MKCCommentsHeaderView alloc] initWithFrame:_headerView.frame];
+    [_headerView addSubview:gradient];
+    [gradient mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.headerView);
+    }];
+//
     
-    // Add colors to layer
-    UIColor *centerColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.25];
-    UIColor *endColor = [UIColor grayColor];
-    gradient.colors = [NSArray arrayWithObjects:
-                       (id)[endColor CGColor],
-                       (id)[centerColor CGColor],
-                       (id)[endColor CGColor],
-                       nil];
-    
-    [headerImage.layer insertSublayer:gradient atIndex:0];
-
+//    _headerView.backgroundColor = [UIColor redColor];
+//    _gradient = [CAGradientLayer layer];
+//    _gradient.frame = _headerView.frame;
+//    _gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor blackColor] CGColor], (id)[[UIColor clearColor] CGColor], nil];
+//    [_headerView.layer addSublayer:_gradient];
+//    [_headerView.layer insertSublayer:gradient atIndex:0];
 }
 
 - (void)updateHeaderView {
@@ -90,6 +113,9 @@ static const CGFloat kTableHeaderHeight = 75.0;
         headerRect.size.height = -self.tableView.contentOffset.y;
     }
     self.headerView.frame = headerRect;
+    [self.headerView.layer setNeedsLayout];
+//    _gradient.frame = self.headerView.bounds;
+//    [self.headerView setNeedsDisplay];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -97,29 +123,40 @@ static const CGFloat kTableHeaderHeight = 75.0;
     // Dispose of any resources that can be recreated.
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return 1;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    MKCCommentsPostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.postDetailsCellReuseIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
     
     return cell;
 }
-*/
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    //    return 300;
+    return UITableViewAutomaticDimension;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 44;
+}
 
 /*
 // Override to support conditional editing of the table view.

@@ -35,7 +35,7 @@ static NSUInteger const pageSize = 5;
         errorBlock(error);
     }];
     
-    [[VKService sharedService] getNewPosts];
+//    [[VKService sharedService] getNewPosts];
 }
 
 @end

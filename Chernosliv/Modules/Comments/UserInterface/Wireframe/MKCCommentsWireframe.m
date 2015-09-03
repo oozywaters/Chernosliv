@@ -7,14 +7,16 @@
 //
 
 #import "MKCCommentsWireframe.h"
+#import "MKCCommentsDataManager.h"
+
 #import "MKCCommentsPresenter.h"
 #import "MKCCommentsViewController.h"
+#import "MKCCommentsInteractor.h"
 #import "MKCCommentsPresentationTransition.h"
 
 @interface MKCCommentsWireframe () <UINavigationControllerDelegate>
 
 @property (nonatomic, strong) MKCCommentsViewController *viewController;
-@property (nonatomic, strong) MKCCommentsPresenter *presenter;
 @property (nonatomic, strong) UINavigationController *presentedController;
 
 @end
@@ -24,11 +26,17 @@
 - (instancetype)initWithPost:(VKPost *)post {
     self = [super init];
     if (self) {
-        _viewController = [MKCCommentsViewController new];
-        _presenter = [[MKCCommentsPresenter alloc] initWithPost:post];
+        MKCCommentsDataManager *dataManager = [MKCCommentsDataManager new];
+        MKCCommentsInteractor *interactor = [[MKCCommentsInteractor alloc] initWithDataManager:dataManager];
+        MKCCommentsPresenter *presenter = [[MKCCommentsPresenter alloc] initWithPost:post];
         
-        [_presenter configurePresenterWithUserInterface:_viewController];
-        _viewController.eventHandler = _presenter;
+        interactor.output = presenter;
+        presenter.interactor = interactor;
+        
+        _viewController = [MKCCommentsViewController new];
+        _viewController.eventHandler = presenter;
+        
+        [presenter configurePresenterWithUserInterface:_viewController];
     }
     return self;
 }
@@ -41,8 +49,9 @@
     navigationController.navigationBar.translucent = YES;
     navigationController.view.backgroundColor = [UIColor clearColor];
     navigationController.navigationBar.backgroundColor = [UIColor clearColor];
+    navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
-    [self.presentedController setDelegate:self];
+    [self.presentedController setDelegate:nil];
     [navigationController pushViewController:self.viewController animated:YES];
 }
 
