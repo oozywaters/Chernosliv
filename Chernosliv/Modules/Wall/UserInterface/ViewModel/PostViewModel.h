@@ -6,20 +6,20 @@
 //  Copyright (c) 2015 Vyacheslav Zavertanny. All rights reserved.
 //
 
-#import "VKPost.h"
+#import "MKCVKPost.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
 @protocol PostViewModelDelegate <NSObject>
 
-- (void)attachmentsTappedWithModel:(VKPost *)post;
-- (void)commentsTappedWithModel:(VKPost *)post;
+- (void)attachmentsTappedWithModel:(MKCVKPost *)post;
+- (void)commentsTappedWithModel:(MKCVKPost *)post;
 
 @end
 
 
 @interface PostViewModel : NSObject
 
-@property (nonatomic, strong, readonly) VKPost *post;
+@property (nonatomic, strong, readonly) MKCVKPost *post;
 
 @property (nonatomic, strong) NSString *postText;
 
@@ -30,9 +30,14 @@
 @property (nonatomic) NSUInteger attachmentsCount;
 @property (nonatomic, strong) RACSignal *postAttachmentTap;
 
+
+@property (nonatomic) NSUInteger likesCount;
+@property (nonatomic) NSUInteger commentsCount;
+@property (nonatomic) NSUInteger repostsCount;
+
 @property (nonatomic, weak) id<PostViewModelDelegate> delegate;
 
-- (instancetype)initWithPost:(VKPost *)post;
+- (instancetype)initWithPost:(MKCVKPost *)post;
 
 //- (RACCommand *)showComments;
 

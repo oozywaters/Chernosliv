@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 Vyacheslav Zavertanny. All rights reserved.
 //
 
-@class ObservableMutableArray;
+@class MKCWallDataSource;
 
 @protocol MKCWallViewInterface <NSObject>
 
-- (void)updateDataSource:(ObservableMutableArray *)dataSource;
+- (void)updateDataSource:(MKCWallDataSource *)dataSource;
 - (void)pageLoaded;
 
 @end

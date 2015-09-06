@@ -7,6 +7,7 @@
 //
 
 #import "MKCWallWireframe.h"
+#import "MKCDataStore.h"
 #import "MKCWallDataManager.h"
 #import "MKCWallPresenter.h"
 #import "MKCWallInteractor.h"

@@ -11,6 +11,6 @@
 
 @interface MKCCommentsViewController : UITableViewController <MKCCommentsViewInterface>
 
-@property (nonatomic, weak) id<MKCCommentsModuleInterface> eventHandler;
+@property (nonatomic, strong) id<MKCCommentsModuleInterface> eventHandler;
 
 @end

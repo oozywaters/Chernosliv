@@ -8,14 +8,14 @@
 
 #import "MKCAttachmentsModuleInterface.h"
 #import "MKCAttachmentsViewInterface.h"
-#import "VKPost.h"
+#import "MKCVKPost.h"
 
 
 @interface MKCAttachmentsPresenter : NSObject <MKCAttachmentsModuleInterface>
 
 @property (nonatomic, strong) UIViewController<MKCAttachmentsViewInterface> *userInterface;
 
-- (instancetype)initWithPost:(VKPost *)post;
+- (instancetype)initWithPost:(MKCVKPost *)post;
 - (void)configurePresenterWithUserInterface:(UIViewController<MKCAttachmentsViewInterface> *) userInterface;
 
 @end

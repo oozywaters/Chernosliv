@@ -69,6 +69,14 @@
 - (void)bindViewModel:(id)viewModel {
     self.viewModel = (PostViewModel *)viewModel;
     
+    NSString *likesString = [NSString stringWithFormat:@"%lu", self.viewModel.likesCount];
+    NSString *commentsString = [NSString stringWithFormat:@"%lu", self.viewModel.commentsCount];
+    NSString *repostsString = [NSString stringWithFormat:@"%lu", self.viewModel.repostsCount];
+    
+    [self.likeButton setTitle:likesString forState:UIControlStateNormal];
+    [self.repostButton setTitle:repostsString forState:UIControlStateNormal];
+    [self.commentsButton setTitle:commentsString forState:UIControlStateNormal];
+    
 //    self.commentsButton.rac_command = [postViewModel showComments];
    
     

@@ -16,7 +16,7 @@
 
 @implementation PostViewModel
 
-- (instancetype)initWithPost:(VKPost *)post {
+- (instancetype)initWithPost:(MKCVKPost *)post {
     self = [super init];
     if (self) {
         _post = post;
@@ -27,6 +27,10 @@
 
 - (void)initialize {
     _postText = self.post.text;
+    
+    _likesCount = self.post.likesCount;
+    _commentsCount = self.post.commentsCount;
+    _repostsCount = self.post.repostsCount;
     
     VKPhotoMTL *thumbnailPhoto = [self.post.attachments firstObject];
     _imageURL = thumbnailPhoto.url;

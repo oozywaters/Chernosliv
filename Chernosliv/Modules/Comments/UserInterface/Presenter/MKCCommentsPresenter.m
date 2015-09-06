@@ -7,16 +7,17 @@
 //
 
 #import "MKCCommentsPresenter.h"
+#import "MKCVKPost.h"
 
 @interface MKCCommentsPresenter ()
 
-@property (nonatomic, strong) VKPost *post;
+@property (nonatomic, strong) MKCVKPost *post;
 
 @end
 
 @implementation MKCCommentsPresenter
 
-- (instancetype)initWithPost:(VKPost *)post {
+- (instancetype)initWithPost:(MKCVKPost *)post {
     self = [super init];
     if (self) {
         _post = post;
@@ -34,8 +35,9 @@
     [self.interactor loadCommentsWithPostId:postId];
 }
 
-- (void)commentsLoaded {
-    
+- (void)commentsLoaded:(NSArray *)comments {
+    NSLog(@"aklsdjflkdj");
+    NSLog(@"Interactor received comments: %@", comments);
 }
 
 @end

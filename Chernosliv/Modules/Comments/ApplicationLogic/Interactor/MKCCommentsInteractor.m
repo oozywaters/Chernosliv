@@ -27,6 +27,8 @@
 
 - (void)loadCommentsWithPostId:(NSString *)postId {
     [self.dataManager getCommentsWithPostId:postId success:^(NSArray *comments) {
+        NSLog(@"Interactorrrrrrr output: %@", self.output);
+        
         [self.output commentsLoaded:comments];
     } error:^(NSError *error) {
         NSLog(@"Error while loading comments: %@", error);

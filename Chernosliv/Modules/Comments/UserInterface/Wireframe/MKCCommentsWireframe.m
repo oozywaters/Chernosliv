@@ -19,6 +19,9 @@
 @property (nonatomic, strong) MKCCommentsViewController *viewController;
 @property (nonatomic, strong) UINavigationController *presentedController;
 
+//@property (nonatomic, strong) MKCCommentsPresenter *presenter;
+//@property (nonatomic, strong) MKCCommentsInteractor *interactor;
+
 @end
 
 @implementation MKCCommentsWireframe

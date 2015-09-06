@@ -11,6 +11,6 @@
 @interface MKCVKCommentsList : MTLModel <MTLJSONSerializing>
 
 @property (nonatomic, strong) NSArray *comments;
-@property (nonatomic, strong) NSArray *profiles;
+@property (nonatomic, strong) NSDictionary *profiles;
 
 @end

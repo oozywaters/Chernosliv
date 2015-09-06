@@ -1,26 +1,26 @@
 //
-//  VKPost.m
+//  MKCVKPost.m
 //  Chernosliv
 //
-//  Created by Vacheslav Zavertanny on 14.07.15.
+//  Created by Vyacheslav Zavertanny on 06/09/15.
 //  Copyright (c) 2015 Vyacheslav Zavertanny. All rights reserved.
 //
 
-#import "VKPost.h"
+#import "MKCVKPost.h"
 #import "VKAttachment.h"
 
-@implementation VKPost
+@implementation MKCVKPost
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{@"postId": @"id",
+             @"authorId": @"from_id",
              @"text": @"text",
              @"date": @"date",
-             @"attachments": @"attachments"};
+             @"attachments": @"attachments",
+             @"likesCount": @"likes.count",
+             @"commentsCount": @"comments.count",
+             @"repostsCount": @"reposts.count"};
 }
-
-//+ (NSValueTransformer *)attachmentsJSONTransformer {
-//    return [MTLJSONAdapter arrayTransformerWithModelClass:[VKAttachment class]];
-//}
 
 + (NSValueTransformer *)attachmentsJSONTransformer {
     MTLJSONAdapter *adapter = [[MTLJSONAdapter alloc] initWithModelClass:[VKAttachment class]];
@@ -38,7 +38,7 @@
                 [results addObject:vkAttachment];
             }
         }
-//        NSLog(@"%@", results);
+        //        NSLog(@"%@", results);
         return results;
     }];
 }

@@ -11,8 +11,7 @@
 #import <Mantle/Mantle.h>
 #import "VKService.h"
 #import <VKSdk.h>
-#import "VKWall.h"
-#import "MKCVKCommentsList.h"
+#import "MKCWallGetResponse.h"
 
 @interface VKService () <VKSdkDelegate>
 
@@ -35,7 +34,6 @@ static NSString *const ownerId = @"275110350";
 - (instancetype)init {
     if (self = [super init]) {
         [VKSdk initializeWithDelegate:self andAppId:appId];
-        _wall = [VKWall new];
     }
     return self;
 }
@@ -64,12 +62,10 @@ static NSString *const ownerId = @"275110350";
 
 # pragma mark - API
 
-- (void)getPostsWithOffset:(NSUInteger)offset
-                         count:(NSUInteger)count
-                     onSuccess:(void (^)(NSArray *posts))successBlock
-                       onError:(void (^)(NSError *error))errorBlock {
+- (void)wallGetWithOffset:(NSUInteger)offset count:(NSUInteger)count success:(void (^)(MKCWallGetResponse *))successBlock error:(void (^)(NSError *))errorBlock {
     
     NSDictionary *parameters = @{VK_API_OWNER_ID: ownerId,
+                                 VK_API_EXTENDED: @(YES),
                                  VK_API_OFFSET: @(offset),
                                  VK_API_COUNT: @(count)};
     
@@ -80,21 +76,22 @@ static NSString *const ownerId = @"275110350";
     [wallRequest executeWithResultBlock:^(VKResponse *response) {
         NSError *parseError;
         
-        self.wall = [MTLJSONAdapter modelOfClass:[VKWall class]
-                              fromJSONDictionary:response.json
-                                           error:&parseError];
+        MKCWallGetResponse *wallResponse = [MTLJSONAdapter modelOfClass:[MKCWallGetResponse class]
+                                                     fromJSONDictionary:response.json
+                                                                  error:&parseError];
         if (parseError) {
             errorBlock(parseError);
         }
         
-        successBlock(self.wall.posts);
+        successBlock(wallResponse);
     } errorBlock:^(NSError *error) {
         errorBlock(error);
     }];
+
 }
 
 - (void)getCommentsWithPostId:(NSString *)postId
-                       success:(void (^)(NSArray *comments))successBlock
+                       success:(void (^)(MKCVKCommentsList *commentsList))successBlock
                          error:(void(^)(NSError *error))errorBlock {
     
     NSDictionary *parameters = @{VK_API_OWNER_ID: ownerId,
@@ -108,15 +105,13 @@ static NSString *const ownerId = @"275110350";
         NSError *parseError;
         
         MKCVKCommentsList *commentsList = [MTLJSONAdapter modelOfClass:[MKCVKCommentsList class] fromJSONDictionary:response.json error:&parseError];
-        
-        NSLog(@"Comments: %@", commentsList.profiles);
-        
-     
 //        NSArray *comments = [MTLJSONAdapter modelsOfClass:[MKCVKComment class] fromJSONArray:response.json error:&parseError];
         
         if (parseError) {
             errorBlock(parseError);
         }
+        
+        successBlock(commentsList);
     } errorBlock:^(NSError *error) {
         errorBlock(error);
     }];

@@ -15,14 +15,14 @@
 
 @interface MKCAttachmentsPresenter ()
 
-@property (nonatomic, strong) VKPost *post;
+@property (nonatomic, strong) MKCVKPost *post;
 @property (nonatomic, strong) NSArray *attachments;
 
 @end
 
 @implementation MKCAttachmentsPresenter
 
-- (instancetype)initWithPost:(VKPost *)post {
+- (instancetype)initWithPost:(MKCVKPost *)post {
     self = [super init];
     if (self) {
         _post = post;

@@ -8,16 +8,18 @@
 
 #import "MKCWallPresenter.h"
 #import "MKCWallViewInterface.h"
-#import "MKCAttachmentsModuleDelegate.h"
+#import "MKCWallDataSource.h"
 
 #import "PostViewModel.h"
 #import <LinqToObjectiveC/NSArray+LinqExtensions.h>
 
 @interface MKCWallPresenter () <PostViewModelDelegate>
 
-@property (nonatomic, strong, readonly) ObservableMutableArray *posts;
+@property (nonatomic, strong) MKCWallDataSource *dataSource;
 
-@property (nonatomic, strong) VKPost *currentPost;
+//@property (nonatomic, strong, readonly) ObservableMutableArray *posts;
+
+@property (nonatomic, strong) MKCVKPost *currentPost;
 @property (nonatomic) BOOL endOfWallReached;
 
 @property (nonatomic, strong) RACSignal *canLoadNextPage;
@@ -37,14 +39,15 @@
 }
 
 - (void)initialize {
-    _posts = [[ObservableMutableArray alloc] init];
+    _dataSource = [MKCWallDataSource new];
+//    _posts = [[ObservableMutableArray alloc] init];
     _endOfWallReached = NO;
     //    [[self loadNextPage]execute:nil];
 }
 
 - (void)configurePresenterWithUserInterface:(UIViewController<MKCWallViewInterface> *)userInterface {
     self.wallInterface = userInterface;
-    [self.wallInterface updateDataSource:self.posts];
+    [self.wallInterface updateDataSource:self.dataSource];
     [self loadNextPage];
 //    [self.interactor loadPosts];
 }
@@ -55,7 +58,7 @@
 
 # pragma mark - PostViewModelDelegate
 
-- (void)attachmentsTappedWithModel:(VKPost *)post {
+- (void)attachmentsTappedWithModel:(MKCVKPost *)post {
     self.currentPost = post;
     [self.wireframe presentAttachmentsControllerWithPost:post];
 }

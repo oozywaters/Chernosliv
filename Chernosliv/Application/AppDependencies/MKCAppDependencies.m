@@ -23,8 +23,7 @@
 
 #pragma mark - Private
 
-- (MKCRootWireframe *)rootWireframe
-{
+- (MKCRootWireframe *)rootWireframe {
     if (!_rootWireframe)
     {
         _rootWireframe = [MKCRootWireframe new];

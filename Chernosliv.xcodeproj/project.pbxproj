@@ -15,6 +15,9 @@
 		71189DE71B89686100D8F341 /* MKCPhotoAttachmentViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 71189DE61B89686100D8F341 /* MKCPhotoAttachmentViewModel.m */; };
 		71189DEF1B89695200D8F341 /* PostViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 71189DEE1B89695200D8F341 /* PostViewModel.m */; };
 		71189DF31B897DAB00D8F341 /* MKCWallDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 71189DF21B897DAB00D8F341 /* MKCWallDataManager.m */; };
+		711F7B021B9BF848002768D7 /* MKCWallGetResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 711F7B011B9BF848002768D7 /* MKCWallGetResponse.m */; };
+		711F7B051B9BF8FC002768D7 /* MKCVKPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 711F7B041B9BF8FC002768D7 /* MKCVKPost.m */; };
+		711F7B091B9C143D002768D7 /* MKCWallDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 711F7B081B9C143D002768D7 /* MKCWallDataSource.m */; };
 		7124495B1B5B753C008ED6C0 /* VKAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7124495A1B5B753C008ED6C0 /* VKAttachment.m */; };
 		712449611B5B78FC008ED6C0 /* VKPhotoMTL.m in Sources */ = {isa = PBXBuildFile; fileRef = 712449601B5B78FC008ED6C0 /* VKPhotoMTL.m */; };
 		712489E61B50B286006526BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 712489E41B50B286006526BA /* Main.storyboard */; };
@@ -22,8 +25,7 @@
 		712489EB1B50B286006526BA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712489E91B50B286006526BA /* LaunchScreen.xib */; };
 		712489F71B50B286006526BA /* ChernoslivTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 712489F61B50B286006526BA /* ChernoslivTests.m */; };
 		7141B0ED1B58FF000037C7FF /* TableViewBindingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7141B0EC1B58FF000037C7FF /* TableViewBindingHelper.m */; };
-		714CE65A1B551C710088C88C /* VKPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 714CE6591B551C710088C88C /* VKPost.m */; };
-		714CE65D1B5522980088C88C /* VKWall.m in Sources */ = {isa = PBXBuildFile; fileRef = 714CE65C1B5522980088C88C /* VKWall.m */; };
+		716453451B9B181700287BE6 /* MKCDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 716453441B9B181700287BE6 /* MKCDataStore.m */; };
 		716CAC071B5264A30068A441 /* VKService.m in Sources */ = {isa = PBXBuildFile; fileRef = 716CAC061B5264A30068A441 /* VKService.m */; };
 		71870EED1B8478970089B215 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71870EEB1B8478970089B215 /* Info.plist */; };
 		71870EEE1B8478970089B215 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 71870EEC1B8478970089B215 /* main.m */; };
@@ -83,6 +85,12 @@
 		71189DEE1B89695200D8F341 /* PostViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostViewModel.m; path = Modules/Wall/UserInterface/ViewModel/PostViewModel.m; sourceTree = "<group>"; };
 		71189DF11B897DAB00D8F341 /* MKCWallDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCWallDataManager.h; path = Modules/Wall/ApplicationLogic/Manager/MKCWallDataManager.h; sourceTree = "<group>"; };
 		71189DF21B897DAB00D8F341 /* MKCWallDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCWallDataManager.m; path = Modules/Wall/ApplicationLogic/Manager/MKCWallDataManager.m; sourceTree = "<group>"; };
+		711F7B001B9BF848002768D7 /* MKCWallGetResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCWallGetResponse.h; path = Model/MKCWallGetResponse.h; sourceTree = "<group>"; };
+		711F7B011B9BF848002768D7 /* MKCWallGetResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCWallGetResponse.m; path = Model/MKCWallGetResponse.m; sourceTree = "<group>"; };
+		711F7B031B9BF8FC002768D7 /* MKCVKPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCVKPost.h; path = Model/MKCVKPost.h; sourceTree = "<group>"; };
+		711F7B041B9BF8FC002768D7 /* MKCVKPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCVKPost.m; path = Model/MKCVKPost.m; sourceTree = "<group>"; };
+		711F7B071B9C143D002768D7 /* MKCWallDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCWallDataSource.h; path = Modules/Wall/UserInterface/DataSource/MKCWallDataSource.h; sourceTree = "<group>"; };
+		711F7B081B9C143D002768D7 /* MKCWallDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCWallDataSource.m; path = Modules/Wall/UserInterface/DataSource/MKCWallDataSource.m; sourceTree = "<group>"; };
 		712449591B5B753C008ED6C0 /* VKAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VKAttachment.h; path = Model/VKAttachment.h; sourceTree = "<group>"; };
 		7124495A1B5B753C008ED6C0 /* VKAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VKAttachment.m; path = Model/VKAttachment.m; sourceTree = "<group>"; };
 		7124495F1B5B78FC008ED6C0 /* VKPhotoMTL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VKPhotoMTL.h; path = Model/VKPhotoMTL.h; sourceTree = "<group>"; };
@@ -95,10 +103,8 @@
 		712489F51B50B286006526BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		712489F61B50B286006526BA /* ChernoslivTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChernoslivTests.m; sourceTree = "<group>"; };
 		7141B0EC1B58FF000037C7FF /* TableViewBindingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewBindingHelper.m; path = Utils/TableViewBindingHelper.m; sourceTree = "<group>"; };
-		714CE6581B551C710088C88C /* VKPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VKPost.h; path = Model/VKPost.h; sourceTree = "<group>"; };
-		714CE6591B551C710088C88C /* VKPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VKPost.m; path = Model/VKPost.m; sourceTree = "<group>"; };
-		714CE65B1B5522980088C88C /* VKWall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VKWall.h; path = Model/VKWall.h; sourceTree = "<group>"; };
-		714CE65C1B5522980088C88C /* VKWall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VKWall.m; path = Model/VKWall.m; sourceTree = "<group>"; };
+		716453431B9B181700287BE6 /* MKCDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCDataStore.h; path = Common/Store/MKCDataStore.h; sourceTree = "<group>"; };
+		716453441B9B181700287BE6 /* MKCDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCDataStore.m; path = Common/Store/MKCDataStore.m; sourceTree = "<group>"; };
 		716CABFE1B50E1E80068A441 /* TableViewBindingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewBindingHelper.h; path = Utils/TableViewBindingHelper.h; sourceTree = "<group>"; };
 		716CAC011B50E22F0068A441 /* ReactiveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReactiveView.h; path = Utils/ReactiveView.h; sourceTree = "<group>"; };
 		716CAC051B5264A30068A441 /* VKService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VKService.h; path = Model/VKService.h; sourceTree = "<group>"; };
@@ -234,6 +240,15 @@
 			name = Manager;
 			sourceTree = "<group>";
 		};
+		711F7B061B9C1418002768D7 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				711F7B071B9C143D002768D7 /* MKCWallDataSource.h */,
+				711F7B081B9C143D002768D7 /* MKCWallDataSource.m */,
+			);
+			name = DataSource;
+			sourceTree = "<group>";
+		};
 		712489CE1B50B286006526BA = {
 			isa = PBXGroup;
 			children = (
@@ -260,6 +275,7 @@
 			children = (
 				71870EE91B8475980089B215 /* Application */,
 				71870EFD1B8484710089B215 /* Modules */,
+				716453411B9B177300287BE6 /* Common */,
 				716CABFD1B50E1C90068A441 /* Utils */,
 				71248A021B50B4AD006526BA /* Model */,
 				712489E41B50B286006526BA /* Main.storyboard */,
@@ -291,10 +307,6 @@
 			children = (
 				716CAC051B5264A30068A441 /* VKService.h */,
 				716CAC061B5264A30068A441 /* VKService.m */,
-				714CE6581B551C710088C88C /* VKPost.h */,
-				714CE6591B551C710088C88C /* VKPost.m */,
-				714CE65B1B5522980088C88C /* VKWall.h */,
-				714CE65C1B5522980088C88C /* VKWall.m */,
 				712449591B5B753C008ED6C0 /* VKAttachment.h */,
 				7124495A1B5B753C008ED6C0 /* VKAttachment.m */,
 				7124495F1B5B78FC008ED6C0 /* VKPhotoMTL.h */,
@@ -307,8 +319,29 @@
 				719601531B9890B900E72C59 /* MKCVKCommentsList.m */,
 				719601551B98944700E72C59 /* MKCVKProfile.h */,
 				719601561B98944700E72C59 /* MKCVKProfile.m */,
+				711F7B001B9BF848002768D7 /* MKCWallGetResponse.h */,
+				711F7B011B9BF848002768D7 /* MKCWallGetResponse.m */,
+				711F7B031B9BF8FC002768D7 /* MKCVKPost.h */,
+				711F7B041B9BF8FC002768D7 /* MKCVKPost.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		716453411B9B177300287BE6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				716453421B9B178500287BE6 /* Store */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		716453421B9B178500287BE6 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				716453431B9B181700287BE6 /* MKCDataStore.h */,
+				716453441B9B181700287BE6 /* MKCDataStore.m */,
+			);
+			name = Store;
 			sourceTree = "<group>";
 		};
 		716CABFD1B50E1C90068A441 /* Utils */ = {
@@ -403,6 +436,7 @@
 		71870F001B8495230089B215 /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
+				711F7B061B9C1418002768D7 /* DataSource */,
 				71870F0A1B849D940089B215 /* Presenter */,
 				71189DEC1B89694000D8F341 /* ViewModel */,
 				71870F091B849C480089B215 /* View */,
@@ -821,14 +855,12 @@
 				71870F141B84A3710089B215 /* CountView.m in Sources */,
 				71CBB1E21B85E50B00A64F0E /* MKCWallInteractor.m in Sources */,
 				71189DF31B897DAB00D8F341 /* MKCWallDataManager.m in Sources */,
-				714CE65D1B5522980088C88C /* VKWall.m in Sources */,
 				719601511B987F6C00E72C59 /* MKCVKComment.m in Sources */,
 				712449611B5B78FC008ED6C0 /* VKPhotoMTL.m in Sources */,
 				71E44F611B6CFFE500E219CA /* VKVideoMTL.m in Sources */,
 				71FC38DF1B9463C70033A7F1 /* MKCCommentsPresenter.m in Sources */,
 				71870EEE1B8478970089B215 /* main.m in Sources */,
 				7113A4271B57D78D0060D5B5 /* ObservableMutableArray.m in Sources */,
-				714CE65A1B551C710088C88C /* VKPost.m in Sources */,
 				71CEEF671B98391A009E4E21 /* MKCCommentsPostTableViewCell.m in Sources */,
 				71189DDF1B895CFE00D8F341 /* MKCAttachmentsViewController.m in Sources */,
 				71CEEF6E1B98789D009E4E21 /* MKCCommentsInteractor.m in Sources */,
@@ -841,11 +873,15 @@
 				71870F201B84A5DA0089B215 /* MKCAttachmentsWireframe.m in Sources */,
 				71189DE71B89686100D8F341 /* MKCPhotoAttachmentViewModel.m in Sources */,
 				71870EF71B847AF10089B215 /* MKCAppDependencies.m in Sources */,
+				716453451B9B181700287BE6 /* MKCDataStore.m in Sources */,
 				71FC38EA1B9491F60033A7F1 /* MKCCommentsHeaderView.m in Sources */,
 				71870F0D1B849DEA0089B215 /* MKCWallPresenter.m in Sources */,
+				711F7B091B9C143D002768D7 /* MKCWallDataSource.m in Sources */,
 				719601541B9890B900E72C59 /* MKCVKCommentsList.m in Sources */,
+				711F7B051B9BF8FC002768D7 /* MKCVKPost.m in Sources */,
 				7124495B1B5B753C008ED6C0 /* VKAttachment.m in Sources */,
 				71FC38D71B94617F0033A7F1 /* MKCAttachmentsPresentationTransition.m in Sources */,
+				711F7B021B9BF848002768D7 /* MKCWallGetResponse.m in Sources */,
 				71CEEF721B987C33009E4E21 /* MKCCommentsDataManager.m in Sources */,
 				71FC38DB1B94623D0033A7F1 /* MKCCommentsWireframe.m in Sources */,
 				71189DE11B895CFE00D8F341 /* MKCPhotoAttachmentViewController.m in Sources */,

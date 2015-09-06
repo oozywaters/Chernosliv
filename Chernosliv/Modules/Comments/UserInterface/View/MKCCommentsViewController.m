@@ -9,7 +9,7 @@
 #import "MKCCommentsViewController.h"
 #import "MKCCommentsHeaderView.h"
 #import "MKCCommentsPostTableViewCell.h"
-#import "VKPost.h"
+#import "MKCVKPost.h"
 #import "VKAttachment.h"
 #import "VKPhotoMTL.h"
 #import <SDWebImage/UIImageView+WebCache.h>
@@ -21,7 +21,7 @@
 @property (nonatomic, strong, readonly) NSString *postDetailsCellReuseIdentifier;
 @property (nonatomic, strong, readonly) NSString *commentsCellReuseIdentifier;
 
-@property (nonatomic, strong) VKPost *post;
+@property (nonatomic, strong) MKCVKPost *post;
 
 @property (nonatomic, strong, readonly) UIView *headerView;
 

@@ -7,22 +7,22 @@
 //
 
 #import <ReactiveCocoa/ReactiveCocoa.h>
+#import "MKCVKCommentsList.h"
 
 @class VKWall;
+@class MKCWallGetResponse;
 
 @interface VKService : NSObject
 
 + (VKService *)sharedService;
 
-@property (nonatomic, strong) VKWall *wall;
-
-- (void)getPostsWithOffset:(NSUInteger)offset
-                         count:(NSUInteger)count
-                     onSuccess:(void (^)(NSArray *posts))successBlock
-                       onError:(void (^)(NSError *error))errorBlock;
-
 - (void)getCommentsWithPostId:(NSString *)postId
-                      success:(void (^)(NSArray *comments))successBlock
+                      success:(void (^)(MKCVKCommentsList *commentsList))successBlock
                         error:(void(^)(NSError *error))errorBlock;
+
+- (void)wallGetWithOffset:(NSUInteger)offset
+                    count:(NSUInteger)count
+                  success:(void(^)(MKCWallGetResponse *response))successBlock
+                    error:(void(^)(NSError *error))errorBlock;
 
 @end

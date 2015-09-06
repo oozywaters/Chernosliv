@@ -7,6 +7,8 @@
 //
 
 #import "MKCWallDataManager.h"
+#import "MKCDataStore.h"
+#import "MKCWallGetResponse.h"
 #import "VKService.h"
 
 @interface MKCWallDataManager ()
@@ -28,14 +30,16 @@
 static NSUInteger const pageSize = 5;
 
 - (void)loadPostsWithCompletion:(void (^)(NSArray *))completionBlock error:(void (^)(NSError *))errorBlock {
-    [[VKService sharedService] getPostsWithOffset:self.posts.count count:pageSize onSuccess:^(NSArray *posts) {
-        [self.posts addObjectsFromArray:posts];
-        completionBlock(posts);
-    } onError:^(NSError *error) {
+    MKCDataStore *dataStore = [MKCDataStore sharedStore];
+    NSUInteger offset = [dataStore postsCount];
+    
+    [[VKService sharedService] wallGetWithOffset:offset count:pageSize success:^(MKCWallGetResponse *response) {
+        [dataStore storePosts:response.posts];
+        [dataStore storeProfiles:response.profiles];
+        completionBlock(response.posts);
+    } error:^(NSError *error) {
         errorBlock(error);
     }];
-    
-//    [[VKService sharedService] getNewPosts];
 }
 
 @end
