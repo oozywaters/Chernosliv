@@ -44,4 +44,6 @@
 - (void)showAttachments;
 - (void)showComments;
 
+- (CGFloat)calculateViewHeightForWidth:(CGFloat)width;
+
 @end

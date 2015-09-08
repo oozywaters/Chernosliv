@@ -15,6 +15,8 @@
 #import "PostViewModel.h"
 #import "MKCWallTableViewController.h"
 
+#import <Masonry/Masonry.h>
+
 @interface PostTableViewCell ()
 
 @property (nonatomic, strong) PostViewModel *viewModel;
@@ -29,7 +31,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *commentsButton;
 @property (weak, nonatomic) IBOutlet UIButton *repostButton;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *textLabelConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *attachmentsImgageConstraint;
 
+//@property (nonatomic, strong) UILabel *textContent;
 
 @end
 
@@ -42,10 +47,13 @@
     
     _postImage.layer.shadowColor = [UIColor grayColor].CGColor;
     _postImage.layer.shadowOffset = CGSizeMake(0, 2);
+    _postImage.layer.shouldRasterize = YES;
     _postImage.layer.shadowOpacity = 1;
-    _postImage.layer.shadowRadius = 4.0;
+    _postImage.layer.shadowRadius = 2.0;
     _postImage.clipsToBounds = NO;
     
+//    _postImage.layer.borderWidth = 0.5;
+//    _postImage.layer.borderColor = [UIColor grayColor].CGColor;
     
 }
 
@@ -69,49 +77,68 @@
 - (void)bindViewModel:(id)viewModel {
     self.viewModel = (PostViewModel *)viewModel;
     
-    NSString *likesString = [NSString stringWithFormat:@"%lu", self.viewModel.likesCount];
-    NSString *commentsString = [NSString stringWithFormat:@"%lu", self.viewModel.commentsCount];
-    NSString *repostsString = [NSString stringWithFormat:@"%lu", self.viewModel.repostsCount];
+    NSString *likesString = [NSString stringWithFormat:@"%d", self.viewModel.likesCount];
+    NSString *commentsString = [NSString stringWithFormat:@"%d", self.viewModel.commentsCount];
+    NSString *repostsString = [NSString stringWithFormat:@"%d", self.viewModel.repostsCount];
     
     [self.likeButton setTitle:likesString forState:UIControlStateNormal];
     [self.repostButton setTitle:repostsString forState:UIControlStateNormal];
     [self.commentsButton setTitle:commentsString forState:UIControlStateNormal];
     
-//    self.commentsButton.rac_command = [postViewModel showComments];
-   
+    [self setupTextLabelWithViewModel:self.viewModel];
+    [self setupAttachmentsViewWithViewModel:self.viewModel];
     
-//    [self.commentsButton rac_signalForControlEvents:UIControlEventTouchUpInside];
-    
-//    postViewModel.postAttachmentTap = [self.attachmentTapRecognizer rac_gestureSignal];
+}
 
-//    VKPost *post = (VKPost *)viewModel;
-//    VKPhotoMTL *photo = post.attachments[0];
-//
-////
+- (void)setupTextLabelWithViewModel:(PostViewModel *)viewModel {
+    if (viewModel.postText) {
+        [self.textLabelConstraint setConstant:12.0];
+        [self.textContent setText:viewModel.postText];
+    } else {
+        [self.textLabelConstraint setConstant:0.0];
+        [self.textContent setText:nil];
+    }
+}
+
+- (void)setupAttachmentsViewWithViewModel:(PostViewModel *)viewModel {
     NSUInteger attachCount = self.viewModel.attachmentsCount;
+    
+    if (attachCount == 0) {
+        if (self.aspectConstraint) {
+            self.aspectConstraint = nil;
+        }
+        [self.postImage setImage:nil];
+        [self.attachmentsImgageConstraint setConstant:0.0];
+    } else {
+        [self.attachmentsImgageConstraint setConstant:12.0];
+        UITapGestureRecognizer *attachmentsTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(attachmentsTapped)];
+        
+//        CGFloat aspect = self.viewModel.imageHeight / self.viewModel.imageWidth;
+        
+//        self.aspectConstraint = [NSLayoutConstraint constraintWithItem:self.postImage
+//                                                             attribute:NSLayoutAttributeHeight
+//                                                             relatedBy:NSLayoutRelationEqual
+//                                                                toItem:self.postImage
+//                                                             attribute:NSLayoutAttributeWidth
+//                                                            multiplier:aspect
+//                                                              constant:0.0];
+        
+        [self.postImage sd_setImageWithURL:self.viewModel.imageURL];
+        [self.postImage addGestureRecognizer:attachmentsTapGestureRecognizer];
+        
+    }
+    
     if (attachCount <= 1) {
         [self.countView setHidden:YES];
     } else {
         [self.countView setHidden:NO];
         [self.countView setCount:attachCount];
     }
-    
-    if (attachCount > 0) {
-        UITapGestureRecognizer *attachmentsTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(attachmentsTapped)];
-        
-        CGFloat aspect = self.viewModel.imageWidth / self.viewModel.imageHeight;
-        self.aspectConstraint = [NSLayoutConstraint constraintWithItem:self.postImage
-                                                             attribute:NSLayoutAttributeWidth
-                                                             relatedBy:NSLayoutRelationEqual
-                                                                toItem:self.postImage
-                                                             attribute:NSLayoutAttributeHeight
-                                                            multiplier:aspect
-                                                              constant:0.0];
-        [self.postImage sd_setImageWithURL:self.viewModel.imageURL];
-        [self.postImage addGestureRecognizer:attachmentsTapGestureRecognizer];
-    }
-    
-    self.textContent.text = self.viewModel.postText;
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.textContent.preferredMaxLayoutWidth = self.bounds.size.width - 24;
 }
 
 - (void)attachmentsTapped {

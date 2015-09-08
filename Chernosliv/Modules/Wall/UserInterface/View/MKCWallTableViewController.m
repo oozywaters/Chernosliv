@@ -8,6 +8,7 @@
 
 #import "MKCWallTableViewController.h"
 #import "PostViewModel.h"
+#import "MKCWallDataSource.h"
 //#import "VKPost.h"
 #import "VKPhotoMTL.h"
 #import "TableViewBindingHelper.h"
@@ -17,7 +18,7 @@
 @interface MKCWallTableViewController () <PostTableViewCellDelegate>
 
 //@property (nonatomic, strong) WallViewModel *viewModel;
-@property (nonatomic, strong) ObservableMutableArray *posts;
+@property (nonatomic, strong) MKCWallDataSource *dataSource;
 
 @property (nonatomic, strong) TableViewBindingHelper *bindingHelper;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *attachmentsTapGestureRecognizer;
@@ -43,7 +44,7 @@
     }];
     
     _bindingHelper = [TableViewBindingHelper bindingHelperForTableView:self.tableView
-                                                          sourceSignal:RACObserve(self, posts)
+                                                          sourceSignal:RACObserve(self.dataSource, posts)
                                                       selectionCommand:self.postSelectedCommand
                                                           templateCell:nib];
     _bindingHelper.delegate = self;
@@ -53,9 +54,6 @@
     [self.tableView addInfiniteScrollingWithActionHandler:^{
         @strongify(self)
         [self.eventHandler loadNextPage];
-//        [[[self.viewModel loadNextPage] execute:nil] subscribeCompleted:^{
-//            [self.tableView.infiniteScrollingView stopAnimating];
-//        }];
     }];
     
     
@@ -78,11 +76,6 @@
 //    return 44;
 //}
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //    return 300;
-    return UITableViewAutomaticDimension;
-}
-
 # pragma mark - PostTableViewCellDelegate
 
 - (void)postTableViewCellAttachmentsTapped:(UITableViewCell *)cell {
@@ -95,8 +88,22 @@
 
 # pragma mark - MKCWallViewInterface
 
-- (void)updateDataSource:(ObservableMutableArray *)dataSource {
-    self.posts = dataSource;
+- (void)updateDataSource:(MKCWallDataSource *)dataSource {
+    self.dataSource = dataSource;
+}
+
+# pragma mark - UITableViewDelegate
+
+//- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return 300;
+//}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    PostViewModel *viewModel = [self.dataSource objectAtIndex:indexPath.row];
+    CGFloat height = [viewModel calculateViewHeightForWidth:self.tableView.bounds.size.width];
+//    return UITableViewAutomaticDimension;
+//    return 400;
+    return height;
 }
 
 @end

@@ -270,7 +270,9 @@ uint scrollViewDidEndScrollingAnimation:1;
 #pragma mark Configuring Rows for the Table View
 - (CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CGFloat heightForRowAtIndexPath = tableView.rowHeight;
+    CGFloat heightForRowAtIndexPath = 0;
+    
+    NSLog(@"Row: %d", indexPath.row);
     
     if (self.delegateRespondsTo.heightForRowAtIndexPath) {
         heightForRowAtIndexPath = [self.delegate tableView:tableView heightForRowAtIndexPath:indexPath];

@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 Vyacheslav Zavertanny. All rights reserved.
 //
 
-@import Foundation;
-
 /// A protocol which is adopted by views which are backed by view models.
 @protocol ReactiveView <NSObject>
 

@@ -71,13 +71,15 @@
 # pragma mark - MKCWallInteractorOutput
 
 - (void)pageLoadedWithPosts:(NSArray *)posts {
-    NSArray *newPosts = [posts linq_select:^id(VKPost *post) {
-        PostViewModel *pvm = [[PostViewModel alloc] initWithPost:post];
-        pvm.delegate = self;
-        return pvm;
-    }];
-    [self.posts addObjectsFromArray:newPosts];
+    [self.dataSource addPosts:posts];
     [self.wallInterface pageLoaded];
+//    NSArray *newPosts = [posts linq_select:^id(VKPost *post) {
+//        PostViewModel *pvm = [[PostViewModel alloc] initWithPost:post];
+//        pvm.delegate = self;
+//        return pvm;
+//    }];
+//    [self.posts addObjectsFromArray:newPosts];
+//    [self.wallInterface pageLoaded];
 }
 
 # pragma mark - API
