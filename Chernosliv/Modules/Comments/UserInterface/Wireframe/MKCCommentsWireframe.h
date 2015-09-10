@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 Vyacheslav Zavertanny. All rights reserved.
 //
 
-@class VKPost;
+@class MKCVKPost;
 
 @interface MKCCommentsWireframe : NSObject
 
-- (instancetype)initWithPost:(VKPost *)post;
+- (instancetype)initWithPost:(MKCVKPost *)post;
 - (void)presentCommentsInterfaceFromNavigationController:(UINavigationController *)navigationController;
 
 @end

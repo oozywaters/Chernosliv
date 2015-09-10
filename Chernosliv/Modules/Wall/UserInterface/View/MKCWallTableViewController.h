@@ -14,5 +14,6 @@
 
 @property (nonatomic, weak) id<MKCWallModuleInterface> eventHandler;
 @property (nonatomic, strong, readonly) PostTableViewCell *currentCell;
+@property (nonatomic, strong) UIImageView *tappedImage;
 
 @end

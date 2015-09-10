@@ -47,21 +47,25 @@
     presenter.wireframe = self;
     [presenter configurePresenterWithUserInterface:wvc];
     
+    [navigationController setNavigationBarHidden:YES];
     [navigationController pushViewController:wvc animated:YES];
     
     self.presenter = presenter;
     self.presentedController = navigationController;
+    
+//    [navigationController setNavigationBarHidden:YES];
 }
 
-- (void)presentAttachmentsControllerWithPost:(VKPost *)post {
+- (void)presentAttachmentsControllerWithPost:(MKCVKPost *)post {
     MKCAttachmentsWireframe *wireframe = [[MKCAttachmentsWireframe alloc] initWithPost:post];
     [wireframe presentAttachmentsInterfaceFromNavigationController:self.presentedController];
 }
 
-- (void)presentCommentsControllerWithPost:(VKPost *)post {
-    NSLog(@"Present");
+- (void)presentCommentsControllerWithPost:(MKCVKPost *)post {
     MKCCommentsWireframe *wireframe = [[MKCCommentsWireframe alloc] initWithPost:post];
     [wireframe presentCommentsInterfaceFromNavigationController:self.presentedController];
+//    MKCCommentsWireframe *wireframe = [[MKCCommentsWireframe alloc] initWithPost:post];
+//    [wireframe presentCommentsInterfaceFromNavigationController:self.presentedController];
 }
 
 @end

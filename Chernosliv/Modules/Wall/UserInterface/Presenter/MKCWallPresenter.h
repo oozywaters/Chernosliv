@@ -19,12 +19,10 @@
 
 @interface MKCWallPresenter : NSObject <MKCWallModuleInterface, MKCWallInteractorOutput>
 
-@property (nonatomic, strong) id<MKCWallInteractorInput> interactor;
 @property (nonatomic, strong) MKCWallWireframe *wireframe;
-
-@property (nonatomic, strong) id<MKCWallModuleDelegate> wallModuleDelegate;
-
-- (RACCommand *)viewComments;
+@property (nonatomic, strong) id<MKCWallInteractorInput> interactor;
+@property (nonatomic, strong) RACCommand *viewComments;
+@property (nonatomic, strong) RACCommand *viewAttachments;
 
 - (void)configurePresenterWithUserInterface:(UIViewController<MKCWallViewInterface>*)userInterface;
 - (void)loadNextPageWithCompletionHandler:(void(^)(void))completion;

@@ -26,13 +26,13 @@
 
 @implementation MKCCommentsWireframe
 
-- (instancetype)initWithPost:(VKPost *)post {
+- (instancetype)initWithPost:(MKCVKPost *)post {
     self = [super init];
     if (self) {
-        MKCCommentsDataManager *dataManager = [MKCCommentsDataManager new];
+        MKCCommentsDataManager *dataManager = [[MKCCommentsDataManager alloc] initWithPost:post];
         MKCCommentsInteractor *interactor = [[MKCCommentsInteractor alloc] initWithDataManager:dataManager];
-        MKCCommentsPresenter *presenter = [[MKCCommentsPresenter alloc] initWithPost:post];
-        
+        MKCCommentsPresenter *presenter = [MKCCommentsPresenter new];
+
         interactor.output = presenter;
         presenter.interactor = interactor;
         
@@ -47,6 +47,7 @@
 - (void)presentCommentsInterfaceFromNavigationController:(UINavigationController *)navigationController {
     self.presentedController = navigationController;
     
+    [navigationController setNavigationBarHidden:NO];
     [navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     navigationController.navigationBar.shadowImage = [UIImage new];
     navigationController.navigationBar.translucent = YES;

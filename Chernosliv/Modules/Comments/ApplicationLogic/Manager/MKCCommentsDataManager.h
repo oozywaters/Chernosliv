@@ -6,12 +6,15 @@
 //  Copyright (c) 2015 Vyacheslav Zavertanny. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@class MKCVKPost, MKCVKProfile;
 
 @interface MKCCommentsDataManager : NSObject
 
-- (void)getCommentsWithPostId:(NSString *)postId
-                       success:(void(^)(NSArray *comments))success
+@property (nonatomic, strong, readonly) MKCVKPost *post;
+
+- (instancetype)initWithPost:(MKCVKPost *)post;
+- (void)getCommentsWithSuccess:(void(^)(NSArray *comments))success
                          error:(void(^)(NSError *error))error;
+- (MKCVKProfile *)profileWithId:(NSString *)identifier;
 
 @end

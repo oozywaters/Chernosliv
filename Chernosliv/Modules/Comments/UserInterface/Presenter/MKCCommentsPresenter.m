@@ -7,32 +7,27 @@
 //
 
 #import "MKCCommentsPresenter.h"
-#import "MKCVKPost.h"
+#import "MKCCommentsPost.h"
 
 @interface MKCCommentsPresenter ()
 
-@property (nonatomic, strong) MKCVKPost *post;
+@property (nonatomic, strong) MKCCommentsPost *post;
 
 @end
 
 @implementation MKCCommentsPresenter
 
-- (instancetype)initWithPost:(MKCVKPost *)post {
-    self = [super init];
-    if (self) {
-        _post = post;
-    }
-    return self;
-}
-
 - (void)configurePresenterWithUserInterface:(UIViewController<MKCCommentsViewInterface> *)userInterface {
     _userInterface = userInterface;
-    [self.userInterface updateCommentsData:self.post];
-    [self loadCommentsWithPostId:self.post.postId];
+    _post = [self.interactor currentPost];
+    NSLog(@"Current post: %@", _post.postHeaderImageURL);
+    [self loadComments];
+    [self.userInterface updatePostData:self.post];
+//    [self loadCommentsWithPostId:self.post.postId];
 }
 
-- (void)loadCommentsWithPostId:(NSString *)postId {
-    [self.interactor loadCommentsWithPostId:postId];
+- (void)loadComments {
+    [self.interactor loadComments];
 }
 
 - (void)commentsLoaded:(NSArray *)comments {

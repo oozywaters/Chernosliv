@@ -25,9 +25,9 @@
 }
 
 - (void)addPosts:(NSArray *)posts {
-    posts = [[posts.rac_sequence map:^id(MKCVKPost *postModel) {
-        return [[PostViewModel alloc] initWithPost:postModel];
-    }] array];
+//    posts = [[posts.rac_sequence map:^id(MKCVKPost *postModel) {
+//        return [[PostViewModel alloc] initWithPost:postModel];
+//    }] array];
     
     [self.posts addObjectsFromArray:posts];
 }

@@ -27,7 +27,7 @@
     return self;
 }
 
-static NSUInteger const pageSize = 5;
+static NSUInteger const pageSize = 20;
 
 - (void)loadPostsWithCompletion:(void (^)(NSArray *))completionBlock error:(void (^)(NSError *))errorBlock {
     MKCDataStore *dataStore = [MKCDataStore sharedStore];

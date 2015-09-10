@@ -24,7 +24,7 @@
 
 @implementation MKCAttachmentsWireframe
 
-- (instancetype)initWithPost:(VKPost *)post {
+- (instancetype)initWithPost:(MKCVKPost *)post {
     self = [super init];
     if (self) {
         _viewController = [MKCAttachmentsViewController new];
@@ -39,6 +39,15 @@
 - (void)presentAttachmentsInterfaceFromNavigationController:(UINavigationController *)navigationController {
     self.presentedController = navigationController;
     [self.presentedController setDelegate:self];
+    
+    [navigationController setNavigationBarHidden:NO];
+    [navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    navigationController.navigationBar.shadowImage = [UIImage new];
+    navigationController.navigationBar.translucent = YES;
+    navigationController.view.backgroundColor = [UIColor clearColor];
+    navigationController.navigationBar.backgroundColor = [UIColor clearColor];
+    navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
     [navigationController pushViewController:self.viewController animated:YES];
 }
 

@@ -7,12 +7,12 @@
 //
 
 
-@class VKPost;
+@class MKCVKPost;
 
 @interface MKCWallWireframe : NSObject
 
 - (void)presentWallInterfaceFromWindow:(UIWindow *)window;
-- (void)presentAttachmentsControllerWithPost:(VKPost *)post;
-- (void)presentCommentsControllerWithPost:(VKPost *)post;
+- (void)presentAttachmentsControllerWithPost:(MKCVKPost *)post;
+- (void)presentCommentsControllerWithPost:(MKCVKPost *)post;
 
 @end

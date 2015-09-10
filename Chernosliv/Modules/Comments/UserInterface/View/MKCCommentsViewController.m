@@ -9,9 +9,7 @@
 #import "MKCCommentsViewController.h"
 #import "MKCCommentsHeaderView.h"
 #import "MKCCommentsPostTableViewCell.h"
-#import "MKCVKPost.h"
-#import "VKAttachment.h"
-#import "VKPhotoMTL.h"
+#import "MKCCommentsPost.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <SDWebImage/UIImage+MultiFormat.h>
 #import <Masonry/Masonry.h>
@@ -21,7 +19,7 @@
 @property (nonatomic, strong, readonly) NSString *postDetailsCellReuseIdentifier;
 @property (nonatomic, strong, readonly) NSString *commentsCellReuseIdentifier;
 
-@property (nonatomic, strong) MKCVKPost *post;
+@property (nonatomic, strong) MKCCommentsPost *post;
 
 @property (nonatomic, strong, readonly) UIView *headerView;
 
@@ -35,6 +33,7 @@ static const CGFloat kTableHeaderHeight = 75.0;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self setNeedsStatusBarAppearanceUpdate];
     
     [self setUpHeaderView];
@@ -69,14 +68,15 @@ static const CGFloat kTableHeaderHeight = 75.0;
 }
 
 - (void)setUpHeaderView {
-    VKPhotoMTL *photo = self.post.attachments[0];
-    UIImageView *headerImage = [UIImageView new];
-    headerImage.contentMode = UIViewContentModeScaleAspectFill;
+    UIImageView *headerImageView = [UIImageView new];
+    headerImageView.contentMode = UIViewContentModeScaleAspectFill;
     //    [self.headerView addSubview:headerImage];
     //    [headerImage mas_makeConstraints:^(MASConstraintMaker *make) {
     //        make.edges.equalTo(self.headerView);
     //    }];
-    [headerImage sd_setImageWithURL:photo.url];
+    [headerImageView sd_setImageWithURL:self.post.postHeaderImageURL];
+//    UIImage *img = [UIImage imageNamed:@"bird"];
+//    [headerImage setImage:img];
     
     
     CGFloat headerWidth = self.tableView.bounds.size.width;
@@ -86,8 +86,8 @@ static const CGFloat kTableHeaderHeight = 75.0;
 //    _headerView = [UIView new];
 //    self.tableView.tableHeaderView = _headerView;
     [self.tableView addSubview:self.headerView];
-    [_headerView addSubview:headerImage];
-    [headerImage mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_headerView addSubview:headerImageView];
+    [headerImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.headerView);
     }];
     
@@ -98,12 +98,6 @@ static const CGFloat kTableHeaderHeight = 75.0;
     }];
 //
     
-//    _headerView.backgroundColor = [UIColor redColor];
-//    _gradient = [CAGradientLayer layer];
-//    _gradient.frame = _headerView.frame;
-//    _gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor blackColor] CGColor], (id)[[UIColor clearColor] CGColor], nil];
-//    [_headerView.layer addSublayer:_gradient];
-//    [_headerView.layer insertSublayer:gradient atIndex:0];
 }
 
 - (void)updateHeaderView {
@@ -145,6 +139,7 @@ static const CGFloat kTableHeaderHeight = 75.0;
     MKCCommentsPostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.postDetailsCellReuseIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
+    [cell bindData:self.post];
     
     return cell;
 }
@@ -226,7 +221,7 @@ static const CGFloat kTableHeaderHeight = 75.0;
 
 # pragma mark - MKCCommentsViewInterface
 
-- (void)updateCommentsData:(VKPost *)post {
+- (void)updatePostData:(MKCCommentsPost *)post {
     self.post = post;
 }
 

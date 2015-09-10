@@ -8,6 +8,9 @@
 
 #import "MKCCommentsInteractor.h"
 #import "MKCCommentsDataManager.h"
+#import "MKCVKPost.h"
+#import "MKCVKProfile.h"
+#import "MKCCommentsPost.h"
 
 @interface MKCCommentsInteractor ()
 
@@ -25,14 +28,21 @@
     return self;
 }
 
-- (void)loadCommentsWithPostId:(NSString *)postId {
-    [self.dataManager getCommentsWithPostId:postId success:^(NSArray *comments) {
+- (void)loadComments {
+    [self.dataManager getCommentsWithSuccess:^(NSArray *comments) {
         NSLog(@"Interactorrrrrrr output: %@", self.output);
         
         [self.output commentsLoaded:comments];
     } error:^(NSError *error) {
         NSLog(@"Error while loading comments: %@", error);
     }];
+}
+
+- (MKCCommentsPost *)currentPost {
+    MKCVKPost *post = self.dataManager.post;
+    MKCVKProfile *profile = [self.dataManager profileWithId:post.authorId];
+    MKCCommentsPost *commentsPost = [[MKCCommentsPost alloc] initWithVKPost:post authorProfile:profile];
+    return commentsPost;
 }
 
 @end

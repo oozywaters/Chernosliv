@@ -9,22 +9,13 @@
 #import "MKCWallTableViewController.h"
 #import "PostViewModel.h"
 #import "MKCWallDataSource.h"
-//#import "VKPost.h"
-#import "VKPhotoMTL.h"
 #import "TableViewBindingHelper.h"
 #import <SVPullToRefresh/SVPullToRefresh.h>
-#import "MKCAttachmentsViewController.h"
 
 @interface MKCWallTableViewController () <PostTableViewCellDelegate>
 
-//@property (nonatomic, strong) WallViewModel *viewModel;
 @property (nonatomic, strong) MKCWallDataSource *dataSource;
-
 @property (nonatomic, strong) TableViewBindingHelper *bindingHelper;
-@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *attachmentsTapGestureRecognizer;
-
-@property (nonatomic, strong) NSArray *imagesArray;
-@property (nonatomic, strong) RACCommand *postSelectedCommand;
 
 
 @end
@@ -34,18 +25,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //    [self.refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
-    
     UINib *nib = [UINib nibWithNibName:@"PostTableViewCell" bundle:nil];
-    
-    self.postSelectedCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(PostViewModel *viewModel) {
-        [viewModel showComments];
-        return [RACSignal empty];
-    }];
     
     _bindingHelper = [TableViewBindingHelper bindingHelperForTableView:self.tableView
                                                           sourceSignal:RACObserve(self.dataSource, posts)
-                                                      selectionCommand:self.postSelectedCommand
+                                                      selectionCommand:self.eventHandler.viewComments
                                                           templateCell:nib];
     _bindingHelper.delegate = self;
     
@@ -55,12 +39,6 @@
         @strongify(self)
         [self.eventHandler loadNextPage];
     }];
-    
-    
-    //    [[self.attachmentsTapGestureRecognizer rac_gestureSignal] subscribeNext:^(UITapGestureRecognizer *recognizer) {
-    //        NSLog(@"%@", recognizer.view);
-    //    }];
-    
 }
 
 - (void)pageLoaded {
@@ -95,14 +73,16 @@
 # pragma mark - UITableViewDelegate
 
 //- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return 300;
+//    PostViewModel *viewModel = [self.dataSource objectAtIndex:indexPath.row];
+//    CGFloat height = [viewModel calculateViewHeightForWidth:self.tableView.bounds.size.width];
+//    //    return UITableViewAutomaticDimension;
+//    //    return 400;
+//    return height;
 //}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     PostViewModel *viewModel = [self.dataSource objectAtIndex:indexPath.row];
     CGFloat height = [viewModel calculateViewHeightForWidth:self.tableView.bounds.size.width];
-//    return UITableViewAutomaticDimension;
-//    return 400;
     return height;
 }
 

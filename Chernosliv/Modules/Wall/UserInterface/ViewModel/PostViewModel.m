@@ -28,6 +28,8 @@
 }
 
 - (void)initialize {
+    _postId = self.post.postId;
+    
     if (![self.post.text isEqualToString:@""]) {
         _postText = self.post.text;
     }
@@ -46,14 +48,6 @@
     }
 //
     _attachmentsCount = self.post.attachments.count;
-}
-
-- (void)showAttachments {
-    [self.delegate attachmentsTappedWithModel:self.post];
-}
-
-- (void)showComments {
-    [self.delegate commentsTappedWithModel:self.post];
 }
 
 - (CGFloat)calculateViewHeightForWidth:(CGFloat)width {
@@ -90,11 +84,9 @@
         labelBottomMargin = 12.0;
     }
     
-    NSLog(@"Label height: %f", labelHeight);
-    
-    
-    CGFloat imagePaddingLeft = 12.0;
-    CGFloat imagePaddingRight = 12.0;
+   
+    CGFloat imagePaddingLeft = 0.0;
+    CGFloat imagePaddingRight = 0.0;
     CGFloat imageWidth = width - (imagePaddingLeft + imagePaddingRight);
     CGFloat imageHeight = 0.0;
     CGFloat imageBottomMargin = 0.0;
@@ -105,9 +97,9 @@
         imageHeight = imageWidth / imageAspectRatio;
     }
     
-    CGFloat result = topPadding + labelHeight + labelBottomMargin + imageHeight + imageBottomMargin + buttonsHeight + bottomPadding;
+    CGFloat result = topPadding + labelHeight + labelBottomMargin + imageHeight + imageBottomMargin + buttonsHeight + bottomPadding + 0.5;
     
-    self.viewHeight = ceil(result);
+    self.viewHeight = result;
     
     return self.viewHeight;
 }

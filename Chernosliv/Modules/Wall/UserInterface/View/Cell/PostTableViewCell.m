@@ -45,13 +45,12 @@
     self.layoutMargins = UIEdgeInsetsZero;
     self.preservesSuperviewLayoutMargins = NO;
     
-    _postImage.layer.shadowColor = [UIColor grayColor].CGColor;
-    _postImage.layer.shadowOffset = CGSizeMake(0, 2);
-    _postImage.layer.shouldRasterize = YES;
-    _postImage.layer.shadowOpacity = 1;
-    _postImage.layer.shadowRadius = 2.0;
-    _postImage.clipsToBounds = NO;
-    
+//    _postImage.layer.shadowColor = [UIColor grayColor].CGColor;
+//    _postImage.layer.shadowOffset = CGSizeMake(0, 2);
+////    _postImage.layer.shouldRasterize = YES;
+//    _postImage.layer.shadowOpacity = 1;
+//    _postImage.layer.shadowRadius = 2.0;
+//    _postImage.clipsToBounds = NO;
 //    _postImage.layer.borderWidth = 0.5;
 //    _postImage.layer.borderColor = [UIColor grayColor].CGColor;
     
@@ -88,6 +87,7 @@
     [self setupTextLabelWithViewModel:self.viewModel];
     [self setupAttachmentsViewWithViewModel:self.viewModel];
     
+   
 }
 
 - (void)setupTextLabelWithViewModel:(PostViewModel *)viewModel {
@@ -111,7 +111,7 @@
         [self.attachmentsImgageConstraint setConstant:0.0];
     } else {
         [self.attachmentsImgageConstraint setConstant:12.0];
-        UITapGestureRecognizer *attachmentsTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(attachmentsTapped)];
+        UITapGestureRecognizer *attachmentsTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(attachmentsTapped:)];
         
 //        CGFloat aspect = self.viewModel.imageHeight / self.viewModel.imageWidth;
         
@@ -138,20 +138,16 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    [self.contentView layoutIfNeeded];
     self.textContent.preferredMaxLayoutWidth = self.bounds.size.width - 24;
 }
 
-- (void)attachmentsTapped {
-    if ([self.delegate respondsToSelector:@selector(postTableViewCellAttachmentsTapped:)]) {
-        [self.delegate postTableViewCellAttachmentsTapped:self];
-        [self.viewModel showAttachments];
-    }
+- (void)attachmentsTapped:(UITapGestureRecognizer *)gestureRecognizer {
+    [self.delegate postTableViewCellAttachmentsTapped:self];
+    [self.viewModel.viewAttachments execute:self.viewModel];
 }
 
 - (IBAction)commentsButtonTapped:(UIButton *)sender {
-    if ([self.delegate respondsToSelector:@selector(postTableViewCellCommentsTapped:)]) {
-        [self.delegate postTableViewCellCommentsTapped:self];
-        [self.viewModel showComments];
-    }
+    [self.viewModel.viewComments execute:self.viewModel];
 }
 @end

@@ -50,4 +50,13 @@
     return self.posts.count;
 }
 
+//- (MKCVKPost *)postWithId:(NSString *)postId {
+//    
+//}
+
+- (MKCVKProfile *)profileWithId:(NSString *)profileId {
+    MKCVKProfile *profile = [self.profiles objectForKey:profileId];
+    return profile;
+}
+
 @end

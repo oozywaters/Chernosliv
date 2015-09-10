@@ -129,13 +129,11 @@ uint scrollViewDidEndScrollingAnimation:1;
         
         _templateCell = [[templateCellNib instantiateWithOwner:nil options:nil] firstObject];
         
-        NSLog(@"%@", _templateCell);
-        
         [_tableView registerNib:templateCellNib forCellReuseIdentifier:_templateCell.reuseIdentifier];
         
         // use the template cell to set the row height
-        _tableView.rowHeight = _templateCell.bounds.size.height;
-        
+//        _tableView.rowHeight = _templateCell.bounds.size.height;
+       
         _tableView.dataSource = self;
         _tableView.delegate = self;
         self.delegate = nil;
@@ -270,9 +268,7 @@ uint scrollViewDidEndScrollingAnimation:1;
 #pragma mark Configuring Rows for the Table View
 - (CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CGFloat heightForRowAtIndexPath = 0;
-    
-    NSLog(@"Row: %d", indexPath.row);
+    CGFloat heightForRowAtIndexPath = tableView.rowHeight;
     
     if (self.delegateRespondsTo.heightForRowAtIndexPath) {
         heightForRowAtIndexPath = [self.delegate tableView:tableView heightForRowAtIndexPath:indexPath];

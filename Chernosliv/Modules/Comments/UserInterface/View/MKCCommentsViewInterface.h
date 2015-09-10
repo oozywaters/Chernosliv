@@ -6,10 +6,11 @@
 //  Copyright (c) 2015 Vyacheslav Zavertanny. All rights reserved.
 //
 
-@class VKPost;
+@class MKCCommentsPost;
 
 @protocol MKCCommentsViewInterface <NSObject>
 
-- (void)updateCommentsData:(VKPost *)post;
+- (void)updatePostData:(MKCCommentsPost *)post;
+- (void)updateCommentsData:(MKCCommentsPost *)post;
 
 @end

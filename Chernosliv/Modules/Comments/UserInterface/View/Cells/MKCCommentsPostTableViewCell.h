@@ -6,8 +6,10 @@
 //  Copyright (c) 2015 Vyacheslav Zavertanny. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "MKCCommentsPost.h"
 
 @interface MKCCommentsPostTableViewCell : UITableViewCell
+
+- (void)bindData:(MKCCommentsPost *)post;
 
 @end

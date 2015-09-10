@@ -10,13 +10,14 @@
         <tableViewCell contentMode="scaleAspectFit" selectionStyle="default" indentationWidth="10" reuseIdentifier="Post Cell" rowHeight="385" id="mDv-Tl-ChO" customClass="PostTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="600" height="385"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mDv-Tl-ChO" id="zOI-es-Qrd">
+            <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mDv-Tl-ChO" id="zOI-es-Qrd">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="1n0-6b-Xdh" userLabel="Like">
                         <rect key="frame" x="12" y="350" width="60" height="22"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="gb7-e5-7dG"/>
+                            <constraint firstAttribute="height" constant="22" id="rNO-e0-IAx"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                         <color key="tintColor" red="0.38431372549999998" green="0.46666666670000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -41,7 +42,7 @@
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <connections>
-                            <action selector="commentsButtonTapped:" destination="mDv-Tl-ChO" eventType="touchUpInside" id="8Cm-tX-Mzi"/>
+                            <action selector="commentsButtonTapped:" destination="mDv-Tl-ChO" eventType="touchUpInside" id="eSY-VK-xxB"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="xzY-lh-HBN" userLabel="Repost">
@@ -65,7 +66,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView autoresizesSubviews="NO" contentMode="scaleAspectFit" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="NBK-Mv-T44">
-                        <rect key="frame" x="12" y="43" width="576" height="295"/>
+                        <rect key="frame" x="0.0" y="43" width="600" height="295"/>
                         <color key="backgroundColor" white="0.79377398570000002" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                     </imageView>
@@ -76,7 +77,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xco-5p-XfZ" customClass="CountView">
-                        <rect key="frame" x="543" y="58" width="30" height="30"/>
+                        <rect key="frame" x="555" y="58" width="30" height="30"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Xco-5p-XfZ" secondAttribute="height" multiplier="1:1" id="gFg-Bt-AmL"/>
@@ -85,6 +86,7 @@
                     </view>
                 </subviews>
                 <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.0"/>
                 <constraints>
                     <constraint firstItem="rDq-Qu-jt3" firstAttribute="top" secondItem="zOI-es-Qrd" secondAttribute="top" constant="12" id="8Bh-a4-bGu"/>
                     <constraint firstAttribute="trailing" secondItem="rDq-Qu-jt3" secondAttribute="trailing" constant="12" id="OYA-ci-9cB"/>
@@ -92,14 +94,14 @@
                     <constraint firstItem="CWG-vV-P0R" firstAttribute="leading" secondItem="1n0-6b-Xdh" secondAttribute="trailing" constant="12" id="PL0-Tt-tm8"/>
                     <constraint firstItem="1n0-6b-Xdh" firstAttribute="leading" secondItem="zOI-es-Qrd" secondAttribute="leading" constant="12" id="QGN-Wk-2Gl"/>
                     <constraint firstItem="NBK-Mv-T44" firstAttribute="trailing" secondItem="Xco-5p-XfZ" secondAttribute="trailing" constant="15" id="Qb4-Z1-c2j"/>
-                    <constraint firstItem="NBK-Mv-T44" firstAttribute="top" secondItem="rDq-Qu-jt3" secondAttribute="bottom" constant="12" id="aRm-eb-0aK"/>
+                    <constraint firstItem="NBK-Mv-T44" firstAttribute="top" secondItem="rDq-Qu-jt3" secondAttribute="bottom" priority="999" constant="12" id="aRm-eb-0aK"/>
                     <constraint firstItem="CWG-vV-P0R" firstAttribute="top" secondItem="1n0-6b-Xdh" secondAttribute="top" id="aVu-Vp-YY7"/>
-                    <constraint firstItem="NBK-Mv-T44" firstAttribute="leading" secondItem="zOI-es-Qrd" secondAttribute="leading" constant="12" id="cd3-58-uiw"/>
+                    <constraint firstItem="NBK-Mv-T44" firstAttribute="leading" secondItem="zOI-es-Qrd" secondAttribute="leading" id="cd3-58-uiw"/>
                     <constraint firstItem="Xco-5p-XfZ" firstAttribute="top" secondItem="NBK-Mv-T44" secondAttribute="top" constant="15" id="eCp-dL-avV"/>
                     <constraint firstItem="NBK-Mv-T44" firstAttribute="top" secondItem="Xco-5p-XfZ" secondAttribute="bottom" constant="12" id="f9h-Pp-jFO"/>
                     <constraint firstItem="CWG-vV-P0R" firstAttribute="top" secondItem="xzY-lh-HBN" secondAttribute="top" id="m8Y-PM-Uho"/>
                     <constraint firstAttribute="bottom" secondItem="1n0-6b-Xdh" secondAttribute="bottom" constant="12" id="mIH-w4-sTk"/>
-                    <constraint firstAttribute="trailing" secondItem="NBK-Mv-T44" secondAttribute="trailing" constant="12" id="pRN-D5-h4y"/>
+                    <constraint firstAttribute="trailing" secondItem="NBK-Mv-T44" secondAttribute="trailing" id="pRN-D5-h4y"/>
                     <constraint firstItem="rDq-Qu-jt3" firstAttribute="leading" secondItem="zOI-es-Qrd" secondAttribute="leading" constant="12" id="sh0-q1-1r3"/>
                     <constraint firstItem="xzY-lh-HBN" firstAttribute="leading" secondItem="CWG-vV-P0R" secondAttribute="trailing" constant="12" id="yKi-s3-Mfg"/>
                 </constraints>

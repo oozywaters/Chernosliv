@@ -7,7 +7,9 @@
 //
 
 #import "MKCCommentsDataManager.h"
+#import "MKCDataStore.h"
 #import "VKService.h"
+#import "MKCVKPost.h"
 #import "MKCVKProfile.h"
 #import "MKCVKComment.h"
 
@@ -21,18 +23,18 @@
 
 @implementation MKCCommentsDataManager
 
-- (instancetype)init {
+- (instancetype)initWithPost:(MKCVKPost *)post {
     if (self) {
+        _post = post;
         _comments = [NSMutableArray array];
         _profiles = [NSMutableDictionary dictionary];
     }
     return self;
 }
 
-- (void)getCommentsWithPostId:(NSString *)postId
-                       success:(void (^)(NSArray *))successBlock
+- (void)getCommentsWithSuccess:(void (^)(NSArray *))successBlock
                          error:(void (^)(NSError *))errorBlock {
-    [[VKService sharedService] getCommentsWithPostId:postId success:^(MKCVKCommentsList *commentsList) {
+    [[VKService sharedService] getCommentsWithPostId:self.post.postId success:^(MKCVKCommentsList *commentsList) {
         if (!self.commentsList) {
             self.commentsList = commentsList;
         } else {
@@ -43,6 +45,11 @@
         NSLog(@"Comments error");
         errorBlock(error);
     }];
+}
+
+- (MKCVKProfile *)profileWithId:(NSString *)identifier {
+    MKCVKProfile *profile = [[MKCDataStore sharedStore] profileWithId:identifier];
+    return profile;
 }
 
 @end
