@@ -41,6 +41,8 @@
 		71870F151B84A3710089B215 /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71870F121B84A3710089B215 /* PostTableViewCell.m */; };
 		71870F161B84A3710089B215 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71870F131B84A3710089B215 /* PostTableViewCell.xib */; };
 		71870F201B84A5DA0089B215 /* MKCAttachmentsWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 71870F1F1B84A5DA0089B215 /* MKCAttachmentsWireframe.m */; };
+		71913FB41BA83D9E008BD19A /* MKCCommentsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71913FB21BA83D9E008BD19A /* MKCCommentsTableViewCell.m */; };
+		71913FB51BA83D9E008BD19A /* MKCCommentsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71913FB31BA83D9E008BD19A /* MKCCommentsTableViewCell.xib */; };
 		719601511B987F6C00E72C59 /* MKCVKComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 719601501B987F6C00E72C59 /* MKCVKComment.m */; };
 		719601541B9890B900E72C59 /* MKCVKCommentsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 719601531B9890B900E72C59 /* MKCVKCommentsList.m */; };
 		719601571B98944700E72C59 /* MKCVKProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 719601561B98944700E72C59 /* MKCVKProfile.m */; };
@@ -138,6 +140,9 @@
 		71870F1E1B84A5DA0089B215 /* MKCAttachmentsWireframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCAttachmentsWireframe.h; path = Modules/Attachments/UserInterface/Wireframe/MKCAttachmentsWireframe.h; sourceTree = "<group>"; };
 		71870F1F1B84A5DA0089B215 /* MKCAttachmentsWireframe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCAttachmentsWireframe.m; path = Modules/Attachments/UserInterface/Wireframe/MKCAttachmentsWireframe.m; sourceTree = "<group>"; };
 		71870F241B84A90F0089B215 /* MKCWallModuleInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCWallModuleInterface.h; path = Modules/Wall/ModuleInterface/MKCWallModuleInterface.h; sourceTree = "<group>"; };
+		71913FB11BA83D9E008BD19A /* MKCCommentsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCCommentsTableViewCell.h; path = Modules/Comments/UserInterface/View/Cells/MKCCommentsTableViewCell.h; sourceTree = "<group>"; };
+		71913FB21BA83D9E008BD19A /* MKCCommentsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCCommentsTableViewCell.m; path = Modules/Comments/UserInterface/View/Cells/MKCCommentsTableViewCell.m; sourceTree = "<group>"; };
+		71913FB31BA83D9E008BD19A /* MKCCommentsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MKCCommentsTableViewCell.xib; path = Modules/Comments/UserInterface/View/Cells/MKCCommentsTableViewCell.xib; sourceTree = "<group>"; };
 		7196014F1B987F6C00E72C59 /* MKCVKComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCVKComment.h; path = Model/MKCVKComment.h; sourceTree = "<group>"; };
 		719601501B987F6C00E72C59 /* MKCVKComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCVKComment.m; path = Model/MKCVKComment.m; sourceTree = "<group>"; };
 		719601521B9890B900E72C59 /* MKCVKCommentsList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCVKCommentsList.h; path = Model/MKCVKCommentsList.h; sourceTree = "<group>"; };
@@ -606,6 +611,9 @@
 				71CEEF641B98391A009E4E21 /* MKCCommentsPostTableViewCell.h */,
 				71CEEF651B98391A009E4E21 /* MKCCommentsPostTableViewCell.m */,
 				71CEEF661B98391A009E4E21 /* MKCCommentsPostTableViewCell.xib */,
+				71913FB11BA83D9E008BD19A /* MKCCommentsTableViewCell.h */,
+				71913FB21BA83D9E008BD19A /* MKCCommentsTableViewCell.m */,
+				71913FB31BA83D9E008BD19A /* MKCCommentsTableViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -812,6 +820,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				712489E61B50B286006526BA /* Main.storyboard in Resources */,
+				71913FB51BA83D9E008BD19A /* MKCCommentsTableViewCell.xib in Resources */,
 				71870EED1B8478970089B215 /* Info.plist in Resources */,
 				71189DE01B895CFE00D8F341 /* MKCAttachmentsViewController.xib in Resources */,
 				712489EB1B50B286006526BA /* LaunchScreen.xib in Resources */,
@@ -903,6 +912,7 @@
 				711F7B091B9C143D002768D7 /* MKCWallDataSource.m in Sources */,
 				719601541B9890B900E72C59 /* MKCVKCommentsList.m in Sources */,
 				711F7B051B9BF8FC002768D7 /* MKCVKPost.m in Sources */,
+				71913FB41BA83D9E008BD19A /* MKCCommentsTableViewCell.m in Sources */,
 				7124495B1B5B753C008ED6C0 /* VKAttachment.m in Sources */,
 				71FC38D71B94617F0033A7F1 /* MKCAttachmentsPresentationTransition.m in Sources */,
 				711F7B021B9BF848002768D7 /* MKCWallGetResponse.m in Sources */,
