@@ -17,5 +17,6 @@
 @property (nonatomic, strong) NSDate *postDate;
 @property (nonatomic, strong) NSString *postContent;
 @property (nonatomic, strong) NSArray *comments;
+@property (nonatomic) BOOL hasAttachments;
 
 @end

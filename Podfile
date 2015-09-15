@@ -10,6 +10,8 @@ pod 'VK-ios-sdk'
 pod 'SVPullToRefresh'
 pod 'SDWebImage'
 pod 'LinqToObjectiveC'
+pod 'DZNEmptyDataSet'
+pod 'MBProgressHUD'
 
 end
 

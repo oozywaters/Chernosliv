@@ -47,14 +47,6 @@
 - (void)presentCommentsInterfaceFromNavigationController:(UINavigationController *)navigationController {
     self.presentedController = navigationController;
     
-    [navigationController setNavigationBarHidden:NO];
-    [navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    navigationController.navigationBar.shadowImage = [UIImage new];
-    navigationController.navigationBar.translucent = YES;
-    navigationController.view.backgroundColor = [UIColor clearColor];
-    navigationController.navigationBar.backgroundColor = [UIColor clearColor];
-    navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    
     [self.presentedController setDelegate:nil];
     [navigationController pushViewController:self.viewController animated:YES];
 }

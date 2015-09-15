@@ -47,9 +47,8 @@
     presenter.wireframe = self;
     [presenter configurePresenterWithUserInterface:wvc];
     
-    [navigationController setNavigationBarHidden:YES];
     [navigationController pushViewController:wvc animated:YES];
-    
+  
     self.presenter = presenter;
     self.presentedController = navigationController;
     

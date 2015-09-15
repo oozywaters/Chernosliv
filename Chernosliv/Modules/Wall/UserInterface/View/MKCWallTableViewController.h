@@ -10,7 +10,7 @@
 #import "PostTableViewCell.h"
 #import "MKCWallModuleInterface.h"
 
-@interface MKCWallTableViewController : UITableViewController <MKCWallViewInterface>
+@interface MKCWallTableViewController : UIViewController <MKCWallViewInterface>
 
 @property (nonatomic, weak) id<MKCWallModuleInterface> eventHandler;
 @property (nonatomic, strong, readonly) PostTableViewCell *currentCell;

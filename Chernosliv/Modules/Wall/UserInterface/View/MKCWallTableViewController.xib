@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MKCWallTableViewController">
+            <connections>
+                <outlet property="tableView" destination="c5d-MI-YBV" id="6Rx-pq-QYI"/>
+                <outlet property="view" destination="iN0-l3-epB" id="T2I-ZJ-Lva"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleAspectFit" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="c5d-MI-YBV">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="Ajb-62-9kg"/>
+                    </connections>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yPY-Id-znR" userLabel="StatusBar">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="20"/>
+                    <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="Ucp-tJ-Av4"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="c5d-MI-YBV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="03o-La-BRs"/>
+                <constraint firstItem="yPY-Id-znR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Gjj-So-eKo"/>
+                <constraint firstAttribute="trailing" secondItem="c5d-MI-YBV" secondAttribute="trailing" id="H6a-9g-bzM"/>
+                <constraint firstAttribute="bottom" secondItem="c5d-MI-YBV" secondAttribute="bottom" id="HOO-99-5x3"/>
+                <constraint firstItem="yPY-Id-znR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="tmz-eY-NAl"/>
+                <constraint firstAttribute="trailing" secondItem="yPY-Id-znR" secondAttribute="trailing" id="uOy-4w-DTL"/>
+                <constraint firstItem="c5d-MI-YBV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="xhF-S8-Yep"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

@@ -17,26 +17,29 @@
 
 @end
 
-@implementation MKCWallDataManager
+@implementation MKCWallDataManager {
+    NSUInteger _pageSize;
+    NSUInteger _offset;
+}
 
 - (instancetype)init {
     self = [super init];
     if (self) {
         _posts = [NSMutableArray array];
+        _pageSize = 100;
+        _offset = 0;
     }
     return self;
 }
 
-static NSUInteger const pageSize = 20;
-
 - (void)loadPostsWithCompletion:(void (^)(NSArray *))completionBlock error:(void (^)(NSError *))errorBlock {
     MKCDataStore *dataStore = [MKCDataStore sharedStore];
-    NSUInteger offset = [dataStore postsCount];
     
-    [[VKService sharedService] wallGetWithOffset:offset count:pageSize success:^(MKCWallGetResponse *response) {
+    [[VKService sharedService] wallGetWithOffset:_offset count:_pageSize success:^(MKCWallGetResponse *response) {
         [dataStore storePosts:response.posts];
         [dataStore storeProfiles:response.profiles];
         completionBlock(response.posts);
+        _offset += _pageSize;
     } error:^(NSError *error) {
         errorBlock(error);
     }];

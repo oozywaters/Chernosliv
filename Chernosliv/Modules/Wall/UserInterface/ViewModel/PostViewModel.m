@@ -85,8 +85,8 @@
     }
     
    
-    CGFloat imagePaddingLeft = 0.0;
-    CGFloat imagePaddingRight = 0.0;
+    CGFloat imagePaddingLeft = 12.0;
+    CGFloat imagePaddingRight = 12.0;
     CGFloat imageWidth = width - (imagePaddingLeft + imagePaddingRight);
     CGFloat imageHeight = 0.0;
     CGFloat imageBottomMargin = 0.0;

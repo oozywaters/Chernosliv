@@ -27,18 +27,21 @@
     
     return [MTLValueTransformer transformerUsingForwardBlock:^id(NSArray *attachments, BOOL *success, NSError *__autoreleasing *error) {
         NSError *internalError;
-        NSMutableArray *results = [NSMutableArray arrayWithCapacity:attachments.count];
+        NSMutableArray *results = [NSMutableArray array];
         for (NSDictionary *JSONDictionary in attachments) {
             VKAttachment *vkAttachment = [adapter modelFromJSONDictionary:JSONDictionary error:&internalError];
             if (vkAttachment == nil && internalError.code != MTLJSONAdapterErrorNoClassFound) {
                 *error = internalError;
                 *success = NO;
-                return nil;
+//                return nil;
+                continue;
             } else if (vkAttachment != nil) {
                 [results addObject:vkAttachment];
             }
         }
-        //        NSLog(@"%@", results);
+        if (results.count == 0) {
+            return nil;
+        }
         return results;
     }];
 }

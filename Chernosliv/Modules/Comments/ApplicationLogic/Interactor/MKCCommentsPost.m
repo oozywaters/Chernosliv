@@ -19,6 +19,9 @@
         if (vkPost.attachments) {
             VKPhotoMTL *photo = vkPost.attachments[0];
             _postHeaderImageURL = photo.url;
+            _hasAttachments = YES;
+        } else {
+            _hasAttachments = NO;
         }
         _postContent = vkPost.text;
         NSString *nameString = [NSString stringWithFormat:@"%@ %@",

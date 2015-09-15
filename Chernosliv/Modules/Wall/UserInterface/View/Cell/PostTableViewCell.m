@@ -15,7 +15,6 @@
 #import "PostViewModel.h"
 #import "MKCWallTableViewController.h"
 
-#import <Masonry/Masonry.h>
 
 @interface PostTableViewCell ()
 
@@ -45,12 +44,12 @@
     self.layoutMargins = UIEdgeInsetsZero;
     self.preservesSuperviewLayoutMargins = NO;
     
-//    _postImage.layer.shadowColor = [UIColor grayColor].CGColor;
-//    _postImage.layer.shadowOffset = CGSizeMake(0, 2);
-////    _postImage.layer.shouldRasterize = YES;
-//    _postImage.layer.shadowOpacity = 1;
-//    _postImage.layer.shadowRadius = 2.0;
-//    _postImage.clipsToBounds = NO;
+    _postImage.layer.shadowColor = [UIColor grayColor].CGColor;
+    _postImage.layer.shadowOffset = CGSizeMake(0, 2);
+//    _postImage.layer.shouldRasterize = YES;
+    _postImage.layer.shadowOpacity = 1;
+    _postImage.layer.shadowRadius = 2.0;
+    _postImage.clipsToBounds = NO;
 //    _postImage.layer.borderWidth = 0.5;
 //    _postImage.layer.borderColor = [UIColor grayColor].CGColor;
     
@@ -113,15 +112,15 @@
         [self.attachmentsImgageConstraint setConstant:12.0];
         UITapGestureRecognizer *attachmentsTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(attachmentsTapped:)];
         
-//        CGFloat aspect = self.viewModel.imageHeight / self.viewModel.imageWidth;
+        CGFloat aspect = self.viewModel.imageHeight / self.viewModel.imageWidth;
         
-//        self.aspectConstraint = [NSLayoutConstraint constraintWithItem:self.postImage
-//                                                             attribute:NSLayoutAttributeHeight
-//                                                             relatedBy:NSLayoutRelationEqual
-//                                                                toItem:self.postImage
-//                                                             attribute:NSLayoutAttributeWidth
-//                                                            multiplier:aspect
-//                                                              constant:0.0];
+        self.aspectConstraint = [NSLayoutConstraint constraintWithItem:self.postImage
+                                                             attribute:NSLayoutAttributeHeight
+                                                             relatedBy:NSLayoutRelationEqual
+                                                                toItem:self.postImage
+                                                             attribute:NSLayoutAttributeWidth
+                                                            multiplier:aspect
+                                                              constant:0.0];
         
         [self.postImage sd_setImageWithURL:self.viewModel.imageURL];
         [self.postImage addGestureRecognizer:attachmentsTapGestureRecognizer];
@@ -143,7 +142,11 @@
 }
 
 - (void)attachmentsTapped:(UITapGestureRecognizer *)gestureRecognizer {
-    [self.delegate postTableViewCellAttachmentsTapped:self];
+    NSLog(@"Delegate: %@", self.delegate);
+    if ([self.delegate respondsToSelector:@selector(postTableViewCellAttachmentsTapped:)]) {
+            NSLog(@"Attachments");
+        [self.delegate postTableViewCellAttachmentsTapped:self];
+    }
     [self.viewModel.viewAttachments execute:self.viewModel];
 }
 

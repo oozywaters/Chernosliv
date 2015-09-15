@@ -24,6 +24,7 @@
 		712489E81B50B286006526BA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 712489E71B50B286006526BA /* Images.xcassets */; };
 		712489EB1B50B286006526BA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712489E91B50B286006526BA /* LaunchScreen.xib */; };
 		712489F71B50B286006526BA /* ChernoslivTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 712489F61B50B286006526BA /* ChernoslivTests.m */; };
+		712C044D1BA312E300815528 /* MKCWallTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712C044C1BA312E300815528 /* MKCWallTableViewController.xib */; };
 		7139FE261BA19A2200BCD49E /* MKCCommentsPostViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7139FE251BA19A2200BCD49E /* MKCCommentsPostViewModel.m */; };
 		7141B0ED1B58FF000037C7FF /* TableViewBindingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7141B0EC1B58FF000037C7FF /* TableViewBindingHelper.m */; };
 		716453451B9B181700287BE6 /* MKCDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 716453441B9B181700287BE6 /* MKCDataStore.m */; };
@@ -104,6 +105,7 @@
 		712489F01B50B286006526BA /* ChernoslivTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChernoslivTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		712489F51B50B286006526BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		712489F61B50B286006526BA /* ChernoslivTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChernoslivTests.m; sourceTree = "<group>"; };
+		712C044C1BA312E300815528 /* MKCWallTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MKCWallTableViewController.xib; path = Modules/Wall/UserInterface/View/MKCWallTableViewController.xib; sourceTree = "<group>"; };
 		7139FE241BA19A2200BCD49E /* MKCCommentsPostViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCCommentsPostViewModel.h; path = Modules/Comments/UserInterface/ViewModel/MKCCommentsPostViewModel.h; sourceTree = "<group>"; };
 		7139FE251BA19A2200BCD49E /* MKCCommentsPostViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCCommentsPostViewModel.m; path = Modules/Comments/UserInterface/ViewModel/MKCCommentsPostViewModel.m; sourceTree = "<group>"; };
 		7141B0EC1B58FF000037C7FF /* TableViewBindingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewBindingHelper.m; path = Utils/TableViewBindingHelper.m; sourceTree = "<group>"; };
@@ -484,6 +486,7 @@
 			children = (
 				71870F061B849C400089B215 /* MKCWallTableViewController.h */,
 				71870F071B849C400089B215 /* MKCWallTableViewController.m */,
+				712C044C1BA312E300815528 /* MKCWallTableViewController.xib */,
 				71CBB1DE1B85DC7C00A64F0E /* MKCWallViewInterface.h */,
 				71870F0E1B84A1D60089B215 /* Cell */,
 			);
@@ -813,6 +816,7 @@
 				71189DE01B895CFE00D8F341 /* MKCAttachmentsViewController.xib in Resources */,
 				712489EB1B50B286006526BA /* LaunchScreen.xib in Resources */,
 				71870F161B84A3710089B215 /* PostTableViewCell.xib in Resources */,
+				712C044D1BA312E300815528 /* MKCWallTableViewController.xib in Resources */,
 				71FC38D31B9456DE0033A7F1 /* MKCCommentsViewController.xib in Resources */,
 				71CEEF681B98391A009E4E21 /* MKCCommentsPostTableViewCell.xib in Resources */,
 				712489E81B50B286006526BA /* Images.xcassets in Resources */,

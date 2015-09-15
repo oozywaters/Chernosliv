@@ -17,8 +17,8 @@
     MKCAttachmentsViewController *toVC = (MKCAttachmentsViewController *)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     
     // Create snapshot of the outgoing view
-    PostTableViewCell *currentCell = fromVC.currentCell;
-    UIImageView *attachmentsImage = currentCell.postImage;
+//    PostTableViewCell *currentCell = fromVC.currentCell;
+    UIImageView *attachmentsImage = fromVC.tappedImage;
     
     NSLog(@"attach: %@", attachmentsImage);
     

@@ -33,14 +33,13 @@ static const CGFloat kTableHeaderHeight = 75.0;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self setNeedsStatusBarAppearanceUpdate];
     
-    [self setUpHeaderView];
-    [self setUpCells];
+    if (self.post.hasAttachments) {
+        [self setUpHeaderView];
+    }
     
-    self.tableView.contentInset = UIEdgeInsetsMake(kTableHeaderHeight, 0, 0, 0);
-    self.tableView.contentOffset = CGPointMake(0, -kTableHeaderHeight);
+    [self setUpCells];
     
     [self updateHeaderView];
 //    UIView *view = [UIView new];
@@ -58,6 +57,23 @@ static const CGFloat kTableHeaderHeight = 75.0;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSLog(@"View appeared!");
+    [self.navigationController setNavigationBarHidden:NO];
+    if (self.post.hasAttachments) {
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
+                                                      forBarMetrics:UIBarMetricsDefault];
+        self.navigationController.navigationBar.shadowImage = [UIImage new];
+        self.navigationController.navigationBar.translucent = YES;
+        self.navigationController.view.backgroundColor = [UIColor clearColor];
+        self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
+        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    } else {
+        self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    }
 }
 
 - (void)setUpCells {
@@ -97,6 +113,8 @@ static const CGFloat kTableHeaderHeight = 75.0;
         make.edges.equalTo(self.headerView);
     }];
 //
+    self.tableView.contentInset = UIEdgeInsetsMake(kTableHeaderHeight, 0, 0, 0);
+    self.tableView.contentOffset = CGPointMake(0, -kTableHeaderHeight);
     
 }
 
@@ -119,7 +137,10 @@ static const CGFloat kTableHeaderHeight = 75.0;
 
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
-    return UIStatusBarStyleLightContent;
+    if (self.post.hasAttachments) {
+        return UIStatusBarStyleLightContent;
+    }
+    return UIStatusBarStyleDefault;
 }
 
 #pragma mark - Table view data source

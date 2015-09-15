@@ -19,7 +19,26 @@
 }
 
 + (NSValueTransformer *)postsJSONTransformer {
-    return [MTLJSONAdapter arrayTransformerWithModelClass:[MKCVKPost class]];
+    MTLJSONAdapter *adapter = [[MTLJSONAdapter alloc] initWithModelClass:[MKCVKPost class]];
+//    return [MTLJSONAdapter arrayTransformerWithModelClass:[MKCVKPost class]];
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSArray *posts, BOOL *success, NSError *__autoreleasing *error) {
+        NSError *internalError;
+        NSMutableArray *results = [NSMutableArray array];
+        for (NSDictionary *JSONDictionary in posts) {
+            MKCVKPost *vkPost = [adapter modelFromJSONDictionary:JSONDictionary error:&internalError];
+            if (!vkPost.attachments && [vkPost.text isEqualToString:@""]) {
+//                *error = internalError;
+//                *success = NO;
+                continue;
+            } else {
+                [results addObject:vkPost];
+            }
+        }
+        if (results.count == 0) {
+            return nil;
+        }
+        return results;
+    }];
 }
 
 + (NSValueTransformer *)profilesJSONTransformer {

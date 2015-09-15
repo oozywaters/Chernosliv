@@ -12,6 +12,8 @@
 
 #import "MKCAppDependencies.h"
 
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+
 @interface MKCAppDelegate ()
 
 @property (nonatomic, strong) UINavigationController *navigationController;
@@ -23,9 +25,17 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.appDependencies installRootViewControllerIntoWindow:self.window];
     [self.window makeKeyAndVisible];
+//    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0"))
+//    {
+//        UIView *view=[[UIView alloc] initWithFrame:CGRectMake(0, 0,[UIScreen mainScreen].bounds.size.width, 20)];
+//        view.backgroundColor=[UIColor whiteColor];
+//        [self.window.rootViewController.view addSubview:view];
+//    }
     
 //    // Override point for customization after application launch.
 //    self.navigationController = [UINavigationController new];

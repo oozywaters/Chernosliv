@@ -11,12 +11,17 @@
 #import "MKCWallDataSource.h"
 #import "TableViewBindingHelper.h"
 #import <SVPullToRefresh/SVPullToRefresh.h>
+#import <Masonry/Masonry.h>
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+#import <MBProgressHUD/MBProgressHUD.h>
 
-@interface MKCWallTableViewController () <PostTableViewCellDelegate>
+@interface MKCWallTableViewController () <UITableViewDelegate, PostTableViewCellDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic, strong) MKCWallDataSource *dataSource;
 @property (nonatomic, strong) TableViewBindingHelper *bindingHelper;
-
+@property (nonatomic, strong) MBProgressHUD *progressHUD;
 
 @end
 
@@ -24,6 +29,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setNeedsStatusBarAppearanceUpdate];
+    self.progressHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    self.progressHUD.labelText = @"Загрузка";
+    
+    self.tableView.emptyDataSetDelegate = self;
+    self.tableView.emptyDataSetSource = self;
+    
+    // A little trick for removing the cell separators
+    self.tableView.tableFooterView = [UIView new];
     
     UINib *nib = [UINib nibWithNibName:@"PostTableViewCell" bundle:nil];
     
@@ -31,7 +45,10 @@
                                                           sourceSignal:RACObserve(self.dataSource, posts)
                                                       selectionCommand:self.eventHandler.viewComments
                                                           templateCell:nib];
+    
+//    [self setupStatusBar];
     _bindingHelper.delegate = self;
+//    _bindingHelper.delegate = (id<UITableViewDelegate>)_myBar.behaviorDefiner;
     
     // Infinite scroll functionality
     @weakify(self)
@@ -39,9 +56,19 @@
         @strongify(self)
         [self.eventHandler loadNextPage];
     }];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
 - (void)pageLoaded {
+    if (self.tableView.emptyDataSetVisible) {
+        [self.tableView reloadEmptyDataSet];
+    }
+    [self.progressHUD hide:YES];
     [self.tableView.infiniteScrollingView stopAnimating];
 }
 
@@ -58,6 +85,7 @@
 
 - (void)postTableViewCellAttachmentsTapped:(UITableViewCell *)cell {
     _currentCell = (PostTableViewCell *)cell;
+    _tappedImage = _currentCell.postImage;
 }
 
 - (void)postTableViewCellCommentsTapped:(UITableViewCell *)cell {
@@ -84,6 +112,33 @@
     PostViewModel *viewModel = [self.dataSource objectAtIndex:indexPath.row];
     CGFloat height = [viewModel calculateViewHeightForWidth:self.tableView.bounds.size.width];
     return height;
+//    return UITableViewAutomaticDimension;
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleDefault;
+}
+
+#pragma mark - DZNEmptyDataSetSource
+
+//- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+//{
+//    return [UIImage imageNamed:@"CommentIcon"];
+//}
+
+- (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSString *text = @"This allows you to share photos from your library and save photos to your camera roll.";
+    
+    NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
+    paragraph.lineBreakMode = NSLineBreakByWordWrapping;
+    paragraph.alignment = NSTextAlignmentCenter;
+    
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:14.0f],
+                                 NSForegroundColorAttributeName: [UIColor lightGrayColor],
+                                 NSParagraphStyleAttributeName: paragraph};
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
 
 @end
