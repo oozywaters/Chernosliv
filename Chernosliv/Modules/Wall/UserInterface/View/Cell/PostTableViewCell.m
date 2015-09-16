@@ -8,12 +8,13 @@
 
 #import "PostTableViewCell.h"
 #import "CountView.h"
+
+
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "VKPhotoMTL.h"
 #import <AVFoundation/AVFoundation.h>
-#import <ReactiveCocoa/ReactiveCocoa.h>
 #import "PostViewModel.h"
-#import "MKCWallTableViewController.h"
+#import "MKCWallVC.h"
 
 
 @interface PostTableViewCell ()
@@ -72,8 +73,8 @@
     }
 }
 
-- (void)bindViewModel:(id)viewModel {
-    self.viewModel = (PostViewModel *)viewModel;
+- (void)updateWithModel:(id)model {
+    self.viewModel = (PostViewModel *)model;
     
     NSString *likesString = [NSString stringWithFormat:@"%d", self.viewModel.likesCount];
     NSString *commentsString = [NSString stringWithFormat:@"%d", self.viewModel.commentsCount];
@@ -85,9 +86,24 @@
     
     [self setupTextLabelWithViewModel:self.viewModel];
     [self setupAttachmentsViewWithViewModel:self.viewModel];
-    
-   
 }
+
+//- (void)bindViewModel:(id)viewModel {
+//    self.viewModel = (PostViewModel *)viewModel;
+//    
+//    NSString *likesString = [NSString stringWithFormat:@"%d", self.viewModel.likesCount];
+//    NSString *commentsString = [NSString stringWithFormat:@"%d", self.viewModel.commentsCount];
+//    NSString *repostsString = [NSString stringWithFormat:@"%d", self.viewModel.repostsCount];
+//    
+//    [self.likeButton setTitle:likesString forState:UIControlStateNormal];
+//    [self.repostButton setTitle:repostsString forState:UIControlStateNormal];
+//    [self.commentsButton setTitle:commentsString forState:UIControlStateNormal];
+//    
+//    [self setupTextLabelWithViewModel:self.viewModel];
+//    [self setupAttachmentsViewWithViewModel:self.viewModel];
+//    
+//   
+//}
 
 - (void)setupTextLabelWithViewModel:(PostViewModel *)viewModel {
     if (viewModel.postText) {

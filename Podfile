@@ -1,17 +1,30 @@
 # Uncomment this line to define a global platform for your project
-# platform :ios, '6.0'
+platform :ios, '8.1'
+
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/anodamobi/ANODA-CocoaPods.git'
 
 target 'Chernosliv' do
 
-pod 'Mantle', '2.0.2'
+#ANODA
+pod 'ANCategories', '1.0.6'
+pod 'ANStorage'
+pod 'ANTableController', :git => 'https://github.com/oozywaters/ANTableController.git'
+pod 'ANTableViews'
+
+#UI
 pod 'Masonry'
-pod 'ReactiveCocoa'
-pod 'VK-ios-sdk'
-pod 'SVPullToRefresh'
-pod 'SDWebImage'
-pod 'LinqToObjectiveC'
 pod 'DZNEmptyDataSet'
 pod 'MBProgressHUD'
+pod 'SVPullToRefresh'
+pod 'SDWebImage'
+
+#API
+pod 'Mantle', '2.0.2'
+pod 'ReactiveCocoa', '~> 2.4.2'
+pod 'VK-ios-sdk'
+pod 'LinqToObjectiveC'
+
 
 end
 

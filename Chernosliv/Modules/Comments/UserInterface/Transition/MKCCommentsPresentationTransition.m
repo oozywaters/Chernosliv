@@ -7,13 +7,13 @@
 //
 
 #import "MKCCommentsPresentationTransition.h"
-#import "MKCWallTableViewController.h"
+#import "MKCWallVC.h"
 #import "MKCCommentsViewController.h"
 
 @implementation MKCCommentsPresentationTransition
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
-    MKCWallTableViewController *fromVC = (MKCWallTableViewController *)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    MKCWallVC *fromVC = (MKCWallVC *)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     MKCCommentsViewController *toVC = (MKCCommentsViewController *)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     
     UIView *outgoingSnapshot = [fromVC.view snapshotViewAfterScreenUpdates:NO];

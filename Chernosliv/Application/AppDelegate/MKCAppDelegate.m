@@ -7,7 +7,7 @@
 //
 
 #import "MKCAppDelegate.h"
-#import "MKCWallTableViewController.h"
+#import "MKCWallVC.h"
 #import <VKSdk.h>
 
 #import "MKCAppDependencies.h"

@@ -67,16 +67,7 @@
 # pragma mark - MKCWallInteractorOutput
 
 - (void)pageLoadedWithPosts:(NSArray *)posts {
-    posts = [[posts.rac_sequence map:^id(MKCVKPost *postModel) {
-        PostViewModel *viewModel = [[PostViewModel alloc] initWithPost:postModel];
-        viewModel.viewComments = self.viewComments;
-        viewModel.viewAttachments = self.viewAttachments;
-        return viewModel;
-    }] array];
-    
-    
-    [self.dataSource addPosts:posts];
-    [self.wallInterface pageLoaded];
+    [self.dataSource setupStorageWithItems:posts eventHandler:self];
 }
 
 

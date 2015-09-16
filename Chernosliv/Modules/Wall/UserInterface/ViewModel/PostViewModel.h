@@ -7,7 +7,7 @@
 //
 
 #import "MKCVKPost.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
+#import "MKCWallModuleInterface.h"
 
 @protocol PostViewModelDelegate <NSObject>
 
@@ -37,6 +37,8 @@
 
 @property (nonatomic, strong) RACCommand *viewComments;
 @property (nonatomic, strong) RACCommand *viewAttachments;
+
+@property (nonatomic, strong) id<MKCWallModuleInterface> eventHandelr;
 
 - (instancetype)initWithPost:(MKCVKPost *)post;
 

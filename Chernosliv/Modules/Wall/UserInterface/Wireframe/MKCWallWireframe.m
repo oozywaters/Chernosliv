@@ -11,7 +11,7 @@
 #import "MKCWallDataManager.h"
 #import "MKCWallPresenter.h"
 #import "MKCWallInteractor.h"
-#import "MKCWallTableViewController.h"
+#import "MKCWallVC.h"
 #import "MKCAttachmentsWireframe.h"
 
 #import "MKCAttachmentsPresentationTransition.h"
@@ -36,9 +36,9 @@
 - (void)presentWallViewControllerFromNavigationController:(UINavigationController *)navigationController {
     MKCWallDataManager *dataManager = [MKCWallDataManager new];
     MKCWallInteractor *interactor = [[MKCWallInteractor new] initWithDataManager:dataManager];
-    MKCWallTableViewController *wvc = [MKCWallTableViewController new];
+    MKCWallVC *wvc = [MKCWallVC new];
     MKCWallPresenter *presenter = [MKCWallPresenter new];
-    
+
     interactor.output = presenter;
     presenter.interactor = interactor;
     
@@ -46,13 +46,13 @@
     
     presenter.wireframe = self;
     [presenter configurePresenterWithUserInterface:wvc];
-    
+
     [navigationController pushViewController:wvc animated:YES];
-  
+
     self.presenter = presenter;
     self.presentedController = navigationController;
     
-//    [navigationController setNavigationBarHidden:YES];
+    [navigationController setNavigationBarHidden:YES];
 }
 
 - (void)presentAttachmentsControllerWithPost:(MKCVKPost *)post {

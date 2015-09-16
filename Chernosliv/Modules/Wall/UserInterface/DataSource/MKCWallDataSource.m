@@ -8,7 +8,8 @@
 
 #import "MKCWallDataSource.h"
 #import "PostViewModel.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
+
+#import <ANStorage/ANMemoryStorage.h>
 
 @interface MKCWallDataSource ()
 
@@ -19,7 +20,8 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _posts = [ObservableMutableArray new];
+        self.storage = [ANMemoryStorage storage];
+//        _posts = [ObservableMutableArray new];
     }
     return self;
 }
@@ -41,6 +43,18 @@
 
 - (NSUInteger)numberOfPosts {
     return self.posts.count;
+}
+
+- (void)setupStorageWithItems:(NSArray *)items eventHandler:(id<MKCWallModuleInterface>)eventHandler {
+    if (!ANIsEmpty(items)) {
+        items = [[items.rac_sequence map:^id(MKCVKPost *post) {
+            PostViewModel *viewModel = [[PostViewModel alloc] initWithPost:post];
+            viewModel.eventHandelr = eventHandler;
+            return viewModel;
+        }] array];
+//        [self.storage removeAllItems];
+        [self.storage addItems:items];
+    }
 }
 
 @end

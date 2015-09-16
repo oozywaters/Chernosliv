@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Vyacheslav Zavertanny. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <ANTableViews/ANTableViewCell.h>
 #import "ReactiveView.h"
 
 @protocol PostTableViewCellDelegate <NSObject>
@@ -16,7 +16,7 @@
 
 @end
 
-@interface PostTableViewCell : UITableViewCell <ReactiveView>
+@interface PostTableViewCell : ANTableViewCell <ReactiveView>
 
 @property (nonatomic, weak) id<PostTableViewCellDelegate> delegate;
 

@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Vyacheslav Zavertanny. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "MKCAppDelegate.h"
 
 int main(int argc, char * argv[]) {

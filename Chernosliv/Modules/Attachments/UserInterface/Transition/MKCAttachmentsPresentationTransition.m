@@ -7,13 +7,13 @@
 //
 
 #import "MKCAttachmentsPresentationTransition.h"
-#import "MKCWallTableViewController.h"
+#import "MKCWallVC.h"
 #import "MKCAttachmentsViewController.h"
 
 @implementation MKCAttachmentsPresentationTransition
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
-    MKCWallTableViewController *fromVC = (MKCWallTableViewController *)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    MKCWallVC *fromVC = (MKCWallVC *)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     MKCAttachmentsViewController *toVC = (MKCAttachmentsViewController *)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     
     // Create snapshot of the outgoing view

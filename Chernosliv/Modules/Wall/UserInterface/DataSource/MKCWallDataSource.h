@@ -7,9 +7,14 @@
 //
 #import "ObservableMutableArray.h"
 
+#import "MKCWallModuleInterface.h"
+
 @class PostViewModel;
+@class ANMemoryStorage;
 
 @interface MKCWallDataSource : NSObject
+
+@property (nonatomic, strong) ANMemoryStorage *storage;
 
 @property (nonatomic, strong, readonly) ObservableMutableArray *posts;
 
@@ -17,5 +22,7 @@
 
 - (PostViewModel *)objectAtIndex:(NSUInteger)index;
 - (NSUInteger)numberOfPosts;
+
+- (void)setupStorageWithItems:(NSArray*)items eventHandler:(id<MKCWallModuleInterface>)eventHandler;
 
 @end

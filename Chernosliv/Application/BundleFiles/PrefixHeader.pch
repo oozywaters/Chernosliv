@@ -12,3 +12,5 @@
 @import UIKit;
 @import Foundation;
 #endif
+
+#import "MKCGlobalHeader.h"
