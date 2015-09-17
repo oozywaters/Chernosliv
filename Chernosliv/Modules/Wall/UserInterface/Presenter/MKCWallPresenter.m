@@ -43,14 +43,7 @@
 //    _posts = [[ObservableMutableArray alloc] init];
     _endOfWallReached = NO;
     //    [[self loadNextPage]execute:nil];
-    _viewComments = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(PostViewModel *viewModel) {
-        [self.wireframe presentCommentsControllerWithPost:viewModel.post];
-        return [RACSignal empty];
-    }];
-    _viewAttachments = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(PostViewModel *viewModel) {
-        [self.wireframe presentAttachmentsControllerWithPost:viewModel.post];
-        return [RACSignal empty];
-    }];
+
 }
 
 - (void)configurePresenterWithUserInterface:(UIViewController<MKCWallViewInterface> *)userInterface {
@@ -70,5 +63,15 @@
     [self.dataSource setupStorageWithItems:posts eventHandler:self];
 }
 
+# pragma mark - MKCWallModuleInterface
+
+- (void)viewCommentsWithModel:(PostViewModel *)viewModel {
+    [self.wireframe presentCommentsControllerWithPost:viewModel.post];
+}
+
+- (void)viewAttachmentsWithModel:(PostViewModel *)viewModel {
+    [self.wallInterface attachmentsTappedWithView:viewModel.tappedImage];
+    [self.wireframe presentAttachmentsControllerWithPost:viewModel.post];
+}
 
 @end

@@ -9,8 +9,17 @@
 #import "ANTableController.h"
 
 @class MKCWallDataSource;
+@class PostViewModel;
+
+@protocol MKCWallTableControllerDelegate <NSObject>
+
+- (void)itemSelected:(PostViewModel *)viewModel;
+
+@end
 
 @interface MKCWallTableController : ANTableController
+
+@property (nonatomic, weak) id<MKCWallTableControllerDelegate> delegate;
 
 - (void)updateDataSource:(MKCWallDataSource *)dataSource;
 

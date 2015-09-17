@@ -49,7 +49,7 @@
     if (!ANIsEmpty(items)) {
         items = [[items.rac_sequence map:^id(MKCVKPost *post) {
             PostViewModel *viewModel = [[PostViewModel alloc] initWithPost:post];
-            viewModel.eventHandelr = eventHandler;
+            viewModel.eventHandler = eventHandler;
             return viewModel;
         }] array];
 //        [self.storage removeAllItems];

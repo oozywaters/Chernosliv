@@ -12,7 +12,6 @@
 
 #import "MKCWallInteractorIO.h"
 
-#import <ReactiveCocoa/ReactiveCocoa.h>
 #import "ObservableMutableArray.h"
 
 @protocol MKCWallViewInterface;
@@ -21,8 +20,6 @@
 
 @property (nonatomic, strong) MKCWallWireframe *wireframe;
 @property (nonatomic, strong) id<MKCWallInteractorInput> interactor;
-@property (nonatomic, strong) RACCommand *viewComments;
-@property (nonatomic, strong) RACCommand *viewAttachments;
 
 - (void)configurePresenterWithUserInterface:(UIViewController<MKCWallViewInterface>*)userInterface;
 - (void)loadNextPageWithCompletionHandler:(void(^)(void))completion;

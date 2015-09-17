@@ -14,12 +14,11 @@
 
 #import "PostViewModel.h"
 #import "MKCWallDataSource.h"
-#import "TableViewBindingHelper.h"
 #import <SVPullToRefresh/SVPullToRefresh.h>
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import <MBProgressHUD/MBProgressHUD.h>
 
-@interface MKCWallVC ()
+@interface MKCWallVC () <MKCWallTableControllerDelegate>
 
 @property (nonatomic, strong) MKCTableContainerView *contentView;
 @property (nonatomic, strong) MKCWallTableController *controller;
@@ -37,6 +36,7 @@
     if (self) {
         self.contentView = [MKCTableContainerView containerWithTableViewStyle:UITableViewStyleGrouped];
         self.controller = [[MKCWallTableController alloc] initWithTableView:self.contentView.tableView];
+        self.controller.delegate = self;
         [self setNeedsStatusBarAppearanceUpdate];
     }
     return self;
@@ -57,16 +57,7 @@
 //    // A little trick for removing the cell separators
 //    self.tableView.tableFooterView = [UIView new];
 //    
-//    UINib *nib = [UINib nibWithNibName:@"PostTableViewCell" bundle:nil];
-//    
-//    _bindingHelper = [TableViewBindingHelper bindingHelperForTableView:self.tableView
-//                                                          sourceSignal:RACObserve(self.dataSource, posts)
-//                                                      selectionCommand:self.eventHandler.viewComments
-//                                                          templateCell:nib];
-//    
-////    [self setupStatusBar];
-//    _bindingHelper.delegate = self;
-////    _bindingHelper.delegate = (id<UITableViewDelegate>)_myBar.behaviorDefiner;
+
 //    
 //    // Infinite scroll functionality
 //    @weakify(self)
@@ -77,10 +68,10 @@
     
 }
 
-//- (void)viewWillAppear:(BOOL)animated {
-//    [super viewWillAppear:animated];
-//    [self.navigationController setNavigationBarHidden:YES];
-//}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+}
 
 - (void)pageLoaded {
 //    if (self.tableView.emptyDataSetVisible) {
@@ -94,33 +85,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-//- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return 44;
-//}
-
-# pragma mark - MKCWallViewInterface
-
-//- (void)updateDataSource:(MKCWallDataSource *)dataSource {
-//    self.dataSource = dataSource;
-//}
-
-# pragma mark - UITableViewDelegate
-
-//- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    PostViewModel *viewModel = [self.dataSource objectAtIndex:indexPath.row];
-//    CGFloat height = [viewModel calculateViewHeightForWidth:self.tableView.bounds.size.width];
-//    //    return UITableViewAutomaticDimension;
-//    //    return 400;
-//    return height;
-//}
-
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    PostViewModel *viewModel = [self.dataSource objectAtIndex:indexPath.row];
-//    CGFloat height = [viewModel calculateViewHeightForWidth:self.tableView.bounds.size.width];
-//    return height;
-////    return UITableViewAutomaticDimension;
-//}
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleDefault;
@@ -152,6 +116,16 @@
 
 - (void)updateDataSource:(MKCWallDataSource *)dataSource {
     [self.controller updateDataSource:dataSource];
+}
+
+- (void)attachmentsTappedWithView:(UIView *)tappedView {
+    self.tappedView = tappedView;
+}
+
+# pragma mark - MKCWallTableControllerDelegate
+
+- (void)itemSelected:(PostViewModel *) model {
+    [self.eventHandler viewCommentsWithModel:model];
 }
 
 @end

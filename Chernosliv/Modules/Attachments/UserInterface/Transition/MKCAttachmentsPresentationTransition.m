@@ -18,7 +18,7 @@
     
     // Create snapshot of the outgoing view
 //    PostTableViewCell *currentCell = fromVC.currentCell;
-    UIImageView *attachmentsImage = fromVC.tappedImage;
+    UIView *attachmentsImage = fromVC.tappedView;
     
     NSLog(@"attach: %@", attachmentsImage);
     

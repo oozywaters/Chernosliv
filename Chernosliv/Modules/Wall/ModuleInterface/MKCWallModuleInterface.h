@@ -6,17 +6,17 @@
 //  Copyright (c) 2015 Vyacheslav Zavertanny. All rights reserved.
 //
 
-#import <ReactiveCocoa/ReactiveCocoa.h>
-
 @protocol MKCWallModuleDelegate;
 
 @class MKCVKPost;
+@class PostViewModel;
 
 @protocol MKCWallModuleInterface <NSObject>
 
 @property (nonatomic, strong) id<MKCWallModuleDelegate> wallModuleDelegate;
-@property (nonatomic, strong) RACCommand *viewComments;
-@property (nonatomic, strong) RACCommand *viewAttachments;
+
+- (void)viewAttachmentsWithModel:(PostViewModel *)viewModel;
+- (void)viewCommentsWithModel:(PostViewModel *)viewModel;
 
 - (void)loadNextPage;
 

@@ -50,6 +50,14 @@
     _attachmentsCount = self.post.attachments.count;
 }
 
+- (void)viewComments {
+    [self.eventHandler viewCommentsWithModel:self];
+}
+
+- (void)viewAttachments {
+    [self.eventHandler viewAttachmentsWithModel:self];
+}
+
 - (CGFloat)calculateViewHeightForWidth:(CGFloat)width {
     if (self.viewHeight) {
         return self.viewHeight;

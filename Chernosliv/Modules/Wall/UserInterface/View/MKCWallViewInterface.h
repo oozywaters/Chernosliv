@@ -11,5 +11,6 @@
 @protocol MKCWallViewInterface <NSObject>
 
 - (void)updateDataSource:(MKCWallDataSource *)dataSource;
+- (void)attachmentsTappedWithView:(UIView *)tappedView;
 
 @end

@@ -16,9 +16,7 @@
 - (instancetype)initWithTableView:(UITableView *)tableView {
     self = [super initWithTableView:tableView];
     if (self) {
-//        [self registerCellClass:[PostTableViewCell class] forModelClass:[PostViewModel class]];
         [self registerCellNib:@"PostTableViewCell" forModelClass:[PostViewModel class]];
-        tableView.rowHeight = 500;
     }
     return self;
 }
@@ -26,5 +24,19 @@
 - (void)updateDataSource:(MKCWallDataSource *)dataSource {
     self.storage = dataSource.storage;
 }
+
+# pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    PostViewModel *postViewModel = [self.storage objectAtIndexPath:indexPath];
+    CGFloat height = [postViewModel calculateViewHeightForWidth:tableView.bounds.size.width];
+    return height;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    PostViewModel *viewModel = [self.storage objectAtIndexPath:indexPath];
+    [self.delegate itemSelected:viewModel];
+}
+
 
 @end

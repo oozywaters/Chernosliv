@@ -9,14 +9,6 @@
 #import "MKCVKPost.h"
 #import "MKCWallModuleInterface.h"
 
-@protocol PostViewModelDelegate <NSObject>
-
-- (void)attachmentsTappedWithModel:(MKCVKPost *)post;
-- (void)commentsTappedWithModel:(MKCVKPost *)post;
-
-@end
-
-
 @interface PostViewModel : NSObject
 
 @property (nonatomic, strong, readonly) MKCVKPost *post;
@@ -35,13 +27,14 @@
 @property (nonatomic) NSUInteger commentsCount;
 @property (nonatomic) NSUInteger repostsCount;
 
-@property (nonatomic, strong) RACCommand *viewComments;
-@property (nonatomic, strong) RACCommand *viewAttachments;
+@property (nonatomic, strong) UIView *tappedImage;
 
-@property (nonatomic, strong) id<MKCWallModuleInterface> eventHandelr;
+@property (nonatomic, strong) id<MKCWallModuleInterface> eventHandler;
 
 - (instancetype)initWithPost:(MKCVKPost *)post;
-
 - (CGFloat)calculateViewHeightForWidth:(CGFloat)width;
+
+- (void)viewAttachments;
+- (void)viewComments;
 
 @end
