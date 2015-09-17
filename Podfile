@@ -9,7 +9,7 @@ target 'Chernosliv' do
 #ANODA
 pod 'ANCategories', '1.0.6'
 pod 'ANStorage'
-pod 'ANTableController', :git => 'https://github.com/oozywaters/ANTableController.git'
+pod 'ANTableController', :git => 'https://github.com/oozywaters/ANTableController.git', :commit => '0dd01d30e6abf06cfae28d3835fcf344d50ff2af'
 pod 'ANTableViews'
 
 #UI
