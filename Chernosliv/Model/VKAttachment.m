@@ -30,7 +30,6 @@
 //        return [VKVideoMTL class];
 //    }
     
-    NSLog(@"No attachment");
     return nil;
 }
 

@@ -34,7 +34,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.contentView = [MKCTableContainerView containerWithTableViewStyle:UITableViewStyleGrouped];
+        self.contentView = [MKCTableContainerView containerWithTableViewStyle:UITableViewStylePlain];
         self.controller = [[MKCWallTableController alloc] initWithTableView:self.contentView.tableView];
         self.controller.delegate = self;
         [self setNeedsStatusBarAppearanceUpdate];

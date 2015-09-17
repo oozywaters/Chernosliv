@@ -19,19 +19,28 @@
 - (instancetype)initWithStyle:(UITableViewStyle)style
 {
     self = [super init];
-//    self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = [self backgroundColor];
     if (self)
     {
         ANTableView* tableView = [[ANTableView alloc] initWithFrame:CGRectZero style:style];
         [tableView setupAppearance];
         _tableView = tableView;
+        _tableView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
         [self addSubview:_tableView];
         
+        UIEdgeInsets padding = UIEdgeInsetsMake(20, 0, 0, 0);
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self);
+            make.edges.equalTo(self).with.insets(padding);
         }];
     }
     return self;
+}
+
+- (UIColor *)backgroundColor {
+    CGFloat red = 250.0 / 255.0;
+    CGFloat green = 250.0 / 255.0;
+    CGFloat blue = 250.0 / 255.0;
+    return [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
 }
 
 @end
