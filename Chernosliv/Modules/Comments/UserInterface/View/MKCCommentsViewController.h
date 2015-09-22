@@ -9,7 +9,7 @@
 #import "MKCCommentsViewInterface.h"
 #import "MKCCommentsModuleInterface.h"
 
-@interface MKCCommentsViewController : UITableViewController <MKCCommentsViewInterface>
+@interface MKCCommentsViewController : UIViewController <MKCCommentsViewInterface>
 
 @property (nonatomic, strong) id<MKCCommentsModuleInterface> eventHandler;
 

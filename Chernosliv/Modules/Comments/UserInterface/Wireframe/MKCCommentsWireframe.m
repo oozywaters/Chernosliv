@@ -46,8 +46,6 @@
 
 - (void)presentCommentsInterfaceFromNavigationController:(UINavigationController *)navigationController {
     self.presentedController = navigationController;
-    
-    [self.presentedController setDelegate:nil];
     [navigationController pushViewController:self.viewController animated:YES];
 }
 
@@ -57,7 +55,6 @@
                                   animationControllerForOperation:(UINavigationControllerOperation)operation
                                                fromViewController:(UIViewController *)fromVC
                                                  toViewController:(UIViewController *)toVC {
-    [navigationController setDelegate:nil];
     return [MKCCommentsPresentationTransition new];
 }
 

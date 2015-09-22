@@ -14,7 +14,6 @@
 
 @interface MKCCommentsPresenter : NSObject <MKCCommentsModuleInterface, MKCCommentsInteractorOutput>
 
-@property (nonatomic, weak) UIViewController<MKCCommentsViewInterface> *userInterface;
 @property (nonatomic, strong) id<MKCCommentsInteractorInput> interactor;
 
 - (instancetype)initWithPost:(MKCVKPost *)post;

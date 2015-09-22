@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 Vyacheslav Zavertanny. All rights reserved.
 //
 
-@class MKCCommentsPost;
+@class MKCCommentsDataSource;
 
 @protocol MKCCommentsViewInterface <NSObject>
 
-- (void)updatePostData:(MKCCommentsPost *)post;
-- (void)updateCommentsData:(MKCCommentsPost *)post;
+- (void)updateDataSource:(MKCCommentsDataSource *)dataSource;
+- (void)setHeaderViewWithImageURL:(NSURL *)imageURL;
 
 @end

@@ -26,14 +26,6 @@
     return self;
 }
 
-- (void)addPosts:(NSArray *)posts {
-//    posts = [[posts.rac_sequence map:^id(MKCVKPost *postModel) {
-//        return [[PostViewModel alloc] initWithPost:postModel];
-//    }] array];
-    
-    [self.posts addObjectsFromArray:posts];
-}
-
 - (PostViewModel *)objectAtIndex:(NSUInteger)index {
     if (index <= self.posts.count) {
         return [self.posts objectAtIndex:index];

@@ -8,7 +8,7 @@
 
 @interface MKCTableContainerView : UIView
 
-@property (nonatomic, strong) UITableView* tableView;
+@property (nonatomic, strong) UITableView *tableView;
 
 + (instancetype)containerWithTableViewStyle:(UITableViewStyle)style;
 

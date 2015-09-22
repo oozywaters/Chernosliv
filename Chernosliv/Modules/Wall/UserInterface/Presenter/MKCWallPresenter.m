@@ -40,7 +40,6 @@
 
 - (void)initialize {
     _dataSource = [MKCWallDataSource new];
-//    _posts = [[ObservableMutableArray alloc] init];
     _endOfWallReached = NO;
     //    [[self loadNextPage]execute:nil];
 

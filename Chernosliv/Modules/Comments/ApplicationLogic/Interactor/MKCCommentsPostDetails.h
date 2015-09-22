@@ -1,13 +1,14 @@
 //
-//  MKCCommentsPost.h
+//  MKCCommentsPostDetails.h
 //  Chernosliv
 //
-//  Created by Vyacheslav Zavertanny on 10/09/15.
-//  Copyright (c) 2015 Vyacheslav Zavertanny. All rights reserved.
+//  Created by Vyacheslav Zavertanny on 22/09/15.
+//  Copyright © 2015 Vyacheslav Zavertanny. All rights reserved.
 //
+
 @class MKCVKPost, MKCVKProfile;
 
-@interface MKCCommentsPost : NSObject
+@interface MKCCommentsPostDetails : NSObject
 
 - (instancetype)initWithVKPost:(MKCVKPost *)vkPost authorProfile:(MKCVKProfile *)authorProfile;
 

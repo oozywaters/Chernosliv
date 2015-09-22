@@ -30,6 +30,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.appDependencies installRootViewControllerIntoWindow:self.window];
     [self.window makeKeyAndVisible];
+    
 //    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0"))
 //    {
 //        UIView *view=[[UIView alloc] initWithFrame:CGRectMake(0, 0,[UIScreen mainScreen].bounds.size.width, 20)];

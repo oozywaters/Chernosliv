@@ -7,41 +7,61 @@
 //
 
 #import "MKCCommentsViewController.h"
-#import "MKCCommentsHeaderView.h"
-#import "MKCCommentsPostTableViewCell.h"
-#import "MKCCommentsPost.h"
-#import <SDWebImage/UIImageView+WebCache.h>
-#import <SDWebImage/UIImage+MultiFormat.h>
-#import <Masonry/Masonry.h>
+//#import "MKCCommentsHeaderView.h"
+//#import "MKCCommentsPostDetailsTableViewCell.h"
+//#import "MKCCommentsPost.h"
+//#import <SDWebImage/UIImageView+WebCache.h>
+//#import <SDWebImage/UIImage+MultiFormat.h>
+//
+#import "MKCCommentsTableContainerView.h"
+#import "MKCCommentsTableController.h"
 
 @interface MKCCommentsViewController () <UIScrollViewDelegate>
 
-@property (nonatomic, strong, readonly) NSString *postDetailsCellReuseIdentifier;
-@property (nonatomic, strong, readonly) NSString *commentsCellReuseIdentifier;
+//@property (nonatomic, strong, readonly) NSString *postDetailsCellReuseIdentifier;
+//@property (nonatomic, strong, readonly) NSString *commentsCellReuseIdentifier;
+//
+//@property (nonatomic, strong) MKCCommentsPost *post;
+//
+//@property (nonatomic, strong, readonly) UIView *headerView;
+//
+//@property (nonatomic, strong) CAGradientLayer *gradient;
 
-@property (nonatomic, strong) MKCCommentsPost *post;
 
-@property (nonatomic, strong, readonly) UIView *headerView;
-
-@property (nonatomic, strong) CAGradientLayer *gradient;
+@property (nonatomic) BOOL isHeaderViewSet;
+@property (nonatomic, strong) MKCCommentsTableContainerView *contentView;
+@property (nonatomic, strong) MKCCommentsTableController *controller;
 
 @end
 
-static const CGFloat kTableHeaderHeight = 75.0;
-
 @implementation MKCCommentsViewController
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.contentView = [MKCCommentsTableContainerView containerWithTableViewStyle:UITableViewStyleGrouped];
+        self.controller = [[MKCCommentsTableController alloc] initWithTableView:self.contentView.tableView];
+        [self setNeedsStatusBarAppearanceUpdate];
+        self.isHeaderViewSet = NO;
+    }
+    return self;
+}
+
+- (void)loadView {
+    [super loadView];
+    self.view = self.contentView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setNeedsStatusBarAppearanceUpdate];
+
     
-    if (self.post.hasAttachments) {
-        [self setUpHeaderView];
-    }
-    
-    [self setUpCells];
-    
-    [self updateHeaderView];
+   
+//    [self.controller updateHeaderView];
+//
+//    [self setUpCells];
+//    
+//    [self updateHeaderView];
 //    UIView *view = [UIView new];
 //    view.backgroundColor = [UIColor redColor];
 //    [self.tableView addSubview:view];
@@ -61,9 +81,8 @@ static const CGFloat kTableHeaderHeight = 75.0;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    NSLog(@"View appeared!");
     [self.navigationController setNavigationBarHidden:NO];
-    if (self.post.hasAttachments) {
+    if (self.isHeaderViewSet) {
         [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
                                                       forBarMetrics:UIBarMetricsDefault];
         self.navigationController.navigationBar.shadowImage = [UIImage new];
@@ -76,174 +95,23 @@ static const CGFloat kTableHeaderHeight = 75.0;
     }
 }
 
-- (void)setUpCells {
-    UINib *nib = [UINib nibWithNibName:@"MKCCommentsPostTableViewCell" bundle:nil];
-    UITableViewCell *templateCell = [[nib instantiateWithOwner:nil options:nil] firstObject];
-    _postDetailsCellReuseIdentifier = templateCell.reuseIdentifier;
-    [self.tableView registerNib:nib forCellReuseIdentifier:self.postDetailsCellReuseIdentifier];
-}
-
-- (void)setUpHeaderView {
-    UIImageView *headerImageView = [UIImageView new];
-    headerImageView.contentMode = UIViewContentModeScaleAspectFill;
-    //    [self.headerView addSubview:headerImage];
-    //    [headerImage mas_makeConstraints:^(MASConstraintMaker *make) {
-    //        make.edges.equalTo(self.headerView);
-    //    }];
-    [headerImageView sd_setImageWithURL:self.post.postHeaderImageURL];
-//    UIImage *img = [UIImage imageNamed:@"bird"];
-//    [headerImage setImage:img];
-    
-    
-    CGFloat headerWidth = self.tableView.bounds.size.width;
-    _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, headerWidth, kTableHeaderHeight)];
-    _headerView.clipsToBounds = YES;
-//    _headerView.backgroundColor = [UIColor redColor];
-//    _headerView = [UIView new];
-//    self.tableView.tableHeaderView = _headerView;
-    [self.tableView addSubview:self.headerView];
-    [_headerView addSubview:headerImageView];
-    [headerImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.headerView);
-    }];
-    
-    MKCCommentsHeaderView *gradient = [[MKCCommentsHeaderView alloc] initWithFrame:_headerView.frame];
-    [_headerView addSubview:gradient];
-    [gradient mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.headerView);
-    }];
-//
-    self.tableView.contentInset = UIEdgeInsetsMake(kTableHeaderHeight, 0, 0, 0);
-    self.tableView.contentOffset = CGPointMake(0, -kTableHeaderHeight);
-    
-}
-
-- (void)updateHeaderView {
-    CGRect headerRect = CGRectMake(0, -kTableHeaderHeight, self.tableView.bounds.size.width, kTableHeaderHeight);
-    if (self.tableView.contentOffset.y < -kTableHeaderHeight) {
-        headerRect.origin.y = self.tableView.contentOffset.y;
-        headerRect.size.height = -self.tableView.contentOffset.y;
-    }
-    self.headerView.frame = headerRect;
-    [self.headerView.layer setNeedsLayout];
-//    _gradient.frame = self.headerView.bounds;
-//    [self.headerView setNeedsDisplay];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
-    if (self.post.hasAttachments) {
+    if (self.isHeaderViewSet) {
         return UIStatusBarStyleLightContent;
     }
     return UIStatusBarStyleDefault;
 }
 
-#pragma mark - Table view data source
+#pragma mark - MKCCommentsViewInterface
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return 1;
+- (void)updateDataSource:(MKCCommentsDataSource *)dataSource {
+    [self.controller updateDataSource:dataSource];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return 1;
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    MKCCommentsPostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.postDetailsCellReuseIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    [cell bindData:self.post];
-    
-    return cell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //    return 300;
-    return UITableViewAutomaticDimension;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 44;
-}
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Table view delegate
-
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
-    
-    // Pass the selected object to the new view controller.
-    
-    // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-# pragma mark - UIScrollViewDelegate
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    [self updateHeaderView];
-}
-
-# pragma mark - MKCCommentsViewInterface
-
-- (void)updatePostData:(MKCCommentsPost *)post {
-    self.post = post;
+- (void)setHeaderViewWithImageURL:(NSURL *)imageURL {
+    self.isHeaderViewSet = YES;
+    [self.controller setHeaderViewWithImageURL:imageURL];
 }
 
 @end

@@ -9,6 +9,7 @@
 #import "MKCCommentsInteractorIO.h"
 
 @class MKCCommentsDataManager;
+@class MKCCommentsPostDetails;
 
 @interface MKCCommentsInteractor : NSObject <MKCCommentsInteractorInput>
 

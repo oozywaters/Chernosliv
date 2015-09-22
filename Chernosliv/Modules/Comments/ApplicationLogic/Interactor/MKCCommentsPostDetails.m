@@ -1,17 +1,17 @@
 //
-//  MKCCommentsPost.m
+//  MKCCommentsPostDetails.m
 //  Chernosliv
 //
-//  Created by Vyacheslav Zavertanny on 10/09/15.
-//  Copyright (c) 2015 Vyacheslav Zavertanny. All rights reserved.
+//  Created by Vyacheslav Zavertanny on 22/09/15.
+//  Copyright © 2015 Vyacheslav Zavertanny. All rights reserved.
 //
 
-#import "MKCCommentsPost.h"
+#import "MKCCommentsPostDetails.h"
 #import "MKCVKPost.h"
 #import "MKCVKProfile.h"
 #import "VKPhotoMTL.h"
 
-@implementation MKCCommentsPost
+@implementation MKCCommentsPostDetails
 
 - (instancetype)initWithVKPost:(MKCVKPost *)vkPost authorProfile:(MKCVKProfile *)authorProfile {
     self = [super init];

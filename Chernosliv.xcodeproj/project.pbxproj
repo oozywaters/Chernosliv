@@ -23,10 +23,15 @@
 		712489E81B50B286006526BA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 712489E71B50B286006526BA /* Images.xcassets */; };
 		712489EB1B50B286006526BA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712489E91B50B286006526BA /* LaunchScreen.xib */; };
 		712489F71B50B286006526BA /* ChernoslivTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 712489F61B50B286006526BA /* ChernoslivTests.m */; };
-		7139FE261BA19A2200BCD49E /* MKCCommentsPostViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7139FE251BA19A2200BCD49E /* MKCCommentsPostViewModel.m */; };
+		713CF1831BAFFAB2006A394A /* MKCCommentsTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 713CF1821BAFFAB2006A394A /* MKCCommentsTableController.m */; settings = {ASSET_TAGS = (); }; };
 		7141B0ED1B58FF000037C7FF /* TableViewBindingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7141B0EC1B58FF000037C7FF /* TableViewBindingHelper.m */; };
 		716453451B9B181700287BE6 /* MKCDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 716453441B9B181700287BE6 /* MKCDataStore.m */; };
 		716CAC071B5264A30068A441 /* VKService.m in Sources */ = {isa = PBXBuildFile; fileRef = 716CAC061B5264A30068A441 /* VKService.m */; };
+		716F759B1BB142BB001FFCEE /* MKCCommentsTableContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 716F759A1BB142BB001FFCEE /* MKCCommentsTableContainerView.m */; settings = {ASSET_TAGS = (); }; };
+		716F759E1BB15473001FFCEE /* MKCCommentsPostDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 716F759D1BB15473001FFCEE /* MKCCommentsPostDetails.m */; settings = {ASSET_TAGS = (); }; };
+		716F75A11BB1576A001FFCEE /* MKCCommentsPostDetailsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 716F75A01BB1576A001FFCEE /* MKCCommentsPostDetailsViewModel.m */; settings = {ASSET_TAGS = (); }; };
+		716F75A51BB15B7C001FFCEE /* MKCCommentsPostDetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 716F75A31BB15B7C001FFCEE /* MKCCommentsPostDetailsTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		716F75A61BB15B7C001FFCEE /* MKCCommentsPostDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 716F75A41BB15B7C001FFCEE /* MKCCommentsPostDetailsTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		71870EED1B8478970089B215 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71870EEB1B8478970089B215 /* Info.plist */; };
 		71870EEE1B8478970089B215 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 71870EEC1B8478970089B215 /* main.m */; };
 		71870EF31B847A380089B215 /* MKCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71870EF21B847A380089B215 /* MKCAppDelegate.m */; };
@@ -46,14 +51,11 @@
 		719601541B9890B900E72C59 /* MKCVKCommentsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 719601531B9890B900E72C59 /* MKCVKCommentsList.m */; };
 		719601571B98944700E72C59 /* MKCVKProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 719601561B98944700E72C59 /* MKCVKProfile.m */; };
 		71CBB1E21B85E50B00A64F0E /* MKCWallInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CBB1E11B85E50B00A64F0E /* MKCWallInteractor.m */; };
-		71CEEF671B98391A009E4E21 /* MKCCommentsPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CEEF651B98391A009E4E21 /* MKCCommentsPostTableViewCell.m */; };
-		71CEEF681B98391A009E4E21 /* MKCCommentsPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71CEEF661B98391A009E4E21 /* MKCCommentsPostTableViewCell.xib */; };
 		71CEEF6E1B98789D009E4E21 /* MKCCommentsInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CEEF6D1B98789D009E4E21 /* MKCCommentsInteractor.m */; };
 		71CEEF721B987C33009E4E21 /* MKCCommentsDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CEEF711B987C33009E4E21 /* MKCCommentsDataManager.m */; };
 		71D0EA5D1BA97D8D004B9167 /* MKCTableContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D0EA5C1BA97D8D004B9167 /* MKCTableContainerView.m */; };
 		71D20D6B1B85CD8F00F0B6CA /* MKCAttachmentsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D20D6A1B85CD8F00F0B6CA /* MKCAttachmentsPresenter.m */; };
 		71E44F611B6CFFE500E219CA /* VKVideoMTL.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E44F601B6CFFE500E219CA /* VKVideoMTL.m */; };
-		71F325721BA19139008C411B /* MKCCommentsPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F325711BA19139008C411B /* MKCCommentsPost.m */; };
 		71F834D91BA9827A00533FEE /* MKCWallTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F834D81BA9827A00533FEE /* MKCWallTableController.m */; };
 		71FC38D21B9456DE0033A7F1 /* MKCCommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FC38D01B9456DE0033A7F1 /* MKCCommentsViewController.m */; };
 		71FC38D31B9456DE0033A7F1 /* MKCCommentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71FC38D11B9456DE0033A7F1 /* MKCCommentsViewController.xib */; };
@@ -107,8 +109,8 @@
 		712489F01B50B286006526BA /* ChernoslivTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChernoslivTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		712489F51B50B286006526BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		712489F61B50B286006526BA /* ChernoslivTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChernoslivTests.m; sourceTree = "<group>"; };
-		7139FE241BA19A2200BCD49E /* MKCCommentsPostViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCCommentsPostViewModel.h; path = Modules/Comments/UserInterface/ViewModel/MKCCommentsPostViewModel.h; sourceTree = "<group>"; };
-		7139FE251BA19A2200BCD49E /* MKCCommentsPostViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCCommentsPostViewModel.m; path = Modules/Comments/UserInterface/ViewModel/MKCCommentsPostViewModel.m; sourceTree = "<group>"; };
+		713CF1811BAFFAB2006A394A /* MKCCommentsTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCCommentsTableController.h; path = Modules/Comments/UserInterface/View/MKCCommentsTableController.h; sourceTree = "<group>"; };
+		713CF1821BAFFAB2006A394A /* MKCCommentsTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCCommentsTableController.m; path = Modules/Comments/UserInterface/View/MKCCommentsTableController.m; sourceTree = "<group>"; };
 		7141B0EC1B58FF000037C7FF /* TableViewBindingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewBindingHelper.m; path = Utils/TableViewBindingHelper.m; sourceTree = "<group>"; };
 		716453431B9B181700287BE6 /* MKCDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCDataStore.h; path = Common/Store/MKCDataStore.h; sourceTree = "<group>"; };
 		716453441B9B181700287BE6 /* MKCDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCDataStore.m; path = Common/Store/MKCDataStore.m; sourceTree = "<group>"; };
@@ -116,6 +118,15 @@
 		716CAC011B50E22F0068A441 /* ReactiveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReactiveView.h; path = Utils/ReactiveView.h; sourceTree = "<group>"; };
 		716CAC051B5264A30068A441 /* VKService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VKService.h; path = Model/VKService.h; sourceTree = "<group>"; };
 		716CAC061B5264A30068A441 /* VKService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VKService.m; path = Model/VKService.m; sourceTree = "<group>"; };
+		716F75991BB142BB001FFCEE /* MKCCommentsTableContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCCommentsTableContainerView.h; path = Modules/Comments/UserInterface/View/MKCCommentsTableContainerView.h; sourceTree = "<group>"; };
+		716F759A1BB142BB001FFCEE /* MKCCommentsTableContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCCommentsTableContainerView.m; path = Modules/Comments/UserInterface/View/MKCCommentsTableContainerView.m; sourceTree = "<group>"; };
+		716F759C1BB15473001FFCEE /* MKCCommentsPostDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCCommentsPostDetails.h; path = Modules/Comments/ApplicationLogic/Interactor/MKCCommentsPostDetails.h; sourceTree = "<group>"; };
+		716F759D1BB15473001FFCEE /* MKCCommentsPostDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCCommentsPostDetails.m; path = Modules/Comments/ApplicationLogic/Interactor/MKCCommentsPostDetails.m; sourceTree = "<group>"; };
+		716F759F1BB1576A001FFCEE /* MKCCommentsPostDetailsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCCommentsPostDetailsViewModel.h; path = Modules/Comments/UserInterface/ViewModel/MKCCommentsPostDetailsViewModel.h; sourceTree = "<group>"; };
+		716F75A01BB1576A001FFCEE /* MKCCommentsPostDetailsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCCommentsPostDetailsViewModel.m; path = Modules/Comments/UserInterface/ViewModel/MKCCommentsPostDetailsViewModel.m; sourceTree = "<group>"; };
+		716F75A21BB15B7C001FFCEE /* MKCCommentsPostDetailsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCCommentsPostDetailsTableViewCell.h; path = Modules/Comments/UserInterface/View/Cells/MKCCommentsPostDetailsTableViewCell.h; sourceTree = "<group>"; };
+		716F75A31BB15B7C001FFCEE /* MKCCommentsPostDetailsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCCommentsPostDetailsTableViewCell.m; path = Modules/Comments/UserInterface/View/Cells/MKCCommentsPostDetailsTableViewCell.m; sourceTree = "<group>"; };
+		716F75A41BB15B7C001FFCEE /* MKCCommentsPostDetailsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MKCCommentsPostDetailsTableViewCell.xib; path = Modules/Comments/UserInterface/View/Cells/MKCCommentsPostDetailsTableViewCell.xib; sourceTree = "<group>"; };
 		71870EEB1B8478970089B215 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Application/BundleFiles/Info.plist; sourceTree = "<group>"; };
 		71870EEC1B8478970089B215 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Application/BundleFiles/main.m; sourceTree = "<group>"; };
 		71870EEF1B8478AE0089B215 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = Application/BundleFiles/PrefixHeader.pch; sourceTree = "<group>"; };
@@ -156,9 +167,6 @@
 		71CBB1E31B85E59800A64F0E /* MKCWallInteractorIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCWallInteractorIO.h; path = Modules/Wall/ApplicationLogic/Interactor/MKCWallInteractorIO.h; sourceTree = "<group>"; };
 		71CBB1EB1B85F99700A64F0E /* MKCAttachmentsModuleInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCAttachmentsModuleInterface.h; path = Modules/Attachments/ModuleInterface/MKCAttachmentsModuleInterface.h; sourceTree = "<group>"; };
 		71CBB1EC1B85F9B400A64F0E /* MKCAttachmentsModuleDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCAttachmentsModuleDelegate.h; path = Modules/Attachments/ModuleInterface/MKCAttachmentsModuleDelegate.h; sourceTree = "<group>"; };
-		71CEEF641B98391A009E4E21 /* MKCCommentsPostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCCommentsPostTableViewCell.h; path = Modules/Comments/UserInterface/View/Cells/MKCCommentsPostTableViewCell.h; sourceTree = "<group>"; };
-		71CEEF651B98391A009E4E21 /* MKCCommentsPostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCCommentsPostTableViewCell.m; path = Modules/Comments/UserInterface/View/Cells/MKCCommentsPostTableViewCell.m; sourceTree = "<group>"; };
-		71CEEF661B98391A009E4E21 /* MKCCommentsPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MKCCommentsPostTableViewCell.xib; path = Modules/Comments/UserInterface/View/Cells/MKCCommentsPostTableViewCell.xib; sourceTree = "<group>"; };
 		71CEEF6C1B98789D009E4E21 /* MKCCommentsInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCCommentsInteractor.h; path = Modules/Comments/ApplicationLogic/Interactor/MKCCommentsInteractor.h; sourceTree = "<group>"; };
 		71CEEF6D1B98789D009E4E21 /* MKCCommentsInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCCommentsInteractor.m; path = Modules/Comments/ApplicationLogic/Interactor/MKCCommentsInteractor.m; sourceTree = "<group>"; };
 		71CEEF6F1B9878C8009E4E21 /* MKCCommentsInteractorIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCCommentsInteractorIO.h; path = Modules/Comments/ApplicationLogic/Interactor/MKCCommentsInteractorIO.h; sourceTree = "<group>"; };
@@ -172,8 +180,6 @@
 		71D20D6C1B85CE0D00F0B6CA /* MKCWallModuleDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCWallModuleDelegate.h; path = Modules/Wall/ModuleInterface/MKCWallModuleDelegate.h; sourceTree = "<group>"; };
 		71E44F5F1B6CFFE500E219CA /* VKVideoMTL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VKVideoMTL.h; path = Model/VKVideoMTL.h; sourceTree = "<group>"; };
 		71E44F601B6CFFE500E219CA /* VKVideoMTL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VKVideoMTL.m; path = Model/VKVideoMTL.m; sourceTree = "<group>"; };
-		71F325701BA19139008C411B /* MKCCommentsPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCCommentsPost.h; path = Modules/Comments/ApplicationLogic/Interactor/MKCCommentsPost.h; sourceTree = "<group>"; };
-		71F325711BA19139008C411B /* MKCCommentsPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCCommentsPost.m; path = Modules/Comments/ApplicationLogic/Interactor/MKCCommentsPost.m; sourceTree = "<group>"; };
 		71F834D71BA9827A00533FEE /* MKCWallTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCWallTableController.h; path = Modules/Wall/UserInterface/View/MKCWallTableController.h; sourceTree = "<group>"; };
 		71F834D81BA9827A00533FEE /* MKCWallTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCWallTableController.m; path = Modules/Wall/UserInterface/View/MKCWallTableController.m; sourceTree = "<group>"; };
 		71FC38CF1B9456DE0033A7F1 /* MKCCommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCCommentsViewController.h; path = Modules/Comments/UserInterface/View/MKCCommentsViewController.h; sourceTree = "<group>"; };
@@ -230,6 +236,13 @@
 				880CA44613AC2FC66F037253 /* Pods-Chernosliv.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		7102F5B31BAAF617007F5290 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 		71189DE41B89683C00D8F341 /* ViewModel */ = {
@@ -349,8 +362,8 @@
 		7139FE231BA199DB00BCD49E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				7139FE241BA19A2200BCD49E /* MKCCommentsPostViewModel.h */,
-				7139FE251BA19A2200BCD49E /* MKCCommentsPostViewModel.m */,
+				716F759F1BB1576A001FFCEE /* MKCCommentsPostDetailsViewModel.h */,
+				716F75A01BB1576A001FFCEE /* MKCCommentsPostDetailsViewModel.m */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -495,12 +508,12 @@
 		71870F091B849C480089B215 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				71870F0E1B84A1D60089B215 /* Cell */,
 				71F834D71BA9827A00533FEE /* MKCWallTableController.h */,
 				71F834D81BA9827A00533FEE /* MKCWallTableController.m */,
 				71870F061B849C400089B215 /* MKCWallVC.h */,
 				71870F071B849C400089B215 /* MKCWallVC.m */,
 				71CBB1DE1B85DC7C00A64F0E /* MKCWallViewInterface.h */,
-				71870F0E1B84A1D60089B215 /* Cell */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -624,9 +637,9 @@
 		71CEEF631B983853009E4E21 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				71CEEF641B98391A009E4E21 /* MKCCommentsPostTableViewCell.h */,
-				71CEEF651B98391A009E4E21 /* MKCCommentsPostTableViewCell.m */,
-				71CEEF661B98391A009E4E21 /* MKCCommentsPostTableViewCell.xib */,
+				716F75A21BB15B7C001FFCEE /* MKCCommentsPostDetailsTableViewCell.h */,
+				716F75A31BB15B7C001FFCEE /* MKCCommentsPostDetailsTableViewCell.m */,
+				716F75A41BB15B7C001FFCEE /* MKCCommentsPostDetailsTableViewCell.xib */,
 				71913FB11BA83D9E008BD19A /* MKCCommentsTableViewCell.h */,
 				71913FB21BA83D9E008BD19A /* MKCCommentsTableViewCell.m */,
 				71913FB31BA83D9E008BD19A /* MKCCommentsTableViewCell.xib */,
@@ -658,8 +671,8 @@
 				71CEEF6C1B98789D009E4E21 /* MKCCommentsInteractor.h */,
 				71CEEF6D1B98789D009E4E21 /* MKCCommentsInteractor.m */,
 				71CEEF6F1B9878C8009E4E21 /* MKCCommentsInteractorIO.h */,
-				71F325701BA19139008C411B /* MKCCommentsPost.h */,
-				71F325711BA19139008C411B /* MKCCommentsPost.m */,
+				716F759C1BB15473001FFCEE /* MKCCommentsPostDetails.h */,
+				716F759D1BB15473001FFCEE /* MKCCommentsPostDetails.m */,
 			);
 			name = Interactor;
 			sourceTree = "<group>";
@@ -667,6 +680,7 @@
 		71D0EA561BA97CD9004B9167 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				7102F5B31BAAF617007F5290 /* Categories */,
 				71D0EA5E1BA97F09004B9167 /* Headers */,
 				71D0EA571BA97CEF004B9167 /* Layers */,
 			);
@@ -742,6 +756,10 @@
 			children = (
 				71CEEF631B983853009E4E21 /* Cells */,
 				71FC38E71B9491BE0033A7F1 /* Header */,
+				716F75991BB142BB001FFCEE /* MKCCommentsTableContainerView.h */,
+				716F759A1BB142BB001FFCEE /* MKCCommentsTableContainerView.m */,
+				713CF1811BAFFAB2006A394A /* MKCCommentsTableController.h */,
+				713CF1821BAFFAB2006A394A /* MKCCommentsTableController.m */,
 				71FC38CF1B9456DE0033A7F1 /* MKCCommentsViewController.h */,
 				71FC38D01B9456DE0033A7F1 /* MKCCommentsViewController.m */,
 				71FC38D11B9456DE0033A7F1 /* MKCCommentsViewController.xib */,
@@ -889,10 +907,10 @@
 				71913FB51BA83D9E008BD19A /* MKCCommentsTableViewCell.xib in Resources */,
 				71870EED1B8478970089B215 /* Info.plist in Resources */,
 				71189DE01B895CFE00D8F341 /* MKCAttachmentsViewController.xib in Resources */,
+				716F75A61BB15B7C001FFCEE /* MKCCommentsPostDetailsTableViewCell.xib in Resources */,
 				712489EB1B50B286006526BA /* LaunchScreen.xib in Resources */,
 				71870F161B84A3710089B215 /* PostTableViewCell.xib in Resources */,
 				71FC38D31B9456DE0033A7F1 /* MKCCommentsViewController.xib in Resources */,
-				71CEEF681B98391A009E4E21 /* MKCCommentsPostTableViewCell.xib in Resources */,
 				712489E81B50B286006526BA /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -946,21 +964,21 @@
 			files = (
 				71870EF31B847A380089B215 /* MKCAppDelegate.m in Sources */,
 				71870F081B849C400089B215 /* MKCWallVC.m in Sources */,
+				713CF1831BAFFAB2006A394A /* MKCCommentsTableController.m in Sources */,
 				716CAC071B5264A30068A441 /* VKService.m in Sources */,
 				71054C881B76F6D4005C91BF /* README.md in Sources */,
 				71870F141B84A3710089B215 /* CountView.m in Sources */,
+				716F75A51BB15B7C001FFCEE /* MKCCommentsPostDetailsTableViewCell.m in Sources */,
 				71CBB1E21B85E50B00A64F0E /* MKCWallInteractor.m in Sources */,
 				71189DF31B897DAB00D8F341 /* MKCWallDataManager.m in Sources */,
 				719601511B987F6C00E72C59 /* MKCVKComment.m in Sources */,
 				712449611B5B78FC008ED6C0 /* VKPhotoMTL.m in Sources */,
 				71E44F611B6CFFE500E219CA /* VKVideoMTL.m in Sources */,
-				7139FE261BA19A2200BCD49E /* MKCCommentsPostViewModel.m in Sources */,
+				716F75A11BB1576A001FFCEE /* MKCCommentsPostDetailsViewModel.m in Sources */,
 				71FC38DF1B9463C70033A7F1 /* MKCCommentsPresenter.m in Sources */,
 				71870EEE1B8478970089B215 /* main.m in Sources */,
 				7113A4271B57D78D0060D5B5 /* ObservableMutableArray.m in Sources */,
-				71CEEF671B98391A009E4E21 /* MKCCommentsPostTableViewCell.m in Sources */,
 				71189DDF1B895CFE00D8F341 /* MKCAttachmentsViewController.m in Sources */,
-				71F325721BA19139008C411B /* MKCCommentsPost.m in Sources */,
 				71CEEF6E1B98789D009E4E21 /* MKCCommentsInteractor.m in Sources */,
 				71870F051B8496600089B215 /* MKCWallWireframe.m in Sources */,
 				71870F151B84A3710089B215 /* PostTableViewCell.m in Sources */,
@@ -976,12 +994,14 @@
 				716453451B9B181700287BE6 /* MKCDataStore.m in Sources */,
 				71FC38EA1B9491F60033A7F1 /* MKCCommentsHeaderView.m in Sources */,
 				71870F0D1B849DEA0089B215 /* MKCWallPresenter.m in Sources */,
+				716F759B1BB142BB001FFCEE /* MKCCommentsTableContainerView.m in Sources */,
 				711F7B091B9C143D002768D7 /* MKCWallDataSource.m in Sources */,
 				719601541B9890B900E72C59 /* MKCVKCommentsList.m in Sources */,
 				711F7B051B9BF8FC002768D7 /* MKCVKPost.m in Sources */,
 				71913FB41BA83D9E008BD19A /* MKCCommentsTableViewCell.m in Sources */,
 				7124495B1B5B753C008ED6C0 /* VKAttachment.m in Sources */,
 				71FC38D71B94617F0033A7F1 /* MKCAttachmentsPresentationTransition.m in Sources */,
+				716F759E1BB15473001FFCEE /* MKCCommentsPostDetails.m in Sources */,
 				711F7B021B9BF848002768D7 /* MKCWallGetResponse.m in Sources */,
 				71CEEF721B987C33009E4E21 /* MKCCommentsDataManager.m in Sources */,
 				71FC38DB1B94623D0033A7F1 /* MKCCommentsWireframe.m in Sources */,
@@ -1112,7 +1132,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = Chernosliv/Application/BundleFiles/PrefixHeader.pch;
 				INFOPLIST_FILE = Chernosliv/Application/BundleFiles/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1125,7 +1145,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = Chernosliv/Application/BundleFiles/PrefixHeader.pch;
 				INFOPLIST_FILE = Chernosliv/Application/BundleFiles/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

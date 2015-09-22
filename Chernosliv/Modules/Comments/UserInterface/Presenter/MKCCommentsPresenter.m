@@ -7,23 +7,42 @@
 //
 
 #import "MKCCommentsPresenter.h"
-#import "MKCCommentsPost.h"
+#import "MKCCommentsDataSource.h"
+#import "MKCCommentsPostDetails.h"
 
 @interface MKCCommentsPresenter ()
 
-@property (nonatomic, strong) MKCCommentsPost *post;
+@property (nonatomic, weak) UIViewController<MKCCommentsViewInterface> *commentsInterface;
+@property (nonatomic, strong) MKCCommentsDataSource *dataSource;
 
 @end
 
 @implementation MKCCommentsPresenter
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _dataSource = [MKCCommentsDataSource new];
+    }
+    return self;
+}
+
 - (void)configurePresenterWithUserInterface:(UIViewController<MKCCommentsViewInterface> *)userInterface {
-    _userInterface = userInterface;
-    _post = [self.interactor currentPost];
-    NSLog(@"Current post: %@", _post.postHeaderImageURL);
-    [self loadComments];
-    [self.userInterface updatePostData:self.post];
+    self.commentsInterface = userInterface;
+    [self.commentsInterface updateDataSource:self.dataSource];
+    [self loadPostContent];
+
+//    [self loadComments];
+//    [self.userInterface updatePostData:self.post];
 //    [self loadCommentsWithPostId:self.post.postId];
+}
+
+- (void)loadPostContent {
+    MKCCommentsPostDetails *postDetails = [self.interactor currentPost];
+    [self.dataSource setupStorageWithPostDetails:postDetails eventHandler:self];
+    if (postDetails.hasAttachments) {
+        [self.commentsInterface setHeaderViewWithImageURL:postDetails.postHeaderImageURL];
+    }
 }
 
 - (void)loadComments {
@@ -31,7 +50,6 @@
 }
 
 - (void)commentsLoaded:(NSArray *)comments {
-    NSLog(@"aklsdjflkdj");
     NSLog(@"Interactor received comments: %@", comments);
 }
 

@@ -7,9 +7,8 @@
 //
 
 #import <ANTableViews/ANTableViewCell.h>
-#import "ReactiveView.h"
 
-@interface PostTableViewCell : ANTableViewCell <ReactiveView>
+@interface PostTableViewCell : ANTableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *postImage;
 

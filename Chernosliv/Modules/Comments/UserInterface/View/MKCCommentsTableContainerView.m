@@ -1,15 +1,16 @@
 //
-//  MKCTableContainerView.m
+//  MKCCommentsTableContainerView.m
 //  Chernosliv
 //
-//  Created by Vyacheslav Zavertanny on 16/09/15.
-//  Copyright (c) 2015 Vyacheslav Zavertanny. All rights reserved.
+//  Created by Vyacheslav Zavertanny on 22/09/15.
+//  Copyright © 2015 Vyacheslav Zavertanny. All rights reserved.
 //
 
-#import "MKCTableContainerView.h"
+#import "MKCCommentsTableContainerView.h"
 #import <ANTableViews/ANTableView.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
-@implementation MKCTableContainerView
+@implementation MKCCommentsTableContainerView
 
 + (instancetype)containerWithTableViewStyle:(UITableViewStyle)style
 {
@@ -20,18 +21,17 @@
 {
     self = [super init];
     self.backgroundColor = [UIColor an_colorWithHexString:@"#FAFAFA"];
-    if (self)
-    {
+    if (self) {
         ANTableView* tableView = [[ANTableView alloc] initWithFrame:CGRectZero style:style];
         [tableView setupAppearance];
         _tableView = tableView;
-        _tableView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
-        [self addSubview:_tableView];
+        _tableView.clipsToBounds = NO;
         
-        UIEdgeInsets padding = UIEdgeInsetsMake(20, 0, 0, 0);
+        [self addSubview:_tableView];
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self).with.insets(padding);
+            make.edges.equalTo(self);
         }];
+        
     }
     return self;
 }

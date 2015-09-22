@@ -5,11 +5,11 @@
 //  Created by Vyacheslav Zavertanny on 03/09/15.
 //  Copyright (c) 2015 Vyacheslav Zavertanny. All rights reserved.
 //
-@class MKCCommentsPost;
+@class MKCCommentsPostDetails;
 
 @protocol MKCCommentsInteractorInput <NSObject>
 
-- (MKCCommentsPost *)currentPost;
+- (MKCCommentsPostDetails *)currentPost;
 - (void)loadComments;
 
 @end

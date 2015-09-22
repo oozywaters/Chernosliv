@@ -10,7 +10,7 @@
 #import "MKCCommentsDataManager.h"
 #import "MKCVKPost.h"
 #import "MKCVKProfile.h"
-#import "MKCCommentsPost.h"
+#import "MKCCommentsPostDetails.h"
 
 @interface MKCCommentsInteractor ()
 
@@ -38,11 +38,17 @@
     }];
 }
 
-- (MKCCommentsPost *)currentPost {
+//- (MKCCommentsPostDetails *)currentPostDetails {
+//    MKCVKPost *post = self.dataManager.post;
+//    MKCVKProfile *profile = [self.dataManager profileWithId:post.authorId];
+//    MKCCommentsPostDetails *commentsPost = [[MKCCommentsPostDetails alloc] initWithVKPost:post authorProfile:profile];
+//    return commentsPost;
+//}
+
+- (MKCCommentsPostDetails *)currentPost {
     MKCVKPost *post = self.dataManager.post;
     MKCVKProfile *profile = [self.dataManager profileWithId:post.authorId];
-    MKCCommentsPost *commentsPost = [[MKCCommentsPost alloc] initWithVKPost:post authorProfile:profile];
+    MKCCommentsPostDetails *commentsPost = [[MKCCommentsPostDetails alloc] initWithVKPost:post authorProfile:profile];
     return commentsPost;
 }
-
 @end
