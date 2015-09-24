@@ -102,6 +102,7 @@ static const CGFloat kTableHeaderHeight = 75.0;
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self updateHeaderView];
+    [self.delegate scrollViewDidScroll:scrollView];
 }
 
 @end

@@ -25,6 +25,8 @@
 @property (nonatomic, strong) NSLayoutConstraint *aspectConstraint;
 @property (weak, nonatomic) IBOutlet CountView *countView;
 @property (nonatomic, strong) NSArray *imagesArray;
+@property (weak, nonatomic) IBOutlet UILabel *authorName;
+@property (weak, nonatomic) IBOutlet UIImageView *avatar;
 
 
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
@@ -74,6 +76,9 @@
 
 - (void)updateWithModel:(id)model {
     self.viewModel = (PostViewModel *)model;
+    
+    [self.authorName setText:self.viewModel.authorName];
+    [self.avatar sd_setImageWithURL:self.viewModel.authorImageURL];
     
     NSString *likesString = [NSString stringWithFormat:@"%d", self.viewModel.likesCount];
     NSString *commentsString = [NSString stringWithFormat:@"%d", self.viewModel.commentsCount];

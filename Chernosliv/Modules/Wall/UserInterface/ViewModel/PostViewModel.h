@@ -13,6 +13,9 @@
 
 @property (nonatomic, strong, readonly) MKCVKPost *post;
 
+@property (nonatomic, strong, readonly) NSString *authorName;
+@property (nonatomic, strong, readonly) NSURL *authorImageURL;
+
 @property (nonatomic, strong, readonly) NSString *postId;
 @property (nonatomic, strong, readonly) NSString *postText;
 

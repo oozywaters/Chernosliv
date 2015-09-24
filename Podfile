@@ -18,6 +18,7 @@ pod 'DZNEmptyDataSet'
 pod 'MBProgressHUD'
 pod 'SVPullToRefresh'
 pod 'SDWebImage'
+pod 'LTNavigationBar'
 
 #API
 pod 'Mantle', '2.0.2'

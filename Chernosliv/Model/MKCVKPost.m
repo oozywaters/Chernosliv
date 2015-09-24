@@ -8,6 +8,7 @@
 
 #import "MKCVKPost.h"
 #import "VKAttachment.h"
+#import "MKCDataStore.h"
 
 @implementation MKCVKPost
 
@@ -44,6 +45,13 @@
         }
         return results;
     }];
+}
+
+- (MKCVKProfile *)authorProfile {
+    if (!_authorProfile) {
+        return [[MKCDataStore sharedStore] profileWithId:self.authorId];
+    }
+    return _authorProfile;
 }
 
 @end

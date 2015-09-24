@@ -10,7 +10,15 @@
 
 @class MKCCommentsDataSource;
 
+@protocol MKCCommentsTableControllerDelegate <NSObject>
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView;
+
+@end
+
 @interface MKCCommentsTableController : ANTableController
+
+@property (nonatomic, weak) id<MKCCommentsTableControllerDelegate> delegate;
 
 - (void)updateDataSource:(MKCCommentsDataSource *)dataSource;
 - (void)setHeaderViewWithImageURL:(NSURL *)imageURL;

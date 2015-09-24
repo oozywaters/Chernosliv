@@ -48,6 +48,11 @@
     }
 //
     _attachmentsCount = self.post.attachments.count;
+    
+    
+    MKCVKProfile *profile = self.post.authorProfile;
+    _authorName = [NSString stringWithFormat:@"%@ %@", profile.firstName, profile.lastName];
+    _authorImageURL = profile.avatar;
 }
 
 - (void)viewComments {
@@ -63,7 +68,7 @@
         return self.viewHeight;
     }
     
-    CGFloat topPadding = 12.0;
+    CGFloat topPadding = 12.0 + 12.0 + 50.0;
     CGFloat leftPadding = 12.0;
     CGFloat rightPadding = 12.0;
     CGFloat bottomPadding = 12.0;

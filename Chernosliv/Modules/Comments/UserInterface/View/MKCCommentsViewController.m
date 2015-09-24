@@ -15,7 +15,7 @@
 
 #import "MKCCommentsTableController.h"
 
-@interface MKCCommentsViewController () <UIScrollViewDelegate>
+@interface MKCCommentsViewController () <MKCCommentsTableControllerDelegate>
 
 //@property (nonatomic, strong, readonly) NSString *postDetailsCellReuseIdentifier;
 //@property (nonatomic, strong, readonly) NSString *commentsCellReuseIdentifier;
@@ -38,6 +38,7 @@
     self = [super init];
     if (self) {
         self.controller = [[MKCCommentsTableController alloc] initWithTableView:self.tableView];
+        self.controller.delegate = self;
         [self setNeedsStatusBarAppearanceUpdate];
         self.isHeaderViewSet = NO;
     }
@@ -74,12 +75,12 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO];
     if (self.isHeaderViewSet) {
-        [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
-                                                      forBarMetrics:UIBarMetricsDefault];
+//        [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
+//                                                      forBarMetrics:UIBarMetricsDefault];
         self.navigationController.navigationBar.shadowImage = [UIImage new];
         self.navigationController.navigationBar.translucent = YES;
-        self.navigationController.view.backgroundColor = [UIColor clearColor];
-        self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
+//        self.navigationController.view.backgroundColor = [UIColor clearColor];
+//        self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
         self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     } else {
         self.navigationController.navigationBar.tintColor = [UIColor blackColor];
@@ -107,6 +108,26 @@
 - (void)setHeaderViewWithImageURL:(NSURL *)imageURL {
     self.isHeaderViewSet = YES;
     [self.controller setHeaderViewWithImageURL:imageURL];
+}
+
+#pragma mark - MKCCommentsTableControllerDelegate
+#define NAVBAR_CHANGE_POINT -139
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    UIColor * color = [UIColor an_colorWithHexString:@"#627797"];
+    CGFloat offsetY = scrollView.contentOffset.y;
+    if (offsetY > NAVBAR_CHANGE_POINT) {
+        CGFloat alpha = MIN(1, 1 - ((NAVBAR_CHANGE_POINT + 64 - offsetY) / 64));
+        [self.navigationController.navigationBar lt_setBackgroundColor:[color colorWithAlphaComponent:alpha]];
+    } else {
+        [self.navigationController.navigationBar lt_setBackgroundColor:[color colorWithAlphaComponent:0]];
+    }
+}
+
+- (void)setNavigationBarTransformProgress:(CGFloat)progress
+{
+    [self.navigationController.navigationBar lt_setTranslationY:(75 * progress)];
+    [self.navigationController.navigationBar lt_setElementsAlpha:(1-progress)];
 }
 
 @end

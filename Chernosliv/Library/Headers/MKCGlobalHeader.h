@@ -12,3 +12,4 @@
 # pragma mark - UI Categories
 
 #import <ANCategories/UIColor+ANAdditions.h>
+#import <UINavigationBar+Awesome.h>
