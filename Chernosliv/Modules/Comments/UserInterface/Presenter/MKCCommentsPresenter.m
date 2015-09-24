@@ -43,6 +43,7 @@
     if (postDetails.hasAttachments) {
         [self.commentsInterface setHeaderViewWithImageURL:postDetails.postHeaderImageURL];
     }
+    [self loadComments];
 }
 
 - (void)loadComments {
@@ -50,7 +51,7 @@
 }
 
 - (void)commentsLoaded:(NSArray *)comments {
-    NSLog(@"Interactor received comments: %@", comments);
+    [self.dataSource setupStorageWithItems:comments eventHandler:self];
 }
 
 @end

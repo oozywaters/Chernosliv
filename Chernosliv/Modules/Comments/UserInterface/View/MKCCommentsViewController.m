@@ -12,8 +12,7 @@
 //#import "MKCCommentsPost.h"
 //#import <SDWebImage/UIImageView+WebCache.h>
 //#import <SDWebImage/UIImage+MultiFormat.h>
-//
-#import "MKCCommentsTableContainerView.h"
+
 #import "MKCCommentsTableController.h"
 
 @interface MKCCommentsViewController () <UIScrollViewDelegate>
@@ -29,7 +28,6 @@
 
 
 @property (nonatomic) BOOL isHeaderViewSet;
-@property (nonatomic, strong) MKCCommentsTableContainerView *contentView;
 @property (nonatomic, strong) MKCCommentsTableController *controller;
 
 @end
@@ -39,25 +37,18 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.contentView = [MKCCommentsTableContainerView containerWithTableViewStyle:UITableViewStyleGrouped];
-        self.controller = [[MKCCommentsTableController alloc] initWithTableView:self.contentView.tableView];
+        self.controller = [[MKCCommentsTableController alloc] initWithTableView:self.tableView];
         [self setNeedsStatusBarAppearanceUpdate];
         self.isHeaderViewSet = NO;
     }
     return self;
 }
 
-- (void)loadView {
-    [super loadView];
-    self.view = self.contentView;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     
    
-//    [self.controller updateHeaderView];
+    [self.controller updateHeaderView];
 //
 //    [self setUpCells];
 //    
@@ -93,6 +84,10 @@
     } else {
         self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle

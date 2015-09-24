@@ -30,8 +30,6 @@
 
 - (void)loadComments {
     [self.dataManager getCommentsWithSuccess:^(NSArray *comments) {
-        NSLog(@"Interactorrrrrrr output: %@", self.output);
-        
         [self.output commentsLoaded:comments];
     } error:^(NSError *error) {
         NSLog(@"Error while loading comments: %@", error);

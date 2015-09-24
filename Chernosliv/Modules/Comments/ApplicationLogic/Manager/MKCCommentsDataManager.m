@@ -35,6 +35,16 @@
 - (void)getCommentsWithSuccess:(void (^)(NSArray *))successBlock
                          error:(void (^)(NSError *))errorBlock {
     [[VKService sharedService] getCommentsWithPostId:self.post.postId success:^(MKCVKCommentsList *commentsList) {
+//        MKCVKComment *comment = commentsList.comments[0];
+//        comment.author = [commentsList.profiles objectForKey:comment.authorId];
+//        NSLog(@"Comment: %@", comment);
+
+        commentsList.comments = [[commentsList.comments.rac_sequence map:^id(MKCVKComment *comment) {
+            comment.author = [commentsList.profiles objectForKey:comment.authorId];
+            return comment;
+        }] array];
+//
+        
         if (!self.commentsList) {
             self.commentsList = commentsList;
         } else {

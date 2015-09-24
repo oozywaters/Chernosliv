@@ -9,6 +9,8 @@
 #import <ANStorage/ANMemoryStorage.h>
 #import "MKCCommentsDataSource.h"
 #import "MKCCommentsPostDetailsViewModel.h"
+#import "MKCVKComment.h"
+#import "MKCCommentViewModel.h"
 
 @implementation MKCCommentsDataSource
 
@@ -22,6 +24,13 @@
 
 - (void)setupStorageWithItems:(NSArray *)items eventHandler:(id<MKCCommentsModuleInterface>)eventHandler {
     if (!ANIsEmpty(items)) {
+        items = [[items.rac_sequence map:^id(MKCVKComment *comment) {
+            MKCCommentViewModel *viewModel = [MKCCommentViewModel viewModelWithComment:comment];
+            viewModel.eventHandler = eventHandler;
+            return viewModel;
+        }] array];
+        //        [self.storage removeAllItems];
+        [self.storage addItems:items];
     }
 }
 

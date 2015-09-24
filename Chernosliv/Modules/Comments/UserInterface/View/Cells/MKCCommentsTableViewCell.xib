@@ -14,12 +14,17 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="82"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qoP-K9-4q6">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qoP-K9-4q6">
                         <rect key="frame" x="12" y="12" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="PDz-Ld-HzT"/>
                             <constraint firstAttribute="height" constant="50" id="qlJ-TI-fRc"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOR-Nz-JcU">
                         <rect key="frame" x="74" y="12" width="226" height="24"/>
@@ -27,10 +32,10 @@
                         <color key="textColor" red="0.16862745098039217" green="0.34509803921568627" blue="0.47843137254901957" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWO-kZ-jm1">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWO-kZ-jm1">
                         <rect key="frame" x="74" y="41" width="226" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -48,6 +53,11 @@
                 </constraints>
             </tableViewCellContentView>
             <inset key="separatorInset" minX="74" minY="0.0" maxX="0.0" maxY="0.0"/>
+            <connections>
+                <outlet property="authorName" destination="qOR-Nz-JcU" id="Xvf-32-qke"/>
+                <outlet property="avatarImage" destination="qoP-K9-4q6" id="04b-nr-IdL"/>
+                <outlet property="commentText" destination="aWO-kZ-jm1" id="auh-BN-2nS"/>
+            </connections>
             <point key="canvasLocation" x="524" y="442.5"/>
         </tableViewCell>
     </objects>

@@ -20,7 +20,7 @@
 
 @property (nonatomic, weak) id<MKCCommentsModuleInterface> eventHandler;
 
-+ (MKCCommentsPostDetailsViewModel *)viewModelWithPostDetails:(MKCCommentsPostDetails *)postDetails;
++ (instancetype)viewModelWithPostDetails:(MKCCommentsPostDetails *)postDetails;
 - (instancetype)initWithModel:(MKCCommentsPostDetails *)postDetails;
 
 @end

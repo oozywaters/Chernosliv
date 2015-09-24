@@ -11,7 +11,7 @@
 
 @implementation MKCCommentsPostDetailsViewModel
 
-+ (MKCCommentsPostDetailsViewModel *)viewModelWithPostDetails:(MKCCommentsPostDetails *)postDetails {
++ (instancetype)viewModelWithPostDetails:(MKCCommentsPostDetails *)postDetails {
     return [[self alloc] initWithModel:postDetails];
 }
 
