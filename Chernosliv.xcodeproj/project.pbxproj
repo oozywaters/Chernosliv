@@ -10,7 +10,7 @@
 		71054C881B76F6D4005C91BF /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 71054C871B76F6D4005C91BF /* README.md */; };
 		7113A4271B57D78D0060D5B5 /* ObservableMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 7113A4261B57D78D0060D5B5 /* ObservableMutableArray.m */; };
 		71189DDF1B895CFE00D8F341 /* MKCAttachmentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71189DDB1B895CFE00D8F341 /* MKCAttachmentsViewController.m */; };
-		71189DE01B895CFE00D8F341 /* MKCAttachmentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71189DDC1B895CFE00D8F341 /* MKCAttachmentsViewController.xib */; };
+		71189DE01B895CFE00D8F341 /* MKCAttachmentsViewControlle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71189DDC1B895CFE00D8F341 /* MKCAttachmentsViewControlle.xib */; };
 		71189DE11B895CFE00D8F341 /* MKCPhotoAttachmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71189DDE1B895CFE00D8F341 /* MKCPhotoAttachmentViewController.m */; };
 		71189DE71B89686100D8F341 /* MKCPhotoAttachmentViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 71189DE61B89686100D8F341 /* MKCPhotoAttachmentViewModel.m */; };
 		71189DEF1B89695200D8F341 /* PostViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 71189DEE1B89695200D8F341 /* PostViewModel.m */; };
@@ -23,6 +23,7 @@
 		712489E81B50B286006526BA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 712489E71B50B286006526BA /* Images.xcassets */; };
 		712489EB1B50B286006526BA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712489E91B50B286006526BA /* LaunchScreen.xib */; };
 		712489F71B50B286006526BA /* ChernoslivTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 712489F61B50B286006526BA /* ChernoslivTests.m */; };
+		71348E521BB65EB70015F88A /* MKCAttachmentsGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71348E511BB65EB70015F88A /* MKCAttachmentsGradientView.m */; settings = {ASSET_TAGS = (); }; };
 		713CF1831BAFFAB2006A394A /* MKCCommentsTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 713CF1821BAFFAB2006A394A /* MKCCommentsTableController.m */; settings = {ASSET_TAGS = (); }; };
 		7141B0ED1B58FF000037C7FF /* TableViewBindingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7141B0EC1B58FF000037C7FF /* TableViewBindingHelper.m */; };
 		716453451B9B181700287BE6 /* MKCDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 716453441B9B181700287BE6 /* MKCDataStore.m */; };
@@ -81,7 +82,7 @@
 		7113A4261B57D78D0060D5B5 /* ObservableMutableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ObservableMutableArray.m; path = Utils/ObservableMutableArray.m; sourceTree = "<group>"; };
 		71189DDA1B895CFE00D8F341 /* MKCAttachmentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCAttachmentsViewController.h; path = Modules/Attachments/UserInterface/View/MKCAttachmentsViewController.h; sourceTree = "<group>"; };
 		71189DDB1B895CFE00D8F341 /* MKCAttachmentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCAttachmentsViewController.m; path = Modules/Attachments/UserInterface/View/MKCAttachmentsViewController.m; sourceTree = "<group>"; };
-		71189DDC1B895CFE00D8F341 /* MKCAttachmentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MKCAttachmentsViewController.xib; path = Modules/Attachments/UserInterface/View/MKCAttachmentsViewController.xib; sourceTree = "<group>"; };
+		71189DDC1B895CFE00D8F341 /* MKCAttachmentsViewControlle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MKCAttachmentsViewControlle.xib; path = Modules/Attachments/UserInterface/View/MKCAttachmentsViewControlle.xib; sourceTree = "<group>"; };
 		71189DDD1B895CFE00D8F341 /* MKCPhotoAttachmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCPhotoAttachmentViewController.h; path = Modules/Attachments/UserInterface/View/MKCPhotoAttachmentViewController.h; sourceTree = "<group>"; };
 		71189DDE1B895CFE00D8F341 /* MKCPhotoAttachmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCPhotoAttachmentViewController.m; path = Modules/Attachments/UserInterface/View/MKCPhotoAttachmentViewController.m; sourceTree = "<group>"; };
 		71189DE21B895F4800D8F341 /* MKCAttachmentsViewInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCAttachmentsViewInterface.h; path = Modules/Attachments/UserInterface/View/MKCAttachmentsViewInterface.h; sourceTree = "<group>"; };
@@ -107,6 +108,8 @@
 		712489F01B50B286006526BA /* ChernoslivTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChernoslivTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		712489F51B50B286006526BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		712489F61B50B286006526BA /* ChernoslivTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChernoslivTests.m; sourceTree = "<group>"; };
+		71348E501BB65EB70015F88A /* MKCAttachmentsGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCAttachmentsGradientView.h; path = Modules/Attachments/UserInterface/View/MKCAttachmentsGradientView.h; sourceTree = "<group>"; };
+		71348E511BB65EB70015F88A /* MKCAttachmentsGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCAttachmentsGradientView.m; path = Modules/Attachments/UserInterface/View/MKCAttachmentsGradientView.m; sourceTree = "<group>"; };
 		713CF1811BAFFAB2006A394A /* MKCCommentsTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCCommentsTableController.h; path = Modules/Comments/UserInterface/View/MKCCommentsTableController.h; sourceTree = "<group>"; };
 		713CF1821BAFFAB2006A394A /* MKCCommentsTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCCommentsTableController.m; path = Modules/Comments/UserInterface/View/MKCCommentsTableController.m; sourceTree = "<group>"; };
 		7141B0EC1B58FF000037C7FF /* TableViewBindingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewBindingHelper.m; path = Utils/TableViewBindingHelper.m; sourceTree = "<group>"; };
@@ -590,10 +593,12 @@
 			children = (
 				71189DDA1B895CFE00D8F341 /* MKCAttachmentsViewController.h */,
 				71189DDB1B895CFE00D8F341 /* MKCAttachmentsViewController.m */,
-				71189DDC1B895CFE00D8F341 /* MKCAttachmentsViewController.xib */,
+				71189DDC1B895CFE00D8F341 /* MKCAttachmentsViewControlle.xib */,
 				71189DDD1B895CFE00D8F341 /* MKCPhotoAttachmentViewController.h */,
 				71189DDE1B895CFE00D8F341 /* MKCPhotoAttachmentViewController.m */,
 				71189DE21B895F4800D8F341 /* MKCAttachmentsViewInterface.h */,
+				71348E501BB65EB70015F88A /* MKCAttachmentsGradientView.h */,
+				71348E511BB65EB70015F88A /* MKCAttachmentsGradientView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -901,7 +906,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71913FB51BA83D9E008BD19A /* MKCCommentsTableViewCell.xib in Resources */,
-				71189DE01B895CFE00D8F341 /* MKCAttachmentsViewController.xib in Resources */,
+				71189DE01B895CFE00D8F341 /* MKCAttachmentsViewControlle.xib in Resources */,
 				716F75A61BB15B7C001FFCEE /* MKCCommentsPostDetailsTableViewCell.xib in Resources */,
 				712489EB1B50B286006526BA /* LaunchScreen.xib in Resources */,
 				71870F161B84A3710089B215 /* PostTableViewCell.xib in Resources */,
@@ -984,6 +989,7 @@
 				71D20D6B1B85CD8F00F0B6CA /* MKCAttachmentsPresenter.m in Sources */,
 				71870F201B84A5DA0089B215 /* MKCAttachmentsWireframe.m in Sources */,
 				71189DE71B89686100D8F341 /* MKCPhotoAttachmentViewModel.m in Sources */,
+				71348E521BB65EB70015F88A /* MKCAttachmentsGradientView.m in Sources */,
 				71870EF71B847AF10089B215 /* MKCAppDependencies.m in Sources */,
 				716453451B9B181700287BE6 /* MKCDataStore.m in Sources */,
 				71FC38EA1B9491F60033A7F1 /* MKCCommentsHeaderView.m in Sources */,
@@ -1074,7 +1080,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1112,7 +1118,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1131,6 +1137,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.oozywaters.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1145,6 +1152,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.oozywaters.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

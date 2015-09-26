@@ -7,7 +7,6 @@
 //
 
 #import "MKCPhotoAttachmentViewController.h"
-#import <Masonry/Masonry.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 
 @interface MKCPhotoAttachmentViewController () <UIScrollViewDelegate>
@@ -32,6 +31,8 @@
     UIScrollView *zoomScrollView = [UIScrollView new];
     zoomScrollView.maximumZoomScale = 2.0;
     zoomScrollView.minimumZoomScale = 1.0;
+    
+    _contentView.contentMode = UIViewContentModeScaleToFill;
     
     self.view = zoomScrollView;
     [zoomScrollView addSubview:self.contentView];

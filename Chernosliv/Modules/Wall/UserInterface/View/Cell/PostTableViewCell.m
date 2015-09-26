@@ -40,7 +40,9 @@
 
 @end
 
-@implementation PostTableViewCell
+@implementation PostTableViewCell {
+    CGFloat aspect;
+}
 
 - (void)awakeFromNib {
     // Initialization code
@@ -132,15 +134,18 @@
         [self.attachmentsImgageConstraint setConstant:12.0];
         UITapGestureRecognizer *attachmentsTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(attachmentsTapped:)];
         
-        CGFloat aspect = self.viewModel.imageHeight / self.viewModel.imageWidth;
-        
-//        self.aspectConstraint = [NSLayoutConstraint constraintWithItem:self.postImage
-//                                                             attribute:NSLayoutAttributeHeight
-//                                                             relatedBy:NSLayoutRelationEqual
-//                                                                toItem:self.postImage
-//                                                             attribute:NSLayoutAttributeWidth
-//                                                            multiplier:aspect
-//                                                              constant:0.0];
+        CGFloat newAspect = self.viewModel.imageHeight / self.viewModel.imageWidth;
+//        if (aspect != newAspect) {
+//            aspect = newAspect;
+//            NSLog(@"New constraint set");
+//            self.aspectConstraint = [NSLayoutConstraint constraintWithItem:self.postImage
+//                                                                 attribute:NSLayoutAttributeHeight
+//                                                                 relatedBy:NSLayoutRelationEqual
+//                                                                    toItem:self.postImage
+//                                                                 attribute:NSLayoutAttributeWidth
+//                                                                multiplier:aspect
+//                                                                  constant:0.0];
+//        }
         
         [self.postImage sd_setImageWithURL:self.viewModel.imageURL];
         [self.postImage addGestureRecognizer:attachmentsTapGestureRecognizer];

@@ -13,17 +13,13 @@
 #import "VKPhotoMTL.h"
 
 #import <SDWebImage/UIImageView+WebCache.h>
-#import <Masonry/Masonry.h>
-#import <ReactiveCocoa/ReactiveCocoa.h>
 
 @interface MKCAttachmentsViewController ()
 
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-
 @property (nonatomic, strong) UIScrollView *pagingScrollView;
-//@property (nonatomic, strong) AttachmentsViewModel *viewModel;
-
+@property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
 @property (nonatomic, strong) NSArray *attachments;
+@property (nonatomic) BOOL isInterfaceHidden;
 
 @end
 
@@ -33,29 +29,36 @@
     self = [super init];
     if (self) {
         _pageViews = [NSMutableArray array];
+        _pagingScrollView = [UIScrollView new];
+        _pagingScrollView.pagingEnabled = YES;
+        _pagingScrollView.backgroundColor = [UIColor blackColor];
+        _tapGestureRecognizer = [[UITapGestureRecognizer alloc]
+                                 initWithTarget:self action:@selector(hideInterface)];
+        [_pagingScrollView addGestureRecognizer:_tapGestureRecognizer];
+        _isInterfaceHidden = NO;
+        self.automaticallyAdjustsScrollViewInsets = NO;
+        
+        _gradientView = [[MKCAttachmentsGradientView alloc] initWithFrame:CGRectMake(0, -20, 100, 25)];
+        
+        [self setNeedsStatusBarAppearanceUpdate];
     }
     return self;
 }
 
-//- (instancetype)initWithViewModel:(AttachmentsViewModel *)viewModel {
-//    self = [super init];
-//    if (self) {
-//        _viewModel = viewModel;
-//        _pageViews = [NSMutableArray array];
-//    }
-//    return self;
-//}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setNeedsStatusBarAppearanceUpdate];
-    
     NSUInteger attachmentsCount = [self.attachments count];
 //    
 //    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width * attachmentsCount,
 //                                             self.view.frame.size.height);
     
     [self.view addSubview:self.pagingScrollView];
+    
+    UIEdgeInsets scrollViewInsets = UIEdgeInsetsMake(0, -10, 0, -10);
+    
+    [self.pagingScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view).with.insets(scrollViewInsets);
+    }];
     
     UIView *previousView = nil;
     for (int i = 0; i < attachmentsCount; i++) {
@@ -65,11 +68,11 @@
         [_pageViews addObject:pvc.contentView];
         
         [self addChildViewController:pvc];
-        [self.scrollView addSubview:pvc.view];
+        [self.pagingScrollView addSubview:pvc.view];
         
         if (!previousView) {
             [pvc.view mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(self.scrollView.mas_left).with.offset(10);
+                make.left.equalTo(self.pagingScrollView.mas_left).with.offset(10);
             }];
         } else {
             [pvc.view mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -86,8 +89,20 @@
         previousView = pvc.view;
     }
     
-    [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.pagingScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(previousView.mas_right).with.offset(10);
+    }];
+    
+    [self setupGradientView];
+    
+}
+
+- (void)setupGradientView {
+    [self.view addSubview:self.gradientView];
+    [self.gradientView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(self.view.mas_width);
+        make.height.mas_equalTo(100);
+//        make.height.equalTo(@"25");
     }];
 }
 
@@ -109,6 +124,43 @@
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
+}
+
+- (void)hideInterface {
+    self.isInterfaceHidden = !self.isInterfaceHidden;
+//    [UIView animateWithDuration:0.5 animations:^{
+//        CGRect navigationBarFrame = self.navigationController.navigationBar.frame;
+//        CGRect scrollViewFrame = self.pagingScrollView.frame;
+//        if (self.isInterfaceHidden) {
+//            navigationBarFrame.origin.y += navigationBarFrame.size.height;
+////            scrollViewFrame.size.height -= navigationBarFrame.size.height;
+//        } else {
+//            navigationBarFrame.origin.y -= navigationBarFrame.size.height;
+////            scrollViewFrame.size.height += navigationBarFrame.size.height;
+//        }
+//        
+//        self.pagingScrollView.frame = scrollViewFrame;
+//        self.navigationController.navigationBar.frame = navigationBarFrame;
+//        
+//        self.isInterfaceHidden = !self.isInterfaceHidden;
+//        [self.navigationController setNavigationBarHidden:self.isInterfaceHidden];
+//    }];
+    [self.navigationController setNavigationBarHidden:self.isInterfaceHidden animated:YES];
+    [UIView animateWithDuration:0.5 animations:^{
+        if (self.isInterfaceHidden) {
+            self.gradientView.alpha = 0;
+        } else {
+            self.gradientView.alpha = 1;
+        }
+    }];
+}
+
+- (UIStatusBarAnimation)preferredStatusBarUpdateAnimation {
+    return UIStatusBarAnimationFade;
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return self.isInterfaceHidden;
 }
 
 # pragma mark - MKCAttahcmentsViewInterface

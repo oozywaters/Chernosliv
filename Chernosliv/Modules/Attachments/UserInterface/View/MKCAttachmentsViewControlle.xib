@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MKCAttachmentsViewController">
@@ -11,7 +11,7 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -25,7 +25,7 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="73N-d4-17a"/>
                         <barButtonItem style="plain" id="jDd-u8-Uly">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tqy-zJ-C6O">
-                                <rect key="frame" x="114" y="11" width="80" height="22"/>
+                                <rect key="frame" x="95" y="11" width="80" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -37,7 +37,7 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="YeK-Jp-J9P"/>
                         <barButtonItem style="plain" id="3SZ-ud-lH7" userLabel="RepostButton">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Rg0-8h-hrO">
-                                <rect key="frame" x="300" y="11" width="80" height="22"/>
+                                <rect key="frame" x="260" y="11" width="80" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -49,7 +49,7 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="qqr-vn-nkH"/>
                         <barButtonItem style="plain" id="i7y-zp-86m" userLabel="CommentButton">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ft5-4s-cTX">
-                                <rect key="frame" x="457" y="11" width="80" height="22"/>
+                                <rect key="frame" x="425" y="11" width="80" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -65,26 +65,15 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="lRH-IY-sBm" secondAttribute="bottom" id="BZh-A7-129"/>
-                <constraint firstAttribute="trailing" secondItem="lRH-IY-sBm" secondAttribute="trailing" id="LqM-zG-pcH"/>
-                <constraint firstAttribute="trailing" secondItem="lRH-IY-sBm" secondAttribute="trailing" constant="-10" id="O84-sf-Mff"/>
-                <constraint firstAttribute="trailing" secondItem="lRH-IY-sBm" secondAttribute="trailing" id="So1-5E-PMM"/>
-                <constraint firstAttribute="trailing" secondItem="lRH-IY-sBm" secondAttribute="trailing" id="TOF-R7-vpi"/>
-                <constraint firstAttribute="trailing" secondItem="cpx-w7-0qp" secondAttribute="trailing" id="Tdh-1D-QfQ"/>
-                <constraint firstAttribute="bottom" secondItem="cpx-w7-0qp" secondAttribute="bottom" id="VM7-QJ-eNB"/>
-                <constraint firstItem="lRH-IY-sBm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bWt-Ze-zJV"/>
-                <constraint firstItem="lRH-IY-sBm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="djE-1t-9fp"/>
-                <constraint firstItem="cpx-w7-0qp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="eFn-zX-ohj"/>
-                <constraint firstItem="lRH-IY-sBm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-10" id="iV7-1d-FNc"/>
+                <constraint firstAttribute="trailing" secondItem="cpx-w7-0qp" secondAttribute="trailing" id="23Y-kS-bSm"/>
+                <constraint firstItem="cpx-w7-0qp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2XD-wI-Odu"/>
+                <constraint firstAttribute="bottom" secondItem="cpx-w7-0qp" secondAttribute="bottom" id="9FE-EF-DXO"/>
+                <constraint firstItem="lRH-IY-sBm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="CPq-Ol-Ciy"/>
+                <constraint firstItem="cpx-w7-0qp" firstAttribute="bottom" secondItem="lRH-IY-sBm" secondAttribute="bottom" id="FKs-k4-h9J"/>
+                <constraint firstItem="lRH-IY-sBm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-10" id="UQF-HY-mnJ"/>
+                <constraint firstItem="lRH-IY-sBm" firstAttribute="centerX" secondItem="cpx-w7-0qp" secondAttribute="centerX" id="odD-lI-yhh"/>
             </constraints>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="LqM-zG-pcH"/>
-                    <exclude reference="So1-5E-PMM"/>
-                    <exclude reference="TOF-R7-vpi"/>
-                    <exclude reference="bWt-Ze-zJV"/>
-                </mask>
-            </variation>
+            <point key="canvasLocation" x="524" y="423"/>
         </view>
     </objects>
     <resources>

@@ -80,20 +80,22 @@
     CGFloat labelWidth = width - leftPadding - rightPadding;
     CGFloat labelBottomMargin = 0.0;
     if (self.postText) {
-        UIFont *labelFont = [UIFont fontWithName:@"HelveticaNeue" size:16.0];
+        UIFont *labelFont = [UIFont systemFontOfSize:16.0];
         CGSize maximumLabelSize = CGSizeMake(labelWidth, FLT_MAX);
         
         CGFloat maximumLabelHeight = labelFont.lineHeight * 6;
+        
         CGSize boundingBox = [self.postText boundingRectWithSize:maximumLabelSize
                                                          options:NSStringDrawingUsesLineFragmentOrigin
                                                       attributes:@{NSFontAttributeName: labelFont}
                                                          context:nil].size;
         
         if (boundingBox.height > maximumLabelHeight) {
-            labelHeight = maximumLabelHeight;
+            labelHeight = ceil(maximumLabelHeight);
         } else {
-            labelHeight = boundingBox.height;
+            labelHeight = ceil(boundingBox.height);
         }
+        
         labelBottomMargin = 12.0;
     }
     
@@ -107,10 +109,11 @@
     if (self.post.attachments) {
         CGFloat imageAspectRatio = self.imageWidth / self.imageHeight;
         imageBottomMargin = 12.0;
-        imageHeight = imageWidth / imageAspectRatio;
+        imageHeight = ceil(imageWidth / imageAspectRatio);
+//        NSLog(@"Image size: %f x %f", imageHeight, imageWidth);
     }
     
-    CGFloat result = topPadding + labelHeight + labelBottomMargin + imageHeight + imageBottomMargin + buttonsHeight + bottomPadding + 0.5;
+    CGFloat result = topPadding + labelHeight + labelBottomMargin + imageHeight + imageBottomMargin + buttonsHeight + bottomPadding;
     
     self.viewHeight = result;
     

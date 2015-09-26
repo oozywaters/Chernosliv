@@ -27,30 +27,31 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Марк Чернослив" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mW6-nq-Tfi">
-                        <rect key="frame" x="74" y="12" width="234" height="34"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="28"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <rect key="frame" x="74" y="12" width="234" height="36"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
+                        <color key="textColor" red="0.16862745100000001" green="0.34509803919999998" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 июля в 23:30" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUt-Gr-EHi">
-                        <rect key="frame" x="74" y="49" width="234" height="14"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                        <rect key="frame" x="74" y="48" width="234" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.57254901960000004" green="0.58823529409999997" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post Text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CIc-j9-Gnn">
                         <rect key="frame" x="12" y="74" width="296" height="55"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="CIc-j9-Gnn" firstAttribute="top" secondItem="LDG-xZ-KX9" secondAttribute="bottom" constant="12" id="0aB-t0-yaR"/>
                     <constraint firstAttribute="trailing" secondItem="CIc-j9-Gnn" secondAttribute="trailing" constant="12" id="BJh-K6-Tvb"/>
                     <constraint firstItem="CIc-j9-Gnn" firstAttribute="leading" secondItem="Oai-eD-PUq" secondAttribute="leading" constant="12" id="D3n-ye-HMh"/>
                     <constraint firstItem="mW6-nq-Tfi" firstAttribute="top" secondItem="Oai-eD-PUq" secondAttribute="top" constant="12" id="J1C-q5-2q4"/>
-                    <constraint firstItem="MUt-Gr-EHi" firstAttribute="top" secondItem="mW6-nq-Tfi" secondAttribute="bottom" constant="3" id="J67-de-nXk"/>
+                    <constraint firstItem="MUt-Gr-EHi" firstAttribute="top" secondItem="mW6-nq-Tfi" secondAttribute="bottom" id="J67-de-nXk"/>
                     <constraint firstAttribute="trailing" secondItem="MUt-Gr-EHi" secondAttribute="trailing" constant="12" id="LO9-LR-B2c"/>
                     <constraint firstItem="mW6-nq-Tfi" firstAttribute="leading" secondItem="LDG-xZ-KX9" secondAttribute="trailing" constant="12" id="N85-yQ-GBq"/>
                     <constraint firstItem="LDG-xZ-KX9" firstAttribute="top" secondItem="Oai-eD-PUq" secondAttribute="top" constant="12" id="WOC-lu-Pnu"/>

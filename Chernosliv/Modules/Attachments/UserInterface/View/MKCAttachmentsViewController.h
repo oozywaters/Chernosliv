@@ -8,9 +8,11 @@
 
 #import "MKCAttachmentsModuleInterface.h"
 #import "MKCAttachmentsViewInterface.h"
+#import "MKCAttachmentsGradientView.h"
 
 @interface MKCAttachmentsViewController : UIViewController <MKCAttachmentsViewInterface>
 
+@property (nonatomic, strong) MKCAttachmentsGradientView *gradientView;
 @property (nonatomic, weak) id<MKCAttachmentsModuleInterface> eventHandler;
 @property (nonatomic, strong) NSMutableArray *pageViews;
 

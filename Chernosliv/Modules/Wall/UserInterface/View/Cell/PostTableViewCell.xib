@@ -20,7 +20,7 @@
                             <constraint firstAttribute="width" constant="60" id="gb7-e5-7dG"/>
                             <constraint firstAttribute="height" constant="22" id="rNO-e0-IAx"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                         <color key="tintColor" red="0.38431372549999998" green="0.46666666670000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                         <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="1"/>
@@ -34,7 +34,7 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="ASV-dw-yf4"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                         <color key="tintColor" red="0.38431372549999998" green="0.46666666670000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                         <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="1" maxX="0.0" maxY="0.0"/>
@@ -51,7 +51,7 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="RmP-Op-Stj"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                         <color key="tintColor" red="0.38431372549999998" green="0.46666666670000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                         <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="1"/>
@@ -66,23 +66,14 @@
                         <color key="textColor" red="0.61176470589999998" green="0.61176470589999998" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" contentMode="left" text="Post Text" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDq-Qu-jt3">
-                        <rect key="frame" x="12" y="74" width="576" height="19"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                    <label opaque="NO" contentMode="left" text="Post Textlkdjsflksjdflkjsldkfjlksdjflksjdflkjsdlkfjlksdjflksjdfkljdlskjf;l akdjf; dsfs;dlkf;sldkf;lskdf;lksals" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDq-Qu-jt3">
+                        <rect key="frame" x="12" y="74" width="576" height="39"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xco-5p-XfZ" customClass="CountView">
-                        <rect key="frame" x="546" y="117" width="30" height="30"/>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="Xco-5p-XfZ" secondAttribute="height" multiplier="1:1" id="gFg-Bt-AmL"/>
-                            <constraint firstAttribute="height" constant="30" id="l6n-kC-mI6"/>
-                        </constraints>
-                    </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dal-0g-gIR">
                         <rect key="frame" x="12" y="12" width="50" height="50"/>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="1Xc-2V-P9n"/>
                             <constraint firstAttribute="width" constant="50" id="oLw-nE-R1p"/>
@@ -99,11 +90,19 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView autoresizesSubviews="NO" contentMode="scaleAspectFit" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="NBK-Mv-T44">
-                        <rect key="frame" x="12" y="105" width="576" height="233"/>
+                    <imageView autoresizesSubviews="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="NBK-Mv-T44">
+                        <rect key="frame" x="12" y="125" width="576" height="213"/>
                         <color key="backgroundColor" white="0.79377398570000002" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xco-5p-XfZ" customClass="CountView">
+                        <rect key="frame" x="546" y="137" width="30" height="30"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Xco-5p-XfZ" secondAttribute="height" multiplier="1:1" id="gFg-Bt-AmL"/>
+                            <constraint firstAttribute="height" constant="30" id="l6n-kC-mI6"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                 <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.0"/>
@@ -121,7 +120,7 @@
                     <constraint firstItem="qvD-9j-rMf" firstAttribute="top" secondItem="dal-0g-gIR" secondAttribute="top" id="bDx-8X-HiG"/>
                     <constraint firstItem="NBK-Mv-T44" firstAttribute="leading" secondItem="zOI-es-Qrd" secondAttribute="leading" constant="12" id="cd3-58-uiw"/>
                     <constraint firstItem="NBK-Mv-T44" firstAttribute="top" secondItem="Xco-5p-XfZ" secondAttribute="bottom" constant="12" id="f9h-Pp-jFO"/>
-                    <constraint firstItem="NBK-Mv-T44" firstAttribute="top" secondItem="rDq-Qu-jt3" secondAttribute="bottom" constant="12" id="kNM-Sk-5B2"/>
+                    <constraint firstItem="NBK-Mv-T44" firstAttribute="top" secondItem="rDq-Qu-jt3" secondAttribute="bottom" priority="999" constant="12" id="kNM-Sk-5B2"/>
                     <constraint firstItem="CWG-vV-P0R" firstAttribute="top" secondItem="xzY-lh-HBN" secondAttribute="top" id="m8Y-PM-Uho"/>
                     <constraint firstAttribute="bottom" secondItem="1n0-6b-Xdh" secondAttribute="bottom" constant="12" id="mIH-w4-sTk"/>
                     <constraint firstAttribute="trailing" secondItem="NBK-Mv-T44" secondAttribute="trailing" constant="12" id="pRN-D5-h4y"/>

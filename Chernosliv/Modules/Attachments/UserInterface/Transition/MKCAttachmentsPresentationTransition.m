@@ -9,6 +9,7 @@
 #import "MKCAttachmentsPresentationTransition.h"
 #import "MKCWallVC.h"
 #import "MKCAttachmentsViewController.h"
+#import "MKCAttachmentsGradientView.h"
 
 @implementation MKCAttachmentsPresentationTransition
 
@@ -19,14 +20,14 @@
     // Create snapshot of the outgoing view
 //    PostTableViewCell *currentCell = fromVC.currentCell;
     UIView *attachmentsImage = fromVC.tappedView;
-    
-    NSLog(@"attach: %@", attachmentsImage);
-    
+   
     UIView *attachmentsImageSnapshot = [attachmentsImage snapshotViewAfterScreenUpdates:NO];
     
     UIView *outgoingSnapshot = [fromVC.view snapshotViewAfterScreenUpdates:NO];
     
     UIView *container = [transitionContext containerView];
+    MKCAttachmentsGradientView *gradientView = [[MKCAttachmentsGradientView alloc] initWithFrame:CGRectMake(0, 0, outgoingSnapshot.frame.size.width, 100)];
+    gradientView.alpha = 0;
     
     // Add the incoming view controller
     [container addSubview:toVC.view];
@@ -38,16 +39,21 @@
     
     [canvas addSubview:outgoingSnapshot];
     [canvas addSubview:attachmentsImageSnapshot];
+    [canvas addSubview:gradientView];
     
     // Set the initial frames of the views we're animating
     attachmentsImageSnapshot.frame = [container convertRect:attachmentsImage.bounds fromView:attachmentsImage];
     
     UIView *ongoingImage = (UIView *)toVC.pageViews[0];
     
+    [UIView animateWithDuration:0.75 animations:^{
+        gradientView.alpha = 1;
+    }];
+    
     [UIView animateWithDuration:0.25 animations:^{
         outgoingSnapshot.alpha = 0.0;
     } completion:^(BOOL finished) {
-        [UIView animateWithDuration:0.75 delay:0 usingSpringWithDamping:0.4 initialSpringVelocity:0.0 options:0 animations:^{
+        [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.4 initialSpringVelocity:0.0 options:0 animations:^{
             //            attachmentsImageSnapshot.center = [[UIScreen mainScreen] cen] ;
             attachmentsImageSnapshot.frame = ongoingImage.frame;
         } completion:^(BOOL finished) {
@@ -58,7 +64,7 @@
 }
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
-    return 1.0;
+    return 0.75;
 }
 
 @end
