@@ -17,7 +17,9 @@
 @interface MKCAttachmentsViewController ()
 
 @property (nonatomic, strong) UIScrollView *pagingScrollView;
+@property (nonatomic, strong) UIToolbar *toolbar;
 @property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
+@property (nonatomic, strong) MKCAttachmentsGradientView *gradientView;
 @property (nonatomic, strong) NSArray *attachments;
 @property (nonatomic) BOOL isInterfaceHidden;
 
@@ -39,6 +41,8 @@
         self.automaticallyAdjustsScrollViewInsets = NO;
         
         _gradientView = [[MKCAttachmentsGradientView alloc] initWithFrame:CGRectMake(0, -20, 100, 25)];
+        
+        _toolbar = [[UIToolbar alloc] init];
         
         [self setNeedsStatusBarAppearanceUpdate];
     }
@@ -94,6 +98,7 @@
     }];
     
     [self setupGradientView];
+    [self setupToolbar];
     
 }
 
@@ -103,6 +108,16 @@
         make.width.equalTo(self.view.mas_width);
         make.height.mas_equalTo(100);
 //        make.height.equalTo(@"25");
+    }];
+}
+
+- (void)setupToolbar {
+    [self.view addSubview:self.toolbar];
+    [self.toolbar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.view);
+        make.trailing.equalTo(self.view);
+        make.bottom.equalTo(self.view);
+//        make.bottom.equalTo(self.view.mas_bottom);
     }];
 }
 
@@ -146,11 +161,13 @@
 //        [self.navigationController setNavigationBarHidden:self.isInterfaceHidden];
 //    }];
     [self.navigationController setNavigationBarHidden:self.isInterfaceHidden animated:YES];
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:0.25 animations:^{
         if (self.isInterfaceHidden) {
             self.gradientView.alpha = 0;
+            self.toolbar.alpha = 0;
         } else {
             self.gradientView.alpha = 1;
+            self.toolbar.alpha = 1;
         }
     }];
 }
