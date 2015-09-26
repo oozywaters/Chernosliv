@@ -143,23 +143,7 @@
 
 - (void)hideInterface {
     self.isInterfaceHidden = !self.isInterfaceHidden;
-//    [UIView animateWithDuration:0.5 animations:^{
-//        CGRect navigationBarFrame = self.navigationController.navigationBar.frame;
-//        CGRect scrollViewFrame = self.pagingScrollView.frame;
-//        if (self.isInterfaceHidden) {
-//            navigationBarFrame.origin.y += navigationBarFrame.size.height;
-////            scrollViewFrame.size.height -= navigationBarFrame.size.height;
-//        } else {
-//            navigationBarFrame.origin.y -= navigationBarFrame.size.height;
-////            scrollViewFrame.size.height += navigationBarFrame.size.height;
-//        }
-//        
-//        self.pagingScrollView.frame = scrollViewFrame;
-//        self.navigationController.navigationBar.frame = navigationBarFrame;
-//        
-//        self.isInterfaceHidden = !self.isInterfaceHidden;
-//        [self.navigationController setNavigationBarHidden:self.isInterfaceHidden];
-//    }];
+
     [self.navigationController setNavigationBarHidden:self.isInterfaceHidden animated:YES];
     [UIView animateWithDuration:0.25 animations:^{
         if (self.isInterfaceHidden) {
