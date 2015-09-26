@@ -26,7 +26,7 @@
     UIView *outgoingSnapshot = [fromVC.view snapshotViewAfterScreenUpdates:NO];
     
     UIView *container = [transitionContext containerView];
-    MKCAttachmentsGradientView *gradientView = [[MKCAttachmentsGradientView alloc] initWithFrame:CGRectMake(0, 0, outgoingSnapshot.frame.size.width, 100)];
+    MKCAttachmentsGradientView *gradientView = [[MKCAttachmentsGradientView alloc] initWithFrame:CGRectMake(0, -100, outgoingSnapshot.frame.size.width, 100)];
     gradientView.alpha = 0;
     
     // Add the incoming view controller
@@ -46,16 +46,16 @@
     
     UIView *ongoingImage = (UIView *)toVC.pageViews[0];
     
-    [UIView animateWithDuration:0.75 animations:^{
-        gradientView.alpha = 1;
-    }];
-    
     [UIView animateWithDuration:0.25 animations:^{
         outgoingSnapshot.alpha = 0.0;
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.4 initialSpringVelocity:0.0 options:0 animations:^{
+            CGRect gradientRect = gradientView.frame;
             //            attachmentsImageSnapshot.center = [[UIScreen mainScreen] cen] ;
             attachmentsImageSnapshot.frame = ongoingImage.frame;
+            gradientRect.origin.y += gradientRect.size.height;
+            gradientView.alpha = 1;
+            [gradientView setFrame:gradientRect];
         } completion:^(BOOL finished) {
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
             [canvas removeFromSuperview];

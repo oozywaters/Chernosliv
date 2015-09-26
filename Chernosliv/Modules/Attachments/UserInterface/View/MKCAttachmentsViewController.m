@@ -143,21 +143,29 @@
 
 - (void)hideInterface {
     self.isInterfaceHidden = !self.isInterfaceHidden;
-
     [self.navigationController setNavigationBarHidden:self.isInterfaceHidden animated:YES];
     [UIView animateWithDuration:0.25 animations:^{
+        CGRect toolbarRect = self.toolbar.frame;
+        CGRect gradientRect = self.gradientView.frame;
         if (self.isInterfaceHidden) {
             self.gradientView.alpha = 0;
             self.toolbar.alpha = 0;
+            gradientRect.origin.y -= gradientRect.size.height;
+            toolbarRect.origin.y += toolbarRect.size.height;
         } else {
             self.gradientView.alpha = 1;
             self.toolbar.alpha = 1;
+            gradientRect.origin.y += gradientRect.size.height;
+            toolbarRect.origin.y -= toolbarRect.size.height;
         }
+        
+        [self.gradientView setFrame:gradientRect];
+        [self.toolbar setFrame:toolbarRect];
     }];
 }
 
 - (UIStatusBarAnimation)preferredStatusBarUpdateAnimation {
-    return UIStatusBarAnimationFade;
+    return UIStatusBarAnimationSlide;
 }
 
 - (BOOL)prefersStatusBarHidden {
