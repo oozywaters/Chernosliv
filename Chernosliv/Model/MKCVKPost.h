@@ -7,16 +7,17 @@
 //
 
 #import <Mantle/Mantle.h>
-#import "MKCVKProfile.h"
+#import "MKCVKOwner.h"
 
 @interface MKCVKPost : MTLModel <MTLJSONSerializing>
 
-@property (nonatomic, strong) MKCVKProfile *authorProfile;
+@property (nonatomic, strong) MKCVKOwner *postOwner;
 @property (nonatomic, strong) NSString *postId;
 @property (nonatomic, strong) NSString *authorId;
 @property (nonatomic, strong) NSDate *date;
 @property (nonatomic, strong) NSString *text;
 @property (nonatomic, strong) NSArray *attachments;
+@property (nonatomic, strong) NSArray *copiedPosts;
 @property (nonatomic) NSUInteger likesCount;
 @property (nonatomic) NSUInteger commentsCount;
 @property (nonatomic) NSUInteger repostsCount;

@@ -8,13 +8,23 @@
 
 #import "MKCVKProfile.h"
 
+@interface MKCVKProfile ()
+
+@property (nonatomic, strong) NSString *ownerId;
+
+@end
+
 @implementation MKCVKProfile
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
-    return @{@"userId": @"id",
+    return @{@"ownerId": @"id",
              @"firstName": @"first_name",
              @"lastName": @"last_name",
              @"avatar": @"photo_100"};
+}
+
+- (NSString *)name {
+    return [NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName];
 }
 
 @end

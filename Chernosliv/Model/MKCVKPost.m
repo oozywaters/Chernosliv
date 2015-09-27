@@ -14,10 +14,11 @@
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{@"postId": @"id",
-             @"authorId": @"from_id",
+             @"authorId": @"owner_id",
              @"text": @"text",
              @"date": @"date",
              @"attachments": @"attachments",
+             @"copiedPosts": @"copy_history",
              @"likesCount": @"likes.count",
              @"commentsCount": @"comments.count",
              @"repostsCount": @"reposts.count"};
@@ -47,11 +48,16 @@
     }];
 }
 
-- (MKCVKProfile *)authorProfile {
-    if (!_authorProfile) {
-        return [[MKCDataStore sharedStore] profileWithId:self.authorId];
++ (NSValueTransformer *)copiedPostsJSONTransformer {
+    return [MTLJSONAdapter arrayTransformerWithModelClass:[MKCVKPost class]];
+}
+
+
+- (MKCVKOwner *)postOwner {
+    if (!_postOwner) {
+        _postOwner = [[MKCDataStore sharedStore] ownerWithId:self.authorId];
     }
-    return _authorProfile;
+    return _postOwner;
 }
 
 @end

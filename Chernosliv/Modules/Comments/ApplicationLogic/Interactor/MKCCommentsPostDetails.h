@@ -10,7 +10,7 @@
 
 @interface MKCCommentsPostDetails : NSObject
 
-- (instancetype)initWithVKPost:(MKCVKPost *)vkPost authorProfile:(MKCVKProfile *)authorProfile;
+- (instancetype)initWithVKPost:(MKCVKPost *)vkPost;
 
 @property (nonatomic, strong) NSString *authorName;
 @property (nonatomic, strong) NSURL *postHeaderImageURL;

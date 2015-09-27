@@ -45,8 +45,7 @@
 
 - (MKCCommentsPostDetails *)currentPost {
     MKCVKPost *post = self.dataManager.post;
-    MKCVKProfile *profile = [self.dataManager profileWithId:post.authorId];
-    MKCCommentsPostDetails *commentsPost = [[MKCCommentsPostDetails alloc] initWithVKPost:post authorProfile:profile];
+    MKCCommentsPostDetails *commentsPost = [[MKCCommentsPostDetails alloc] initWithVKPost:post];
     return commentsPost;
 }
 @end

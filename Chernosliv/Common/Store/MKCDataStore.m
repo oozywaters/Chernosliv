@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSMutableArray *posts;
 @property (nonatomic, strong) NSMutableArray *comments;
 @property (nonatomic, strong) NSMutableDictionary *profiles;
+@property (nonatomic, strong) NSMutableDictionary *owners;
 
 @end
 
@@ -34,6 +35,7 @@
         _posts = [NSMutableArray array];
         _comments = [NSMutableArray array];
         _profiles = [NSMutableDictionary dictionary];
+        _owners = [NSMutableDictionary dictionary];
     }
     return self;
 }
@@ -44,6 +46,11 @@
 
 - (void)storeProfiles:(NSDictionary *)profiles {
     [self.profiles addEntriesFromDictionary:profiles];
+}
+
+- (void)storePostOwners:(NSDictionary *)owners {
+//    NSLog(@"Owners: %@", owners);
+    [self.owners addEntriesFromDictionary:owners];
 }
 
 - (NSUInteger)postsCount {
@@ -57,6 +64,11 @@
 - (MKCVKProfile *)profileWithId:(NSString *)profileId {
     MKCVKProfile *profile = [self.profiles objectForKey:profileId];
     return profile;
+}
+
+- (MKCVKOwner *)ownerWithId:(NSString *)ownerId {
+    MKCVKProfile *owner = [self.owners objectForKey:ownerId];
+    return owner;
 }
 
 @end

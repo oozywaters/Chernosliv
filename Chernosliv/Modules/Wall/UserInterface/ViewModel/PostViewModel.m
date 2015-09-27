@@ -49,10 +49,10 @@
 //
     _attachmentsCount = self.post.attachments.count;
     
-    
-    MKCVKProfile *profile = self.post.authorProfile;
-    _authorName = [NSString stringWithFormat:@"%@ %@", profile.firstName, profile.lastName];
-    _authorImageURL = profile.avatar;
+    MKCVKOwner *owner = self.post.postOwner;
+//    NSLog(@"Post owner: %@", owner);
+    _authorName = owner.name;
+    _authorImageURL = owner.avatar;
 }
 
 - (void)viewComments {

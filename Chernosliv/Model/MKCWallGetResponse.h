@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) NSArray *posts;
 @property (nonatomic, strong) NSMutableDictionary *profiles;
+@property (nonatomic, strong) NSMutableDictionary *groups;
 @property (nonatomic) NSUInteger totalPostsCount;
 
 @end

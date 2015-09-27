@@ -37,7 +37,9 @@
     
     [[VKService sharedService] wallGetWithOffset:_offset count:_pageSize success:^(MKCWallGetResponse *response) {
         [dataStore storePosts:response.posts];
-        [dataStore storeProfiles:response.profiles];
+        [dataStore storePostOwners:response.profiles];
+        [dataStore storePostOwners:response.groups];
+//        [dataStore storeProfiles:response.profiles];
         completionBlock(response.posts);
         _offset += _pageSize;
     } error:^(NSError *error) {

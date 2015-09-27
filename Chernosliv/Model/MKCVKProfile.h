@@ -6,13 +6,11 @@
 //  Copyright (c) 2015 Vyacheslav Zavertanny. All rights reserved.
 //
 
-#import <Mantle/Mantle.h>
+#import "MKCVKOwner.h"
 
-@interface MKCVKProfile : MTLModel <MTLJSONSerializing>
+@interface MKCVKProfile : MKCVKOwner <MTLJSONSerializing>
 
-@property (nonatomic, strong) NSString *userId;
 @property (nonatomic, strong) NSString *firstName;
 @property (nonatomic, strong) NSString *lastName;
-@property (nonatomic, strong) NSURL *avatar;
 
 @end

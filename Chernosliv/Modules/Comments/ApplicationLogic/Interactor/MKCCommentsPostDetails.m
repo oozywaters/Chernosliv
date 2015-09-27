@@ -13,7 +13,7 @@
 
 @implementation MKCCommentsPostDetails
 
-- (instancetype)initWithVKPost:(MKCVKPost *)vkPost authorProfile:(MKCVKProfile *)authorProfile {
+- (instancetype)initWithVKPost:(MKCVKPost *)vkPost {
     self = [super init];
     if (self) {
         if (vkPost.attachments) {
@@ -24,11 +24,8 @@
             _hasAttachments = NO;
         }
         _postContent = vkPost.text;
-        NSString *nameString = [NSString stringWithFormat:@"%@ %@",
-                                authorProfile.firstName,
-                                authorProfile.lastName];
-        _authorName = nameString;
-        _postAuthorImageURL = authorProfile.avatar;
+        _authorName = vkPost.postOwner.name;
+        _postAuthorImageURL = vkPost.postOwner.avatar;
     }
     return self;
 }
