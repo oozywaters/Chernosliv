@@ -15,10 +15,10 @@
 #import "PostViewModel.h"
 #import "MKCWallDataSource.h"
 #import <SVPullToRefresh/SVPullToRefresh.h>
-#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import <MBProgressHUD/MBProgressHUD.h>
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 
-@interface MKCWallVC () <MKCWallTableControllerDelegate>
+@interface MKCWallVC () <MKCWallTableControllerDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 @property (nonatomic, strong) MKCTableContainerView *contentView;
 @property (nonatomic, strong) MKCWallTableController *controller;
@@ -89,28 +89,6 @@
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleDefault;
 }
-
-#pragma mark - DZNEmptyDataSetSource
-
-//- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
-//{
-//    return [UIImage imageNamed:@"CommentIcon"];
-//}
-
-//- (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView
-//{
-//    NSString *text = @"This allows you to share photos from your library and save photos to your camera roll.";
-//    
-//    NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
-//    paragraph.lineBreakMode = NSLineBreakByWordWrapping;
-//    paragraph.alignment = NSTextAlignmentCenter;
-//    
-//    NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:14.0f],
-//                                 NSForegroundColorAttributeName: [UIColor lightGrayColor],
-//                                 NSParagraphStyleAttributeName: paragraph};
-//    
-//    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
-//}
 
 # pragma mark - MKCWallViewInterface
 
