@@ -21,7 +21,14 @@
              @"copiedPosts": @"copy_history",
              @"likesCount": @"likes.count",
              @"commentsCount": @"comments.count",
-             @"repostsCount": @"reposts.count"};
+             @"repostsCount": @"reposts.count"
+             };
+}
+
++ (NSValueTransformer *)dateJSONTransformer {
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSNumber *time, BOOL *success, NSError *__autoreleasing *error) {
+        return [NSDate dateWithTimeIntervalSince1970:[time doubleValue]];
+    }];
 }
 
 + (NSValueTransformer *)attachmentsJSONTransformer {

@@ -38,17 +38,17 @@
                 continue;
             }
             [results addObject:vkPost];
-//            if (!vkPost.attachments && [vkPost.text isEqualToString:@""]) {
-////                *error = internalError;
-////                *success = NO;
-//                continue;
-//            } else {
-//                if (vkPost.copiedPosts) {
-//                    [results addObject:vkPost.copiedPosts.lastObject];
-//                    continue;
-//                }
-//                [results addObject:vkPost];
-//            }
+////            if (!vkPost.attachments && [vkPost.text isEqualToString:@""]) {
+//////                *error = internalError;
+//////                *success = NO;
+////                continue;
+////            } else {
+////                if (vkPost.copiedPosts) {
+////                    [results addObject:vkPost.copiedPosts.lastObject];
+////                    continue;
+////                }
+////                [results addObject:vkPost];
+////            }
         }
         if (results.count == 0) {
             return nil;

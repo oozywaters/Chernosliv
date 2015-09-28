@@ -12,8 +12,8 @@
 @interface MKCVKPost : MTLModel <MTLJSONSerializing>
 
 @property (nonatomic, strong) MKCVKOwner *postOwner;
-@property (nonatomic, strong) NSString *postId;
-@property (nonatomic, strong) NSString *authorId;
+@property (nonatomic, strong) NSNumber *postId;
+@property (nonatomic, strong) NSNumber *authorId;
 @property (nonatomic, strong) NSDate *date;
 @property (nonatomic, strong) NSString *text;
 @property (nonatomic, strong) NSArray *attachments;

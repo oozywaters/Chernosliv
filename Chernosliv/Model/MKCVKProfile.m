@@ -10,7 +10,7 @@
 
 @interface MKCVKProfile ()
 
-@property (nonatomic, strong) NSString *ownerId;
+@property (nonatomic, strong) NSNumber *ownerId;
 
 @end
 

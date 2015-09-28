@@ -7,9 +7,9 @@ source 'https://github.com/anodamobi/ANODA-CocoaPods.git'
 target 'Chernosliv' do
 
 #ANODA
-pod 'ANCategories', '1.0.6'
+pod 'ANCategories'
 pod 'ANStorage'
-pod 'ANTableController', :git => 'https://github.com/oozywaters/ANTableController.git', :commit => '0dd01d30e6abf06cfae28d3835fcf344d50ff2af'
+pod 'ANTableController', :head
 pod 'ANTableViews'
 
 #UI
@@ -21,7 +21,7 @@ pod 'SDWebImage'
 pod 'LTNavigationBar'
 
 #API
-pod 'Mantle', '2.0.2'
+pod 'Mantle', '2.0.5'
 pod 'ReactiveCocoa', '~> 2.4.2'
 pod 'VK-ios-sdk'
 pod 'LinqToObjectiveC'

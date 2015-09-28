@@ -12,7 +12,7 @@
 
 @property (nonatomic, strong) NSURL *thumbnail;
 @property (nonatomic, strong) NSNumber *duration;
-@property (nonatomic, strong) NSString *ownerId;
-@property (nonatomic, strong) NSString *identifier;
+@property (nonatomic, strong) NSNumber *ownerId;
+@property (nonatomic, strong) NSNumber *identifier;
 
 @end
