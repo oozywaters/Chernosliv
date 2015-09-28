@@ -21,7 +21,9 @@
 @property (nonatomic, strong) MKCWallWireframe *wireframe;
 @property (nonatomic, strong) id<MKCWallInteractorInput> interactor;
 
+@property (nonatomic, strong) RACSignal *pageLoadingSignal;
+
 - (void)configurePresenterWithUserInterface:(UIViewController<MKCWallViewInterface>*)userInterface;
-- (void)loadNextPageWithCompletionHandler:(void(^)(void))completion;
+//- (void)loadNextPageWithCompletionHandler:(void(^)(void))completion;
 
 @end

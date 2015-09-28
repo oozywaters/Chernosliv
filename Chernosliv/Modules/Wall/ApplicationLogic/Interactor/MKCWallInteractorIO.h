@@ -10,7 +10,7 @@
 
 @protocol MKCWallInteractorInput <NSObject>
 
-- (void)loadPosts;
+- (void)loadPostsWithCompletionHandler:(void(^)(NSArray *posts))completionHandler;
 
 //- (void)loadCategoriesList;
 //- (void)removeCategory:(ANCategoryDomainModel*)model;
@@ -21,7 +21,7 @@
 
 @protocol MKCWallInteractorOutput <NSObject>
 
-- (void)pageLoadedWithPosts:(NSArray *)posts;
+//- (void)pageLoadedWithPosts:(NSArray *)posts;
 
 //- (void)categoriesListLoaded:(NSArray*)categories;
 //- (void)categoryRemovedSuccessfully:(ANCategoryDomainModel*)category;

@@ -22,8 +22,6 @@
 @property (nonatomic, strong) MKCVKPost *currentPost;
 @property (nonatomic) BOOL endOfWallReached;
 
-@property (nonatomic, strong) RACSignal *canLoadNextPage;
-
 @property (nonatomic, weak) UIViewController<MKCWallViewInterface> *wallInterface;
 
 @end
@@ -42,24 +40,19 @@
     _dataSource = [MKCWallDataSource new];
     _endOfWallReached = NO;
     //    [[self loadNextPage]execute:nil];
-
 }
 
 - (void)configurePresenterWithUserInterface:(UIViewController<MKCWallViewInterface> *)userInterface {
     self.wallInterface = userInterface;
     [self.wallInterface updateDataSource:self.dataSource];
     [self loadNextPage];
-//    [self.interactor loadPosts];
 }
 
 - (void)loadNextPage {
-    [self.interactor loadPosts];
-}
-
-# pragma mark - MKCWallInteractorOutput
-
-- (void)pageLoadedWithPosts:(NSArray *)posts {
-    [self.dataSource setupStorageWithItems:posts eventHandler:self];
+    [self.interactor loadPostsWithCompletionHandler:^(NSArray *posts) {
+        [self.dataSource setupStorageWithItems:posts eventHandler:self];
+        [self.wallInterface pageLoaded];
+    }];
 }
 
 # pragma mark - MKCWallModuleInterface
@@ -72,5 +65,6 @@
     [self.wallInterface attachmentsTappedWithView:viewModel.tappedImage];
     [self.wireframe presentAttachmentsControllerWithPost:viewModel.post];
 }
+
 
 @end

@@ -16,16 +16,15 @@
 #import "MKCWallDataSource.h"
 #import <SVPullToRefresh/SVPullToRefresh.h>
 #import <MBProgressHUD/MBProgressHUD.h>
-#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 
-@interface MKCWallVC () <MKCWallTableControllerDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
+@interface MKCWallVC () <MKCWallTableControllerDelegate>
 
 @property (nonatomic, strong) MKCTableContainerView *contentView;
 @property (nonatomic, strong) MKCWallTableController *controller;
 
 //@property (nonatomic, strong) MKCWallDataSource *dataSource;
 //@property (nonatomic, strong) TableViewBindingHelper *bindingHelper;
-//@property (nonatomic, strong) MBProgressHUD *progressHUD;
+@property (nonatomic, strong) MBProgressHUD *progressHUD;
 
 @end
 
@@ -38,6 +37,10 @@
         self.controller = [[MKCWallTableController alloc] initWithTableView:self.contentView.tableView];
         self.controller.delegate = self;
         [self setNeedsStatusBarAppearanceUpdate];
+        
+//        [self.eventHandler.pageLoadingSignal subscribeNext:^{
+//            NSLog(@"Page Loading");
+//        }];
     }
     return self;
 }
@@ -48,24 +51,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.progressHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-//    self.progressHUD.labelText = @"Загрузка";
-    
-//    self.tableView.emptyDataSetDelegate = self;
-//    self.tableView.emptyDataSetSource = self;
-//    
-//    // A little trick for removing the cell separators
-//    self.tableView.tableFooterView = [UIView new];
-//    
-
-//    
-//    // Infinite scroll functionality
-//    @weakify(self)
-//    [self.tableView addInfiniteScrollingWithActionHandler:^{
-//        @strongify(self)
-//        [self.eventHandler loadNextPage];
-//    }];
-    
+    self.progressHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -74,6 +60,9 @@
 }
 
 - (void)pageLoaded {
+    NSLog(@"Page loaded");
+    [self.progressHUD hide:YES];
+    [self.controller wallPageLoaded];
 //    if (self.tableView.emptyDataSetVisible) {
 //        [self.tableView reloadEmptyDataSet];
 //    }

@@ -13,4 +13,6 @@
 - (void)updateDataSource:(MKCWallDataSource *)dataSource;
 - (void)attachmentsTappedWithView:(UIView *)tappedView;
 
+- (void)pageLoaded;
+
 @end

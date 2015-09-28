@@ -34,6 +34,12 @@
     self.storage = dataSource.storage;
 }
 
+- (void)wallPageLoaded {
+    if (self.tableView.emptyDataSetVisible) {
+        [self.tableView reloadEmptyDataSet];
+    }
+}
+
 # pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {

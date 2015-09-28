@@ -17,7 +17,7 @@
 
 - (void)viewAttachmentsWithModel:(PostViewModel *)viewModel;
 - (void)viewCommentsWithModel:(PostViewModel *)viewModel;
-
-- (void)loadNextPage;
+//
+//- (void)loadNextPage;
 
 @end

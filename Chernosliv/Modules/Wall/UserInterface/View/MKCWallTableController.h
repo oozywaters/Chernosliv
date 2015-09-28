@@ -22,5 +22,6 @@
 @property (nonatomic, weak) id<MKCWallTableControllerDelegate> delegate;
 
 - (void)updateDataSource:(MKCWallDataSource *)dataSource;
+- (void)wallPageLoaded;
 
 @end

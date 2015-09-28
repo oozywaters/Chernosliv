@@ -26,14 +26,11 @@
     return self;
 }
 
-- (void)loadPosts {
-    [self.dataManager loadPostsWithCompletion:^(NSArray *posts) {
-        [self.output pageLoadedWithPosts:posts];
-    } error:^(NSError *error) {
+- (void)loadPostsWithCompletionHandler:(void (^)(NSArray *))completionHandler {
+    [self.dataManager loadPostsWithCompletion:completionHandler error:^(NSError *error) {
         NSLog(@"Error while loading posts: %@", error);
     }];
 }
-
 //- (void)loadPosts {
 //    [[VKService sharedService] getPostsWithOffset:self.posts.count count:pageSize onSuccess:^(NSArray *posts) {
 //        NSArray *newPosts = [posts linq_select:^id(VKPost *post) {
