@@ -23,9 +23,11 @@
     if (self) {
         [self registerCellNib:@"PostTableViewCell" forModelClass:[PostViewModel class]];
         
-        self.tableView.emptyDataSetDelegate = self;
-        self.tableView.emptyDataSetSource = self;
-        self.tableView.tableFooterView = [UIView new];
+        [self.tableView setSeparatorColor:[UIColor an_colorWithHexString:@"#D9D9D9"]];
+        
+//        self.tableView.emptyDataSetDelegate = self;
+//        self.tableView.emptyDataSetSource = self;
+//        self.tableView.tableFooterView = [UIView new];
     }
     return self;
 }

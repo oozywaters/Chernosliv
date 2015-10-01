@@ -28,25 +28,29 @@
 - (void)awakeFromNib {
 
     // add blur effect
-    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
-    _blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-    _blurEffectView.frame = self.bounds;
-    [self addSubview:_blurEffectView];
+//    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+//    _blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+//    _blurEffectView.frame = self.bounds;
+//    [self addSubview:_blurEffectView];
+//    
+//    // add vibrancy effect
+//    UIVibrancyEffect *vibrancyEffect = [UIVibrancyEffect effectForBlurEffect:blurEffect];
+//    UIVisualEffectView *vibrancyEffectView = [[UIVisualEffectView alloc] initWithEffect:vibrancyEffect];
+//    [vibrancyEffectView setFrame:_blurEffectView.bounds];
+//    
+//    _countLabel = [[UILabel alloc] initWithFrame:_blurEffectView.bounds];
+//    [_countLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:18]];
+//    _countLabel.textAlignment = NSTextAlignmentCenter;
+//    
+//    [vibrancyEffectView.contentView addSubview:_countLabel];
+//    [_blurEffectView.contentView addSubview:vibrancyEffectView];
     
-    // add vibrancy effect
-    UIVibrancyEffect *vibrancyEffect = [UIVibrancyEffect effectForBlurEffect:blurEffect];
-    UIVisualEffectView *vibrancyEffectView = [[UIVisualEffectView alloc] initWithEffect:vibrancyEffect];
-    [vibrancyEffectView setFrame:_blurEffectView.bounds];
+    [self addSubview:_countLabel];
     
     _countLabel = [[UILabel alloc] initWithFrame:_blurEffectView.bounds];
-    [_countLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:18]];
-    _countLabel.textAlignment = NSTextAlignmentCenter;
-    
-    [vibrancyEffectView.contentView addSubview:_countLabel];
-    [_blurEffectView.contentView addSubview:vibrancyEffectView];
-    
-    
-//    
+    [_countLabel setFont:[UIFont systemFontOfSize:18.0]];
+    _countLabel.backgroundColor = [UIColor whiteColor];
+//
 //    NSMutableString *str = [NSMutableString stringWithCapacity:1000];
 //    for (NSString *familyName in [UIFont familyNames]) {
 //        [str appendFormat:@"%@\n", familyName];

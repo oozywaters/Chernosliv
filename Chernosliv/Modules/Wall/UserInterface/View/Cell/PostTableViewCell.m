@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *textContent;
 @property (nonatomic, strong) NSLayoutConstraint *aspectConstraint;
 @property (weak, nonatomic) IBOutlet CountView *countView;
+@property (weak, nonatomic) IBOutlet UILabel *countLabel;
 @property (nonatomic, strong) NSArray *imagesArray;
 @property (weak, nonatomic) IBOutlet UILabel *authorName;
 @property (weak, nonatomic) IBOutlet UIImageView *avatar;
@@ -49,6 +50,13 @@
     self.layoutMargins = UIEdgeInsetsZero;
     self.preservesSuperviewLayoutMargins = NO;
     
+    self.avatar.layer.cornerRadius = 25.0;
+    self.avatar.layer.borderColor = [[UIColor colorWithRed:0 green:0 blue:0 alpha:.2] CGColor];
+    self.avatar.layer.borderWidth = 0.5;
+    
+    self.postImage.layer.borderWidth = 0.5;
+    self.postImage.layer.borderColor = [[UIColor colorWithRed:0 green:0 blue:0 alpha:.2] CGColor];
+//    self.avatar.frame = CGRectInset(self.frame, 5.0, 5.0);
 //    _postImage.layer.shadowColor = [UIColor grayColor].CGColor;
 //    _postImage.layer.shadowOffset = CGSizeMake(0, 2);
 //    _postImage.layer.shadowOpacity = 1;
@@ -79,7 +87,7 @@
 - (void)updateWithModel:(id)model {
     self.viewModel = (PostViewModel *)model;
     
-    [self.authorName setText:self.viewModel.authorName];
+    [self.authorName setText:[self.viewModel.authorName uppercaseString]];
     [self.avatar sd_setImageWithURL:self.viewModel.authorImageURL];
     
     NSString *likesString = [NSString stringWithFormat:@"%d", self.viewModel.likesCount];
@@ -156,7 +164,8 @@
         [self.countView setHidden:YES];
     } else {
         [self.countView setHidden:NO];
-        [self.countView setCount:attachCount];
+        [self.countLabel setText:[NSString stringWithFormat:@"%lu", (unsigned long)attachCount]];
+//        [self.countView setCount:attachCount];
     }
 }
 

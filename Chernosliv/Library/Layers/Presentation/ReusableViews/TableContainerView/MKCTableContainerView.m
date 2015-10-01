@@ -19,7 +19,7 @@
 - (instancetype)initWithStyle:(UITableViewStyle)style
 {
     self = [super init];
-    self.backgroundColor = [UIColor an_colorWithHexString:@"#FAFAFA"];
+    self.backgroundColor = [UIColor an_colorWithHexString:@"#FFFFFF"];
     if (self)
     {
         ANTableView* tableView = [[ANTableView alloc] initWithFrame:CGRectZero style:style];

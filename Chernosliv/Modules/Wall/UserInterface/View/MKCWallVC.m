@@ -37,7 +37,6 @@
         self.controller = [[MKCWallTableController alloc] initWithTableView:self.contentView.tableView];
         self.controller.delegate = self;
         [self setNeedsStatusBarAppearanceUpdate];
-        
 //        [self.eventHandler.pageLoadingSignal subscribeNext:^{
 //            NSLog(@"Page Loading");
 //        }];

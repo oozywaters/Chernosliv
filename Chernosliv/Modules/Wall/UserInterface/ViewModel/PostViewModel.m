@@ -68,19 +68,20 @@
         return self.viewHeight;
     }
     
-    CGFloat topPadding = 12.0 + 12.0 + 50.0;
-    CGFloat leftPadding = 12.0;
-    CGFloat rightPadding = 12.0;
-    CGFloat bottomPadding = 12.0;
+    CGFloat topPadding = 15.0 + 15.0 + 50.0;
+    CGFloat leftPadding = 15.0;
+    CGFloat rightPadding = 15.0;
+    CGFloat bottomPadding = 0.0;
     
-    CGFloat buttonsHeight = 22.0;
+    CGFloat buttonsHeight = 52.0;
     
     // Calculate label height
     CGFloat labelHeight = 0.0;
     CGFloat labelWidth = width - leftPadding - rightPadding;
     CGFloat labelBottomMargin = 0.0;
     if (self.postText) {
-        UIFont *labelFont = [UIFont systemFontOfSize:16.0];
+        UIFont *labelFont = [UIFont systemFontOfSize:17.0];
+//        UIFont *labelFont = [UIFont fontWithName:@"AvenirNext-Regular" size:17.0];
         CGSize maximumLabelSize = CGSizeMake(labelWidth, FLT_MAX);
         
         CGFloat maximumLabelHeight = labelFont.lineHeight * 6;
@@ -96,24 +97,26 @@
             labelHeight = ceil(boundingBox.height);
         }
         
-        labelBottomMargin = 12.0;
+        labelBottomMargin = 15.0;
     }
     
    
-    CGFloat imagePaddingLeft = 12.0;
-    CGFloat imagePaddingRight = 12.0;
+    CGFloat imagePaddingLeft = 15.0;
+    CGFloat imagePaddingRight = 15.0;
     CGFloat imageWidth = width - (imagePaddingLeft + imagePaddingRight);
     CGFloat imageHeight = 0.0;
-    CGFloat imageBottomMargin = 0.0;
+//    CGFloat imageBottomMargin = 0.0;
     
     if (self.post.attachments) {
         CGFloat imageAspectRatio = self.imageWidth / self.imageHeight;
-        imageBottomMargin = 12.0;
+//        imageBottomMargin = 12.0;
         imageHeight = ceil(imageWidth / imageAspectRatio);
 //        NSLog(@"Image size: %f x %f", imageHeight, imageWidth);
+    } else {
+        labelBottomMargin = 0.0;
     }
     
-    CGFloat result = topPadding + labelHeight + labelBottomMargin + imageHeight + imageBottomMargin + buttonsHeight + bottomPadding;
+    CGFloat result = topPadding + labelHeight + labelBottomMargin + imageHeight + buttonsHeight;
     
     self.viewHeight = result;
     
