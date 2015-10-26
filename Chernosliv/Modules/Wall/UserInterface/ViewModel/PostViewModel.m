@@ -68,36 +68,35 @@
         return self.viewHeight;
     }
     
-    CGFloat topPadding = 15.0 + 15.0 + 50.0;
+    CGFloat topPadding = 15.0;
+    CGFloat avatarHeight = 50.0;
     CGFloat leftPadding = 15.0;
     CGFloat rightPadding = 15.0;
-    CGFloat bottomPadding = 0.0;
     
     CGFloat buttonsHeight = 52.0;
     
     // Calculate label height
-    CGFloat labelHeight = 0.0;
-    CGFloat labelWidth = width - leftPadding - rightPadding;
-    CGFloat labelBottomMargin = 0.0;
+    CGFloat textTopMargin = 0.0;
+    CGFloat textHeight = 0.0;
+    CGFloat textWidth = width - leftPadding - rightPadding;
+    
     if (self.postText) {
+        textTopMargin = 15.0;
         UIFont *labelFont = [UIFont systemFontOfSize:17.0];
-//        UIFont *labelFont = [UIFont fontWithName:@"AvenirNext-Regular" size:17.0];
-        CGSize maximumLabelSize = CGSizeMake(labelWidth, FLT_MAX);
+        UILabel *postTextLabel = [[UILabel alloc] init];
+        [postTextLabel setText:self.postText];
+        [postTextLabel setFont:labelFont];
+        
         
         CGFloat maximumLabelHeight = labelFont.lineHeight * 6;
         
-        CGSize boundingBox = [self.postText boundingRectWithSize:maximumLabelSize
-                                                         options:NSStringDrawingUsesLineFragmentOrigin
-                                                      attributes:@{NSFontAttributeName: labelFont}
-                                                         context:nil].size;
+        CGSize boundingBox = [postTextLabel an_textContentSizeConstrainedToWidth:textWidth];
         
         if (boundingBox.height > maximumLabelHeight) {
-            labelHeight = ceil(maximumLabelHeight);
+            textHeight = maximumLabelHeight;
         } else {
-            labelHeight = ceil(boundingBox.height);
+            textHeight = boundingBox.height;
         }
-        
-        labelBottomMargin = 15.0;
     }
     
    
@@ -105,18 +104,18 @@
     CGFloat imagePaddingRight = 15.0;
     CGFloat imageWidth = width - (imagePaddingLeft + imagePaddingRight);
     CGFloat imageHeight = 0.0;
+    CGFloat imageTopMargin = 0.0;
 //    CGFloat imageBottomMargin = 0.0;
     
     if (self.post.attachments) {
         CGFloat imageAspectRatio = self.imageWidth / self.imageHeight;
 //        imageBottomMargin = 12.0;
         imageHeight = ceil(imageWidth / imageAspectRatio);
-//        NSLog(@"Image size: %f x %f", imageHeight, imageWidth);
-    } else {
-        labelBottomMargin = 0.0;
+        imageTopMargin = 15.0;
     }
     
-    CGFloat result = topPadding + labelHeight + labelBottomMargin + imageHeight + buttonsHeight;
+//    CGFloat result = topPadding + avatarHeight + avatarBottomMargin + labelHeight + labelBottomMargin + imageHeight + buttonsHeight;
+    CGFloat result = topPadding + avatarHeight + textTopMargin + textHeight + imageTopMargin + imageHeight + buttonsHeight;
     
     self.viewHeight = result;
     

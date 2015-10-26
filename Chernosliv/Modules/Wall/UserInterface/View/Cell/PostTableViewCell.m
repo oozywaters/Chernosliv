@@ -34,6 +34,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *commentsButton;
 @property (weak, nonatomic) IBOutlet UIButton *repostButton;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *textTopMargin;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageTopMagrinConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textLabelConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *attachmentsImgageConstraint;
 
@@ -121,10 +123,10 @@
 
 - (void)setupTextLabelWithViewModel:(PostViewModel *)viewModel {
     if (viewModel.postText) {
-        [self.textLabelConstraint setConstant:12.0];
+        [self.textTopMargin setConstant:15.0];
         [self.textContent setText:viewModel.postText];
     } else {
-        [self.textLabelConstraint setConstant:0.0];
+        [self.textTopMargin setConstant:0.0];
         [self.textContent setText:nil];
     }
 }
@@ -137,14 +139,14 @@
             self.aspectConstraint = nil;
         }
         [self.postImage setImage:nil];
-        [self.attachmentsImgageConstraint setConstant:0.0];
+        [self.imageTopMagrinConstraint setConstant:0.0];
     } else {
-        [self.attachmentsImgageConstraint setConstant:12.0];
+        [self.imageTopMagrinConstraint setConstant:15.0];
         UITapGestureRecognizer *attachmentsTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(attachmentsTapped:)];
         
         CGFloat newAspect = self.viewModel.imageHeight / self.viewModel.imageWidth;
-//        if (aspect != newAspect) {
-//            aspect = newAspect;
+        if (aspect != newAspect) {
+            aspect = newAspect;
 //            NSLog(@"New constraint set");
 //            self.aspectConstraint = [NSLayoutConstraint constraintWithItem:self.postImage
 //                                                                 attribute:NSLayoutAttributeHeight
@@ -153,7 +155,7 @@
 //                                                                 attribute:NSLayoutAttributeWidth
 //                                                                multiplier:aspect
 //                                                                  constant:0.0];
-//        }
+        }
         
         [self.postImage sd_setImageWithURL:self.viewModel.imageURL];
         [self.postImage addGestureRecognizer:attachmentsTapGestureRecognizer];
@@ -172,7 +174,7 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     [self.contentView layoutIfNeeded];
-    self.textContent.preferredMaxLayoutWidth = self.bounds.size.width - 24;
+    self.textContent.preferredMaxLayoutWidth = self.bounds.size.width - 30;
 }
 
 - (void)attachmentsTapped:(UITapGestureRecognizer *)gestureRecognizer {
