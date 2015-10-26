@@ -53,6 +53,11 @@
 //    NSLog(@"Post owner: %@", owner);
     _authorName = owner.name;
     _authorImageURL = owner.avatar;
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"RU_ru"]];
+    dateFormatter.dateFormat = @"dd MMMM yyyy в HH:mm";
+    _postDate = [dateFormatter stringFromDate:self.post.date];
 }
 
 - (void)viewComments {

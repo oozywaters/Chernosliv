@@ -20,7 +20,7 @@
 @interface PostTableViewCell ()
 
 @property (nonatomic, strong) PostViewModel *viewModel;
-
+@property (weak, nonatomic) IBOutlet UILabel *postDate;
 @property (weak, nonatomic) IBOutlet UILabel *textContent;
 @property (nonatomic, strong) NSLayoutConstraint *aspectConstraint;
 @property (weak, nonatomic) IBOutlet CountView *countView;
@@ -36,8 +36,6 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textTopMargin;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageTopMagrinConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *textLabelConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *attachmentsImgageConstraint;
 
 //@property (nonatomic, strong) UILabel *textContent;
 
@@ -89,12 +87,13 @@
 - (void)updateWithModel:(id)model {
     self.viewModel = (PostViewModel *)model;
     
+    [self.postDate setText:self.viewModel.postDate];
     [self.authorName setText:[self.viewModel.authorName uppercaseString]];
     [self.avatar sd_setImageWithURL:self.viewModel.authorImageURL];
     
-    NSString *likesString = [NSString stringWithFormat:@"%d", self.viewModel.likesCount];
-    NSString *commentsString = [NSString stringWithFormat:@"%d", self.viewModel.commentsCount];
-    NSString *repostsString = [NSString stringWithFormat:@"%d", self.viewModel.repostsCount];
+    NSString *likesString = [NSString stringWithFormat:@"%lu", (unsigned long)self.viewModel.likesCount];
+    NSString *commentsString = [NSString stringWithFormat:@"%lu", (unsigned long)self.viewModel.commentsCount];
+    NSString *repostsString = [NSString stringWithFormat:@"%lu", (unsigned long)self.viewModel.repostsCount];
     
     [self.likeButton setTitle:likesString forState:UIControlStateNormal];
     [self.repostButton setTitle:repostsString forState:UIControlStateNormal];
