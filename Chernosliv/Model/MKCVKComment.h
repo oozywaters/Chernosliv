@@ -11,7 +11,7 @@
 
 @interface MKCVKComment : MTLModel <MTLJSONSerializing>
 
-@property (nonatomic, strong) NSString *authorId;
+@property (nonatomic, strong) NSNumber *authorId;
 @property (nonatomic, strong) NSString *text;
 @property (nonatomic, strong) MKCVKProfile *author;
 

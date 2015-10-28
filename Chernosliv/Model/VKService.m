@@ -21,6 +21,7 @@
 
 static NSString *const appId = @"4965407";
 static NSString *const ownerId = @"275110350";
+//static NSString *const ownerId = @"37807366";
 
 + (VKService *)sharedService {
     static VKService *service = nil;
@@ -90,13 +91,17 @@ static NSString *const ownerId = @"275110350";
 
 }
 
-- (void)getCommentsWithPostId:(NSString *)postId
-                       success:(void (^)(MKCVKCommentsList *commentsList))successBlock
-                         error:(void(^)(NSError *error))errorBlock {
+- (void)getCommentsWithPostId:(NSNumber *)postId
+                       offset:(NSUInteger)offset
+                        count:(NSUInteger)count
+                      success:(void (^)(MKCVKCommentsList *))successBlock
+                        error:(void (^)(NSError *))errorBlock {
     
     NSDictionary *parameters = @{VK_API_OWNER_ID: ownerId,
                                  VK_API_POST_ID: postId,
-                                 VK_API_EXTENDED: @"1"};
+                                 VK_API_OFFSET: @(offset),
+                                 VK_API_COUNT: @(count),
+                                 VK_API_EXTENDED: @(YES)};
     
     VKRequest *commentsRequest = [VKRequest requestWithMethod:@"wall.getComments"
                                                 andParameters:parameters

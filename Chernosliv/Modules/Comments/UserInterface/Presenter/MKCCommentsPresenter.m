@@ -47,11 +47,18 @@
 }
 
 - (void)loadComments {
-    [self.interactor loadComments];
+    [self.interactor loadCommentsWithCompletionHandler:^(NSArray *comments) {
+        if ([comments count] == 0) {
+            [self.commentsInterface nothingToLoad];
+            return;
+        }
+        [self.dataSource setupStorageWithItems:comments eventHandler:self];
+        [self.commentsInterface commentsLoaded];
+    }];
 }
 
-- (void)commentsLoaded:(NSArray *)comments {
-    [self.dataSource setupStorageWithItems:comments eventHandler:self];
+- (void)scrollBottomReached {
+    [self loadComments];
 }
 
 @end

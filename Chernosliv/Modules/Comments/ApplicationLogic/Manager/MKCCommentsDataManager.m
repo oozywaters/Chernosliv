@@ -21,20 +21,25 @@
 
 @end
 
-@implementation MKCCommentsDataManager
+@implementation MKCCommentsDataManager {
+    NSUInteger _pageSize;
+    NSUInteger _offset;
+}
 
 - (instancetype)initWithPost:(MKCVKPost *)post {
     if (self) {
         _post = post;
         _comments = [NSMutableArray array];
         _profiles = [NSMutableDictionary dictionary];
+        _pageSize = 100;
+        _offset = 0;
     }
     return self;
 }
 
 - (void)getCommentsWithSuccess:(void (^)(NSArray *))successBlock
                          error:(void (^)(NSError *))errorBlock {
-    [[VKService sharedService] getCommentsWithPostId:self.post.postId success:^(MKCVKCommentsList *commentsList) {
+    [[VKService sharedService] getCommentsWithPostId:self.post.postId offset:_offset count:_pageSize success:^(MKCVKCommentsList *commentsList) {
 //        MKCVKComment *comment = commentsList.comments[0];
 //        comment.author = [commentsList.profiles objectForKey:comment.authorId];
 //        NSLog(@"Comment: %@", comment);
@@ -51,6 +56,7 @@
             [self.commentsList mergeValuesForKeysFromModel:commentsList];
         }
         successBlock(self.commentsList.comments);
+        _offset += _pageSize;
     } error:^(NSError *error) {
         NSLog(@"Comments error");
         errorBlock(error);

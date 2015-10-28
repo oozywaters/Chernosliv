@@ -14,5 +14,6 @@
 - (void)attachmentsTappedWithView:(UIView *)tappedView;
 
 - (void)pageLoaded;
+- (void)nothingToLoad;
 
 @end

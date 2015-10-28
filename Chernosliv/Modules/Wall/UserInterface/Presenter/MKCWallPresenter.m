@@ -50,6 +50,12 @@
 
 - (void)loadNextPage {
     [self.interactor loadPostsWithCompletionHandler:^(NSArray *posts) {
+        if (!posts) {
+            NSLog(@"End of wall reached");
+//            [self.wallInterface pageLoaded];
+            [self.wallInterface nothingToLoad];
+            return;
+        }
         [self.dataSource setupStorageWithItems:posts eventHandler:self];
         [self.wallInterface pageLoaded];
     }];

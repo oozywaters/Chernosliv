@@ -37,6 +37,12 @@
         self.controller = [[MKCWallTableController alloc] initWithTableView:self.contentView.tableView];
         self.controller.delegate = self;
         [self setNeedsStatusBarAppearanceUpdate];
+        
+        @weakify(self);
+        [self.contentView.tableView addInfiniteScrollingWithActionHandler:^{
+            @strongify(self);
+            [self.eventHandler loadNextPage];
+        }];
 //        [self.eventHandler.pageLoadingSignal subscribeNext:^{
 //            NSLog(@"Page Loading");
 //        }];
@@ -58,17 +64,6 @@
     [self.navigationController setNavigationBarHidden:YES];
 }
 
-- (void)pageLoaded {
-    NSLog(@"Page loaded");
-    [self.progressHUD hide:YES];
-    [self.controller wallPageLoaded];
-//    if (self.tableView.emptyDataSetVisible) {
-//        [self.tableView reloadEmptyDataSet];
-//    }
-//    [self.progressHUD hide:YES];
-//    [self.tableView.infiniteScrollingView stopAnimating];
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -86,6 +81,23 @@
 
 - (void)attachmentsTappedWithView:(UIView *)tappedView {
     self.tappedView = tappedView;
+}
+
+- (void)pageLoaded {
+    [self.progressHUD hide:YES];
+    [self.controller wallPageLoaded];
+    [self.contentView.tableView.infiniteScrollingView stopAnimating];
+    //    if (self.tableView.emptyDataSetVisible) {
+    //        [self.tableView reloadEmptyDataSet];
+    //    }
+    //    [self.progressHUD hide:YES];
+    //    [self.tableView.infiniteScrollingView stopAnimating];
+}
+
+- (void)nothingToLoad {
+    [self.progressHUD hide:YES];
+    [self.contentView.tableView.infiniteScrollingView stopAnimating];
+    self.contentView.tableView.showsInfiniteScrolling = NO;
 }
 
 # pragma mark - MKCWallTableControllerDelegate

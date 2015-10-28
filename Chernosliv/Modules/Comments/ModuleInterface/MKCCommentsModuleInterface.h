@@ -10,4 +10,6 @@
 
 - (void)loadCommentsWithPostId:(NSString *)postId;
 
+- (void)scrollBottomReached;
+
 @end

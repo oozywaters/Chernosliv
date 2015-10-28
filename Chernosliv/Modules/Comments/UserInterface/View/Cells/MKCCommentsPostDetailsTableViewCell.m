@@ -26,6 +26,11 @@
     // Initialization code
     self.layoutMargins = UIEdgeInsetsZero;
     self.preservesSuperviewLayoutMargins = NO;
+    
+    self.authorAvatar.layer.cornerRadius = 25.0;
+    self.authorAvatar.layer.borderColor = [[UIColor colorWithRed:0 green:0 blue:0 alpha:.2] CGColor];
+    self.authorAvatar.layer.borderWidth = 0.5;
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -37,7 +42,7 @@
 - (void)updateWithModel:(id)model {
     self.viewModel = (MKCCommentsPostDetailsViewModel *)model;
     [self.postContent setText:self.viewModel.postContent];
-    [self.authorName setText:self.viewModel.authorName];
+    [self.authorName setText:[self.viewModel.authorName uppercaseString]];
     [self.authorAvatar sd_setImageWithURL:self.viewModel.authorImageURL];
 }
 

@@ -24,6 +24,10 @@
     // Initialization code
     self.layoutMargins = UIEdgeInsetsZero;
     self.preservesSuperviewLayoutMargins = NO;
+    
+    self.avatarImage.layer.cornerRadius = 25.0;
+    self.avatarImage.layer.borderColor = [[UIColor colorWithRed:0 green:0 blue:0 alpha:.2] CGColor];
+    self.avatarImage.layer.borderWidth = 0.5;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

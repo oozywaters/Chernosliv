@@ -13,4 +13,7 @@
 - (void)updateDataSource:(MKCCommentsDataSource *)dataSource;
 - (void)setHeaderViewWithImageURL:(NSURL *)imageURL;
 
+- (void)commentsLoaded;
+- (void)nothingToLoad;
+
 @end

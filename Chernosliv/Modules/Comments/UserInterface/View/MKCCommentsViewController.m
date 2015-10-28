@@ -14,6 +14,7 @@
 //#import <SDWebImage/UIImage+MultiFormat.h>
 
 #import "MKCCommentsTableController.h"
+#import <SVPullToRefresh/SVPullToRefresh.h>
 
 @interface MKCCommentsViewController () <MKCCommentsTableControllerDelegate>
 
@@ -41,6 +42,13 @@
         self.controller.delegate = self;
         [self setNeedsStatusBarAppearanceUpdate];
         self.isHeaderViewSet = NO;
+        
+        @weakify(self);
+        [self.tableView addInfiniteScrollingWithActionHandler:^{
+            @strongify(self);
+            [self.eventHandler scrollBottomReached];
+//            self.eventHandler 
+        }];
     }
     return self;
 }
@@ -117,11 +125,23 @@
     [self.controller setHeaderViewWithImageURL:imageURL];
 }
 
+- (void)commentsLoaded {
+    NSLog(@"Comments loaded");
+    [self.tableView.infiniteScrollingView stopAnimating];
+}
+
+- (void)nothingToLoad {
+    NSLog(@"Nothong to load");
+    [self.tableView.infiniteScrollingView stopAnimating];
+    self.tableView.showsInfiniteScrolling = NO;
+}
+
 #pragma mark - MKCCommentsTableControllerDelegate
 #define NAVBAR_CHANGE_POINT -139
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    UIColor * color = [UIColor an_colorWithHexString:@"#627797"];
+//    UIColor *color = [UIColor an_colorWithHexString:@"#627797"];
+    UIColor *color = [UIColor an_colorWithHexString:@"#4A90E2"];
     CGFloat offsetY = scrollView.contentOffset.y;
     if (offsetY > NAVBAR_CHANGE_POINT) {
         CGFloat alpha = MIN(1, 1 - ((NAVBAR_CHANGE_POINT + 64 - offsetY) / 64));

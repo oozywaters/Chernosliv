@@ -28,9 +28,9 @@
     return self;
 }
 
-- (void)loadComments {
+- (void)loadCommentsWithCompletionHandler:(void (^)(NSArray *))completionHandler {
     [self.dataManager getCommentsWithSuccess:^(NSArray *comments) {
-        [self.output commentsLoaded:comments];
+        completionHandler(comments);
     } error:^(NSError *error) {
         NSLog(@"Error while loading comments: %@", error);
     }];

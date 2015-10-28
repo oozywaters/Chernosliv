@@ -9,13 +9,12 @@
 
 @protocol MKCCommentsInteractorInput <NSObject>
 
+- (void)loadCommentsWithCompletionHandler:(void(^)(NSArray *comments))completionHandler;
+
 - (MKCCommentsPostDetails *)currentPost;
-- (void)loadComments;
 
 @end
 
 @protocol MKCCommentsInteractorOutput <NSObject>
-
-- (void)commentsLoaded:(NSArray *)comments;
 
 @end

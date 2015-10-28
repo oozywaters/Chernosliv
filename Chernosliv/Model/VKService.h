@@ -16,13 +16,15 @@
 
 + (VKService *)sharedService;
 
-- (void)getCommentsWithPostId:(NSString *)postId
-                      success:(void (^)(MKCVKCommentsList *commentsList))successBlock
-                        error:(void(^)(NSError *error))errorBlock;
-
 - (void)wallGetWithOffset:(NSUInteger)offset
                     count:(NSUInteger)count
                   success:(void(^)(MKCWallGetResponse *response))successBlock
                     error:(void(^)(NSError *error))errorBlock;
+
+- (void)getCommentsWithPostId:(NSNumber *)postId
+                       offset:(NSUInteger)offset
+                        count:(NSUInteger)count
+                      success:(void (^)(MKCVKCommentsList *commentsList))successBlock
+                        error:(void(^)(NSError *error))errorBlock;
 
 @end
