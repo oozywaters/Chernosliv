@@ -62,10 +62,10 @@
                         </state>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="cjn-za-3Tp"/>
-                                <exclude reference="vIK-9u-0Ru"/>
-                                <exclude reference="dia-9z-u9T"/>
                                 <exclude reference="Mug-zC-m4M"/>
+                                <exclude reference="cjn-za-3Tp"/>
+                                <exclude reference="dia-9z-u9T"/>
+                                <exclude reference="vIK-9u-0Ru"/>
                             </mask>
                         </variation>
                     </button>

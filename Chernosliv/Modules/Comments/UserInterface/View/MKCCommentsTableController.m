@@ -32,6 +32,7 @@ static const CGFloat kTableHeaderHeight = 75.0;
         [self registerCellNib:@"MKCCommentsTableViewCell"
                 forModelClass:[MKCCommentViewModel class]];
         self.tableView.rowHeight = UITableViewAutomaticDimension;
+        self.tableView.backgroundColor = [UIColor an_colorWithHexString:@"#FAFAFA"];
     }
     return self;
 }
