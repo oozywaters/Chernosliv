@@ -16,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *authorAvatar;
 @property (weak, nonatomic) IBOutlet UILabel *authorName;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *postContent;
+@property (weak, nonatomic) IBOutlet UITextView *postContent;
 
 @end
 

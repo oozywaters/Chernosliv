@@ -55,8 +55,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-   
+//    [self.navigationItem.backBarButtonItem setTitle:@"Назад"];
+    [self setTitle:@"Комментарии"];
     [self.controller updateHeaderView];
 //
 //    [self setUpCells];
@@ -81,10 +81,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.shadowImage = [UIImage new];
-    [self.navigationController setNavigationBarHidden:NO];
-    self.navigationController.navigationBar.translucent = YES;
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [self setupNavigationController];
 //    self.navigationController.navigationBar.backgroundColor = [UIColor an_colorWithHexString:@"#627797"];
 //    if (self.isHeaderViewSet) {
 ////        [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
@@ -98,6 +95,16 @@
 //    }
 }
 
+- (void)setupNavigationController {
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    [self.navigationController setNavigationBarHidden:NO];
+    self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
+    NSLog(@"%@", self.navigationItem.backBarButtonItem);
+//    [self.navigationItem.leftBarButtonItem setTitle:@""];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 }
@@ -108,10 +115,10 @@
 
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
-    if (self.isHeaderViewSet) {
-        return UIStatusBarStyleLightContent;
-    }
-    return UIStatusBarStyleDefault;
+//    if (self.isHeaderViewSet) {
+//        return UIStatusBarStyleLightContent;
+//    }
+    return UIStatusBarStyleLightContent;
 }
 
 #pragma mark - MKCCommentsViewInterface

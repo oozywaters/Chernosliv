@@ -894,6 +894,7 @@
 				TargetAttributes = {
 					712489D61B50B286006526BA = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = P22TMA27P4;
 					};
 					712489EF1B50B286006526BA = {
 						CreatedOnToolsVersion = 6.4;
@@ -1171,12 +1172,15 @@
 			baseConfigurationReference = A8A98243DFEB914A3A71CDEB /* Pods-Chernosliv.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = Chernosliv/Application/BundleFiles/PrefixHeader.pch;
 				INFOPLIST_FILE = Chernosliv/Application/BundleFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.oozywaters.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1186,12 +1190,15 @@
 			baseConfigurationReference = 880CA44613AC2FC66F037253 /* Pods-Chernosliv.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = Chernosliv/Application/BundleFiles/PrefixHeader.pch;
 				INFOPLIST_FILE = Chernosliv/Application/BundleFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.oozywaters.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
