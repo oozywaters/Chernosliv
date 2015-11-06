@@ -47,8 +47,8 @@ static NSString *const ownerId = @"275110350";
     NSLog(@"Authorization finished");
 }
 
-- (void)vkSdkUserAuthorizationFailed:(VKError *)result {
-    NSLog(@"Authorization failed with error: %@", result);
+- (void)vkSdkUserAuthorizationFailed {
+    NSLog(@"User authorization failed");
 }
 
 - (void)vkSdkNeedCaptchaEnter:(VKError *)captchaError {
