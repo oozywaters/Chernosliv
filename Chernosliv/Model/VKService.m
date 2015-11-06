@@ -34,12 +34,22 @@ static NSString *const ownerId = @"275110350";
 
 - (instancetype)init {
     if (self = [super init]) {
-        [VKSdk initializeWithDelegate:self andAppId:appId];
+        VKSdk *sdkInstance = [VKSdk initializeWithAppId:appId];
+        [sdkInstance registerDelegate:self];
+//        [VKSdk initializeWithDelegate:self andAppId:appId];
     }
     return self;
 }
 
 # pragma mark - VKSdkDelegate
+
+- (void)vkSdkAccessAuthorizationFinishedWithResult:(VKAuthorizationResult *)result {
+    NSLog(@"Authorization finished");
+}
+
+- (void)vkSdkUserAuthorizationFailed:(VKError *)result {
+    NSLog(@"Authorization failed with error: %@", result);
+}
 
 - (void)vkSdkNeedCaptchaEnter:(VKError *)captchaError {
     NSLog(@"Need Captcha Enter");
@@ -71,8 +81,8 @@ static NSString *const ownerId = @"275110350";
                                  VK_API_COUNT: @(count)};
     
     VKRequest *wallRequest = [VKRequest requestWithMethod:@"wall.get"
-                                            andParameters:parameters
-                                            andHttpMethod:@"GET"];
+                                            andParameters:parameters];
+    [wallRequest setPreferredLang:@"ru"];
     
     [wallRequest executeWithResultBlock:^(VKResponse *response) {
         NSError *parseError;
@@ -104,8 +114,9 @@ static NSString *const ownerId = @"275110350";
                                  VK_API_EXTENDED: @(YES)};
     
     VKRequest *commentsRequest = [VKRequest requestWithMethod:@"wall.getComments"
-                                                andParameters:parameters
-                                                andHttpMethod:@"GET"];
+                                                andParameters:parameters];
+    [commentsRequest setPreferredLang:@"ru"];
+    
     [commentsRequest executeWithResultBlock:^(VKResponse *response) {
         NSError *parseError;
         

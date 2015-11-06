@@ -24,9 +24,7 @@ pod 'TTTAttributedLabel'
 #API
 pod 'Mantle', '2.0.5'
 pod 'ReactiveCocoa', '~> 2.4.2'
-pod 'VK-ios-sdk'
-pod 'LinqToObjectiveC'
-
+pod 'VK-ios-sdk', '1.3.4'
 
 end
 
