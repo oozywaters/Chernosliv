@@ -13,7 +13,7 @@
 @interface MKCCommentsTableViewCell ()
 
 @property (weak, nonatomic) IBOutlet UILabel *authorName;
-@property (weak, nonatomic) IBOutlet TTTAttributedLabel *commentText;
+@property (weak, nonatomic) IBOutlet UITextView *commentText;
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImage;
 
 @end
@@ -71,7 +71,7 @@
         [resultString setAttributes:usernameAttributes range:squareBracketsRange];
         [resultString replaceCharactersInRange:squareBracketsRange withString:username];
     }];
-    
-    [self.commentText setText:resultString];
+    [self.commentText setAttributedText:resultString];
+//    [self.commentText setText:resultString];
 }
 @end
