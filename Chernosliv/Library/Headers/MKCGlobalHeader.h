@@ -14,4 +14,3 @@
 #import <ANCategories/UIColor+ANAdditions.h>
 #import <ANCategories/UILabel+ANAdditions.h>
 #import <UINavigationBar+Awesome.h>
-#import <TTTAttributedLabel/TTTAttributedLabel.h>

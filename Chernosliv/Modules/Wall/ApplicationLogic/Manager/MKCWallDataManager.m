@@ -7,6 +7,7 @@
 //
 
 #import "MKCWallDataManager.h"
+#import "MKCVKPost.h"
 #import "MKCDataStore.h"
 #import "MKCWallGetResponse.h"
 #import "VKService.h"
@@ -30,6 +31,10 @@
         _offset = 0;
     }
     return self;
+}
+
+- (void)addLikeToPost:(MKCVKPost *)post {
+    [[VKService sharedService] addLikeToPost:post];
 }
 
 - (void)loadPostsWithCompletion:(void (^)(NSArray *))completionBlock error:(void (^)(NSError *))errorBlock {

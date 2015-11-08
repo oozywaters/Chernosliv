@@ -10,6 +10,7 @@
 #import "MKCVKCommentsList.h"
 
 @class VKWall;
+@class MKCVKPost;
 @class MKCWallGetResponse;
 
 @interface VKService : NSObject
@@ -26,5 +27,7 @@
                         count:(NSUInteger)count
                       success:(void (^)(MKCVKCommentsList *commentsList))successBlock
                         error:(void(^)(NSError *error))errorBlock;
+
+- (void)addLikeToPost:(MKCVKPost *)post;
 
 @end

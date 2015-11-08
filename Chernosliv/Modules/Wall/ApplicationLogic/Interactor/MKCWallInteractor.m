@@ -26,6 +26,10 @@
     return self;
 }
 
+- (void)addLikeToPost:(MKCVKPost *)post {
+    [self.dataManager addLikeToPost:post];
+}
+
 - (void)loadPostsWithCompletionHandler:(void (^)(NSArray *))completionHandler {
     [self.dataManager loadPostsWithCompletion:completionHandler error:^(NSError *error) {
         NSLog(@"Error while loading posts: %@", error);

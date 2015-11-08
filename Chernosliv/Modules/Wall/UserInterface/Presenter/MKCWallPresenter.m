@@ -63,6 +63,10 @@
 
 # pragma mark - MKCWallModuleInterface
 
+- (void)addLikeToPost:(MKCVKPost *)post {
+    [self.interactor addLikeToPost:post];
+}
+
 - (void)viewCommentsWithModel:(PostViewModel *)viewModel {
     [self.wireframe presentCommentsControllerWithPost:viewModel.post];
 }

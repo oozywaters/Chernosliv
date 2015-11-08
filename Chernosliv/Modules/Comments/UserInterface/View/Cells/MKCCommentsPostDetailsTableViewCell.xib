@@ -24,17 +24,10 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Марк Чернослив" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mW6-nq-Tfi">
-                        <rect key="frame" x="77" y="22" width="228" height="17"/>
+                        <rect key="frame" x="80" y="20" width="225" height="20"/>
                         <animations/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                         <color key="textColor" red="0.090196078431372548" green="0.086274509803921567" blue="0.086274509803921567" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 июля в 23:30" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUt-Gr-EHi">
-                        <rect key="frame" x="77" y="42" width="231" height="16"/>
-                        <animations/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.64313725490196072" green="0.64313725490196072" blue="0.64313725490196072" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="sQB-hq-Fmo" userLabel="Like">
@@ -98,6 +91,13 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </textView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 июля в 23:30" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUt-Gr-EHi">
+                        <rect key="frame" x="80" y="43" width="228" height="16"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.64313725490196072" green="0.64313725490196072" blue="0.64313725490196072" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <animations/>
                 <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -109,12 +109,12 @@
                     <constraint firstItem="MUt-Gr-EHi" firstAttribute="top" secondItem="mW6-nq-Tfi" secondAttribute="bottom" constant="3" id="J67-de-nXk"/>
                     <constraint firstAttribute="trailing" secondItem="MUt-Gr-EHi" secondAttribute="trailing" constant="12" id="LO9-LR-B2c"/>
                     <constraint firstItem="sQB-hq-Fmo" firstAttribute="leading" secondItem="Oai-eD-PUq" secondAttribute="leading" constant="15" id="MGB-dg-ufx"/>
-                    <constraint firstItem="mW6-nq-Tfi" firstAttribute="leading" secondItem="LDG-xZ-KX9" secondAttribute="trailing" constant="12" id="N85-yQ-GBq"/>
+                    <constraint firstItem="mW6-nq-Tfi" firstAttribute="leading" secondItem="LDG-xZ-KX9" secondAttribute="trailing" constant="15" id="N85-yQ-GBq"/>
                     <constraint firstItem="b3i-VN-PjF" firstAttribute="left" secondItem="Oai-eD-PUq" secondAttribute="left" constant="15" id="OnV-yY-9Ys"/>
                     <constraint firstAttribute="trailing" secondItem="xSN-zD-uPA" secondAttribute="trailing" constant="15" id="R4E-mN-zuK"/>
                     <constraint firstItem="LDG-xZ-KX9" firstAttribute="top" secondItem="Oai-eD-PUq" secondAttribute="top" constant="15" id="WOC-lu-Pnu"/>
                     <constraint firstItem="LDG-xZ-KX9" firstAttribute="leading" secondItem="Oai-eD-PUq" secondAttribute="leading" constant="15" id="aan-N6-OcB"/>
-                    <constraint firstItem="mW6-nq-Tfi" firstAttribute="top" secondItem="LDG-xZ-KX9" secondAttribute="top" constant="7" id="dP1-C6-H9k"/>
+                    <constraint firstItem="mW6-nq-Tfi" firstAttribute="top" secondItem="LDG-xZ-KX9" secondAttribute="top" constant="5" id="dP1-C6-H9k"/>
                     <constraint firstAttribute="trailing" secondItem="mW6-nq-Tfi" secondAttribute="trailing" constant="15" id="hrW-49-dov"/>
                     <constraint firstItem="mW6-nq-Tfi" firstAttribute="leading" secondItem="MUt-Gr-EHi" secondAttribute="leading" id="iFd-sq-H0h"/>
                     <constraint firstItem="mW6-nq-Tfi" firstAttribute="top" secondItem="LDG-xZ-KX9" secondAttribute="top" id="iil-4r-8gc"/>

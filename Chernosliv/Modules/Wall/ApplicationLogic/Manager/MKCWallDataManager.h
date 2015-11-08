@@ -6,10 +6,11 @@
 //  Copyright (c) 2015 Vyacheslav Zavertanny. All rights reserved.
 //
 
-@class MKCDataStore;
+@class MKCDataStore, MKCVKPost;
 
 @interface MKCWallDataManager : NSObject
 
+- (void)addLikeToPost:(MKCVKPost *)post;
 - (void)loadPostsWithCompletion:(void (^)(NSArray *posts))completionBlock
                           error:(void (^)(NSError *error))errorBlock;
 

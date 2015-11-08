@@ -19,7 +19,6 @@ pod 'MBProgressHUD'
 pod 'SVPullToRefresh'
 pod 'SDWebImage'
 pod 'LTNavigationBar'
-pod 'TTTAttributedLabel'
 
 #API
 pod 'Mantle', '2.0.5'

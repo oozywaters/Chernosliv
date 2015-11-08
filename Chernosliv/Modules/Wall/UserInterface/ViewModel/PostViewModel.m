@@ -60,6 +60,10 @@
     _postDate = [dateFormatter stringFromDate:self.post.date];
 }
 
+- (void)likePost {
+    [self.eventHandler addLikeToPost:self.post];
+}
+
 - (void)viewComments {
     [self.eventHandler viewCommentsWithModel:self];
 }

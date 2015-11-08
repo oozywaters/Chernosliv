@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3AEE6A936AE499F6937BC121 /* libPods-Chernosliv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D5136BFC869D6CC21034FA /* libPods-Chernosliv.a */; };
 		71054C881B76F6D4005C91BF /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 71054C871B76F6D4005C91BF /* README.md */; };
 		7113A4271B57D78D0060D5B5 /* ObservableMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 7113A4261B57D78D0060D5B5 /* ObservableMutableArray.m */; };
 		71189DDF1B895CFE00D8F341 /* MKCAttachmentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71189DDB1B895CFE00D8F341 /* MKCAttachmentsViewController.m */; };
@@ -68,7 +69,6 @@
 		71FC38DF1B9463C70033A7F1 /* MKCCommentsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FC38DE1B9463C70033A7F1 /* MKCCommentsPresenter.m */; };
 		71FC38E61B946A030033A7F1 /* MKCCommentsPresentationTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FC38E51B946A030033A7F1 /* MKCCommentsPresentationTransition.m */; };
 		71FC38EA1B9491F60033A7F1 /* MKCCommentsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FC38E91B9491F60033A7F1 /* MKCCommentsHeaderView.m */; };
-		7F0EE56A75C6D5207037F44B /* libPods-Chernosliv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F1539D8712653727860F3FC6 /* libPods-Chernosliv.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +82,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10D5136BFC869D6CC21034FA /* libPods-Chernosliv.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Chernosliv.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71054C871B76F6D4005C91BF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7113A4251B57D78D0060D5B5 /* ObservableMutableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObservableMutableArray.h; path = Utils/ObservableMutableArray.h; sourceTree = "<group>"; };
 		7113A4261B57D78D0060D5B5 /* ObservableMutableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ObservableMutableArray.m; path = Utils/ObservableMutableArray.m; sourceTree = "<group>"; };
@@ -212,7 +213,6 @@
 		71FC38E91B9491F60033A7F1 /* MKCCommentsHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCCommentsHeaderView.m; path = Modules/Comments/UserInterface/View/Header/MKCCommentsHeaderView.m; sourceTree = "<group>"; };
 		880CA44613AC2FC66F037253 /* Pods-Chernosliv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chernosliv.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chernosliv/Pods-Chernosliv.release.xcconfig"; sourceTree = "<group>"; };
 		A8A98243DFEB914A3A71CDEB /* Pods-Chernosliv.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chernosliv.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chernosliv/Pods-Chernosliv.debug.xcconfig"; sourceTree = "<group>"; };
-		F1539D8712653727860F3FC6 /* libPods-Chernosliv.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Chernosliv.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,7 +220,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F0EE56A75C6D5207037F44B /* libPods-Chernosliv.a in Frameworks */,
+				3AEE6A936AE499F6937BC121 /* libPods-Chernosliv.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,7 +237,7 @@
 		123B85BE55FB270129938743 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F1539D8712653727860F3FC6 /* libPods-Chernosliv.a */,
+				10D5136BFC869D6CC21034FA /* libPods-Chernosliv.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

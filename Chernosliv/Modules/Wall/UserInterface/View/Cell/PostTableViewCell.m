@@ -186,4 +186,7 @@
     [self.viewModel viewComments];
 //    [self.viewModel.viewComments execute:self.viewModel];
 }
+- (IBAction)likeButtonTapped:(UIButton *)sender {
+    [self.viewModel likePost];
+}
 @end

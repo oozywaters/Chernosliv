@@ -38,6 +38,7 @@
 - (instancetype)initWithPost:(MKCVKPost *)post;
 - (CGFloat)calculateViewHeightForWidth:(CGFloat)width;
 
+- (void)likePost;
 - (void)viewAttachments;
 - (void)viewComments;
 

@@ -7,9 +7,11 @@
 //
 
 //@class ANCategoryDomainModel;
+@class MKCVKPost;
 
 @protocol MKCWallInteractorInput <NSObject>
 
+- (void)addLikeToPost:(MKCVKPost *)post;
 - (void)loadPostsWithCompletionHandler:(void(^)(NSArray *posts))completionHandler;
 
 //- (void)loadCategoriesList;
