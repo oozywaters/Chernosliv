@@ -30,7 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *avatar;
 
 
-@property (weak, nonatomic) IBOutlet UIButton *likeButton;
+@property (weak, nonatomic) IBOutlet SpringButton *likeButton;
 @property (weak, nonatomic) IBOutlet UIButton *commentsButton;
 @property (weak, nonatomic) IBOutlet UIButton *repostButton;
 
@@ -186,7 +186,10 @@
     [self.viewModel viewComments];
 //    [self.viewModel.viewComments execute:self.viewModel];
 }
-- (IBAction)likeButtonTapped:(UIButton *)sender {
-    [self.viewModel likePost];
+- (IBAction)likeButtonTapped:(SpringButton *)sender {
+    sender.animation = @"pop";
+    sender.force = 3.0;
+    [sender animate];
+//    [self.viewModel likePost];
 }
 @end

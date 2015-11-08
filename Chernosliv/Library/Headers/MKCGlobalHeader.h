@@ -14,3 +14,5 @@
 #import <ANCategories/UIColor+ANAdditions.h>
 #import <ANCategories/UILabel+ANAdditions.h>
 #import <UINavigationBar+Awesome.h>
+
+#import "Chernosliv-Swift.h"
