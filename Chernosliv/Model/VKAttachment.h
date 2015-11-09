@@ -11,5 +11,7 @@
 @interface VKAttachment : MTLModel <MTLJSONSerializing>
 
 @property (nonatomic, strong) NSString *type;
+@property (nonatomic, strong) NSURL *url;
+@property (nonatomic) CGSize size;
 
 @end

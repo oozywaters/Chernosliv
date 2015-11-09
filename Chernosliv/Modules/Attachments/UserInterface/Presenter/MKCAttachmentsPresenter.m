@@ -7,11 +7,9 @@
 //
 
 #import "MKCAttachmentsPresenter.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
-
 #import "VKAttachment.h"
-#import "VKPhotoMTL.h"
-#import "MKCPhotoAttachmentViewModel.h"
+//#import "MKCAttachmentViewModel.h"
+#import "MKCAttachmentViewController.h"
 
 @interface MKCAttachmentsPresenter ()
 
@@ -27,10 +25,8 @@
     if (self) {
         _post = post;
         _attachments = [[post.attachments.rac_sequence map:^id(VKAttachment *attachment) {
-            if ([attachment isKindOfClass:[VKPhotoMTL class]]) {
-                return [[MKCPhotoAttachmentViewModel alloc] initWithModel:(VKPhotoMTL *)attachment];
-            }
-            return nil;
+            return [[MKCAttachmentViewController alloc] initWithAttachment:attachment];
+//            return [[MKCAttachmentViewModel alloc] initWithAttachment:attachment];
         }] array];
     }
     return self;

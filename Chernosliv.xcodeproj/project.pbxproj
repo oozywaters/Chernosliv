@@ -12,8 +12,6 @@
 		7113A4271B57D78D0060D5B5 /* ObservableMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 7113A4261B57D78D0060D5B5 /* ObservableMutableArray.m */; };
 		71189DDF1B895CFE00D8F341 /* MKCAttachmentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71189DDB1B895CFE00D8F341 /* MKCAttachmentsViewController.m */; };
 		71189DE01B895CFE00D8F341 /* MKCAttachmentsViewControlle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71189DDC1B895CFE00D8F341 /* MKCAttachmentsViewControlle.xib */; };
-		71189DE11B895CFE00D8F341 /* MKCPhotoAttachmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71189DDE1B895CFE00D8F341 /* MKCPhotoAttachmentViewController.m */; };
-		71189DE71B89686100D8F341 /* MKCPhotoAttachmentViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 71189DE61B89686100D8F341 /* MKCPhotoAttachmentViewModel.m */; };
 		71189DEF1B89695200D8F341 /* PostViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 71189DEE1B89695200D8F341 /* PostViewModel.m */; };
 		71189DF31B897DAB00D8F341 /* MKCWallDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 71189DF21B897DAB00D8F341 /* MKCWallDataManager.m */; };
 		711F7B021B9BF848002768D7 /* MKCWallGetResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 711F7B011B9BF848002768D7 /* MKCWallGetResponse.m */; };
@@ -62,6 +60,11 @@
 		716F75A11BB1576A001FFCEE /* MKCCommentsPostDetailsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 716F75A01BB1576A001FFCEE /* MKCCommentsPostDetailsViewModel.m */; };
 		716F75A51BB15B7C001FFCEE /* MKCCommentsPostDetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 716F75A31BB15B7C001FFCEE /* MKCCommentsPostDetailsTableViewCell.m */; };
 		716F75A61BB15B7C001FFCEE /* MKCCommentsPostDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 716F75A41BB15B7C001FFCEE /* MKCCommentsPostDetailsTableViewCell.xib */; };
+		718107C71BF03DCE006DCAC1 /* MKCPhotoAttachmentViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 718107C61BF03DCE006DCAC1 /* MKCPhotoAttachmentViewModel.m */; };
+		718107CB1BF03EAF006DCAC1 /* MKCVideoAttachmentViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 718107CA1BF03EAF006DCAC1 /* MKCVideoAttachmentViewModel.m */; };
+		718107D31BF0438E006DCAC1 /* MKCPhotoAttachmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 718107D21BF0438E006DCAC1 /* MKCPhotoAttachmentViewController.m */; };
+		718107D71BF045EF006DCAC1 /* MKCAttachmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 718107D61BF045EF006DCAC1 /* MKCAttachmentViewController.m */; };
+		718107DB1BF047D8006DCAC1 /* MKCVideoAttachmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 718107DA1BF047D8006DCAC1 /* MKCVideoAttachmentViewController.m */; };
 		71870EEE1B8478970089B215 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 71870EEC1B8478970089B215 /* main.m */; };
 		71870EF31B847A380089B215 /* MKCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71870EF21B847A380089B215 /* MKCAppDelegate.m */; };
 		71870EF71B847AF10089B215 /* MKCAppDependencies.m in Sources */ = {isa = PBXBuildFile; fileRef = 71870EF61B847AF10089B215 /* MKCAppDependencies.m */; };
@@ -118,11 +121,7 @@
 		71189DDA1B895CFE00D8F341 /* MKCAttachmentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCAttachmentsViewController.h; path = Modules/Attachments/UserInterface/View/MKCAttachmentsViewController.h; sourceTree = "<group>"; };
 		71189DDB1B895CFE00D8F341 /* MKCAttachmentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCAttachmentsViewController.m; path = Modules/Attachments/UserInterface/View/MKCAttachmentsViewController.m; sourceTree = "<group>"; };
 		71189DDC1B895CFE00D8F341 /* MKCAttachmentsViewControlle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MKCAttachmentsViewControlle.xib; path = Modules/Attachments/UserInterface/View/MKCAttachmentsViewControlle.xib; sourceTree = "<group>"; };
-		71189DDD1B895CFE00D8F341 /* MKCPhotoAttachmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCPhotoAttachmentViewController.h; path = Modules/Attachments/UserInterface/View/MKCPhotoAttachmentViewController.h; sourceTree = "<group>"; };
-		71189DDE1B895CFE00D8F341 /* MKCPhotoAttachmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCPhotoAttachmentViewController.m; path = Modules/Attachments/UserInterface/View/MKCPhotoAttachmentViewController.m; sourceTree = "<group>"; };
 		71189DE21B895F4800D8F341 /* MKCAttachmentsViewInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCAttachmentsViewInterface.h; path = Modules/Attachments/UserInterface/View/MKCAttachmentsViewInterface.h; sourceTree = "<group>"; };
-		71189DE51B89686100D8F341 /* MKCPhotoAttachmentViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCPhotoAttachmentViewModel.h; path = Modules/Attachments/UserInterface/ViewModel/MKCPhotoAttachmentViewModel.h; sourceTree = "<group>"; };
-		71189DE61B89686100D8F341 /* MKCPhotoAttachmentViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCPhotoAttachmentViewModel.m; path = Modules/Attachments/UserInterface/ViewModel/MKCPhotoAttachmentViewModel.m; sourceTree = "<group>"; };
 		71189DED1B89695200D8F341 /* PostViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostViewModel.h; path = Modules/Wall/UserInterface/ViewModel/PostViewModel.h; sourceTree = "<group>"; };
 		71189DEE1B89695200D8F341 /* PostViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostViewModel.m; path = Modules/Wall/UserInterface/ViewModel/PostViewModel.m; sourceTree = "<group>"; };
 		71189DF11B897DAB00D8F341 /* MKCWallDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCWallDataManager.h; path = Modules/Wall/ApplicationLogic/Manager/MKCWallDataManager.h; sourceTree = "<group>"; };
@@ -191,6 +190,16 @@
 		716F75A21BB15B7C001FFCEE /* MKCCommentsPostDetailsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCCommentsPostDetailsTableViewCell.h; path = Modules/Comments/UserInterface/View/Cells/MKCCommentsPostDetailsTableViewCell.h; sourceTree = "<group>"; };
 		716F75A31BB15B7C001FFCEE /* MKCCommentsPostDetailsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCCommentsPostDetailsTableViewCell.m; path = Modules/Comments/UserInterface/View/Cells/MKCCommentsPostDetailsTableViewCell.m; sourceTree = "<group>"; };
 		716F75A41BB15B7C001FFCEE /* MKCCommentsPostDetailsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MKCCommentsPostDetailsTableViewCell.xib; path = Modules/Comments/UserInterface/View/Cells/MKCCommentsPostDetailsTableViewCell.xib; sourceTree = "<group>"; };
+		718107C51BF03DCE006DCAC1 /* MKCPhotoAttachmentViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCPhotoAttachmentViewModel.h; path = Modules/Attachments/UserInterface/ViewModel/Photo/MKCPhotoAttachmentViewModel.h; sourceTree = "<group>"; };
+		718107C61BF03DCE006DCAC1 /* MKCPhotoAttachmentViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCPhotoAttachmentViewModel.m; path = Modules/Attachments/UserInterface/ViewModel/Photo/MKCPhotoAttachmentViewModel.m; sourceTree = "<group>"; };
+		718107C91BF03EAF006DCAC1 /* MKCVideoAttachmentViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCVideoAttachmentViewModel.h; path = Modules/Attachments/UserInterface/ViewModel/Video/MKCVideoAttachmentViewModel.h; sourceTree = "<group>"; };
+		718107CA1BF03EAF006DCAC1 /* MKCVideoAttachmentViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCVideoAttachmentViewModel.m; path = Modules/Attachments/UserInterface/ViewModel/Video/MKCVideoAttachmentViewModel.m; sourceTree = "<group>"; };
+		718107D11BF0438E006DCAC1 /* MKCPhotoAttachmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCPhotoAttachmentViewController.h; path = Modules/Attachments/UserInterface/View/Photo/MKCPhotoAttachmentViewController.h; sourceTree = "<group>"; };
+		718107D21BF0438E006DCAC1 /* MKCPhotoAttachmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCPhotoAttachmentViewController.m; path = Modules/Attachments/UserInterface/View/Photo/MKCPhotoAttachmentViewController.m; sourceTree = "<group>"; };
+		718107D51BF045EF006DCAC1 /* MKCAttachmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCAttachmentViewController.h; path = Modules/Attachments/UserInterface/View/MKCAttachmentViewController.h; sourceTree = "<group>"; };
+		718107D61BF045EF006DCAC1 /* MKCAttachmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCAttachmentViewController.m; path = Modules/Attachments/UserInterface/View/MKCAttachmentViewController.m; sourceTree = "<group>"; };
+		718107D91BF047D8006DCAC1 /* MKCVideoAttachmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCVideoAttachmentViewController.h; path = Modules/Attachments/UserInterface/View/Video/MKCVideoAttachmentViewController.h; sourceTree = "<group>"; };
+		718107DA1BF047D8006DCAC1 /* MKCVideoAttachmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCVideoAttachmentViewController.m; path = Modules/Attachments/UserInterface/View/Video/MKCVideoAttachmentViewController.m; sourceTree = "<group>"; };
 		71870EEB1B8478970089B215 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Application/BundleFiles/Info.plist; sourceTree = "<group>"; };
 		71870EEC1B8478970089B215 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Application/BundleFiles/main.m; sourceTree = "<group>"; };
 		71870EEF1B8478AE0089B215 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = Application/BundleFiles/PrefixHeader.pch; sourceTree = "<group>"; };
@@ -321,8 +330,8 @@
 		71189DE41B89683C00D8F341 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				71189DE51B89686100D8F341 /* MKCPhotoAttachmentViewModel.h */,
-				71189DE61B89686100D8F341 /* MKCPhotoAttachmentViewModel.m */,
+				718107C41BF03D74006DCAC1 /* Photo */,
+				718107C81BF03E62006DCAC1 /* Video */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -511,6 +520,42 @@
 				7113A4261B57D78D0060D5B5 /* ObservableMutableArray.m */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		718107C41BF03D74006DCAC1 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				718107C51BF03DCE006DCAC1 /* MKCPhotoAttachmentViewModel.h */,
+				718107C61BF03DCE006DCAC1 /* MKCPhotoAttachmentViewModel.m */,
+			);
+			name = Photo;
+			sourceTree = "<group>";
+		};
+		718107C81BF03E62006DCAC1 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				718107C91BF03EAF006DCAC1 /* MKCVideoAttachmentViewModel.h */,
+				718107CA1BF03EAF006DCAC1 /* MKCVideoAttachmentViewModel.m */,
+			);
+			name = Video;
+			sourceTree = "<group>";
+		};
+		718107D01BF0434F006DCAC1 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				718107D11BF0438E006DCAC1 /* MKCPhotoAttachmentViewController.h */,
+				718107D21BF0438E006DCAC1 /* MKCPhotoAttachmentViewController.m */,
+			);
+			name = Photo;
+			sourceTree = "<group>";
+		};
+		718107D81BF04793006DCAC1 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				718107D91BF047D8006DCAC1 /* MKCVideoAttachmentViewController.h */,
+				718107DA1BF047D8006DCAC1 /* MKCVideoAttachmentViewController.m */,
+			);
+			name = Video;
 			sourceTree = "<group>";
 		};
 		71870EE91B8475980089B215 /* Application */ = {
@@ -708,14 +753,16 @@
 		71870F1C1B84A52E0089B215 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				718107D01BF0434F006DCAC1 /* Photo */,
+				718107D81BF04793006DCAC1 /* Video */,
 				71189DDA1B895CFE00D8F341 /* MKCAttachmentsViewController.h */,
 				71189DDB1B895CFE00D8F341 /* MKCAttachmentsViewController.m */,
 				71189DDC1B895CFE00D8F341 /* MKCAttachmentsViewControlle.xib */,
-				71189DDD1B895CFE00D8F341 /* MKCPhotoAttachmentViewController.h */,
-				71189DDE1B895CFE00D8F341 /* MKCPhotoAttachmentViewController.m */,
 				71189DE21B895F4800D8F341 /* MKCAttachmentsViewInterface.h */,
 				71348E501BB65EB70015F88A /* MKCAttachmentsGradientView.h */,
 				71348E511BB65EB70015F88A /* MKCAttachmentsGradientView.m */,
+				718107D51BF045EF006DCAC1 /* MKCAttachmentViewController.h */,
+				718107D61BF045EF006DCAC1 /* MKCAttachmentViewController.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1103,10 +1150,12 @@
 			files = (
 				711F7CC51BEF685400A526AC /* TransitionManager.swift in Sources */,
 				711F7CB21BEF685400A526AC /* DesignableTabBarController.swift in Sources */,
+				718107CB1BF03EAF006DCAC1 /* MKCVideoAttachmentViewModel.m in Sources */,
 				71870EF31B847A380089B215 /* MKCAppDelegate.m in Sources */,
 				71870F081B849C400089B215 /* MKCWallVC.m in Sources */,
 				719386F71BB79BD10050350B /* MKCVKGroup.m in Sources */,
 				713CF1831BAFFAB2006A394A /* MKCCommentsTableController.m in Sources */,
+				718107DB1BF047D8006DCAC1 /* MKCVideoAttachmentViewController.m in Sources */,
 				716CAC071B5264A30068A441 /* VKService.m in Sources */,
 				71054C881B76F6D4005C91BF /* README.md in Sources */,
 				711F7CB31BEF685400A526AC /* DesignableTextField.swift in Sources */,
@@ -1115,6 +1164,7 @@
 				71CBB1E21B85E50B00A64F0E /* MKCWallInteractor.m in Sources */,
 				71F6DBF21BB7B10500FFD21A /* MKCVKOwner.m in Sources */,
 				71189DF31B897DAB00D8F341 /* MKCWallDataManager.m in Sources */,
+				718107C71BF03DCE006DCAC1 /* MKCPhotoAttachmentViewModel.m in Sources */,
 				711F7CB81BEF685400A526AC /* KeyboardLayoutConstraint.swift in Sources */,
 				719601511B987F6C00E72C59 /* MKCVKComment.m in Sources */,
 				711F7CC11BEF685400A526AC /* SpringLabel.swift in Sources */,
@@ -1126,6 +1176,7 @@
 				71FC38DF1B9463C70033A7F1 /* MKCCommentsPresenter.m in Sources */,
 				71870EEE1B8478970089B215 /* main.m in Sources */,
 				7113A4271B57D78D0060D5B5 /* ObservableMutableArray.m in Sources */,
+				718107D71BF045EF006DCAC1 /* MKCAttachmentViewController.m in Sources */,
 				71189DDF1B895CFE00D8F341 /* MKCAttachmentsViewController.m in Sources */,
 				71CEEF6E1B98789D009E4E21 /* MKCCommentsInteractor.m in Sources */,
 				71870F051B8496600089B215 /* MKCWallWireframe.m in Sources */,
@@ -1133,6 +1184,7 @@
 				71870F151B84A3710089B215 /* PostTableViewCell.m in Sources */,
 				711F7CBB1BEF685400A526AC /* Misc.swift in Sources */,
 				711F7CBF1BEF685400A526AC /* SpringButton.swift in Sources */,
+				718107D31BF0438E006DCAC1 /* MKCPhotoAttachmentViewController.m in Sources */,
 				71F834D91BA9827A00533FEE /* MKCWallTableController.m in Sources */,
 				71870EFB1B847D0C0089B215 /* MKCRootWireframe.m in Sources */,
 				71189DEF1B89695200D8F341 /* PostViewModel.m in Sources */,
@@ -1140,7 +1192,6 @@
 				719601571B98944700E72C59 /* MKCVKProfile.m in Sources */,
 				71D20D6B1B85CD8F00F0B6CA /* MKCAttachmentsPresenter.m in Sources */,
 				71870F201B84A5DA0089B215 /* MKCAttachmentsWireframe.m in Sources */,
-				71189DE71B89686100D8F341 /* MKCPhotoAttachmentViewModel.m in Sources */,
 				71348E521BB65EB70015F88A /* MKCAttachmentsGradientView.m in Sources */,
 				71870EF71B847AF10089B215 /* MKCAppDependencies.m in Sources */,
 				716453451B9B181700287BE6 /* MKCDataStore.m in Sources */,
@@ -1170,7 +1221,6 @@
 				711F7CC01BEF685400A526AC /* SpringImageView.swift in Sources */,
 				711F7CB01BEF685400A526AC /* DesignableImageView.swift in Sources */,
 				711F7CAD1BEF685400A526AC /* AutoTextView.swift in Sources */,
-				71189DE11B895CFE00D8F341 /* MKCPhotoAttachmentViewController.m in Sources */,
 				711F7CC61BEF685400A526AC /* TransitionZoom.swift in Sources */,
 				711F7CAF1BEF685400A526AC /* DesignableButton.swift in Sources */,
 				71FC38E61B946A030033A7F1 /* MKCCommentsPresentationTransition.m in Sources */,

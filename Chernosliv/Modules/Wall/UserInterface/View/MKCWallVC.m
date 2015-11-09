@@ -10,8 +10,6 @@
 #import "MKCTableContainerView.h"
 #import "MKCWallTableController.h"
 
-
-
 #import "PostViewModel.h"
 #import "MKCWallDataSource.h"
 #import <SVPullToRefresh/SVPullToRefresh.h>

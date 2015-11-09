@@ -14,6 +14,8 @@
 
 #import <SDWebImage/UIImageView+WebCache.h>
 
+#import "MKCAttachmentViewController.h"
+
 @interface MKCAttachmentsViewController ()
 
 @property (nonatomic, strong) UIScrollView *pagingScrollView;
@@ -66,31 +68,33 @@
     
     UIView *previousView = nil;
     for (int i = 0; i < attachmentsCount; i++) {
-        MKCPhotoAttachmentViewModel *pvm = self.attachments[i];
-        MKCPhotoAttachmentViewController *pvc = [[MKCPhotoAttachmentViewController alloc] initWithViewModel:pvm];
+//        MKCPhotoAttachmentViewModel *pvm = self.attachments[i];
+//        MKCPhotoAttachmentViewController *pvc = [[MKCPhotoAttachmentViewController alloc] initWithViewModel:pvm];
         
-        [_pageViews addObject:pvc.contentView];
+        MKCAttachmentViewController *attachmentVC = self.attachments[i];
         
-        [self addChildViewController:pvc];
-        [self.pagingScrollView addSubview:pvc.view];
+        [_pageViews addObject:attachmentVC.contentView];
+        
+        [self addChildViewController:attachmentVC];
+        [self.pagingScrollView addSubview:attachmentVC.view];
         
         if (!previousView) {
-            [pvc.view mas_makeConstraints:^(MASConstraintMaker *make) {
+            [attachmentVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(self.pagingScrollView.mas_left).with.offset(10);
             }];
         } else {
-            [pvc.view mas_makeConstraints:^(MASConstraintMaker *make) {
+            [attachmentVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(previousView.mas_right).with.offset(20);
             }];
         }
         
-        [pvc.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        [attachmentVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.width.equalTo(self.view.mas_width);
             make.height.equalTo(self.view.mas_height);
             make.top.equalTo(self.view.mas_top);
         }];
-        [pvc didMoveToParentViewController:self];
-        previousView = pvc.view;
+        [attachmentVC didMoveToParentViewController:self];
+        previousView = attachmentVC.view;
     }
     
     [self.pagingScrollView mas_makeConstraints:^(MASConstraintMaker *make) {

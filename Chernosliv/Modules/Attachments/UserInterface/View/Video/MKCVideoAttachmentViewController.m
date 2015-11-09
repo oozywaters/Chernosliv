@@ -1,27 +1,27 @@
 //
-//  MKCPhotoAttachmentViewController.m
+//  MKCVideoAttachmentViewController.m
 //  Chernosliv
 //
-//  Created by Vyacheslav Zavertanny on 18/08/15.
-//  Copyright (c) 2015 Vyacheslav Zavertanny. All rights reserved.
+//  Created by Vyacheslav Zavertanny on 09/11/15.
+//  Copyright © 2015 Vyacheslav Zavertanny. All rights reserved.
 //
 
-#import "MKCPhotoAttachmentViewController.h"
+#import "MKCVideoAttachmentViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
-@interface MKCPhotoAttachmentViewController () <UIScrollViewDelegate>
+@interface MKCVideoAttachmentViewController () <UIScrollViewDelegate>
 
-@property (nonatomic, strong) MKCPhotoAttachmentViewModel *viewModel;
+@property (nonatomic, strong) MKCVideoAttachmentViewModel *viewModel;
 
 @end
 
-@implementation MKCPhotoAttachmentViewController
+@implementation MKCVideoAttachmentViewController
 
-- (instancetype)initWithViewModel:(MKCPhotoAttachmentViewModel *)viewModel {
+- (instancetype)initWithViewModel:(MKCVideoAttachmentViewModel *)viewModel {
     self = [super init];
     if (self) {
         _viewModel = viewModel;
-        _contentView = [UIImageView new];
+        self.contentView = [UIImageView new];
         [self initialize];
     }
     return self;
@@ -32,7 +32,7 @@
     zoomScrollView.maximumZoomScale = 2.0;
     zoomScrollView.minimumZoomScale = 1.0;
     
-    _contentView.contentMode = UIViewContentModeScaleToFill;
+    self.contentView.contentMode = UIViewContentModeScaleToFill;
     
     self.view = zoomScrollView;
     [zoomScrollView addSubview:self.contentView];
@@ -57,12 +57,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - UIScrollViewDelegate
-
-- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
-    return self.contentView;
 }
 
 /*

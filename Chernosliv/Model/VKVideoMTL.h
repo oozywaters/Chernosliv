@@ -10,7 +10,7 @@
 
 @interface VKVideoMTL : VKAttachment
 
-@property (nonatomic, strong) NSURL *thumbnail;
+//@property (nonatomic, strong) NSURL *thumbnail;
 @property (nonatomic, strong) NSNumber *duration;
 @property (nonatomic, strong) NSNumber *ownerId;
 @property (nonatomic, strong) NSNumber *identifier;

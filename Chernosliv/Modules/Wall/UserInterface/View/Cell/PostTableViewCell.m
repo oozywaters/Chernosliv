@@ -31,8 +31,8 @@
 
 
 @property (weak, nonatomic) IBOutlet SpringButton *likeButton;
-@property (weak, nonatomic) IBOutlet UIButton *commentsButton;
-@property (weak, nonatomic) IBOutlet UIButton *repostButton;
+@property (weak, nonatomic) IBOutlet SpringButton *commentsButton;
+@property (weak, nonatomic) IBOutlet SpringButton *repostButton;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textTopMargin;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageTopMagrinConstraint;
@@ -182,7 +182,10 @@
 //    [self.viewModel.viewAttachments execute:self.viewModel];
 }
 
-- (IBAction)commentsButtonTapped:(UIButton *)sender {
+- (IBAction)commentsButtonTapped:(SpringButton *)sender {
+    sender.animation = @"pop";
+    sender.force = 3.0;
+    [sender animate];
     [self.viewModel viewComments];
 //    [self.viewModel.viewComments execute:self.viewModel];
 }
@@ -190,6 +193,11 @@
     sender.animation = @"pop";
     sender.force = 3.0;
     [sender animate];
-//    [self.viewModel likePost];
+    [self.viewModel likePost];
+}
+- (IBAction)repostButtonTapped:(SpringButton *)sender {
+    sender.animation = @"pop";
+    sender.force = 3.0;
+    [sender animate];
 }
 @end

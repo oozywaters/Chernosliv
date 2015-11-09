@@ -69,7 +69,7 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <button contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="CWG-vV-P0R" userLabel="Comments">
+                    <button contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="CWG-vV-P0R" userLabel="Comments" customClass="SpringButton" customModule="Chernosliv" customModuleProvider="target">
                         <rect key="frame" x="95" y="347" width="70" height="52"/>
                         <animations/>
                         <constraints>
@@ -123,7 +123,7 @@
                             <action selector="likeButtonTapped:" destination="mDv-Tl-ChO" eventType="touchUpInside" id="bE2-EZ-u1b"/>
                         </connections>
                     </button>
-                    <button contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="xzY-lh-HBN" userLabel="Repost">
+                    <button contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="xzY-lh-HBN" userLabel="Repost" customClass="SpringButton" customModule="Chernosliv" customModuleProvider="target">
                         <rect key="frame" x="515" y="347" width="70" height="52"/>
                         <animations/>
                         <constraints>
@@ -142,6 +142,9 @@
                                 <exclude reference="RmP-Op-Stj"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <action selector="repostButtonTapped:" destination="mDv-Tl-ChO" eventType="touchUpInside" id="W5A-BY-zGJ"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZN-eG-cHx">
                         <rect key="frame" x="80" y="44" width="505" height="16"/>

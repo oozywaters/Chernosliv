@@ -17,7 +17,7 @@
 @property (nonatomic, strong, readonly) NSString *postDate;
 @property (nonatomic, strong, readonly) NSURL *authorImageURL;
 
-@property (nonatomic, strong, readonly) NSString *postId;
+@property (nonatomic, strong, readonly) NSNumber *postId;
 @property (nonatomic, strong, readonly) NSString *postText;
 
 @property (nonatomic, strong) NSURL *imageURL;

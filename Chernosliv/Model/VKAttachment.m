@@ -26,9 +26,9 @@
         return [VKPhotoMTL class];
     }
     
-//    if([JSONDictionary[@"type"] isEqual:@"video"]) {
-//        return [VKVideoMTL class];
-//    }
+    if([JSONDictionary[@"type"] isEqual:@"video"]) {
+        return [VKVideoMTL class];
+    }
     
     return nil;
 }

@@ -6,12 +6,12 @@
 //  Copyright (c) 2015 Vyacheslav Zavertanny. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "MKCPhotoAttachmentViewModel.h"
+#import "MKCAttachmentViewController.h"
 
-@interface MKCPhotoAttachmentViewController : UIViewController
+@interface MKCPhotoAttachmentViewController : MKCAttachmentViewController
 
-@property (nonatomic, strong) UIImageView *contentView;
+//@property (nonatomic, strong) UIImageView *contentView;
 
 - (instancetype)initWithViewModel:(MKCPhotoAttachmentViewModel *)viewModel;
 

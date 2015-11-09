@@ -12,8 +12,8 @@
 @interface VKPhotoMTL : VKAttachment
 
 @property (nonatomic, strong) NSNumber *identifier;
-@property (nonatomic, strong) NSURL *url;
+//@property (nonatomic, strong) NSURL *url;
 @property (nonatomic, strong) NSURL *thumbnail;
-@property (nonatomic) CGSize size;
+//@property (nonatomic) CGSize size;
 
 @end

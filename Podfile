@@ -19,6 +19,7 @@ pod 'MBProgressHUD'
 pod 'SVPullToRefresh'
 pod 'SDWebImage'
 pod 'LTNavigationBar'
+pod 'PHFComposeBarView', '~> 2.0.1'
 
 #API
 pod 'Mantle', '2.0.5'

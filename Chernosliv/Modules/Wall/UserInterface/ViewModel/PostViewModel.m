@@ -7,7 +7,8 @@
 //
 
 #import "PostViewModel.h"
-#import "VKPhotoMTL.h"
+//#import "VKPhotoMTL.h"
+#import "VKAttachment.h"
 //#import "AttachmentsViewModel.h"
 
 @interface PostViewModel ()
@@ -41,7 +42,7 @@
     _imageWidth = _imageHeight = 0.0;
     
     if (self.post.attachments) {
-        VKPhotoMTL *thumbnailPhoto = [self.post.attachments firstObject];
+        VKAttachment *thumbnailPhoto = [self.post.attachments firstObject];
         _imageURL = thumbnailPhoto.url;
         _imageWidth = thumbnailPhoto.size.width;
         _imageHeight = thumbnailPhoto.size.height;
