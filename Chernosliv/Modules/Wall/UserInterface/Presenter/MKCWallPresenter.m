@@ -51,8 +51,7 @@
 - (void)loadNextPage {
     [self.interactor loadPostsWithCompletionHandler:^(NSArray *posts) {
         if (!posts) {
-            NSLog(@"End of wall reached");
-//            [self.wallInterface pageLoaded];
+            // End of wall reached
             [self.wallInterface nothingToLoad];
             return;
         }
@@ -63,8 +62,12 @@
 
 # pragma mark - MKCWallModuleInterface
 
-- (void)addLikeToPost:(MKCVKPost *)post {
-    [self.interactor addLikeToPost:post];
+- (void)addLikeToPost:(MKCVKPost *)post withResult:(void (^)(NSNumber *))completionBlock {
+    [self.interactor addLikeToPost:post withCompletionHandler:completionBlock];
+}
+
+- (void)copyWithPost:(MKCVKPost *)post {
+    [self.interactor copyWithPost:post];
 }
 
 - (void)viewCommentsWithModel:(PostViewModel *)viewModel {

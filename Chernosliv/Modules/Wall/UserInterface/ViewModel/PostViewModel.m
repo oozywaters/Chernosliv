@@ -35,9 +35,19 @@
         _postText = self.post.text;
     }
     
-    _likesCount = self.post.likesCount;
-    _commentsCount = self.post.commentsCount;
-    _repostsCount = self.post.repostsCount;
+    RAC(self, isUserLikes) = RACObserve(self.post, isUserLikes);
+    RAC(self, likesCount) = [RACObserve(self.post, likesCount) map:^id(NSNumber *newValue) {
+        return [newValue stringValue];
+    }];
+    
+    RAC(self, isUserReposted) = RACObserve(self.post, isUserReposted);
+    RAC(self, repostsCount) = [RACObserve(self.post, repostsCount) map:^id(NSNumber *newValue) {
+        return [newValue stringValue];
+    }];
+    
+//    _likesCount = [self.post.likesCount stringValue];
+    _commentsCount = [self.post.commentsCount stringValue];
+//    _repostsCount = [self.post.repostsCount stringValue];
     
     _imageWidth = _imageHeight = 0.0;
     
@@ -61,8 +71,12 @@
     _postDate = [dateFormatter stringFromDate:self.post.date];
 }
 
-- (void)likePost {
-    [self.eventHandler addLikeToPost:self.post];
+- (void)likePostWithResult:(void (^)(NSNumber *))completionBlock {
+    [self.eventHandler addLikeToPost:self.post withResult:completionBlock];
+}
+
+- (void)copyPost {
+    [self.eventHandler copyWithPost:self.post];
 }
 
 - (void)viewComments {

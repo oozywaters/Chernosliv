@@ -28,6 +28,7 @@
                       success:(void (^)(MKCVKCommentsList *commentsList))successBlock
                         error:(void(^)(NSError *error))errorBlock;
 
-- (void)addLikeToPost:(MKCVKPost *)post;
+- (void)addLikeToPost:(MKCVKPost *)post withSuccess:(void (^)(NSNumber *))successBlock;
+- (void)copyWithPost:(MKCVKPost *)post;
 
 @end

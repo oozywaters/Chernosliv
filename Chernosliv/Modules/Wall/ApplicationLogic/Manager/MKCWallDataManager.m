@@ -33,8 +33,12 @@
     return self;
 }
 
-- (void)addLikeToPost:(MKCVKPost *)post {
-    [[VKService sharedService] addLikeToPost:post];
+- (void)addLikeToPost:(MKCVKPost *)post withCompletion:(void (^)(NSNumber *))completionBlock {
+    [[VKService sharedService] addLikeToPost:post withSuccess:completionBlock];
+}
+
+- (void)copyWithPost:(MKCVKPost *)post {
+    [[VKService sharedService] copyWithPost:post];
 }
 
 - (void)loadPostsWithCompletion:(void (^)(NSArray *))completionBlock error:(void (^)(NSError *))errorBlock {

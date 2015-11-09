@@ -55,6 +55,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.progressHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    self.progressHUD.labelText = @"Загрузка";
 }
 
 - (void)viewWillAppear:(BOOL)animated {

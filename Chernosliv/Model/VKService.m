@@ -25,8 +25,9 @@
 @implementation VKService
 
 static NSString *const appId = @"5138913";
-static NSString *const ownerId = @"275110350";
+static NSString *const ownerId = @"275110350";  // Mark Chernosliv
 //static NSString *const ownerId = @"37807366";
+//static NSString *const ownerId = @"-37063161";
 
 + (VKService *)sharedService {
     static VKService *service = nil;
@@ -52,7 +53,6 @@ static NSString *const ownerId = @"275110350";
                 NSLog(@"Authorization error: %@", error);
             }
         }];
-//        [VKSdk initializeWithDelegate:self andAppId:appId];
     }
     return self;
 }
@@ -183,7 +183,14 @@ static NSString *const ownerId = @"275110350";
     [self.rootViewController presentViewController:alertController animated:YES completion:nil];
 }
 
-- (void)addLikeToPost:(MKCVKPost *)post {
+- (void)presentRepostDialog {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"Запись размещена на Вашей стене ВКонтакте" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *oklAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alertController addAction:oklAction];
+    [self.rootViewController presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)addLikeToPost:(MKCVKPost *)post withSuccess:(void (^)(NSNumber *))successBlock {
     
     if (!self.isAuthorized) {
         [self presentAuthDialog];
@@ -191,13 +198,50 @@ static NSString *const ownerId = @"275110350";
         NSDictionary *parameters = @{@"type": @"post",
                                      @"item_id": post.postId,
                                      VK_API_OWNER_ID: ownerId};
-        
-        VKRequest *request = [VKRequest requestWithMethod:@"likes.add" andParameters:parameters];
-        [request executeWithResultBlock:^(VKResponse *response) {
-            NSLog(@"Like post: %@", response);
-        } errorBlock:^(NSError *error) {
-            NSLog(@"Error while executing likes.add method: %@", error);
-        }];
+        VKRequest *request;
+        if (!post.isUserLikes) {
+            request = [VKRequest requestWithMethod:@"likes.add" andParameters:parameters];
+            [request executeWithResultBlock:^(VKResponse *response) {
+                post.isUserLikes = YES;
+                post.likesCount = response.json[@"likes"];
+            } errorBlock:^(NSError *error) {
+                NSLog(@"Error while executing likes.add method: %@", error);
+            }];
+        } else {
+            request = [VKRequest requestWithMethod:@"likes.delete" andParameters:parameters];
+            [request executeWithResultBlock:^(VKResponse *response) {
+                post.isUserLikes = NO;
+                post.likesCount = response.json[@"likes"];
+            } errorBlock:^(NSError *error) {
+                NSLog(@"Error while executing likes.delete method: %@", error);
+            }];
+        }
+    }
+}
+
+- (void)copyWithPost:(MKCVKPost *)post {
+    if (!self.isAuthorized) {
+        [self presentAuthDialog];
+    } else {
+        NSString *objectString = [NSString stringWithFormat:@"wall%@_%@", ownerId, post.postId];
+        NSDictionary *parameters = @{@"object": objectString};
+        VKRequest *request;
+        if (!post.isUserReposted) {
+            request = [VKRequest requestWithMethod:@"wall.repost" andParameters:parameters];
+            [request executeWithResultBlock:^(VKResponse *response) {
+                post.isUserReposted = YES;
+                post.repostsCount = response.json[@"reposts_count"];
+                post.likesCount = response.json[@"likes_count"];
+                if (!post.isUserLikes) {
+                    post.isUserLikes = YES;
+                }
+                [self presentRepostDialog];
+            } errorBlock:^(NSError *error) {
+                NSLog(@"Error while executing likes.delete method: %@", error);
+            }];
+        } else {
+            NSLog(@"You already reposted this item");
+        }
     }
 }
 

@@ -21,7 +21,9 @@
              @"copiedPosts": @"copy_history",
              @"likesCount": @"likes.count",
              @"commentsCount": @"comments.count",
-             @"repostsCount": @"reposts.count"
+             @"repostsCount": @"reposts.count",
+             @"isUserLikes": @"likes.user_likes",
+             @"isUserReposted": @"reposts.user_reposted"
              };
 }
 
@@ -42,8 +44,8 @@
             if (vkAttachment == nil && internalError.code != MTLJSONAdapterErrorNoClassFound) {
                 *error = internalError;
                 *success = NO;
-//                return nil;
-                continue;
+                return nil;
+//                continue;
             } else if (vkAttachment != nil) {
                 [results addObject:vkAttachment];
             }

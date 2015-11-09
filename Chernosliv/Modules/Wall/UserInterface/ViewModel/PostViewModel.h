@@ -27,9 +27,11 @@
 @property (nonatomic) NSUInteger attachmentsCount;
 @property (nonatomic, strong) RACSignal *postAttachmentTap;
 
-@property (nonatomic) NSUInteger likesCount;
-@property (nonatomic) NSUInteger commentsCount;
-@property (nonatomic) NSUInteger repostsCount;
+@property (nonatomic, strong) NSString *likesCount;
+@property (nonatomic, strong) NSString *commentsCount;
+@property (nonatomic, strong) NSString *repostsCount;
+@property (nonatomic) BOOL isUserLikes;
+@property (nonatomic) BOOL isUserReposted;
 
 @property (nonatomic, strong) UIView *tappedImage;
 
@@ -38,7 +40,8 @@
 - (instancetype)initWithPost:(MKCVKPost *)post;
 - (CGFloat)calculateViewHeightForWidth:(CGFloat)width;
 
-- (void)likePost;
+- (void)likePostWithResult:(void (^)(NSNumber *likesNumber))completionBlock;
+- (void)copyPost;
 - (void)viewAttachments;
 - (void)viewComments;
 

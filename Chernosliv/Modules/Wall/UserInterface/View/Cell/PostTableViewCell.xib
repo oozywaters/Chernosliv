@@ -108,7 +108,7 @@
                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                         <color key="tintColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                         <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        <state key="normal" title="67" image="heart">
+                        <state key="normal" title="67" image="heart_filled">
                             <color key="titleColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                         <variation key="default">
@@ -216,6 +216,6 @@
     <resources>
         <image name="chats" width="28" height="28"/>
         <image name="electronic_megaphone" width="28" height="28"/>
-        <image name="heart" width="29" height="29"/>
+        <image name="heart_filled" width="28" height="28"/>
     </resources>
 </document>

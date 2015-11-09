@@ -15,7 +15,9 @@
 
 @property (nonatomic, strong) id<MKCWallModuleDelegate> wallModuleDelegate;
 
-- (void)addLikeToPost:(MKCVKPost *)post;
+- (void)addLikeToPost:(MKCVKPost *)post withResult:(void (^)(NSNumber *likesNumber))completionBlock;
+- (void)copyWithPost:(MKCVKPost *)post;
+
 - (void)viewAttachmentsWithModel:(PostViewModel *)viewModel;
 - (void)viewCommentsWithModel:(PostViewModel *)viewModel;
 

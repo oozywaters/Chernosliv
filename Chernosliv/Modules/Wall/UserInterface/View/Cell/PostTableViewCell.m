@@ -91,16 +91,59 @@
     [self.authorName setText:[self.viewModel.authorName uppercaseString]];
     [self.avatar sd_setImageWithURL:self.viewModel.authorImageURL];
     
-    NSString *likesString = [NSString stringWithFormat:@"%lu", (unsigned long)self.viewModel.likesCount];
-    NSString *commentsString = [NSString stringWithFormat:@"%lu", (unsigned long)self.viewModel.commentsCount];
-    NSString *repostsString = [NSString stringWithFormat:@"%lu", (unsigned long)self.viewModel.repostsCount];
+//    [self.likeButton setTitle:self.viewModel.likesCount forState:UIControlStateNormal];
+//    [self.repostButton setTitle:self.viewModel.repostsCount forState:UIControlStateNormal];
+//    [self.commentsButton setTitle:self.viewModel.commentsCount forState:UIControlStateNormal];
+    [RACObserve(self.viewModel, isUserLikes) subscribeNext:^(NSNumber *isLike) {
+        BOOL like = [isLike boolValue];
+        UIImage *likeButtonImage;
+        UIColor *likeButtonTintColor;
+        if (like) {
+            likeButtonTintColor = [UIColor an_colorWithHexString:@"#F76256"];
+            likeButtonImage = [UIImage imageNamed:@"heart_filled"];
+        } else {
+            likeButtonTintColor = [UIColor an_colorWithHexString:@"#4A90E2"];
+            likeButtonImage = [UIImage imageNamed:@"heart"];
+        }
+        [self.likeButton setImage:likeButtonImage forState:UIControlStateNormal];
+        [self.likeButton setTintColor:likeButtonTintColor];
+    }];
     
-    [self.likeButton setTitle:likesString forState:UIControlStateNormal];
-    [self.repostButton setTitle:repostsString forState:UIControlStateNormal];
-    [self.commentsButton setTitle:commentsString forState:UIControlStateNormal];
+    [RACObserve(self.viewModel, isUserReposted) subscribeNext:^(NSNumber *isReposted) {
+        BOOL reposted = [isReposted boolValue];
+        UIImage *repostButtonImage;
+        if (reposted) {
+            repostButtonImage = [UIImage imageNamed:@"electronic_megaphone_filled"];
+        } else {
+            repostButtonImage = [UIImage imageNamed:@"electronic_megaphone"];
+        }
+        [self.repostButton setImage:repostButtonImage forState:UIControlStateNormal];
+    }];
+    
+    [RACObserve(self.viewModel, likesCount) subscribeNext:^(NSString *likesNumber) {
+        [self.likeButton setTitle:likesNumber forState:UIControlStateNormal];
+    }];
+    
+    [RACObserve(self.viewModel, commentsCount) subscribeNext:^(NSString *commentsNumber) {
+        [self.commentsButton setTitle:commentsNumber forState:UIControlStateNormal];
+    }];
+    
+    [RACObserve(self.viewModel, repostsCount) subscribeNext:^(NSString *repostsNumber) {
+        [self.repostButton setTitle:repostsNumber forState:UIControlStateNormal];
+    }];
+    
     
     [self setupTextLabelWithViewModel:self.viewModel];
     [self setupAttachmentsViewWithViewModel:self.viewModel];
+    
+//    UIImage *likeButtonImage = self.viewModel.isUserLikes?[UIImage imageNamed:@"heart_filled"]:[UIImage imageNamed:@"heart"];
+//    [self.likeButton setImage:likeButtonImage forState:UIControlStateNormal];
+
+//    if (self.viewModel.isUserLikes) {
+//        likeButtonImage = [UIImage imageNamed:@"heart_filled"];
+//    } else {
+//        
+//    }
 }
 
 //- (void)bindViewModel:(id)viewModel {
@@ -189,15 +232,19 @@
     [self.viewModel viewComments];
 //    [self.viewModel.viewComments execute:self.viewModel];
 }
+
 - (IBAction)likeButtonTapped:(SpringButton *)sender {
     sender.animation = @"pop";
     sender.force = 3.0;
     [sender animate];
-    [self.viewModel likePost];
+    [self.viewModel likePostWithResult:nil];
 }
+
 - (IBAction)repostButtonTapped:(SpringButton *)sender {
     sender.animation = @"pop";
     sender.force = 3.0;
     [sender animate];
+    [self.viewModel copyPost];
 }
+
 @end

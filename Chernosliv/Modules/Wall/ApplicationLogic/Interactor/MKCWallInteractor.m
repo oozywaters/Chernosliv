@@ -26,8 +26,12 @@
     return self;
 }
 
-- (void)addLikeToPost:(MKCVKPost *)post {
-    [self.dataManager addLikeToPost:post];
+- (void)addLikeToPost:(MKCVKPost *)post withCompletionHandler:(void (^)(NSNumber *))completionHandler {
+    [self.dataManager addLikeToPost:post withCompletion:completionHandler];
+}
+
+- (void)copyWithPost:(MKCVKPost *)post {
+    [self.dataManager copyWithPost:post];
 }
 
 - (void)loadPostsWithCompletionHandler:(void (^)(NSArray *))completionHandler {

@@ -10,7 +10,8 @@
 
 @interface MKCWallDataManager : NSObject
 
-- (void)addLikeToPost:(MKCVKPost *)post;
+- (void)addLikeToPost:(MKCVKPost *)post withCompletion:(void (^)(NSNumber *likesNumber))completionBlock;
+- (void)copyWithPost:(MKCVKPost *)post;
 - (void)loadPostsWithCompletion:(void (^)(NSArray *posts))completionBlock
                           error:(void (^)(NSError *error))errorBlock;
 

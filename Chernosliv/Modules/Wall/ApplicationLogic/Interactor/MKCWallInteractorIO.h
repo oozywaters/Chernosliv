@@ -11,7 +11,8 @@
 
 @protocol MKCWallInteractorInput <NSObject>
 
-- (void)addLikeToPost:(MKCVKPost *)post;
+- (void)addLikeToPost:(MKCVKPost *)post withCompletionHandler:(void (^)(NSNumber *likesNumber))completionHandler;
+- (void)copyWithPost:(MKCVKPost *)post;
 - (void)loadPostsWithCompletionHandler:(void(^)(NSArray *posts))completionHandler;
 
 //- (void)loadCategoriesList;

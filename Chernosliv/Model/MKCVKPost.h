@@ -18,8 +18,10 @@
 @property (nonatomic, strong) NSString *text;
 @property (nonatomic, strong) NSArray *attachments;
 @property (nonatomic, strong) NSArray *copiedPosts;
-@property (nonatomic) NSUInteger likesCount;
-@property (nonatomic) NSUInteger commentsCount;
-@property (nonatomic) NSUInteger repostsCount;
+@property (nonatomic, strong) NSNumber *likesCount;
+@property (nonatomic, strong) NSNumber *commentsCount;
+@property (nonatomic, strong) NSNumber *repostsCount;
+@property (nonatomic) BOOL isUserLikes;
+@property (nonatomic) BOOL isUserReposted;
 
 @end
