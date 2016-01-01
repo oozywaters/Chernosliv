@@ -102,7 +102,7 @@
     }];
     
     [self setupGradientView];
-    [self setupToolbar];
+//    [self setupToolbar];
     
 }
 

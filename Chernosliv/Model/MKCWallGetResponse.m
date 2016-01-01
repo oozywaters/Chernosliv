@@ -37,6 +37,10 @@
                 [results addObject:copiedPost];
                 continue;
             }
+            if (!vkPost.attachments && [vkPost.text isEqualToString:@""]) {
+                NSLog(@"Empty post");
+                continue;
+            }
             [results addObject:vkPost];
 ////            if (!vkPost.attachments && [vkPost.text isEqualToString:@""]) {
 //////                *error = internalError;

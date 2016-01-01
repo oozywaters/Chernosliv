@@ -131,7 +131,7 @@
     CGFloat imageTopMargin = 0.0;
 //    CGFloat imageBottomMargin = 0.0;
     
-    if (self.post.attachments) {
+    if (self.post.attachments && [self.post.attachments count] != 0) {
         CGFloat imageAspectRatio = self.imageWidth / self.imageHeight;
 //        imageBottomMargin = 12.0;
         imageHeight = ceil(imageWidth / imageAspectRatio);

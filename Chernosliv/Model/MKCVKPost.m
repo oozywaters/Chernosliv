@@ -14,7 +14,7 @@
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{@"postId": @"id",
-             @"authorId": @"owner_id",
+             @"authorId": @"from_id",
              @"text": @"text",
              @"date": @"date",
              @"attachments": @"attachments",
