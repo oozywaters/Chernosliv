@@ -55,7 +55,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.progressHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    self.progressHUD.labelText = @"Загрузка";
+    self.progressHUD.labelText = NSLocalizedString(@"Loading", nil);
 }
 
 - (void)viewWillAppear:(BOOL)animated {

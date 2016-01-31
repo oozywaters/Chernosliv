@@ -15,7 +15,7 @@ pod 'ANTableViews'
 #UI
 pod 'Masonry'
 pod 'DZNEmptyDataSet'
-pod 'MBProgressHUD'
+pod 'MBProgressHUD', '~> 0.9.2'
 pod 'SVPullToRefresh'
 pod 'SDWebImage'
 pod 'LTNavigationBar'

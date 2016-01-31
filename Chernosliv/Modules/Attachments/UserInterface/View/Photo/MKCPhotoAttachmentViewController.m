@@ -8,10 +8,12 @@
 
 #import "MKCPhotoAttachmentViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface MKCPhotoAttachmentViewController () <UIScrollViewDelegate>
 
 @property (nonatomic, strong) MKCPhotoAttachmentViewModel *viewModel;
+@property (nonatomic, strong) MBProgressHUD *progressHUD;
 
 @end
 
@@ -67,11 +69,22 @@
 
 #pragma mark - MKCAttachmentViewController
 - (void)saveAttachment {
+    self.progressHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    self.progressHUD.color = [[UIColor alloc] initWithWhite:1.f alpha:.1f];
     UIImageWriteToSavedPhotosAlbum(self.contentView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
 }
 
 - (void)image: (UIImage *)image didFinishSavingWithError:(NSError *) error contextInfo:(void *)contextInfo {
-    NSLog(@"Photo attachment wuz saved");
+    // Set the custom view mode to show any view.
+    self.progressHUD.mode = MBProgressHUDModeCustomView;
+    // Set an image view with a checkmark.
+    UIImage *checkImage = [[UIImage imageNamed:@"Checkmark"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:checkImage];
+    [imageView setTintColor:[UIColor whiteColor]];
+    [self.progressHUD setCustomView:imageView];
+    // Looks a bit nicer if we make it square.
+    self.progressHUD.square = YES;
+    [self.progressHUD hide:YES afterDelay:0.5];
 }
 
 /*
