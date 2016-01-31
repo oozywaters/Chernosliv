@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  Chernosliv
+
+  Created by Vacheslav Zavertanny on 31/01/16.
+  Copyright © 2016 Vyacheslav Zavertanny. All rights reserved.
+*/
+"Comments" = "Комментарии";
+"%@ of %lu" = "%@ из %lu";
+
+
+// Action sheet
+"Save to Photo Library" = "Созранить в фотопленку";
+"Cancel" = "Отмена";
+
+"Date" = "dd MMMM yyyy в HH:mm";

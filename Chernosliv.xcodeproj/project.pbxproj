@@ -54,6 +54,7 @@
 		71348E521BB65EB70015F88A /* MKCAttachmentsGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71348E511BB65EB70015F88A /* MKCAttachmentsGradientView.m */; };
 		713CF1831BAFFAB2006A394A /* MKCCommentsTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 713CF1821BAFFAB2006A394A /* MKCCommentsTableController.m */; };
 		7141B0ED1B58FF000037C7FF /* TableViewBindingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7141B0EC1B58FF000037C7FF /* TableViewBindingHelper.m */; };
+		71490DE81C5E745000D9AFA2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71490DEA1C5E745000D9AFA2 /* Localizable.strings */; };
 		716453451B9B181700287BE6 /* MKCDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 716453441B9B181700287BE6 /* MKCDataStore.m */; };
 		716CAC071B5264A30068A441 /* VKService.m in Sources */ = {isa = PBXBuildFile; fileRef = 716CAC061B5264A30068A441 /* VKService.m */; };
 		716F759E1BB15473001FFCEE /* MKCCommentsPostDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 716F759D1BB15473001FFCEE /* MKCCommentsPostDetails.m */; };
@@ -177,6 +178,8 @@
 		713CF1811BAFFAB2006A394A /* MKCCommentsTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCCommentsTableController.h; path = Modules/Comments/UserInterface/View/MKCCommentsTableController.h; sourceTree = "<group>"; };
 		713CF1821BAFFAB2006A394A /* MKCCommentsTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCCommentsTableController.m; path = Modules/Comments/UserInterface/View/MKCCommentsTableController.m; sourceTree = "<group>"; };
 		7141B0EC1B58FF000037C7FF /* TableViewBindingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewBindingHelper.m; path = Utils/TableViewBindingHelper.m; sourceTree = "<group>"; };
+		71490DE91C5E745000D9AFA2 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		71490DEB1C5E747300D9AFA2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		716453431B9B181700287BE6 /* MKCDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKCDataStore.h; path = Common/Store/MKCDataStore.h; sourceTree = "<group>"; };
 		716453441B9B181700287BE6 /* MKCDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKCDataStore.m; path = Common/Store/MKCDataStore.m; sourceTree = "<group>"; };
 		716CABFE1B50E1E80068A441 /* TableViewBindingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewBindingHelper.h; path = Utils/TableViewBindingHelper.h; sourceTree = "<group>"; };
@@ -578,6 +581,7 @@
 				71870EEB1B8478970089B215 /* Info.plist */,
 				71870EEC1B8478970089B215 /* main.m */,
 				71870EEF1B8478AE0089B215 /* PrefixHeader.pch */,
+				71490DEA1C5E745000D9AFA2 /* Localizable.strings */,
 			);
 			name = BundleFiles;
 			sourceTree = "<group>";
@@ -1073,6 +1077,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71913FB51BA83D9E008BD19A /* MKCCommentsTableViewCell.xib in Resources */,
+				71490DE81C5E745000D9AFA2 /* Localizable.strings in Resources */,
 				71189DE01B895CFE00D8F341 /* MKCAttachmentsViewControlle.xib in Resources */,
 				716F75A61BB15B7C001FFCEE /* MKCCommentsPostDetailsTableViewCell.xib in Resources */,
 				712489EB1B50B286006526BA /* LaunchScreen.xib in Resources */,
@@ -1258,6 +1263,16 @@
 				71DC51BB1BEC46530099AC7E /* ru */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		71490DEA1C5E745000D9AFA2 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				71490DE91C5E745000D9AFA2 /* ru */,
+				71490DEB1C5E747300D9AFA2 /* en */,
+			);
+			name = Localizable.strings;
+			path = Application/BundleFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -56,7 +56,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    [self.navigationItem.backBarButtonItem setTitle:@"Назад"];
-    [self setTitle:@"Комментарии"];
+    [self setTitle:NSLocalizedString(@"Comments", nil)];
     [self.controller updateHeaderView];
 //
 //    [self setUpCells];

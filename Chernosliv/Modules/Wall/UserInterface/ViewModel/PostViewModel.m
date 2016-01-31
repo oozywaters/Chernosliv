@@ -66,8 +66,7 @@
     _authorImageURL = owner.avatar;
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"RU_ru"]];
-    dateFormatter.dateFormat = @"dd MMMM yyyy в HH:mm";
+    dateFormatter.dateFormat = NSLocalizedString(@"Date", nil);
     _postDate = [dateFormatter stringFromDate:self.post.date];
 }
 

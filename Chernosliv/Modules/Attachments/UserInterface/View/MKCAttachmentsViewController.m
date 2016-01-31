@@ -63,7 +63,7 @@
         NSUInteger currentIndex = newPage.integerValue - 1;
         NSUInteger attachmentsCount = [self.attachments count];
         self.currentAttachment = self.attachments[currentIndex];
-        NSString *title = [NSString stringWithFormat:@"%@ из %lu", newPage, (unsigned long)attachmentsCount];
+        NSString *title = [NSString stringWithFormat:NSLocalizedString(@"%@ of %lu", nil), newPage, (unsigned long)attachmentsCount];
         [self setTitle:title];
     }];
 //
@@ -155,10 +155,10 @@
 - (void)shareAction:(id)sender {
 //    NSLog(@"Share action");
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    UIAlertAction *saveImage = [UIAlertAction actionWithTitle:@"Save image" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    UIAlertAction *saveImage = [UIAlertAction actionWithTitle:NSLocalizedString(@"Save to Photo Library", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [self.currentAttachment saveAttachment];
     }];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil];
     [alert addAction:saveImage];
     [alert addAction:cancelAction];
     [self presentViewController:alert animated:YES completion:nil];
