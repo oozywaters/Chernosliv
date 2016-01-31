@@ -65,6 +65,15 @@
     return self.contentView;
 }
 
+#pragma mark - MKCAttachmentViewController
+- (void)saveAttachment {
+    UIImageWriteToSavedPhotosAlbum(self.contentView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+}
+
+- (void)image: (UIImage *)image didFinishSavingWithError:(NSError *) error contextInfo:(void *)contextInfo {
+    NSLog(@"Photo attachment wuz saved");
+}
+
 /*
 #pragma mark - Navigation
 

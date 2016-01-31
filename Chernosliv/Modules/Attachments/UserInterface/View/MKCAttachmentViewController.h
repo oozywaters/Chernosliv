@@ -13,5 +13,6 @@
 @property (nonatomic, strong) UIImageView *contentView;
 
 - (instancetype)initWithAttachment:(VKAttachment *)attachment;
+- (void)saveAttachment;
 
 @end

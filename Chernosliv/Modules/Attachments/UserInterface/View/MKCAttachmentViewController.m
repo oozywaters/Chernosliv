@@ -43,6 +43,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)saveAttachment {
+    NSLog(@"Attachemnt wuz saved");
+}
 /*
 #pragma mark - Navigation
 

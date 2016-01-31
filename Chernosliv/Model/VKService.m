@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 Vyacheslav Zavertanny. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <ReactiveCocoa/ReactiveCocoa.h>
 #import <Mantle/Mantle.h>
 #import "VKService.h"
 #import <VKSdk.h>

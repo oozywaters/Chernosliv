@@ -16,13 +16,15 @@
 
 #import "MKCAttachmentViewController.h"
 
-@interface MKCAttachmentsViewController ()
+@interface MKCAttachmentsViewController () <UIScrollViewDelegate>
 
 @property (nonatomic, strong) UIScrollView *pagingScrollView;
 @property (nonatomic, strong) UIToolbar *toolbar;
 @property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
 @property (nonatomic, strong) MKCAttachmentsGradientView *gradientView;
+@property (nonatomic, strong) MKCAttachmentViewController *currentAttachment;
 @property (nonatomic, strong) NSArray *attachments;
+@property (nonatomic) NSUInteger currentPage;
 @property (nonatomic) BOOL isInterfaceHidden;
 
 @end
@@ -36,15 +38,18 @@
         _pagingScrollView = [UIScrollView new];
         _pagingScrollView.pagingEnabled = YES;
         _pagingScrollView.backgroundColor = [UIColor blackColor];
+        [_pagingScrollView setDelegate:self];
         _tapGestureRecognizer = [[UITapGestureRecognizer alloc]
                                  initWithTarget:self action:@selector(hideInterface)];
         [_pagingScrollView addGestureRecognizer:_tapGestureRecognizer];
         _isInterfaceHidden = NO;
+        
         self.automaticallyAdjustsScrollViewInsets = NO;
         
         _gradientView = [[MKCAttachmentsGradientView alloc] initWithFrame:CGRectMake(0, -20, 100, 25)];
-        
+    
         _toolbar = [[UIToolbar alloc] init];
+        self.currentPage = 1;
         
         [self setNeedsStatusBarAppearanceUpdate];
     }
@@ -54,7 +59,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSUInteger attachmentsCount = [self.attachments count];
-//    
+    [RACObserve(self, currentPage) subscribeNext:^(NSNumber *newPage) {
+        NSUInteger currentIndex = newPage.integerValue - 1;
+        NSUInteger attachmentsCount = [self.attachments count];
+        self.currentAttachment = self.attachments[currentIndex];
+        NSString *title = [NSString stringWithFormat:@"%@ из %lu", newPage, (unsigned long)attachmentsCount];
+        [self setTitle:title];
+    }];
+//
 //    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width * attachmentsCount,
 //                                             self.view.frame.size.height);
     
@@ -134,6 +146,26 @@
     self.navigationController.view.backgroundColor = [UIColor clearColor];
     self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    
+    UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareAction:)];
+    self.navigationItem.rightBarButtonItem = shareButton;
+}
+
+- (void)shareAction:(id)sender {
+//    NSLog(@"Share action");
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *saveImage = [UIAlertAction actionWithTitle:@"Save image" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [self.currentAttachment saveAttachment];
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    [alert addAction:saveImage];
+    [alert addAction:cancelAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)saveImage:(id)sender {
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -180,6 +212,21 @@
 
 - (void)updateAttachmentsData:(NSArray *)attachments {
     self.attachments = attachments;
+}
+
+# pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    static NSInteger previousPage = 0;
+    CGFloat pageWidth = scrollView.frame.size.width;
+    float fractionalPage = scrollView.contentOffset.x / pageWidth;
+    NSInteger page = lround(fractionalPage);
+    if (previousPage != page) {
+        // Page has changed, do your thing!
+        self.currentPage = page + 1;
+        // Finally, update previous page
+        previousPage = page;
+    }
 }
 
 //- (void)viewDidLayoutSubviews {
