@@ -61,4 +61,14 @@
     [self loadComments];
 }
 
+#pragma mark - MKCCommentsModuleInterface
+
+- (void)likePost {
+    [self.interactor likePost];
+}
+
+- (void)copyPost {
+    [self.interactor copyPost];
+}
+
 @end

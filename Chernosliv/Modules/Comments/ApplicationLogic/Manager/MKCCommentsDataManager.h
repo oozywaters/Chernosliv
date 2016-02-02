@@ -16,5 +16,7 @@
 - (void)getCommentsWithSuccess:(void(^)(NSArray *comments))success
                          error:(void(^)(NSError *error))error;
 - (MKCVKProfile *)profileWithId:(NSString *)identifier;
+- (void)likePost;
+- (void)copyPost;
 
 @end

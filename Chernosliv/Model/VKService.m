@@ -151,6 +151,7 @@ static NSString *const ownerId = @"275110350";  // Mark Chernosliv
     VKRequest *commentsRequest = [VKRequest requestWithMethod:@"wall.getComments"
                                                 andParameters:parameters];
     [commentsRequest setPreferredLang:@"ru"];
+    commentsRequest.waitUntilDone = YES;
     
     [commentsRequest executeWithResultBlock:^(VKResponse *response) {
         NSError *parseError;
@@ -197,6 +198,7 @@ static NSString *const ownerId = @"275110350";  // Mark Chernosliv
                                      @"item_id": post.postId,
                                      VK_API_OWNER_ID: ownerId};
         VKRequest *request;
+        request.waitUntilDone = YES;
         if (!post.isUserLikes) {
             request = [VKRequest requestWithMethod:@"likes.add" andParameters:parameters];
             [request executeWithResultBlock:^(VKResponse *response) {
@@ -224,6 +226,7 @@ static NSString *const ownerId = @"275110350";  // Mark Chernosliv
         NSString *objectString = [NSString stringWithFormat:@"wall%@_%@", ownerId, post.postId];
         NSDictionary *parameters = @{@"object": objectString};
         VKRequest *request;
+        request.waitUntilDone = YES;
         if (!post.isUserReposted) {
             request = [VKRequest requestWithMethod:@"wall.repost" andParameters:parameters];
             [request executeWithResultBlock:^(VKResponse *response) {

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -16,7 +15,6 @@
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LDG-xZ-KX9">
                         <rect key="frame" x="15" y="15" width="50" height="50"/>
-                        <animations/>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="7rf-CJ-sFG"/>
@@ -25,14 +23,12 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Марк Чернослив" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mW6-nq-Tfi">
                         <rect key="frame" x="80" y="20" width="225" height="20"/>
-                        <animations/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                         <color key="textColor" red="0.090196078431372548" green="0.086274509803921567" blue="0.086274509803921567" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="sQB-hq-Fmo" userLabel="Like">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="sQB-hq-Fmo" userLabel="Like" customClass="SpringButton" customModule="Chernosliv" customModuleProvider="target">
                         <rect key="frame" x="15" y="99" width="70" height="52"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="52" id="7ms-v2-zho"/>
                             <constraint firstAttribute="width" constant="70" id="Lrj-ra-DY0"/>
@@ -44,7 +40,7 @@
                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                         <color key="tintColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                         <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        <state key="normal" title="67" image="heart">
+                        <state key="normal" image="heart">
                             <color key="titleColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                         <variation key="default">
@@ -55,10 +51,12 @@
                                 <exclude reference="vIK-9u-0Ru"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <action selector="likeButtonTouched:" destination="fbc-5W-NT8" eventType="touchUpInside" id="PUA-x6-jFy"/>
+                        </connections>
                     </button>
-                    <button contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="xSN-zD-uPA" userLabel="Repost">
+                    <button contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="xSN-zD-uPA" userLabel="Repost" customClass="SpringButton" customModule="Chernosliv" customModuleProvider="target">
                         <rect key="frame" x="95" y="99" width="70" height="52"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="52" id="6TQ-f3-ZWI"/>
                             <constraint firstAttribute="width" constant="60" id="GRA-ZW-g17"/>
@@ -75,10 +73,12 @@
                                 <exclude reference="GRA-ZW-g17"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <action selector="repostButtonTouched:" destination="fbc-5W-NT8" eventType="touchUpInside" id="iqn-o3-AAP"/>
+                        </connections>
                     </button>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing" translatesAutoresizingMaskIntoConstraints="NO" id="b3i-VN-PjF">
                         <rect key="frame" x="15" y="65" width="290" height="34"/>
-                        <animations/>
                         <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -93,13 +93,11 @@
                     </textView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 июля в 23:30" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUt-Gr-EHi">
                         <rect key="frame" x="80" y="43" width="228" height="16"/>
-                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.64313725490196072" green="0.64313725490196072" blue="0.64313725490196072" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <animations/>
                 <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="b3i-VN-PjF" firstAttribute="top" secondItem="LDG-xZ-KX9" secondAttribute="bottom" id="15r-pp-UKO"/>
@@ -130,13 +128,14 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
-            <animations/>
             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="authorAvatar" destination="LDG-xZ-KX9" id="a0z-Jr-VQE"/>
                 <outlet property="authorName" destination="mW6-nq-Tfi" id="4L4-8u-zA2"/>
                 <outlet property="dateLabel" destination="MUt-Gr-EHi" id="Zkz-wV-Rfe"/>
+                <outlet property="likeButton" destination="sQB-hq-Fmo" id="PGp-Do-KYv"/>
                 <outlet property="postContent" destination="b3i-VN-PjF" id="KSv-vy-aof"/>
+                <outlet property="repostButton" destination="xSN-zD-uPA" id="pvo-nL-8N0"/>
             </connections>
             <point key="canvasLocation" x="487" y="392"/>
         </tableViewCell>

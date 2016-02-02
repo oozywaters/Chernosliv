@@ -18,6 +18,12 @@
 @property (nonatomic, strong) NSDate *postDate;
 @property (nonatomic, strong) NSString *postContent;
 @property (nonatomic, strong) NSArray *comments;
+
+@property (nonatomic, strong) NSString *likesCount;
+@property (nonatomic, strong) NSString *repostsCount;
+@property (nonatomic) BOOL isUserLikes;
+@property (nonatomic) BOOL isUserReposted;
+
 @property (nonatomic) BOOL hasAttachments;
 
 @end

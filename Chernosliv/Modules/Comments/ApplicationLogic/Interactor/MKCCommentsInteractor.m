@@ -48,4 +48,15 @@
     MKCCommentsPostDetails *commentsPost = [[MKCCommentsPostDetails alloc] initWithVKPost:post];
     return commentsPost;
 }
+
+#pragma mark - MCKCommentsInteractorInput
+
+- (void)likePost {
+    [self.dataManager likePost];
+}
+
+- (void)copyPost {
+    [self.dataManager copyPost];
+}
+
 @end

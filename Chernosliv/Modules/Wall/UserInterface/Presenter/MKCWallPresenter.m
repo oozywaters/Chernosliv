@@ -60,7 +60,7 @@
     }];
 }
 
-# pragma mark - MKCWallModuleInterface
+#pragma mark - MKCWallModuleInterface
 
 - (void)addLikeToPost:(MKCVKPost *)post withResult:(void (^)(NSNumber *))completionBlock {
     [self.interactor addLikeToPost:post withCompletionHandler:completionBlock];

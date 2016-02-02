@@ -68,4 +68,12 @@
     return profile;
 }
 
+- (void)likePost {
+    [[VKService sharedService] addLikeToPost:self.post withSuccess:nil];
+}
+
+- (void)copyPost {
+    [[VKService sharedService] copyWithPost:self.post];
+}
+
 @end
