@@ -15,4 +15,6 @@
 - (instancetype)initWithAttachment:(VKAttachment *)attachment;
 - (void)saveAttachment;
 
+- (void)viewTappedTwice;
+
 @end

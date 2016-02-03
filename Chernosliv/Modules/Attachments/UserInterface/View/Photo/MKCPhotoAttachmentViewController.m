@@ -31,7 +31,7 @@
 
 - (void)initialize {
     UIScrollView *zoomScrollView = [UIScrollView new];
-    zoomScrollView.maximumZoomScale = 2.0;
+    zoomScrollView.maximumZoomScale = 3.0;
     zoomScrollView.minimumZoomScale = 1.0;
     
     self.contentView.contentMode = UIViewContentModeScaleToFill;
@@ -69,6 +69,8 @@
 
 #pragma mark - MKCAttachmentViewController
 - (void)saveAttachment {
+    UIScrollView *scrollView = (UIScrollView *)self.view;
+    [scrollView setZoomScale:scrollView.minimumZoomScale animated:YES];
     self.progressHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 //    self.progressHUD.color = [[UIColor alloc] initWithWhite:1.f alpha:.1f];
     UIImageWriteToSavedPhotosAlbum(self.contentView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
@@ -85,6 +87,16 @@
     // Looks a bit nicer if we make it square.
     self.progressHUD.square = YES;
     [self.progressHUD hide:YES afterDelay:0.5];
+}
+
+- (void)viewTappedTwice {
+    UIScrollView *scrollView = (UIScrollView *)self.view;
+
+    if(scrollView.zoomScale > scrollView.minimumZoomScale) {
+        [scrollView setZoomScale:scrollView.minimumZoomScale animated:YES];
+    } else {
+        [scrollView setZoomScale:scrollView.maximumZoomScale animated:YES];
+    }
 }
 
 /*

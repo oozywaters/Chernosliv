@@ -21,6 +21,7 @@
 @property (nonatomic, strong) UIScrollView *pagingScrollView;
 @property (nonatomic, strong) UIToolbar *toolbar;
 @property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
+@property (nonatomic, strong) UITapGestureRecognizer *doubleTapGestureRecoginzer;
 @property (nonatomic, strong) MKCAttachmentsGradientView *gradientView;
 @property (nonatomic, strong) MKCAttachmentViewController *currentAttachment;
 @property (nonatomic, strong) NSArray *attachments;
@@ -39,9 +40,9 @@
         _pagingScrollView.pagingEnabled = YES;
         _pagingScrollView.backgroundColor = [UIColor blackColor];
         [_pagingScrollView setDelegate:self];
-        _tapGestureRecognizer = [[UITapGestureRecognizer alloc]
-                                 initWithTarget:self action:@selector(hideInterface)];
-        [_pagingScrollView addGestureRecognizer:_tapGestureRecognizer];
+        [self setupGestures];
+        
+        
         _isInterfaceHidden = NO;
         
         self.automaticallyAdjustsScrollViewInsets = NO;
@@ -54,6 +55,19 @@
         [self setNeedsStatusBarAppearanceUpdate];
     }
     return self;
+}
+
+- (void)setupGestures {
+    _tapGestureRecognizer = [[UITapGestureRecognizer alloc]
+                             initWithTarget:self action:@selector(hideInterface)];
+    _doubleTapGestureRecoginzer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedTwice)];
+    [_pagingScrollView addGestureRecognizer:_tapGestureRecognizer];
+    [_pagingScrollView addGestureRecognizer:_doubleTapGestureRecoginzer];
+    
+    _tapGestureRecognizer.numberOfTapsRequired = 1;
+    _doubleTapGestureRecoginzer.numberOfTapsRequired = 2;
+    
+    [_tapGestureRecognizer requireGestureRecognizerToFail:_doubleTapGestureRecoginzer];
 }
 
 - (void)viewDidLoad {
@@ -198,6 +212,10 @@
         [self.gradientView setFrame:gradientRect];
         [self.toolbar setFrame:toolbarRect];
     }];
+}
+
+- (void)tappedTwice {
+    [self.currentAttachment viewTappedTwice];
 }
 
 - (UIStatusBarAnimation)preferredStatusBarUpdateAnimation {

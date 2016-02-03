@@ -46,6 +46,10 @@
 - (void)saveAttachment {
     NSLog(@"Attachemnt wuz saved");
 }
+
+- (void)viewTappedTwice {
+    NSLog(@"View tapped twice");
+}
 /*
 #pragma mark - Navigation
 
