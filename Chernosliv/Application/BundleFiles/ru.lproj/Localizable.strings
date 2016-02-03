@@ -10,7 +10,7 @@
 
 
 // Action sheet
-"Save to Photo Library" = "Созранить в фотопленку";
+"Save to Photo Library" = "Сохранить в фотопленку";
 "Cancel" = "Отмена";
 
 "Date" = "dd MMMM yyyy в HH:mm";
