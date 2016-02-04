@@ -1,4 +1,0 @@
-[submodule "Vendor/Spring"]
-	path = Vendor/Spring
-	url = git@github.com:MengTo/Spring.git
-	branch = swift2

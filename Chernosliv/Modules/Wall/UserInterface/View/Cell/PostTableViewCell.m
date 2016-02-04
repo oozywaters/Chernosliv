@@ -19,6 +19,8 @@
 
 @interface PostTableViewCell ()
 
+@property (nonatomic, strong) CAKeyframeAnimation *popAnimation;
+
 @property (nonatomic, strong) PostViewModel *viewModel;
 @property (weak, nonatomic) IBOutlet UILabel *postDate;
 @property (weak, nonatomic) IBOutlet UILabel *textContent;
@@ -30,9 +32,11 @@
 @property (weak, nonatomic) IBOutlet UIImageView *avatar;
 
 
-@property (weak, nonatomic) IBOutlet SpringButton *likeButton;
-@property (weak, nonatomic) IBOutlet SpringButton *commentsButton;
-@property (weak, nonatomic) IBOutlet SpringButton *repostButton;
+//@property (weak, nonatomic) IBOutlet SpringButton *likeButton;
+@property (weak, nonatomic) IBOutlet UIButton *likeButton;
+@property (weak, nonatomic) IBOutlet UIButton *commentsButton;
+@property (weak, nonatomic) IBOutlet UIButton *repostButton;
+
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textTopMargin;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageTopMagrinConstraint;
@@ -56,14 +60,22 @@
     
     self.postImage.layer.borderWidth = 0.5;
     self.postImage.layer.borderColor = [[UIColor colorWithRed:0 green:0 blue:0 alpha:.2] CGColor];
-//    self.avatar.frame = CGRectInset(self.frame, 5.0, 5.0);
-//    _postImage.layer.shadowColor = [UIColor grayColor].CGColor;
-//    _postImage.layer.shadowOffset = CGSizeMake(0, 2);
-//    _postImage.layer.shadowOpacity = 1;
-//    _postImage.layer.shadowRadius = 2.0;
-//    _postImage.clipsToBounds = NO;
-//    _postImage.layer.borderWidth = 0.5;
-//    _postImage.layer.borderColor = [UIColor grayColor].CGColor;
+    
+    CGFloat force = 3.0;
+    self.popAnimation = [CAKeyframeAnimation new];
+    [self.popAnimation setKeyPath:@"transform.scale"];
+    self.popAnimation.values = @[@0, @(0.2*force), @(-0.2*force), @(0.2*force), @0];
+    self.popAnimation.keyTimes = @[@0, @0.2, @0.4, @0.6, @0.8, @1];
+    self.popAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];
+    self.popAnimation.duration = 0.7;
+    self.popAnimation.additive = true;
+    self.popAnimation.repeatCount = 1.0;
+
+//    animation.duration = CFTimeInterval(duration)
+//    animation.additive = true
+//    animation.repeatCount = repeatCount
+//    animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
+//    layer.addAnimation(animation, forKey: "pop")
     
 }
 
@@ -225,25 +237,18 @@
 //    [self.viewModel.viewAttachments execute:self.viewModel];
 }
 
-- (IBAction)commentsButtonTapped:(SpringButton *)sender {
-    sender.animation = @"pop";
-    sender.force = 3.0;
-    [sender animate];
+- (IBAction)commentsButtonTapped:(UIButton *)sender {
+    [sender.layer addAnimation:self.popAnimation forKey:@"pop"];
     [self.viewModel viewComments];
-//    [self.viewModel.viewComments execute:self.viewModel];
 }
 
-- (IBAction)likeButtonTapped:(SpringButton *)sender {
-    sender.animation = @"pop";
-    sender.force = 3.0;
-    [sender animate];
+- (IBAction)likeButtonTapped:(UIButton *)sender {
+    [sender.layer addAnimation:self.popAnimation forKey:@"pop"];
     [self.viewModel likePostWithResult:nil];
 }
 
-- (IBAction)repostButtonTapped:(SpringButton *)sender {
-    sender.animation = @"pop";
-    sender.force = 3.0;
-    [sender animate];
+- (IBAction)repostButtonTapped:(UIButton *)sender {
+    [sender.layer addAnimation:self.popAnimation forKey:@"pop"];
     [self.viewModel copyPost];
 }
 

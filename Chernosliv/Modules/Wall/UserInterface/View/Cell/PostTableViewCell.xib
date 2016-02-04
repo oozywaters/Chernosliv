@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -62,7 +62,7 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <button contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="CWG-vV-P0R" userLabel="Comments" customClass="SpringButton" customModule="Chernosliv" customModuleProvider="target">
+                    <button contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="CWG-vV-P0R" userLabel="Comments">
                         <rect key="frame" x="95" y="347" width="70" height="52"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="7o6-Ka-HL1"/>
@@ -83,10 +83,10 @@
                             </mask>
                         </variation>
                         <connections>
-                            <action selector="commentsButtonTapped:" destination="mDv-Tl-ChO" eventType="touchUpInside" id="eSY-VK-xxB"/>
+                            <action selector="commentsButtonTapped:" destination="mDv-Tl-ChO" eventType="touchUpInside" id="Kwc-ma-Une"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="1n0-6b-Xdh" userLabel="Like" customClass="SpringButton" customModule="Chernosliv" customModuleProvider="target">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="1n0-6b-Xdh" userLabel="Like">
                         <rect key="frame" x="15" y="347" width="70" height="52"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="52" id="K9D-Oj-Bff"/>
@@ -111,10 +111,10 @@
                             </mask>
                         </variation>
                         <connections>
-                            <action selector="likeButtonTapped:" destination="mDv-Tl-ChO" eventType="touchUpInside" id="bE2-EZ-u1b"/>
+                            <action selector="likeButtonTapped:" destination="mDv-Tl-ChO" eventType="touchUpInside" id="cYd-gp-Cda"/>
                         </connections>
                     </button>
-                    <button contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="xzY-lh-HBN" userLabel="Repost" customClass="SpringButton" customModule="Chernosliv" customModuleProvider="target">
+                    <button contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="xzY-lh-HBN" userLabel="Repost">
                         <rect key="frame" x="515" y="347" width="70" height="52"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="70" id="O65-a9-1OB"/>
@@ -133,7 +133,7 @@
                             </mask>
                         </variation>
                         <connections>
-                            <action selector="repostButtonTapped:" destination="mDv-Tl-ChO" eventType="touchUpInside" id="W5A-BY-zGJ"/>
+                            <action selector="repostButtonTapped:" destination="mDv-Tl-ChO" eventType="touchUpInside" id="8vm-Vg-sWf"/>
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZN-eG-cHx">
@@ -186,14 +186,14 @@
             <connections>
                 <outlet property="authorName" destination="qvD-9j-rMf" id="hWU-JH-AoB"/>
                 <outlet property="avatar" destination="dal-0g-gIR" id="Hnm-rp-mAP"/>
-                <outlet property="commentsButton" destination="CWG-vV-P0R" id="FYc-jK-Kbn"/>
+                <outlet property="commentsButton" destination="CWG-vV-P0R" id="yc3-oq-SIo"/>
                 <outlet property="countLabel" destination="j0H-RG-aGh" id="gZY-3a-axW"/>
                 <outlet property="countView" destination="Xco-5p-XfZ" id="yV0-WG-K35"/>
                 <outlet property="imageTopMagrinConstraint" destination="ehA-Bh-4GA" id="KKA-3r-c7t"/>
-                <outlet property="likeButton" destination="1n0-6b-Xdh" id="DFz-gc-uCf"/>
+                <outlet property="likeButton" destination="1n0-6b-Xdh" id="Q1x-SQ-9t2"/>
                 <outlet property="postDate" destination="kZN-eG-cHx" id="ZzQ-Ev-4Kr"/>
                 <outlet property="postImage" destination="NBK-Mv-T44" id="dxv-Dk-XD0"/>
-                <outlet property="repostButton" destination="xzY-lh-HBN" id="9ds-Oo-sEf"/>
+                <outlet property="repostButton" destination="xzY-lh-HBN" id="sOg-qE-mdF"/>
                 <outlet property="textContent" destination="rDq-Qu-jt3" id="Udj-Rj-lTL"/>
                 <outlet property="textTopMargin" destination="Q23-Ve-CjO" id="pID-Ld-3Zi"/>
             </connections>

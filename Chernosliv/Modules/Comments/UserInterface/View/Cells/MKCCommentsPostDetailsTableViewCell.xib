@@ -27,7 +27,7 @@
                         <color key="textColor" red="0.090196078431372548" green="0.086274509803921567" blue="0.086274509803921567" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="sQB-hq-Fmo" userLabel="Like" customClass="SpringButton" customModule="Chernosliv" customModuleProvider="target">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="sQB-hq-Fmo" userLabel="Like">
                         <rect key="frame" x="15" y="99" width="70" height="52"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="52" id="7ms-v2-zho"/>
@@ -52,10 +52,10 @@
                             </mask>
                         </variation>
                         <connections>
-                            <action selector="likeButtonTouched:" destination="fbc-5W-NT8" eventType="touchUpInside" id="PUA-x6-jFy"/>
+                            <action selector="likeButtonTapped:" destination="fbc-5W-NT8" eventType="touchUpInside" id="Uh0-9t-SPl"/>
                         </connections>
                     </button>
-                    <button contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="xSN-zD-uPA" userLabel="Repost" customClass="SpringButton" customModule="Chernosliv" customModuleProvider="target">
+                    <button contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="xSN-zD-uPA" userLabel="Repost">
                         <rect key="frame" x="95" y="99" width="70" height="52"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="52" id="6TQ-f3-ZWI"/>
@@ -74,7 +74,7 @@
                             </mask>
                         </variation>
                         <connections>
-                            <action selector="repostButtonTouched:" destination="fbc-5W-NT8" eventType="touchUpInside" id="iqn-o3-AAP"/>
+                            <action selector="repostButtonTapped:" destination="fbc-5W-NT8" eventType="touchUpInside" id="xTi-mJ-GiW"/>
                         </connections>
                     </button>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing" translatesAutoresizingMaskIntoConstraints="NO" id="b3i-VN-PjF">
@@ -133,9 +133,9 @@
                 <outlet property="authorAvatar" destination="LDG-xZ-KX9" id="a0z-Jr-VQE"/>
                 <outlet property="authorName" destination="mW6-nq-Tfi" id="4L4-8u-zA2"/>
                 <outlet property="dateLabel" destination="MUt-Gr-EHi" id="Zkz-wV-Rfe"/>
-                <outlet property="likeButton" destination="sQB-hq-Fmo" id="PGp-Do-KYv"/>
+                <outlet property="likeButton" destination="sQB-hq-Fmo" id="54o-Ka-qmx"/>
                 <outlet property="postContent" destination="b3i-VN-PjF" id="KSv-vy-aof"/>
-                <outlet property="repostButton" destination="xSN-zD-uPA" id="pvo-nL-8N0"/>
+                <outlet property="repostButton" destination="xSN-zD-uPA" id="erU-j9-z52"/>
             </connections>
             <point key="canvasLocation" x="487" y="392"/>
         </tableViewCell>

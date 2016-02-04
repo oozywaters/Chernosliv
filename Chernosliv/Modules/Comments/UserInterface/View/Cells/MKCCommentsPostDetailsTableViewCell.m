@@ -13,13 +13,14 @@
 @interface MKCCommentsPostDetailsTableViewCell ()
 
 @property (nonatomic, strong) MKCCommentsPostDetailsViewModel *viewModel;
+@property (nonatomic, strong) CAKeyframeAnimation *popAnimation;
 @property (weak, nonatomic) IBOutlet UIImageView *authorAvatar;
 @property (weak, nonatomic) IBOutlet UILabel *authorName;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UITextView *postContent;
-@property (weak, nonatomic) IBOutlet SpringButton *likeButton;
-@property (weak, nonatomic) IBOutlet SpringButton *repostButton;
 
+@property (weak, nonatomic) IBOutlet UIButton *likeButton;
+@property (weak, nonatomic) IBOutlet UIButton *repostButton;
 
 @end
 
@@ -33,6 +34,16 @@
     self.authorAvatar.layer.cornerRadius = 25.0;
     self.authorAvatar.layer.borderColor = [[UIColor colorWithRed:0 green:0 blue:0 alpha:.2] CGColor];
     self.authorAvatar.layer.borderWidth = 0.5;
+    
+    CGFloat force = 3.0;
+    self.popAnimation = [CAKeyframeAnimation new];
+    [self.popAnimation setKeyPath:@"transform.scale"];
+    self.popAnimation.values = @[@0, @(0.2*force), @(-0.2*force), @(0.2*force), @0];
+    self.popAnimation.keyTimes = @[@0, @0.2, @0.4, @0.6, @0.8, @1];
+    self.popAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];
+    self.popAnimation.duration = 0.7;
+    self.popAnimation.additive = true;
+    self.popAnimation.repeatCount = 1.0;
     
 }
 
@@ -83,17 +94,13 @@
     }];
 }
 
-- (IBAction)likeButtonTouched:(SpringButton *)sender {
-    sender.animation = @"pop";
-    sender.force = 3.0;
-    [sender animate];
+- (IBAction)likeButtonTapped:(UIButton *)sender {
+    [sender.layer addAnimation:self.popAnimation forKey:@"pop"];
     [self.viewModel likePost];
 }
 
-- (IBAction)repostButtonTouched:(SpringButton *)sender {
-    sender.animation = @"pop";
-    sender.force = 3.0;
-    [sender animate];
+- (IBAction)repostButtonTapped:(UIButton *)sender {
+    [sender.layer addAnimation:self.popAnimation forKey:@"pop"];
     [self.viewModel copyPost];
 }
 
