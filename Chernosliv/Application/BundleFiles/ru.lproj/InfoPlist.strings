@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  Chernosliv
+
+  Created by Vacheslav Zavertanny on 05/02/16.
+  Copyright © 2016 Vyacheslav Zavertanny. All rights reserved.
+*/
+"CFBundleDisplayName" = "Чернослив";
+"CFBundleName" = "Марк Чернослив";
